@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LaafWeb — Privacy Policy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--green:#007847;--gold:#FFB612;--red:#DE3831;--blue:#00AEEF;--bg:#0f0f0f;--card:#1c1c1c;--text:#ffffff;--border:#2a2a2a;--muted:#888;--radius:18px}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;overflow-x:hidden;line-height:1.7}
+  body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+  .orb{position:fixed;border-radius:50%;filter:blur(130px);pointer-events:none;z-index:0;animation:drift 14s ease-in-out infinite alternate}
+  .orb-1{width:500px;height:500px;background:var(--green);top:-200px;left:-200px;opacity:.1}
+  .orb-2{width:400px;height:400px;background:var(--blue);bottom:-150px;right:-150px;opacity:.09;animation-delay:-6s}
+  @keyframes drift{from{transform:translate(0,0)}to{transform:translate(30px,25px)}}
+  nav{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:20px 36px;border-bottom:1px solid var(--border);backdrop-filter:blur(14px);background:rgba(15,15,15,0.7)}
+  .nav-logo{display:flex;align-items:center;text-decoration:none}
+  .logo-img{height:30px;width:auto;display:block;object-fit:contain}
+  .logo-img-mob{height:26px;width:auto;object-fit:contain}
+  .nav-links{display:flex;gap:28px;list-style:none}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  .nav-back{display:flex;align-items:center;gap:8px;color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+  .nav-back:hover{color:var(--text)}
+  .nav-back svg{transition:transform .2s}
+  .nav-back:hover svg{transform:translateX(-3px)}
+  .nav-mob{display:none;background:none;border:none;color:#fff;cursor:pointer;padding:4px}
+  .mob-overlay{display:none;position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.75);backdrop-filter:blur(4px)}
+  .mob-overlay.open{display:flex}
+  .mob-panel{width:280px;background:#161616;border-right:1px solid #333;padding:24px;display:flex;flex-direction:column;transform:translateX(-100%);transition:transform .35s cubic-bezier(.77,0,.18,1)}
+  .mob-overlay.open .mob-panel{transform:translateX(0)}
+  .mob-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px}
+  .mob-x{background:none;border:1px solid #333;color:#fff;width:32px;height:32px;border-radius:6px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center}
+  .mob-nav{display:flex;flex-direction:column;gap:4px}
+  .mob-nav a{display:block;padding:11px 14px;border-radius:8px;font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;color:#bbb;text-decoration:none;text-transform:uppercase;letter-spacing:.04em;transition:background .2s,color .2s}
+  .mob-nav a:hover{background:rgba(0,120,71,.12);color:#fff}
+  .mob-wa{margin-top:20px;display:flex;align-items:center;justify-content:center;gap:9px;padding:13px;background:#25D366;color:#fff;border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:.08em}
+  main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:60px 24px 100px}
+  .page-header{margin-bottom:48px}
+  .page-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,120,71,.12);border:1px solid rgba(0,120,71,.3);color:#4cd993;padding:5px 14px;border-radius:50px;font-size:.75rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;margin-bottom:20px}
+  .page-header h1{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(2rem,4vw,2.8rem);letter-spacing:-1px;margin-bottom:12px;line-height:1.15}
+  .page-header p{color:var(--muted);font-size:.9rem}
+  .sa-stripe{display:flex;height:3px;width:60px;margin:20px 0 0;border-radius:4px;overflow:hidden}
+  .sa-stripe span{flex:1}
+  .sa-stripe span:nth-child(1){background:var(--green)}.sa-stripe span:nth-child(2){background:var(--gold)}.sa-stripe span:nth-child(3){background:var(--red)}.sa-stripe span:nth-child(4){background:var(--blue)}
+  .toc{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px;margin-bottom:48px;position:relative;overflow:hidden}
+  .toc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--blue))}
+  .toc h3{font-family:'Poppins',sans-serif;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:14px}
+  .toc ol{padding-left:18px;display:flex;flex-direction:column;gap:6px}
+  .toc ol li a{color:#4cd993;text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+  .toc ol li a:hover{color:var(--text)}
+  .doc-section{margin-bottom:44px}
+  .doc-section h2{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.15rem;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+  .section-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:rgba(0,120,71,.2);color:#4cd993;font-size:.72rem;font-weight:800;flex-shrink:0}
+  .doc-section p{color:#bbb;font-size:.9rem;margin-bottom:12px}
+  .doc-section p:last-child{margin-bottom:0}
+  .doc-section ul{padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+  .doc-section ul li{display:flex;align-items:flex-start;gap:10px;color:#bbb;font-size:.9rem}
+  .doc-section ul li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;margin-top:7px}
+  .highlight-box{background:rgba(0,120,71,.08);border:1px solid rgba(0,120,71,.2);border-radius:12px;padding:16px 20px;margin:16px 0}
+  .highlight-box p{color:#ccc;font-size:.875rem;margin:0}
+  .warn-box{background:rgba(255,182,18,.07);border:1px solid rgba(255,182,18,.2);border-radius:12px;padding:16px 20px;margin:16px 0;display:flex;gap:12px;align-items:flex-start}
+  .warn-box .warn-icon{font-size:1rem;flex-shrink:0;margin-top:1px}
+  .warn-box p{color:#ccc;font-size:.875rem;margin:0}
+  .data-table{width:100%;border-collapse:collapse;margin:16px 0}
+  .data-table th{font-family:'Poppins',sans-serif;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);padding:10px 14px;border-bottom:1px solid var(--border);text-align:left}
+  .data-table td{font-size:.875rem;color:#ccc;padding:12px 14px;border-bottom:1px solid rgba(42,42,42,.6);vertical-align:top}
+  .data-table tr:last-child td{border-bottom:none}
+  .data-table tr:hover td{background:rgba(255,255,255,.02)}
+  .badge{display:inline-block;padding:2px 10px;border-radius:50px;font-size:.7rem;font-weight:700}
+  .badge-blue{background:rgba(0,174,239,.15);color:var(--blue)}.badge-green{background:rgba(0,120,71,.15);color:#4cd993}.badge-gold{background:rgba(255,182,18,.15);color:var(--gold)}
+  .contact-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px;margin-top:16px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
+  .contact-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--blue))}
+  .contact-row{display:flex;align-items:center;gap:12px}
+  .contact-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+  .contact-icon.email{background:rgba(0,174,239,.12)}.contact-icon.whatsapp{background:rgba(0,120,71,.12)}
+  .contact-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:700;margin-bottom:2px}
+  .contact-value a{color:var(--text);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+  .contact-value a:hover{color:#4cd993}
+  .wa-cta{display:inline-flex;align-items:center;gap:10px;margin-top:4px;padding:12px 22px;background:#25D366;color:#fff;border-radius:10px;font-family:'Poppins',sans-serif;font-size:.875rem;font-weight:700;text-decoration:none;transition:background .2s,transform .2s}
+  .wa-cta:hover{background:#1eb659;transform:translateY(-2px)}
+  footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:28px 36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+  footer p{font-size:.76rem;color:var(--muted)}
+  footer a{color:var(--muted);text-decoration:none;font-size:.76rem;transition:color .2s}
+  footer a:hover{color:var(--text)}
+  .footer-links{display:flex;gap:18px}
+  .wa-float{position:fixed;bottom:26px;right:26px;z-index:100;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 18px rgba(37,211,102,.4);transition:transform .25s,box-shadow .25s}
+  .wa-float:hover{transform:scale(1.12);box-shadow:0 6px 28px rgba(37,211,102,.58)}
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+  @media(max-width:700px){
+    nav{padding:16px 18px}
+    .nav-links,.nav-back{display:none}
+    .nav-mob{display:flex}
+    main{padding:40px 18px 80px}
+    footer{padding:22px 18px;flex-direction:column;text-align:center}
+    .footer-links{justify-content:center}
+  }
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="LaafWeb" class="logo-img"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="terms.html">Terms</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="pricing.html" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to Pricing
+  </a>
+  <button class="nav-mob" onclick="openMob()" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</nav>
+
+<div class="mob-overlay" id="mobOverlay" onclick="closeMobOut(event)">
+  <div class="mob-panel">
+    <div class="mob-head">
+      <img src="logo.png" alt="LaafWeb" class="logo-img-mob">
+      <button class="mob-x" onclick="closeMob()">✕</button>
+    </div>
+    <div class="mob-nav">
+      <a href="index.html">Home</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20started" class="mob-wa" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      WhatsApp Us Now
+    </a>
+  </div>
+</div>
+
+<main>
+  <div class="page-header reveal">
+    <div class="page-badge">🔒 Legal</div>
+    <h1>Privacy Policy</h1>
+    <p>Last updated: <strong>March 2026</strong> &nbsp;·&nbsp; LaafStyl (Pty) Ltd &nbsp;·&nbsp; West Coast, South Africa</p>
+    <div class="sa-stripe"><span></span><span></span><span></span><span></span></div>
+  </div>
+  <div class="toc reveal">
+    <h3>Contents</h3>
+    <ol>
+      <li><a href="#who-we-are">Who We Are</a></li>
+      <li><a href="#data-we-collect">Data We Collect</a></li>
+      <li><a href="#how-we-use">How We Use Your Data</a></li>
+      <li><a href="#third-parties">Third-Party Services</a></li>
+      <li><a href="#data-storage">Data Storage &amp; Security</a></li>
+      <li><a href="#your-rights">Your Rights (POPIA)</a></li>
+      <li><a href="#cookies">Cookies</a></li>
+      <li><a href="#changes">Changes to This Policy</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ol>
+  </div>
+  <div class="doc-section reveal" id="who-we-are">
+    <h2><span class="section-num">1</span> Who We Are</h2>
+    <p>LaafWeb is a service offered by <strong>LaafStyl (Pty) Ltd</strong> (Registration No: <strong>YOUR_REG_NUMBER</strong>), a company registered in the Republic of South Africa.</p>
+    <p>We provide website development, directory listing, lead tracking, and digital services to small businesses on the West Coast of the Western Cape. This Privacy Policy explains how we collect, use, and protect your personal information in accordance with the <strong>Protection of Personal Information Act, 4 of 2013 (POPIA)</strong>.</p>
+    <div class="highlight-box"><p>By using LaafWeb's website or services, you agree to the collection and use of information as described in this policy. If you do not agree, please do not use our services.</p></div>
+  </div>
+  <div class="doc-section reveal" id="data-we-collect">
+    <h2><span class="section-num">2</span> Data We Collect</h2>
+    <p>We collect personal and business information only when you actively provide it — via our sign-up form, WhatsApp, or the PayFast payment process.</p>
+    <table class="data-table">
+      <thead><tr><th>Data type</th><th>What it includes</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge badge-green">Identity</span></td><td>Full name, business name, trading name</td><td>Sign-up form / WhatsApp</td></tr>
+        <tr><td><span class="badge badge-blue">Contact</span></td><td>Phone number, WhatsApp number, email address</td><td>Sign-up form / WhatsApp</td></tr>
+        <tr><td><span class="badge badge-green">Business</span></td><td>Business address or service area, category, description, logo, photos</td><td>Sign-up form / WhatsApp</td></tr>
+        <tr><td><span class="badge badge-gold">Payment</span></td><td>Subscription plan, billing confirmation (no card details stored by us)</td><td>PayFast payment gateway</td></tr>
+        <tr><td><span class="badge badge-blue">Usage</span></td><td>Basic server logs (IP, browser type) via GitHub Pages hosting</td><td>Automatically on site visit</td></tr>
+      </tbody>
+    </table>
+    <p>We do <strong>not</strong> collect sensitive personal information such as ID numbers, race, health data, or banking details. We do not integrate Google Analytics, Facebook Pixel, or any advertising trackers.</p>
+  </div>
+  <div class="doc-section reveal" id="how-we-use">
+    <h2><span class="section-num">3</span> How We Use Your Data</h2>
+    <p>We use your information only for legitimate business purposes:</p>
+    <ul>
+      <li>To set up and manage your LaafWeb website and directory listing</li>
+      <li>To process and manage your monthly subscription via PayFast</li>
+      <li>To contact you regarding your account, service updates, or support via WhatsApp or email</li>
+      <li>To build and populate your business profile on the LaafWeb directory</li>
+      <li>To send service-related communications (not marketing, unless you opt in)</li>
+      <li>To comply with our legal obligations under South African law</li>
+    </ul>
+    <div class="warn-box"><span class="warn-icon">⚠️</span><p>We will <strong>never</strong> sell, rent, or trade your personal information to third parties for marketing purposes.</p></div>
+  </div>
+  <div class="doc-section reveal" id="third-parties">
+    <h2><span class="section-num">4</span> Third-Party Services</h2>
+    <p>To deliver our services, we work with the following trusted third-party providers:</p>
+    <ul>
+      <li><strong>PayFast</strong> — payment processing and subscription billing. View their privacy policy at <a href="https://www.payfast.co.za/legal/privacy-policy" target="_blank" style="color:#4cd993">payfast.co.za</a>.</li>
+      <li><strong>n8n</strong> — our automation platform that receives and processes onboarding form submissions securely.</li>
+      <li><strong>GitHub Pages</strong> — static site hosting. GitHub may collect standard server logs (IP address, browser type).</li>
+    </ul>
+    <p>We do not share your personal data with any other third parties without your explicit consent, except where required by law.</p>
+  </div>
+  <div class="doc-section reveal" id="data-storage">
+    <h2><span class="section-num">5</span> Data Storage &amp; Security</h2>
+    <p>We take reasonable technical and organisational measures to protect your personal information against unauthorised access, loss, or misuse, including HTTPS encryption on all LaafWeb pages and restricted access to personal data.</p>
+    <p>We retain your business and subscription data for as long as you are an active LaafWeb client, and for a reasonable period thereafter as required for accounting, legal compliance, or dispute resolution.</p>
+    <p>If you request deletion of your data, we will remove your personal information from our active systems within 30 days, unless we are legally required to retain it.</p>
+  </div>
+  <div class="doc-section reveal" id="your-rights">
+    <h2><span class="section-num">6</span> Your Rights (POPIA)</h2>
+    <p>Under the Protection of Personal Information Act (POPIA), you have the right to:</p>
+    <ul>
+      <li>Know what personal information we hold about you</li>
+      <li>Request access to your personal information</li>
+      <li>Request correction of inaccurate or incomplete information</li>
+      <li>Request deletion of your personal information</li>
+      <li>Object to the processing of your personal information</li>
+      <li>Lodge a complaint with the Information Regulator of South Africa</li>
+    </ul>
+    <div class="highlight-box"><p>To exercise any of these rights, contact us at <strong>laafstylfamily@gmail.com</strong> or WhatsApp us on <strong>063 669 1391</strong>. We will respond within 30 days. You may also contact the Information Regulator at <a href="mailto:inforeg@justice.gov.za" style="color:#4cd993">inforeg@justice.gov.za</a>.</p></div>
+  </div>
+  <div class="doc-section reveal" id="cookies">
+    <h2><span class="section-num">7</span> Cookies</h2>
+    <p>LaafWeb is a static site hosted on GitHub Pages. We do not use tracking cookies or advertising cookies. Your browser may store basic session data as part of normal browsing, but we do not use this for profiling or targeting.</p>
+    <p>PayFast may use cookies on their payment pages during checkout. Please refer to PayFast's cookie policy for details.</p>
+  </div>
+  <div class="doc-section reveal" id="changes">
+    <h2><span class="section-num">8</span> Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. When we make material changes, we will notify active clients via WhatsApp or email and update the date at the top of this page. Continued use of LaafWeb after any changes constitutes acceptance of the updated policy.</p>
+  </div>
+  <div class="doc-section reveal" id="contact">
+    <h2><span class="section-num">9</span> Contact Us</h2>
+    <p>For any privacy questions, data requests, or concerns, please reach out directly:</p>
+    <div class="contact-card">
+      <div class="contact-row">
+        <div class="contact-icon email">📧</div>
+        <div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:laafstylfamily@gmail.com">laafstylfamily@gmail.com</a></div></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon whatsapp">💬</div>
+        <div><div class="contact-label">WhatsApp — fastest response</div><div class="contact-value"><a href="https://wa.me/27636691391" target="_blank">063 669 1391</a></div></div>
+      </div>
+      <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%20have%20a%20privacy%20question" class="wa-cta" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Message us on WhatsApp
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <img src="logo.png" alt="LaafWeb" style="height:22px;width:auto;object-fit:contain">
+  <p>© 2026 LaafStyl (Pty) Ltd. All rights reserved. Built in 🇿🇦 South Africa.</p>
+  <div class="footer-links">
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20my%20business%20listed" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  function openMob()  { document.getElementById('mobOverlay').classList.add('open'); }
+  function closeMob() { document.getElementById('mobOverlay').classList.remove('open'); }
+  function closeMobOut(e) { if (e.target === document.getElementById('mobOverlay')) closeMob(); }
+</script>
+</body>
+</html>
