@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LaafWeb — Pricing | Get Your Business Online</title>
+<meta name="description" content="Simple, transparent pricing for local West Coast businesses. From R200/month — includes your website, directory listing, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   LAAFWEB — PRICING.HTML
+   Design system: LaafStyl dark theme (matches index.html 1:1)
+═══════════════════════════════════════════ */
+
+:root {
+  --green:  #007847;
+  --green2: #00a85f;
+  --gold:   #FFB612;
+  --red:    #DE3831;
+  --blue:   #00AEEF;
+  --wa:     #25D366;
+  --bg:     #0f0f0f;
+  --bg2:    #161616;
+  --card:   #1c1c1c;
+  --card2:  #222222;
+  --border: #2a2a2a;
+  --border2:#333333;
+  --muted:  #666;
+  --body:   #888;
+  --light:  #bbb;
+  --white:  #ffffff;
+  --radius: 18px;
+  --fh: 'Poppins', sans-serif;
+  --fb: 'Inter', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--green); border-radius: 2px; }
+
+body {
+  background: var(--bg);
+  color: var(--body);
+  font-family: var(--fb);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 0;
+}
+
+/* ─── ORBS ─── */
+.orb { position: fixed; border-radius: 50%; filter: blur(140px); pointer-events: none; z-index: 0; animation: drift 16s ease-in-out infinite alternate; }
+.orb-1 { width: 600px; height: 600px; background: var(--green); top: -250px; right: -200px; opacity: .07; animation-delay: 0s; }
+.orb-2 { width: 450px; height: 450px; background: var(--gold); bottom: -200px; left: -150px; opacity: .06; animation-delay: -7s; }
+.orb-3 { width: 350px; height: 350px; background: var(--blue); top: 40%; left: 40%; opacity: .04; animation-delay: -3s; }
+@keyframes drift { from { transform: translate(0,0) } to { transform: translate(40px, 30px) } }
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp  { from { opacity:0; transform:translateY(28px) } to { opacity:1; transform:none } }
+@keyframes shimmer { 0% { background-position:200% center } 100% { background-position:-200% center } }
+@keyframes pulse   { 0%,100% { opacity:.7; transform:scale(1) } 50% { opacity:1; transform:scale(1.1) } }
+@keyframes barGrow { from { width:0 } to { width:var(--w,80%) } }
+@keyframes waRing  { 0%,100% { box-shadow:0 4px 20px rgba(37,211,102,.4) } 50% { box-shadow:0 4px 36px rgba(37,211,102,.65), 0 0 0 8px rgba(37,211,102,.07) } }
+@keyframes gridMove { from { background-position:0 0 } to { background-position:44px 44px } }
+@keyframes cardShimmer { from{transform:translateX(-100%) rotate(25deg)} to{transform:translateX(400%) rotate(25deg)} }
+
+/* scroll reveal */
+.sr  { opacity:0; transform:translateY(26px); transition:opacity .65s cubic-bezier(.16,1,.3,1), transform .65s cubic-bezier(.16,1,.3,1); }
+.srl { opacity:0; transform:translateX(-26px); transition:opacity .65s cubic-bezier(.16,1,.3,1), transform .65s cubic-bezier(.16,1,.3,1); }
+.srr { opacity:0; transform:translateX(26px);  transition:opacity .65s cubic-bezier(.16,1,.3,1), transform .65s cubic-bezier(.16,1,.3,1); }
+.sr.in, .srl.in, .srr.in { opacity:1; transform:none; }
+.d1 { transition-delay:.08s } .d2 { transition-delay:.16s } .d3 { transition-delay:.24s }
+.d4 { transition-delay:.32s } .d5 { transition-delay:.40s } .d6 { transition-delay:.48s }
+
+/* ─── LAYOUT ─── */
+.container { max-width: 1140px; margin: 0 auto; padding: 0 36px; }
+section { padding: 96px 0; position: relative; z-index: 1; }
+
+/* ─── SHARED TYPOGRAPHY ─── */
+.tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--green); margin-bottom: 14px;
+}
+.tag::before { content:''; width:14px; height:1.5px; background:var(--green); flex-shrink:0; }
+
+.sec-title {
+  font-family: var(--fh);
+  font-size: clamp(32px, 3.6vw, 52px);
+  font-weight: 900;
+  line-height: .94;
+  letter-spacing: -.03em;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.sec-title em { font-style:normal; background:linear-gradient(135deg,var(--green),var(--blue)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.sec-sub { font-size: 15px; line-height: 1.75; color: var(--body); max-width: 500px; }
+
+/* ─── DOTS / STRIPE ─── */
+.dot-strip { display:flex; gap:4px; }
+.dot-strip span { width:8px; height:8px; border-radius:50%; }
+.dot-strip span:nth-child(1){background:var(--green)}
+.dot-strip span:nth-child(2){background:var(--gold)}
+.dot-strip span:nth-child(3){background:var(--red)}
+.dot-strip span:nth-child(4){background:var(--blue)}
+
+.sa-stripe { display:flex; height:3px; width:52px; border-radius:4px; overflow:hidden; margin:18px 0 0; }
+.sa-stripe span { flex:1; }
+.sa-stripe span:nth-child(1){background:var(--green)} .sa-stripe span:nth-child(2){background:var(--gold)}
+.sa-stripe span:nth-child(3){background:var(--red)}   .sa-stripe span:nth-child(4){background:var(--blue)}
+
+/* ─── BUTTONS ─── */
+.btn-wa {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--wa); color: #fff;
+  padding: 14px 28px; border-radius: 10px;
+  font-family: var(--fh); font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  text-decoration: none; border: none; cursor: pointer;
+  box-shadow: 0 6px 24px rgba(37,211,102,.3);
+  transition: background .2s, transform .2s, box-shadow .2s;
+}
+.btn-wa:hover { background:#1eb659; transform:translateY(-2px); box-shadow:0 10px 32px rgba(37,211,102,.45); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: transparent; color: var(--light);
+  padding: 14px 28px; border-radius: 10px;
+  font-family: var(--fh); font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  text-decoration: none; border: 1.5px solid var(--border2); cursor: pointer;
+  transition: border-color .2s, color .2s, transform .2s;
+}
+.btn-outline:hover { border-color: var(--green); color: var(--white); transform: translateY(-2px); }
+
+/* ══════════════════════════════════
+   NAV (identical to index.html)
+══════════════════════════════════ */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index: 200;
+  height: 64px; display: flex; align-items: center; padding: 0 36px;
+  border-bottom: 1px solid transparent;
+  transition: background .4s, border-color .4s, backdrop-filter .4s;
+}
+nav.solid {
+  background: rgba(15,15,15,.95);
+  backdrop-filter: blur(18px);
+  border-bottom-color: var(--border);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+  font-family: var(--fh); font-weight: 900; font-size: 1.3rem; color: var(--white);
+}
+.nav-links { display:flex; align-items:center; gap:26px; margin-left:auto; list-style:none; }
+.nav-links a { font-size:.86rem; font-weight:500; color:var(--body); text-decoration:none; letter-spacing:.04em; transition:color .2s; position:relative; }
+.nav-links a:not(.nav-wa):hover { color:var(--white); }
+.nav-links a:not(.nav-wa)::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:1.5px; background:var(--green); transition:width .25s; }
+.nav-links a:not(.nav-wa):hover::after { width:100%; }
+.nav-links a.active { color:var(--white); }
+.nav-links a.active::after { width:100%; }
+.nav-wa {
+  display: flex; align-items:center; gap:8px;
+  background: var(--wa); color: #fff !important;
+  padding: 8px 18px; border-radius: 8px;
+  font-weight: 700 !important; font-size:.82rem !important;
+  box-shadow:0 4px 14px rgba(37,211,102,.25);
+  transition: background .2s, transform .2s, box-shadow .2s !important;
+}
+.nav-wa:hover { background:#1eb659 !important; transform:translateY(-1px) !important; box-shadow:0 6px 22px rgba(37,211,102,.4) !important; }
+.nav-wa::after { display:none !important; }
+.nav-mob { display:none; background:none; border:none; color:var(--white); cursor:pointer; margin-left:auto; padding:4px; }
+
+/* mobile overlay */
+.mob-overlay { display:none; position:fixed; inset:0; z-index:300; background:rgba(0,0,0,.75); backdrop-filter:blur(4px); }
+.mob-overlay.open { display:flex; }
+.mob-panel { width:280px; background:var(--bg2); border-right:1px solid var(--border2); padding:24px; display:flex; flex-direction:column; transform:translateX(-100%); transition:transform .35s cubic-bezier(.77,0,.18,1); }
+.mob-overlay.open .mob-panel { transform:translateX(0); }
+.mob-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:36px; }
+.mob-x { background:none; border:1px solid var(--border2); color:var(--white); width:32px; height:32px; border-radius:6px; cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center; }
+.mob-nav { display:flex; flex-direction:column; gap:4px; }
+.mob-nav a { display:block; padding:11px 14px; border-radius:8px; font-family:var(--fh); font-size:14px; font-weight:700; color:var(--light); text-decoration:none; text-transform:uppercase; letter-spacing:.04em; transition:background .2s, color .2s; }
+.mob-nav a:hover { background:rgba(0,120,71,.12); color:var(--white); }
+.mob-wa { margin-top:20px; display:flex; align-items:center; justify-content:center; gap:9px; padding:13px; background:var(--wa); color:#fff; border-radius:8px; font-family:var(--fh); font-size:13px; font-weight:700; text-decoration:none; text-transform:uppercase; letter-spacing:.08em; }
+.logo-img { height:32px; width:auto; display:block; object-fit:contain; }
+.logo-img-sm { height:24px; width:auto; display:block; object-fit:contain; }
+.logo-img-mob { height:28px; width:auto; display:block; object-fit:contain; }
+
+/* ══════════════════════════════════
+   PAGE HERO
+══════════════════════════════════ */
+.page-hero {
+  padding: 160px 0 80px;
+  text-align: center;
+  position: relative; z-index: 1;
+  overflow: hidden;
+}
+.page-hero-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(0,120,71,.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0,120,71,.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+  animation: gridMove 20s linear infinite;
+  mask-image: radial-gradient(ellipse 80% 90% at 50% 40%, black 20%, transparent 100%);
+  pointer-events: none;
+}
+.h-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px; border-radius: 20px;
+  background: rgba(0,120,71,.1); border: 1px solid rgba(0,120,71,.25);
+  font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--green2);
+  margin-bottom: 22px;
+  opacity:0; animation: fadeUp .6s .3s forwards;
+}
+.h-pill .pdot { width:6px; height:6px; background:var(--green2); border-radius:50%; animation: pulse 2s infinite; }
+.page-hero-title {
+  font-family: var(--fh);
+  font-size: clamp(46px, 5.5vw, 74px);
+  font-weight: 900;
+  line-height: .88;
+  letter-spacing: -.04em;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  opacity:0; animation: fadeUp .7s .5s forwards;
+}
+.page-hero-title em {
+  font-style:normal;
+  background: linear-gradient(135deg, var(--green) 0%, var(--blue) 55%, var(--green2) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  animation: shimmer 5s linear infinite 1.5s;
+}
+.page-hero-sub {
+  font-size: 17px; line-height: 1.7; color: var(--light); font-weight: 300;
+  max-width: 460px; margin: 0 auto 32px;
+  opacity:0; animation: fadeUp .6s .7s forwards;
+}
+.hero-trust {
+  display: inline-flex; gap: 20px; flex-wrap: wrap; justify-content: center;
+  opacity:0; animation: fadeUp .6s .9s forwards;
+}
+.trust-item { display:flex; align-items:center; gap:6px; font-size:12px; color:var(--muted); }
+.trust-item::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--green); flex-shrink:0; }
+
+/* ══════════════════════════════════
+   SETUP FEE CARDS
+══════════════════════════════════ */
+.setup-section { background: var(--bg2); padding: 56px 0; position: relative; z-index: 1; }
+.setup-inner { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+.setup-card {
+  background: var(--card); border:1px solid var(--border2); border-radius: var(--radius);
+  padding: 28px 36px; min-width: 260px; position: relative; overflow: hidden;
+  transition: transform .25s, border-color .25s, box-shadow .25s;
+}
+.setup-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.setup-card:nth-child(1)::before { background:linear-gradient(90deg,var(--green),var(--blue)); }
+.setup-card:nth-child(2)::before { background:linear-gradient(90deg,var(--gold),var(--red)); }
+.setup-card:hover { transform:translateY(-4px); border-color:rgba(0,120,71,.25); box-shadow:0 18px 52px rgba(0,0,0,.4); }
+.setup-label { font-size:10px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; display:block; }
+.setup-price-row { display:flex; align-items:flex-end; gap:3px; margin-bottom:6px; }
+.setup-curr { font-family:var(--fh); font-size:18px; font-weight:700; color:var(--white); line-height:2; }
+.setup-amount { font-family:var(--fh); font-size:44px; font-weight:900; color:var(--white); line-height:1; letter-spacing:-.03em; }
+.setup-desc { font-size:13px; color:var(--body); line-height:1.5; }
+
+/* ══════════════════════════════════
+   PRICING SECTION
+══════════════════════════════════ */
+#pricing { background: var(--bg); }
+.pricing-hd { text-align:center; margin-bottom:52px; }
+.pricing-hd .tag { justify-content:center; }
+.setup-note {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 20px; border-radius:25px;
+  background:rgba(255,182,18,.08); border:1px solid rgba(255,182,18,.22);
+  font-size:13px; color:var(--gold); font-weight:500; margin-top:12px;
+}
+
+/* ─── Plan cards ─── */
+.plans-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; align-items:start; }
+
+.plan {
+  background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+  padding:32px 28px; position:relative; overflow:hidden;
+  transition:transform .25s, border-color .25s, box-shadow .25s;
+  display:flex; flex-direction:column;
+}
+.plan:hover { transform:translateY(-6px); border-color:rgba(0,120,71,.3); box-shadow:0 22px 60px rgba(0,0,0,.45); }
+.plan.featured { background:#131a14; border-color:rgba(0,120,71,.35); box-shadow:0 0 0 1px rgba(0,120,71,.1); transform:scale(1.03); }
+.plan.featured:hover { transform:scale(1.03) translateY(-6px); }
+.plan.featured::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--green),var(--blue)); }
+
+/* shimmer sweep on featured */
+.plan-shimmer { position:absolute; top:0; left:0; width:60px; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.03),transparent); pointer-events:none; animation:cardShimmer 4s ease-in-out infinite; }
+
+.plan-badge { position:absolute; top:14px; right:14px; background:linear-gradient(135deg,var(--green),var(--blue)); color:#fff; font-size:9px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:3px 9px; border-radius:20px; }
+.plan-name { font-family:var(--fh); font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:12px; }
+.plan-price { display:flex; align-items:flex-end; gap:3px; margin-bottom:4px; }
+.plan-curr   { font-family:var(--fh); font-size:22px; font-weight:700; color:var(--white); line-height:1.4; }
+.plan-amount { font-family:var(--fh); font-size:52px; font-weight:900; color:var(--white); line-height:1; letter-spacing:-.03em; }
+.plan-period { font-size:13px; color:var(--muted); margin-bottom:8px; }
+.plan-desc   { font-size:13px; line-height:1.6; margin-bottom:22px; padding-bottom:22px; border-bottom:1px solid var(--border); }
+.plan-feats  { display:flex; flex-direction:column; gap:9px; margin-bottom:28px; list-style:none; flex:1; }
+.plan-feats li { display:flex; align-items:center; gap:9px; font-size:13px; color:var(--light); }
+.plan-feats li::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--green); flex-shrink:0; }
+.plan-feats li.dim { color:var(--muted); }
+.plan-feats li.dim::before { background:var(--border2); }
+
+/* PayFast form button */
+.payfast-form { width:100%; }
+.payfast-form input[type="hidden"] { display:none; }
+.plan-btn {
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  width:100%; padding:13px; border-radius:9px;
+  font-family:var(--fh); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  cursor:pointer; border:none; text-decoration:none; transition:all .2s;
+  position:relative; overflow:hidden;
+}
+.plan-btn::after { content:''; position:absolute; inset:0; background:rgba(255,255,255,0); transition:background .2s; }
+.plan-btn:hover::after { background:rgba(255,255,255,.06); }
+.plan-btn.wa-style { background:var(--wa); color:#fff; box-shadow:0 4px 16px rgba(37,211,102,.25); }
+.plan-btn.wa-style:hover { background:#1eb659; box-shadow:0 8px 28px rgba(37,211,102,.4); transform:translateY(-2px); }
+.plan-btn.ghost { background:transparent; border:1.5px solid var(--border2); color:var(--light); }
+.plan-btn.ghost:hover { border-color:var(--green); color:var(--white); transform:translateY(-2px); }
+
+.payfast-note {
+  display:flex; align-items:center; justify-content:center; gap:6px;
+  margin-top:10px; font-size:11px; color:var(--muted);
+}
+.payfast-note svg { opacity:.5; }
+
+/* ══════════════════════════════════
+   FEATURE COMPARISON TABLE
+══════════════════════════════════ */
+#compare { background: var(--bg2); }
+.compare-hd { text-align:center; margin-bottom:48px; }
+.compare-hd .tag { justify-content:center; }
+
+.compare-table { width:100%; border-collapse:collapse; }
+.compare-table th, .compare-table td { padding:14px 20px; text-align:left; border-bottom:1px solid var(--border); }
+.compare-table thead th { font-family:var(--fh); font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); background:var(--bg); }
+.compare-table thead th:first-child { border-radius:var(--radius) 0 0 0; }
+.compare-table thead th:last-child  { border-radius:0 var(--radius) 0 0; }
+.compare-table thead th.th-feat { width:40%; }
+.compare-table thead th:not(.th-feat) { text-align:center; width:20%; }
+.compare-table tbody tr:hover td { background:rgba(255,255,255,.015); }
+.compare-table tbody td:first-child { font-size:14px; color:var(--light); font-weight:500; }
+.compare-table tbody td:not(:first-child) { text-align:center; }
+.compare-table tfoot td { border-bottom:none; padding-top:24px; }
+.compare-table tfoot td:not(:first-child) { text-align:center; }
+.th-starter { color:var(--blue) !important; }
+.th-growth  { color:var(--green2) !important; }
+.th-pro     { color:var(--gold) !important; }
+.th-growth-wrap { display:inline-flex; flex-direction:column; align-items:center; gap:4px; }
+.th-growth-badge { background:linear-gradient(135deg,var(--green),var(--blue)); color:#fff; font-size:8px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:2px 7px; border-radius:20px; font-family:var(--fb); }
+.check { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:rgba(0,168,95,.15); }
+.check svg { color:var(--green2); }
+.dash { display:inline-block; width:18px; height:2px; background:var(--border2); border-radius:1px; }
+.cat-row td { font-family:var(--fh); font-size:9px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); background:rgba(255,255,255,.02) !important; border-bottom:1px solid var(--border2); padding:10px 20px; }
+.tfoot-btn {
+  display:inline-flex; align-items:center; justify-content:center; gap:7px;
+  padding:10px 20px; border-radius:9px;
+  font-family:var(--fh); font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  cursor:pointer; border:none; text-decoration:none; transition:all .2s; white-space:nowrap;
+}
+.tfoot-btn.green-btn { background:var(--wa); color:#fff; box-shadow:0 4px 16px rgba(37,211,102,.2); }
+.tfoot-btn.green-btn:hover { background:#1eb659; transform:translateY(-2px); }
+.tfoot-btn.outline-btn { background:transparent; border:1.5px solid var(--border2); color:var(--light); }
+.tfoot-btn.outline-btn:hover { border-color:var(--green); color:var(--white); transform:translateY(-2px); }
+
+/* ══════════════════════════════════
+   FAQ / NOTES CARDS
+══════════════════════════════════ */
+#notes { background: var(--bg); }
+.notes-hd { text-align:center; margin-bottom:48px; }
+.notes-hd .tag { justify-content:center; }
+.notes-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.note-card {
+  background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+  padding:26px 22px; transition:transform .25s, border-color .25s, box-shadow .25s;
+}
+.note-card:hover { transform:translateY(-4px); border-color:rgba(0,120,71,.22); box-shadow:0 16px 48px rgba(0,0,0,.4); }
+.note-ico { font-size:22px; margin-bottom:12px; }
+.note-title { font-family:var(--fh); font-size:13px; font-weight:700; color:var(--white); margin-bottom:6px; }
+.note-body  { font-size:13px; line-height:1.65; color:var(--body); }
+
+/* ══════════════════════════════════
+   FINAL CTA (matches index.html #cta)
+══════════════════════════════════ */
+#cta { background:var(--bg); position:relative; overflow:hidden; padding:120px 0; }
+.cta-glow { position:absolute; inset:0; background:radial-gradient(ellipse 60% 80% at 50% 50%, rgba(0,120,71,.07), transparent); pointer-events:none; }
+.cta-grid-bg { position:absolute; inset:0; background-image:linear-gradient(rgba(0,120,71,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,120,71,.04) 1px,transparent 1px); background-size:48px 48px; mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,black,transparent); pointer-events:none; }
+.cta-inner { text-align:center; position:relative; z-index:1; max-width:660px; margin:0 auto; }
+.cta-inner .tag { justify-content:center; }
+.cta-title { font-family:var(--fh); font-size:clamp(38px,5vw,64px); font-weight:900; line-height:.9; letter-spacing:-.03em; color:var(--white); text-transform:uppercase; margin-bottom:18px; }
+.cta-sub { font-size:16px; line-height:1.7; color:var(--body); margin:0 auto 36px; max-width:470px; }
+.cta-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:20px; }
+.cta-note { font-size:12px; color:var(--muted); }
+.cta-note span { color:var(--green2); }
+
+/* ══════════════════════════════════
+   FOOTER (identical to index.html)
+══════════════════════════════════ */
+footer {
+  background: var(--bg2); border-top:1px solid var(--border);
+  padding:28px 0; position:relative; z-index:1;
+}
+.foot-inner { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; }
+.foot-brand { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.foot-brand-name { font-family:var(--fh); font-weight:900; font-size:15px; color:var(--white); }
+.foot-sub { font-size:11px; color:var(--muted); margin-top:1px; }
+.foot-links { display:flex; gap:18px; flex-wrap:wrap; }
+.foot-links a { font-size:12px; color:var(--muted); text-decoration:none; transition:color .2s; }
+.foot-links a:hover { color:var(--green2); }
+.foot-copy { font-size:11px; color:var(--muted); }
+
+/* ══════════════════════════════════
+   FLOATING WHATSAPP
+══════════════════════════════════ */
+.wa-float {
+  position:fixed; bottom:26px; right:26px; z-index:100;
+  width:56px; height:56px; background:var(--wa); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  text-decoration:none; box-shadow:0 4px 20px rgba(37,211,102,.45);
+  transition:transform .25s, box-shadow .25s;
+  animation: waRing 4s 6s infinite;
+}
+.wa-float:hover { transform:scale(1.12); animation:none; box-shadow:0 6px 30px rgba(37,211,102,.6); }
+
+/* ══════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════ */
+@media(max-width:1000px) {
+  .plans-grid { grid-template-columns:1fr; max-width:440px; margin:0 auto; }
+  .plan.featured { transform:scale(1); }
+  .plan.featured:hover { transform:translateY(-6px); }
+  .notes-grid { grid-template-columns:repeat(2,1fr); }
+  .compare-table { font-size:13px; }
+}
+@media(max-width:900px) {
+  nav { padding:0 20px; }
+  .nav-links { display:none; }
+  .nav-mob { display:flex; }
+  .container { padding:0 20px; }
+  section { padding:72px 0; }
+  .foot-inner { flex-direction:column; text-align:center; }
+  .foot-links { justify-content:center; }
+  .compare-table thead th:not(.th-feat) { display:none; }
+  .compare-table tbody td:not(:first-child) { display:none; }
+  .compare-table tfoot td:not(:first-child) { display:none; }
+  .compare-table thead th.th-feat { border-radius:var(--radius); }
+}
+@media(max-width:600px) {
+  .notes-grid { grid-template-columns:1fr; }
+  .setup-inner { flex-direction:column; align-items:stretch; max-width:380px; margin:0 auto; }
+}
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<!-- ══════════════════════════════════
+     NAV
+══════════════════════════════════ -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="LaafWeb" class="logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#how">How It Works</a></li>
+    <li><a href="index.html#directory">Directory</a></li>
+    <li><a href="pricing.html" class="active">Pricing</a></li>
+    <li><a href="index.html#ecosystem">Ecosystem</a></li>
+    <li>
+      <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20my%20business%20online" class="nav-wa" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp Us
+      </a>
+    </li>
+  </ul>
+  <button class="nav-mob" onclick="openMob()" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</nav>
+
+<!-- mobile overlay -->
+<div class="mob-overlay" id="mobOverlay" onclick="closeMobOut(event)">
+  <div class="mob-panel">
+    <div class="mob-head">
+      <img src="logo.png" alt="LaafWeb" class="logo-img-mob">
+      <button class="mob-x" onclick="closeMob()">✕</button>
+    </div>
+    <div class="mob-nav">
+      <a href="index.html#how"       onclick="closeMob()">How It Works</a>
+      <a href="index.html#directory" onclick="closeMob()">Directory</a>
+      <a href="pricing.html"         onclick="closeMob()">Pricing</a>
+      <a href="index.html#ecosystem" onclick="closeMob()">Ecosystem</a>
+    </div>
+    <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20started" class="mob-wa" target="_blank" rel="noopener" onclick="closeMob()">
+      <svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      WhatsApp Us Now
+    </a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     PAGE HERO
+══════════════════════════════════ -->
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container">
+    <div class="h-pill"><span class="pdot"></span> West Coast South Africa · Simple &amp; Transparent</div>
+    <h1 class="page-hero-title">Simple,<br><em>Transparent</em><br>Pricing</h1>
+    <p class="page-hero-sub">No contracts. No hidden fees. Cancel anytime. Everything your business needs to get found online — from R200/month.</p>
+    <div class="hero-trust">
+      <span class="trust-item">No credit card needed</span>
+      <span class="trust-item">14-day free trial</span>
+      <span class="trust-item">Cancel anytime</span>
+      <span class="trust-item">Live in 24 hours</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     SETUP FEES
+══════════════════════════════════ -->
+<div class="setup-section">
+  <div class="container">
+    <div class="setup-inner">
+      <div class="setup-card sr">
+        <span class="setup-label">One-time Setup Fee</span>
+        <div class="setup-price-row">
+          <span class="setup-curr">R</span>
+          <span class="setup-amount">1,200</span>
+        </div>
+        <div class="setup-desc">Professional setup &amp; onboarding included. Domain, hosting, SSL &amp; business email.</div>
+      </div>
+      <div class="setup-card sr d2">
+        <span class="setup-label">Buy &amp; Self-Host</span>
+        <div class="setup-price-row">
+          <span class="setup-curr">R</span>
+          <span class="setup-amount">2,000</span>
+        </div>
+        <div class="setup-desc">Own the website outright — host it yourself with no ongoing subscription needed.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     PLAN CARDS
+══════════════════════════════════ -->
+<section id="pricing">
+  <div class="container">
+    <div class="pricing-hd">
+      <div class="tag sr">Monthly Plans</div>
+      <h2 class="sec-title sr">Choose Your <em>Plan</em></h2>
+      <p class="sec-sub sr" style="margin:0 auto;text-align:center">All plans include your website + local directory listing.</p>
+      <div class="setup-note sr d2">
+        ⚡ R1,200 once-off setup fee · Includes domain, hosting, SSL &amp; business email
+      </div>
+    </div>
+
+    <div class="plans-grid">
+
+      <!-- STARTER -->
+      <div class="plan sr">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price"><span class="plan-curr">R</span><span class="plan-amount">200</span></div>
+        <div class="plan-period">per month</div>
+        <div class="plan-desc">Everything a local business needs to get found online and start receiving leads.</div>
+        <ul class="plan-feats">
+          <li>3-page website</li>
+          <li>Directory listing</li>
+          <li>WhatsApp &amp; call buttons</li>
+          <li>Mobile responsive</li>
+          <li>Basic SEO</li>
+          <li class="dim">Lead capture forms</li>
+          <li class="dim">Gallery &amp; photo uploads</li>
+          <li class="dim">WhatsApp automation</li>
+        </ul>
+        <form class="payfast-form" action="https://sandbox.payfast.co.za/eng/process" method="POST" id="form-starter">
+          <input type="hidden" name="merchant_id"       value="YOUR_MERCHANT_ID">
+          <input type="hidden" name="merchant_key"      value="YOUR_MERCHANT_KEY">
+          <input type="hidden" name="return_url"        value="https://laafweb.co.za/thank-you">
+          <input type="hidden" name="cancel_url"        value="https://laafweb.co.za/pricing">
+          <input type="hidden" name="notify_url"        value="https://laafweb.co.za/api/itn">
+          <input type="hidden" name="amount"            value="200.00">
+          <input type="hidden" name="item_name"         value="LaafWeb Starter Plan">
+          <input type="hidden" name="item_description"  value="LaafWeb Starter - Business website + Directory listing">
+          <input type="hidden" name="subscription_type" value="1">
+          <input type="hidden" name="frequency"         value="3">
+          <input type="hidden" name="cycles"            value="0">
+          <input type="hidden" name="recurring_amount"  value="200.00">
+          <input type="hidden" name="custom_str1"       value="laafweb-starter">
+          <input type="hidden" name="custom_str2"       value="starter">
+          <input type="hidden" name="billing_date"      id="billing-starter">
+          <button type="submit" class="plan-btn ghost">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Start Free Trial
+          </button>
+        </form>
+        <div class="payfast-note">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Secured by PayFast
+        </div>
+      </div>
+
+      <!-- GROWTH — featured -->
+      <div class="plan featured sr d1">
+        <div class="plan-shimmer"></div>
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-name">Growth</div>
+        <div class="plan-price"><span class="plan-curr">R</span><span class="plan-amount">350</span></div>
+        <div class="plan-period">per month</div>
+        <div class="plan-desc">For established businesses wanting more traffic, pages, and conversions every month.</div>
+        <ul class="plan-feats">
+          <li>Up to 7 pages</li>
+          <li>Priority directory listing</li>
+          <li>Gallery &amp; photo uploads</li>
+          <li>Lead capture forms</li>
+          <li>Advanced SEO</li>
+          <li>Monthly content update</li>
+          <li class="dim">WhatsApp automation</li>
+          <li class="dim">Analytics dashboard</li>
+        </ul>
+        <form class="payfast-form" action="https://sandbox.payfast.co.za/eng/process" method="POST" id="form-growth">
+          <input type="hidden" name="merchant_id"       value="YOUR_MERCHANT_ID">
+          <input type="hidden" name="merchant_key"      value="YOUR_MERCHANT_KEY">
+          <input type="hidden" name="return_url"        value="https://laafweb.co.za/thank-you">
+          <input type="hidden" name="cancel_url"        value="https://laafweb.co.za/pricing">
+          <input type="hidden" name="notify_url"        value="https://laafweb.co.za/api/itn">
+          <input type="hidden" name="amount"            value="350.00">
+          <input type="hidden" name="item_name"         value="LaafWeb Growth Plan">
+          <input type="hidden" name="item_description"  value="LaafWeb Growth - Website + Directory + Lead tracking + Priority support">
+          <input type="hidden" name="subscription_type" value="1">
+          <input type="hidden" name="frequency"         value="3">
+          <input type="hidden" name="cycles"            value="0">
+          <input type="hidden" name="recurring_amount"  value="350.00">
+          <input type="hidden" name="custom_str1"       value="laafweb-growth">
+          <input type="hidden" name="custom_str2"       value="growth">
+          <input type="hidden" name="billing_date"      id="billing-growth">
+          <button type="submit" class="plan-btn wa-style">
+            <svg viewBox="0 0 24 24" fill="white" width="13" height="13"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            WhatsApp to Start
+          </button>
+        </form>
+        <div class="payfast-note">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Secured by PayFast
+        </div>
+      </div>
+
+      <!-- PRO -->
+      <div class="plan sr d2">
+        <div class="plan-name">Pro</div>
+        <div class="plan-price"><span class="plan-curr">R</span><span class="plan-amount">500</span></div>
+        <div class="plan-period">per month</div>
+        <div class="plan-desc">Full-service digital presence — website, automation, analytics, and priority support.</div>
+        <ul class="plan-feats">
+          <li>Unlimited pages</li>
+          <li>Featured directory badge</li>
+          <li>WhatsApp automation</li>
+          <li>Analytics dashboard</li>
+          <li>Priority support</li>
+          <li>Weekly content updates</li>
+          <li>AI chatbot integration</li>
+          <li>Custom domain email</li>
+        </ul>
+        <form class="payfast-form" action="https://sandbox.payfast.co.za/eng/process" method="POST" id="form-pro">
+          <input type="hidden" name="merchant_id"       value="YOUR_MERCHANT_ID">
+          <input type="hidden" name="merchant_key"      value="YOUR_MERCHANT_KEY">
+          <input type="hidden" name="return_url"        value="https://laafweb.co.za/thank-you">
+          <input type="hidden" name="cancel_url"        value="https://laafweb.co.za/pricing">
+          <input type="hidden" name="notify_url"        value="https://laafweb.co.za/api/itn">
+          <input type="hidden" name="amount"            value="500.00">
+          <input type="hidden" name="item_name"         value="LaafWeb Pro Plan">
+          <input type="hidden" name="item_description"  value="LaafWeb Pro - Website + Directory + Leads + AI Chatbot + Analytics">
+          <input type="hidden" name="subscription_type" value="1">
+          <input type="hidden" name="frequency"         value="3">
+          <input type="hidden" name="cycles"            value="0">
+          <input type="hidden" name="recurring_amount"  value="500.00">
+          <input type="hidden" name="custom_str1"       value="laafweb-pro">
+          <input type="hidden" name="custom_str2"       value="pro">
+          <input type="hidden" name="billing_date"      id="billing-pro">
+          <button type="submit" class="plan-btn ghost">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Get Started
+          </button>
+        </form>
+        <div class="payfast-note">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Secured by PayFast
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     COMPARISON TABLE
+══════════════════════════════════ -->
+<section id="compare">
+  <div class="container">
+    <div class="compare-hd">
+      <div class="tag sr">Compare Plans</div>
+      <h2 class="sec-title sr">What's <em>Included</em></h2>
+      <p class="sec-sub sr" style="margin:0 auto;text-align:center">A full breakdown of everything each plan covers.</p>
+    </div>
+    <div class="sr">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th class="th-feat">Feature</th>
+            <th class="th-starter">Starter<br><small style="font-size:9px;color:var(--body);font-weight:400;text-transform:none;letter-spacing:0">R200/mo</small></th>
+            <th class="th-growth">
+              <div class="th-growth-wrap">
+                Growth
+                <span class="th-growth-badge">Popular</span>
+                <small style="font-size:9px;color:var(--body);font-weight:400;text-transform:none;letter-spacing:0">R350/mo</small>
+              </div>
+            </th>
+            <th class="th-pro">Pro<br><small style="font-size:9px;color:var(--body);font-weight:400;text-transform:none;letter-spacing:0">R500/mo</small></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="cat-row"><td colspan="4">Website</td></tr>
+          <tr>
+            <td>Number of pages</td>
+            <td>3 pages</td>
+            <td>Up to 7</td>
+            <td>Unlimited</td>
+          </tr>
+          <tr>
+            <td>Mobile responsive design</td>
+            <td><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            <td><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            <td><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+          </tr>
+          <tr>
+            <td>Gallery &amp; photo uploads</td>
+            <td><span class="dash"></span></td>
+            <td><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            <td><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+          </tr>
+          <tr>
+            <td>Content updates</td>
+            <td><span class="dash"></span></td>
+            <td>Monthly</td>
+            <td>Weekly</td>
+          </tr>
+          <tr class="cat-row"><td colspan="4">Directory &amp; Leads</td></tr>
+          <tr>
+            <td>Local directory listing</td>
+            <td><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            <td>Priority listing</td>
+            <td>Featured badge</td>
+          </tr>
+          <tr>
+            <td>WhatsApp &amp; call buttons</td>
+            <td><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            <td><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            <td><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+          </tr>
+          <tr>
+            <td>Lead capture forms</td>
+            <td><span class="dash"></span></td>
+            <td><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            <td><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+          </tr>
+          <tr class="cat-row"><td colspan="4">Automation &amp; Analytics</td></tr>
+          <tr>
+            <td>WhatsApp automation</td>
+            <td><span class="dash"></span></td>
+            <td><span class="dash"></span></td>
+            <td><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+          </tr>
+          <tr>
+            <td>Analytics dashboard</td>
+            <td><span class="dash"></span></td>
+            <td><span class="dash"></span></td>
+            <td><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+          </tr>
+          <tr>
+            <td>AI chatbot integration</td>
+            <td><span class="dash"></span></td>
+            <td><span class="dash"></span></td>
+            <td><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+          </tr>
+          <tr class="cat-row"><td colspan="4">Support</td></tr>
+          <tr>
+            <td>Support channel</td>
+            <td>WhatsApp</td>
+            <td>WhatsApp</td>
+            <td>Priority</td>
+          </tr>
+          <tr>
+            <td>Basic SEO</td>
+            <td><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            <td>Advanced</td>
+            <td>Advanced</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td>
+              <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20Starter%20plan%20please" class="tfoot-btn outline-btn" target="_blank" rel="noopener">Start — R200</a>
+            </td>
+            <td>
+              <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20Growth%20plan%20please" class="tfoot-btn green-btn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="white" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                Start — R350
+              </a>
+            </td>
+            <td>
+              <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20Pro%20plan%20please" class="tfoot-btn outline-btn" target="_blank" rel="noopener">Start — R500</a>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     NOTES / FAQ CARDS
+══════════════════════════════════ -->
+<section id="notes">
+  <div class="container">
+    <div class="notes-hd">
+      <div class="tag sr">Good to Know</div>
+      <h2 class="sec-title sr">Everything You<br><em>Need to Know</em></h2>
+    </div>
+    <div class="notes-grid">
+      <div class="note-card sr">
+        <div class="note-ico">💳</div>
+        <div class="note-title">Pay via PayFast</div>
+        <div class="note-body">South Africa's trusted payment gateway. EFT, credit/debit card, Instant EFT and more — all accepted securely.</div>
+      </div>
+      <div class="note-card sr d1">
+        <div class="note-ico">🔄</div>
+        <div class="note-title">No Lock-in Contracts</div>
+        <div class="note-body">Month-to-month billing. Upgrade, downgrade, or cancel at any time — no penalties, no questions asked.</div>
+      </div>
+      <div class="note-card sr d2">
+        <div class="note-ico">⚡</div>
+        <div class="note-title">Live in 24 Hours</div>
+        <div class="note-body">WhatsApp us your business details and your website is live the same day. No waiting weeks for a developer.</div>
+      </div>
+      <div class="note-card sr d3">
+        <div class="note-ico">🛠️</div>
+        <div class="note-title">One-time Setup Fee</div>
+        <div class="note-body">R1,200 covers onboarding, design, domain &amp; launch. Want to self-host? Pay R2,000 once and own it outright.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     FINAL CTA
+══════════════════════════════════ -->
+<section id="cta">
+  <div class="cta-glow"></div>
+  <div class="cta-grid-bg"></div>
+  <div class="container">
+    <div class="cta-inner">
+      <div class="tag sr">Get Started Today</div>
+      <h2 class="cta-title sr">Start Your<br><em>Free Trial</em><br>Today</h2>
+      <p class="cta-sub sr">Join local businesses across the West Coast who are getting found online, generating leads, and growing — with LaafWeb.</p>
+      <div class="cta-btns sr">
+        <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20start%20my%20free%2014-day%20trial%20and%20get%20my%20business%20listed" class="btn-wa" target="_blank" rel="noopener" style="font-size:14px;padding:15px 32px">
+          <svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Start Free 14-Day Trial on WhatsApp
+        </a>
+        <a href="index.html" class="btn-outline" style="font-size:14px;padding:15px 32px">← Back to Home</a>
+      </div>
+      <div class="cta-note sr">No credit card required · <span>14 days free</span> · Cancel anytime</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     FOOTER
+══════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="foot-inner">
+      <div class="foot-brand">
+        <img src="logo.png" alt="LaafWeb" class="logo-img-sm">
+        <div class="foot-sub">Part of the Laafstyl Ecosystem · West Coast, SA</div>
+      </div>
+      <div class="foot-links">
+        <a href="index.html#how">How It Works</a>
+        <a href="index.html#directory">Directory</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="https://shuttle.laafstyl.org" target="_blank">LaafShuttle</a>
+        <a href="https://register.laafstyl.org" target="_blank">LaafConnect</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="foot-copy">© 2026 LaafStyl (Pty) Ltd. Built in 🇿🇦 South Africa.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════
+     FLOATING WHATSAPP
+══════════════════════════════════ -->
+<a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20my%20business%20listed" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- ══════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════ -->
+<script>
+// ── NAV SOLID ON SCROLL ──
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('solid', scrollY > 50);
+});
+
+// ── SCROLL REVEAL ──
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: .08, rootMargin: '0px 0px -28px 0px' });
+document.querySelectorAll('.sr,.srl,.srr').forEach(el => ro.observe(el));
+
+// ── MOBILE MENU ──
+function openMob()  { document.getElementById('mobOverlay').classList.add('open'); }
+function closeMob() { document.getElementById('mobOverlay').classList.remove('open'); }
+function closeMobOut(e) { if (e.target === document.getElementById('mobOverlay')) closeMob(); }
+
+// ── PAYFAST BILLING DATE ──
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('billing-starter').value = today;
+document.getElementById('billing-growth').value  = today;
+document.getElementById('billing-pro').value      = today;
+
+// ── SANDBOX → PRODUCTION TOGGLE ──
+// Set IS_SANDBOX = false when going live
+const IS_SANDBOX = true;
+if (!IS_SANDBOX) {
+  document.querySelectorAll('.payfast-form').forEach(f => {
+    f.action = 'https://www.payfast.co.za/eng/process';
+  });
+}
+</script>
+</body>
+</html>
