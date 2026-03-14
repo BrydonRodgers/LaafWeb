@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LaafWeb — Terms &amp; Conditions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green:#007847;--gold:#FFB612;--red:#DE3831;--blue:#00AEEF;
+    --bg:#0f0f0f;--card:#1c1c1c;--text:#ffffff;--border:#2a2a2a;--muted:#888;--radius:18px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;overflow-x:hidden;line-height:1.7}
+  body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+  .orb{position:fixed;border-radius:50%;filter:blur(130px);pointer-events:none;z-index:0;animation:drift 14s ease-in-out infinite alternate}
+  .orb-1{width:500px;height:500px;background:var(--gold);top:-200px;right:-200px;opacity:.07;animation-delay:0s}
+  .orb-2{width:400px;height:400px;background:var(--green);bottom:-150px;left:-150px;opacity:.1;animation-delay:-6s}
+  @keyframes drift{from{transform:translate(0,0)}to{transform:translate(30px,25px)}}
+
+  /* Nav */
+  nav{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:20px 36px;border-bottom:1px solid var(--border);backdrop-filter:blur(14px);background:rgba(15,15,15,0.7)}
+  .nav-logo{display:flex;align-items:center;text-decoration:none}
+  .logo-img{height:30px;width:auto;display:block;object-fit:contain}
+  .logo-img-mob{height:26px;width:auto;object-fit:contain}
+  .nav-links{display:flex;gap:28px;list-style:none}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  .nav-back{display:flex;align-items:center;gap:8px;color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+  .nav-back:hover{color:var(--text)}
+  .nav-back svg{transition:transform .2s}
+  .nav-back:hover svg{transform:translateX(-3px)}
+  .nav-mob{display:none;background:none;border:none;color:#fff;cursor:pointer;padding:4px}
+  .mob-overlay{display:none;position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.75);backdrop-filter:blur(4px)}
+  .mob-overlay.open{display:flex}
+  .mob-panel{width:280px;background:#161616;border-right:1px solid #333;padding:24px;display:flex;flex-direction:column;transform:translateX(-100%);transition:transform .35s cubic-bezier(.77,0,.18,1)}
+  .mob-overlay.open .mob-panel{transform:translateX(0)}
+  .mob-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px}
+  .mob-x{background:none;border:1px solid #333;color:#fff;width:32px;height:32px;border-radius:6px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center}
+  .mob-nav{display:flex;flex-direction:column;gap:4px}
+  .mob-nav a{display:block;padding:11px 14px;border-radius:8px;font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;color:#bbb;text-decoration:none;text-transform:uppercase;letter-spacing:.04em;transition:background .2s,color .2s}
+  .mob-nav a:hover{background:rgba(0,120,71,.12);color:#fff}
+  .mob-wa{margin-top:20px;display:flex;align-items:center;justify-content:center;gap:9px;padding:13px;background:#25D366;color:#fff;border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:.08em}
+
+  /* Layout */
+  main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:60px 24px 100px}
+
+  /* Page header */
+  .page-header{margin-bottom:48px}
+  .page-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,182,18,.1);border:1px solid rgba(255,182,18,.25);color:var(--gold);padding:5px 14px;border-radius:50px;font-size:.75rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;margin-bottom:20px}
+  .page-header h1{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(2rem,4vw,2.8rem);letter-spacing:-1px;margin-bottom:12px;line-height:1.15}
+  .page-header p{color:var(--muted);font-size:.9rem}
+  .sa-stripe{display:flex;height:3px;width:60px;margin:20px 0 0;border-radius:4px;overflow:hidden}
+  .sa-stripe span{flex:1}
+  .sa-stripe span:nth-child(1){background:var(--green)}
+  .sa-stripe span:nth-child(2){background:var(--gold)}
+  .sa-stripe span:nth-child(3){background:var(--red)}
+  .sa-stripe span:nth-child(4){background:var(--blue)}
+
+  /* TOC */
+  .toc{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px;margin-bottom:48px;position:relative;overflow:hidden}
+  .toc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--red))}
+  .toc h3{font-family:'Poppins',sans-serif;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:14px}
+  .toc ol{padding-left:18px;display:flex;flex-direction:column;gap:6px}
+  .toc ol li a{color:var(--gold);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+  .toc ol li a:hover{color:var(--text)}
+
+  /* Sections */
+  .doc-section{margin-bottom:44px}
+  .doc-section h2{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.15rem;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+  .section-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:rgba(255,182,18,.15);color:var(--gold);font-size:.72rem;font-weight:800;flex-shrink:0}
+  .doc-section p{color:#bbb;font-size:.9rem;margin-bottom:12px}
+  .doc-section p:last-child{margin-bottom:0}
+  .doc-section ul{padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+  .doc-section ul li{display:flex;align-items:flex-start;gap:10px;color:#bbb;font-size:.9rem}
+  .doc-section ul li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:7px}
+
+  .highlight-box{background:rgba(0,120,71,.08);border:1px solid rgba(0,120,71,.2);border-radius:12px;padding:16px 20px;margin:16px 0}
+  .highlight-box p{color:#ccc;font-size:.875rem;margin:0}
+  .warn-box{background:rgba(222,56,49,.07);border:1px solid rgba(222,56,49,.2);border-radius:12px;padding:16px 20px;margin:16px 0;display:flex;gap:12px;align-items:flex-start}
+  .warn-box .warn-icon{font-size:1rem;flex-shrink:0;margin-top:1px}
+  .warn-box p{color:#ccc;font-size:.875rem;margin:0}
+  .info-box{background:rgba(0,174,239,.07);border:1px solid rgba(0,174,239,.2);border-radius:12px;padding:16px 20px;margin:16px 0;display:flex;gap:12px;align-items:flex-start}
+  .info-box p{color:#ccc;font-size:.875rem;margin:0}
+
+  /* Plan table */
+  .plan-table{width:100%;border-collapse:collapse;margin:16px 0}
+  .plan-table th{font-family:'Poppins',sans-serif;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);padding:10px 14px;border-bottom:1px solid var(--border);text-align:left}
+  .plan-table td{font-size:.875rem;color:#ccc;padding:12px 14px;border-bottom:1px solid rgba(42,42,42,.6)}
+  .plan-table tr:last-child td{border-bottom:none}
+  .plan-table tr:hover td{background:rgba(255,255,255,.02)}
+  .badge{display:inline-block;padding:2px 10px;border-radius:50px;font-size:.7rem;font-weight:700}
+  .badge-blue{background:rgba(0,174,239,.15);color:var(--blue)}
+  .badge-green{background:rgba(0,120,71,.15);color:#4cd993}
+  .badge-gold{background:rgba(255,182,18,.15);color:var(--gold)}
+
+  /* Contact card */
+  .contact-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px;margin-top:16px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
+  .contact-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--red))}
+  .contact-row{display:flex;align-items:center;gap:12px}
+  .contact-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+  .contact-icon.email{background:rgba(0,174,239,.12)}
+  .contact-icon.whatsapp{background:rgba(0,120,71,.12)}
+  .contact-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:700;margin-bottom:2px}
+  .contact-value a{color:var(--text);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+  .contact-value a:hover{color:var(--gold)}
+  .wa-cta{display:inline-flex;align-items:center;gap:10px;margin-top:4px;padding:12px 22px;background:#25D366;color:#fff;border-radius:10px;font-family:'Poppins',sans-serif;font-size:.875rem;font-weight:700;text-decoration:none;transition:background .2s,transform .2s}
+  .wa-cta:hover{background:#1eb659;transform:translateY(-2px)}
+
+  /* Footer */
+  footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:28px 36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+  .footer-brand{font-family:'Poppins',sans-serif;font-weight:800;font-size:1rem}
+  footer p{font-size:.76rem;color:var(--muted)}
+  footer a{color:var(--muted);text-decoration:none;font-size:.76rem;transition:color .2s}
+  footer a:hover{color:var(--text)}
+  .footer-links{display:flex;gap:18px}
+
+  /* Floating WhatsApp */
+  .wa-float{position:fixed;bottom:26px;right:26px;z-index:100;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 18px rgba(37,211,102,.4);transition:transform .25s,box-shadow .25s}
+  .wa-float:hover{transform:scale(1.12);box-shadow:0 6px 28px rgba(37,211,102,.58)}
+
+  /* Reveal */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+
+  @media(max-width:700px){
+    nav{padding:16px 18px}
+    .nav-links{display:none}
+    .nav-back{display:none}
+    .nav-mob{display:flex}
+    main{padding:40px 18px 80px}
+    footer{padding:22px 18px;flex-direction:column;text-align:center}
+    .footer-links{justify-content:center}
+    .plan-table{font-size:.8rem}
+  }
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="LaafWeb" class="logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="pricing.html" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to Pricing
+  </a>
+  <button class="nav-mob" onclick="openMob()" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</nav>
+
+<!-- mobile menu -->
+<div class="mob-overlay" id="mobOverlay" onclick="closeMobOut(event)">
+  <div class="mob-panel">
+    <div class="mob-head">
+      <img src="logo.png" alt="LaafWeb" class="logo-img-mob">
+      <button class="mob-x" onclick="closeMob()">✕</button>
+    </div>
+    <div class="mob-nav">
+      <a href="index.html">Home</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20started" class="mob-wa" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      WhatsApp Us Now
+    </a>
+  </div>
+</div>
+
+<main>
+
+  <div class="page-header reveal">
+    <div class="page-badge">📋 Legal</div>
+    <h1>Terms &amp; Conditions</h1>
+    <p>Last updated: <strong>March 2026</strong> &nbsp;·&nbsp; LaafStyl (Pty) Ltd &nbsp;·&nbsp; West Coast, South Africa</p>
+    <div class="sa-stripe"><span></span><span></span><span></span><span></span></div>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc reveal">
+    <h3>Contents</h3>
+    <ol>
+      <li><a href="#acceptance">Acceptance of Terms</a></li>
+      <li><a href="#services">Our Services</a></li>
+      <li><a href="#plans-pricing">Plans &amp; Pricing</a></li>
+      <li><a href="#setup-fee">Setup Fee &amp; Self-Host Option</a></li>
+      <li><a href="#subscriptions">Subscriptions &amp; Billing</a></li>
+      <li><a href="#free-trial">Free 14-Day Trial</a></li>
+      <li><a href="#cancellation">Cancellation &amp; Refunds</a></li>
+      <li><a href="#your-content">Your Content &amp; Responsibilities</a></li>
+      <li><a href="#our-responsibilities">Our Responsibilities</a></li>
+      <li><a href="#ip">Intellectual Property</a></li>
+      <li><a href="#limitation">Limitation of Liability</a></li>
+      <li><a href="#governing-law">Governing Law</a></li>
+      <li><a href="#changes">Changes to These Terms</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ol>
+  </div>
+
+  <!-- 1. Acceptance -->
+  <div class="doc-section reveal" id="acceptance">
+    <h2><span class="section-num">1</span> Acceptance of Terms</h2>
+    <p>These Terms and Conditions ("Terms") govern your use of LaafWeb's services, offered by <strong>LaafStyl (Pty) Ltd</strong> (Registration No: <strong>YOUR_REG_NUMBER</strong>), a company registered in the Republic of South Africa ("we", "us", "our").</p>
+    <p>By submitting the onboarding form, starting a free trial, completing a PayFast subscription payment, or using any LaafWeb service, you confirm that you have read, understood, and agreed to these Terms in full. If you do not agree, please do not use our services.</p>
+    <div class="highlight-box">
+      <p>These Terms constitute a binding agreement between you (the client) and LaafStyl (Pty) Ltd under South African law, and incorporate our <a href="privacy.html" style="color:#4cd993">Privacy Policy</a> by reference.</p>
+    </div>
+  </div>
+
+  <!-- 2. Services -->
+  <div class="doc-section reveal" id="services">
+    <h2><span class="section-num">2</span> Our Services</h2>
+    <p>LaafWeb provides West Coast South African businesses with the following digital services, depending on the plan selected:</p>
+    <ul>
+      <li>A professionally built business website hosted on your behalf</li>
+      <li>A listing in the LaafWeb local business directory</li>
+      <li>Lead capture via WhatsApp buttons, click-to-call, and contact forms</li>
+      <li>Lead tracking tools to manage enquiries (Growth &amp; Pro plans)</li>
+      <li>An AI-powered chatbot for your website (Pro plan)</li>
+      <li>An analytics dashboard to monitor website performance (Pro plan)</li>
+      <li>Priority customer support (Growth &amp; Pro plans)</li>
+    </ul>
+    <p>All websites are built and maintained by LaafStyl (Pty) Ltd. Delivery timelines, content requirements, and design scope will be communicated to you after your setup fee payment is confirmed.</p>
+  </div>
+
+  <!-- 3. Plans & Pricing -->
+  <div class="doc-section reveal" id="plans-pricing">
+    <h2><span class="section-num">3</span> Plans &amp; Pricing</h2>
+    <p>LaafWeb currently offers three monthly subscription plans, billed in South African Rand (ZAR):</p>
+    <table class="plan-table">
+      <thead>
+        <tr><th>Plan</th><th>Monthly Fee</th><th>Key Features</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge badge-blue">Starter</span></td>
+          <td><strong>R200 / month</strong></td>
+          <td>3-page website, directory listing, WhatsApp &amp; call buttons, basic SEO</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-green">Growth</span></td>
+          <td><strong>R350 / month</strong></td>
+          <td>7-page website, priority listing, gallery, lead forms, advanced SEO, monthly content update</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-gold">Pro</span></td>
+          <td><strong>R500 / month</strong></td>
+          <td>Unlimited pages, featured badge, AI chatbot, analytics dashboard, priority support, weekly updates</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>All prices are in ZAR and include VAT where applicable. We reserve the right to adjust pricing with 30 days' written notice to active subscribers.</p>
+  </div>
+
+  <!-- 4. Setup Fee -->
+  <div class="doc-section reveal" id="setup-fee">
+    <h2><span class="section-num">4</span> Setup Fee &amp; Self-Host Option</h2>
+    <p>All new LaafWeb subscriptions require a once-off <strong>setup fee of R1,200</strong>. This covers domain registration, hosting setup, SSL certificate, business email, and initial website build. The setup fee is non-refundable once work has commenced.</p>
+    <p>Alternatively, clients may purchase their website outright for a once-off fee of <strong>R2,000</strong>. Under this arrangement:</p>
+    <ul>
+      <li>You own the website files and source code outright</li>
+      <li>You are responsible for your own hosting, maintenance, and future updates</li>
+      <li>No monthly subscription is required</li>
+      <li>LaafStyl (Pty) Ltd provides no ongoing support under this option unless separately agreed in writing</li>
+    </ul>
+    <div class="warn-box">
+      <span class="warn-icon">⚠️</span>
+      <p>The R2,000 self-host purchase is once-off and non-refundable once delivery has commenced. No hosting, support, or directory listing is included.</p>
+    </div>
+  </div>
+
+  <!-- 5. Subscriptions -->
+  <div class="doc-section reveal" id="subscriptions">
+    <h2><span class="section-num">5</span> Subscriptions &amp; Billing</h2>
+    <p>Monthly subscriptions are processed via <strong>PayFast</strong>, South Africa's leading payment gateway. By subscribing, you authorise PayFast to debit your chosen payment method on a recurring monthly basis.</p>
+    <ul>
+      <li>Billing occurs monthly on or around your original subscription date</li>
+      <li>Failed payments may result in temporary suspension of your website and directory listing</li>
+      <li>You are responsible for keeping your payment details up to date with PayFast</li>
+      <li>LaafStyl (Pty) Ltd does not store your card or banking details — these are managed entirely by PayFast</li>
+      <li>If a payment fails and is not resolved within 7 days, we reserve the right to suspend your services</li>
+    </ul>
+  </div>
+
+  <!-- 6. Free Trial -->
+  <div class="doc-section reveal" id="free-trial">
+    <h2><span class="section-num">6</span> Free 14-Day Trial</h2>
+    <p>New customers may access LaafWeb free for 14 days. During the trial period:</p>
+    <ul>
+      <li>Your website will be built and your directory listing activated within 24 hours of sign-up</li>
+      <li>No payment is required and no credit card is stored during the trial</li>
+      <li>At the end of the trial you will be contacted via WhatsApp to confirm your plan and payment</li>
+      <li>If you do not convert to a paid plan, your website and listing will be deactivated after the trial period ends</li>
+      <li>The R1,200 setup fee is only charged when you activate a paid subscription, not during the trial</li>
+    </ul>
+    <div class="highlight-box">
+      <p>We reserve the right to withdraw or modify the free trial offer at any time. Existing trial users will not be affected mid-trial.</p>
+    </div>
+  </div>
+
+  <!-- 7. Cancellation -->
+  <div class="doc-section reveal" id="cancellation">
+    <h2><span class="section-num">7</span> Cancellation &amp; Refunds</h2>
+    <p>You may cancel your LaafWeb subscription at any time by contacting us via WhatsApp or email. Cancellations take effect at the end of the current billing period — you will not be charged for the following month.</p>
+    <ul>
+      <li>No cancellation fees or penalties apply</li>
+      <li>Partial-month refunds are not provided</li>
+      <li>Upon cancellation, your website and directory listing will be taken offline at the end of the billing period</li>
+      <li>You may request an export of your website content within 30 days of cancellation</li>
+    </ul>
+    <div class="warn-box">
+      <span class="warn-icon">⚠️</span>
+      <p>The once-off setup fee (R1,200) and self-host fee (R2,000) are non-refundable once work has commenced, regardless of cancellation. Domain transfer or renewal upon cancellation is your responsibility.</p>
+    </div>
+  </div>
+
+  <!-- 8. Your Content -->
+  <div class="doc-section reveal" id="your-content">
+    <h2><span class="section-num">8</span> Your Content &amp; Responsibilities</h2>
+    <p>You are responsible for all content, images, logos, and information you provide to LaafStyl (Pty) Ltd. By submitting content, you confirm that:</p>
+    <ul>
+      <li>You own or have the legal right to use all submitted content</li>
+      <li>Your content does not violate any South African laws or third-party intellectual property rights</li>
+      <li>Your content is accurate and not misleading to consumers</li>
+      <li>Your business is operating legally in South Africa</li>
+      <li>You will not use the platform to promote illegal goods, services, hate speech, or adult content</li>
+    </ul>
+    <p>We reserve the right to refuse or remove content that we deem illegal, offensive, or in violation of these Terms, without prior notice.</p>
+  </div>
+
+  <!-- 9. Our Responsibilities -->
+  <div class="doc-section reveal" id="our-responsibilities">
+    <h2><span class="section-num">9</span> Our Responsibilities</h2>
+    <p>LaafStyl (Pty) Ltd will make reasonable efforts to:</p>
+    <ul>
+      <li>Deliver your website within 5 business days of receiving your setup fee and all required content</li>
+      <li>Keep your website live and accessible while your subscription is active and payments are up to date</li>
+      <li>Respond to support requests within 2 business days (Growth and Pro plans receive priority)</li>
+      <li>Notify you in advance of any planned maintenance or downtime</li>
+    </ul>
+    <p>We do not guarantee 100% uptime. We are not liable for downtime caused by hosting providers, PayFast, or other external services beyond our control.</p>
+  </div>
+
+  <!-- 10. IP -->
+  <div class="doc-section reveal" id="ip">
+    <h2><span class="section-num">10</span> Intellectual Property</h2>
+    <p>For clients on a <strong>monthly subscription</strong>: LaafStyl (Pty) Ltd retains ownership of the website design, code, and structure. You are granted a licence to use the website while your subscription remains active. Upon cancellation, this licence ends.</p>
+    <p>For clients who purchase the <strong>self-host option (R2,000)</strong>: Full ownership of the website files and code transfers to you upon receipt of payment. LaafStyl (Pty) Ltd retains no ownership of your website after delivery.</p>
+    <p>In all cases, you retain full ownership of your own brand assets, logos, text, and images that you supplied to us.</p>
+  </div>
+
+  <!-- 11. Limitation -->
+  <div class="doc-section reveal" id="limitation">
+    <h2><span class="section-num">11</span> Limitation of Liability</h2>
+    <p>To the maximum extent permitted by South African law, LaafStyl (Pty) Ltd shall not be liable for any indirect, incidental, or consequential damages, including but not limited to:</p>
+    <ul>
+      <li>Loss of business revenue or customers</li>
+      <li>Data loss or corruption</li>
+      <li>Downtime caused by third-party service providers</li>
+      <li>Any actions or omissions by PayFast or other integrated platforms</li>
+    </ul>
+    <p>Our total liability to you in any circumstance shall not exceed the total amount paid by you to LaafStyl (Pty) Ltd in the three months preceding the claim.</p>
+  </div>
+
+  <!-- 12. Governing Law -->
+  <div class="doc-section reveal" id="governing-law">
+    <h2><span class="section-num">12</span> Governing Law</h2>
+    <p>These Terms are governed by and construed in accordance with the laws of the <strong>Republic of South Africa</strong>. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the South African courts.</p>
+    <p>Applicable legislation includes the Electronic Communications and Transactions Act 25 of 2002, the Consumer Protection Act 68 of 2008, and the Protection of Personal Information Act 4 of 2013.</p>
+    <p>We encourage clients to first attempt to resolve any dispute directly with us via the channels below before pursuing formal legal action.</p>
+  </div>
+
+  <!-- 13. Changes -->
+  <div class="doc-section reveal" id="changes">
+    <h2><span class="section-num">13</span> Changes to These Terms</h2>
+    <p>We may update these Terms from time to time. When we make material changes, we will notify active subscribers via WhatsApp or email with at least 14 days' notice. The updated date will always be shown at the top of this page. Continued use of LaafWeb after the effective date constitutes acceptance of the updated Terms.</p>
+  </div>
+
+  <!-- 14. Contact -->
+  <div class="doc-section reveal" id="contact">
+    <h2><span class="section-num">14</span> Contact Us</h2>
+    <p>For questions about these Terms, to request a cancellation, or to resolve a dispute, please contact us directly:</p>
+    <div class="contact-card">
+      <div class="contact-row">
+        <div class="contact-icon email">📧</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value"><a href="/cdn-cgi/l/email-protection#bdd1dcdcdbcec9c4d1dbdcd0d4d1c4fddad0dcd4d193ded2d0"><span class="__cf_email__" data-cfemail="e48885858297909d888285898d889da48389858d88ca878b89">[email&#160;protected]</span></a></div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon whatsapp">💬</div>
+        <div>
+          <div class="contact-label">WhatsApp — fastest response</div>
+          <div class="contact-value">
+            <a href="https://wa.me/27636691391" target="_blank">063 669 1391</a>
+          </div>
+        </div>
+      </div>
+      <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%20have%20a%20question%20about%20your%20terms" class="wa-cta" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Message us on WhatsApp
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <img src="logo.png" alt="LaafWeb" style="height:22px;width:auto;object-fit:contain">
+  <p>© 2026 LaafStyl (Pty) Ltd. All rights reserved. Built in 🇿🇦 South Africa.</p>
+  <div class="footer-links">
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20my%20business%20listed" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  function openMob()  { document.getElementById('mobOverlay').classList.add('open'); }
+  function closeMob() { document.getElementById('mobOverlay').classList.remove('open'); }
+  function closeMobOut(e) { if (e.target === document.getElementById('mobOverlay')) closeMob(); }
+</script>
+</body>
+</html>
