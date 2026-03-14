@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Page Not Found | LaafWeb</title>
+<meta name="description" content="This page doesn't exist. Head back to LaafWeb — West Coast South Africa's local business directory.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#007847;--green2:#00a85f;--gold:#FFB612;--red:#DE3831;--blue:#00AEEF;--wa:#25D366;
+  --bg:#0f0f0f;--bg2:#161616;--card:#1c1c1c;
+  --border:#2a2a2a;--border2:#383838;
+  --muted:#666;--body:#888;--light:#bbb;--white:#fff;
+  --radius:18px;--fh:'Poppins',sans-serif;--fb:'Inter',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--body);font-family:var(--fb);font-size:16px;line-height:1.7;overflow-x:hidden;display:flex;flex-direction:column}
+
+/* noise */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+
+/* animations */
+@keyframes drift{from{transform:translate(0,0)}to{transform:translate(36px,28px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.1)}}
+@keyframes waRing{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 36px rgba(37,211,102,.65),0 0 0 8px rgba(37,211,102,.07)}}
+@keyframes shimmer{0%{background-position:200% center}100%{background-position:-200% center}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes glitch1{0%,100%{clip-path:inset(0 0 95% 0);transform:translate(-4px,0)}20%{clip-path:inset(30% 0 40% 0);transform:translate(4px,0)}40%{clip-path:inset(60% 0 20% 0);transform:translate(-2px,0)}60%{clip-path:inset(80% 0 5% 0);transform:translate(3px,0)}80%{clip-path:inset(10% 0 70% 0);transform:translate(-3px,0)}}
+@keyframes glitch2{0%,100%{clip-path:inset(50% 0 30% 0);transform:translate(3px,0)}25%{clip-path:inset(20% 0 60% 0);transform:translate(-4px,0)}50%{clip-path:inset(70% 0 10% 0);transform:translate(4px,0)}75%{clip-path:inset(5% 0 80% 0);transform:translate(-2px,0)}}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;display:flex;align-items:center;padding:0 36px;background:rgba(15,15,15,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(42,42,42,.6)}
+.nav-logo{display:flex;align-items:center;text-decoration:none}
+.logo-img{height:32px;width:auto;display:block;object-fit:contain}
+.logo-img-mob{height:26px;width:auto;object-fit:contain}
+.logo-img-sm{height:22px;width:auto;object-fit:contain}
+.nav-links{display:flex;align-items:center;gap:26px;margin-left:auto;list-style:none}
+.nav-links a{font-size:.86rem;font-weight:500;color:var(--body);text-decoration:none;letter-spacing:.04em;transition:color .2s;position:relative}
+.nav-links a:not(.nav-wa):hover{color:var(--white)}
+.nav-links a:not(.nav-wa)::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:var(--green);transition:width .25s}
+.nav-links a:not(.nav-wa):hover::after{width:100%}
+.nav-wa{display:flex;align-items:center;gap:8px;background:var(--wa);color:#fff !important;padding:8px 18px;border-radius:8px;font-weight:700 !important;font-size:.82rem !important;box-shadow:0 4px 14px rgba(37,211,102,.25);transition:background .2s,transform .2s !important}
+.nav-wa:hover{background:#1eb659 !important;transform:translateY(-1px) !important}
+.nav-wa::after{display:none !important}
+.nav-mob{display:none;background:none;border:none;color:var(--white);cursor:pointer;margin-left:auto;padding:4px}
+
+/* mobile overlay */
+.mob-overlay{display:none;position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.75);backdrop-filter:blur(4px)}
+.mob-overlay.open{display:flex}
+.mob-panel{width:280px;background:var(--bg2);border-right:1px solid var(--border2);padding:24px;display:flex;flex-direction:column;transform:translateX(-100%);transition:transform .35s cubic-bezier(.77,0,.18,1)}
+.mob-overlay.open .mob-panel{transform:translateX(0)}
+.mob-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px}
+.mob-x{background:none;border:1px solid var(--border2);color:var(--white);width:32px;height:32px;border-radius:6px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center}
+.mob-nav{display:flex;flex-direction:column;gap:4px}
+.mob-nav a{display:block;padding:11px 14px;border-radius:8px;font-family:var(--fh);font-size:14px;font-weight:700;color:var(--light);text-decoration:none;text-transform:uppercase;letter-spacing:.04em;transition:background .2s,color .2s}
+.mob-nav a:hover{background:rgba(0,120,71,.12);color:var(--white)}
+.mob-wa-btn{margin-top:20px;display:flex;align-items:center;justify-content:center;gap:9px;padding:13px;background:var(--wa);color:#fff;border-radius:8px;font-family:var(--fh);font-size:13px;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:.08em}
+
+/* ── VIDEO BACKGROUND ── */
+.page-video-bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.page-video-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.14;filter:saturate(.4) brightness(.55)}
+/* radial overlay — darkest at edges, opens at centre where content is */
+.page-video-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(15,15,15,.5) 0%,rgba(15,15,15,.92) 100%)}
+
+/* ── MAIN CONTENT ── */
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:64px 36px 80px;position:relative;z-index:1;text-align:center}
+
+.error-wrap{max-width:580px;width:100%}
+
+/* glitchy 404 number */
+.four-o-four{position:relative;display:inline-block;margin-bottom:8px}
+.fof-main{font-family:var(--fh);font-size:clamp(120px,18vw,200px);font-weight:900;line-height:1;letter-spacing:-.05em;background:linear-gradient(135deg,var(--green2) 0%,var(--blue) 55%,var(--green2) 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite;user-select:none}
+/* glitch layers */
+.fof-glitch-1,.fof-glitch-2{position:absolute;inset:0;font-family:var(--fh);font-size:clamp(120px,18vw,200px);font-weight:900;line-height:1;letter-spacing:-.05em;-webkit-text-fill-color:transparent;background-clip:text;pointer-events:none}
+.fof-glitch-1{background:linear-gradient(135deg,var(--green2),var(--blue));-webkit-background-clip:text;background-clip:text;animation:glitch1 3.5s 2s infinite;opacity:.6}
+.fof-glitch-2{background:linear-gradient(135deg,var(--blue),var(--green2));-webkit-background-clip:text;background-clip:text;animation:glitch2 3.5s 2.2s infinite;opacity:.5}
+
+.error-tag{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:20px;background:rgba(0,120,71,.1);border:1px solid rgba(0,120,71,.25);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green2);margin-bottom:18px;animation:fadeUp .5s .2s both}
+.pill-dot{width:6px;height:6px;background:var(--green2);border-radius:50%;animation:pulse 2s infinite}
+
+.error-title{font-family:var(--fh);font-size:clamp(20px,3vw,28px);font-weight:800;color:var(--white);letter-spacing:-.02em;margin-bottom:12px;animation:fadeUp .6s .35s both}
+
+.error-sub{font-size:15px;line-height:1.75;color:var(--body);margin-bottom:36px;max-width:420px;margin-left:auto;margin-right:auto;animation:fadeUp .6s .5s both}
+
+/* compass animation — playful West Coast touch */
+.compass{font-size:48px;display:block;margin-bottom:20px;animation:float 4s ease-in-out infinite,fadeUp .6s .15s both}
+
+.error-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;animation:fadeUp .6s .65s both}
+
+.btn-home{display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,var(--green),var(--blue));color:#fff;padding:14px 28px;border-radius:10px;font-family:var(--fh);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;box-shadow:0 6px 24px rgba(0,120,71,.3);transition:transform .2s,box-shadow .2s}
+.btn-home:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,174,239,.4)}
+
+.btn-wa{display:inline-flex;align-items:center;gap:9px;background:var(--wa);color:#fff;padding:14px 28px;border-radius:10px;font-family:var(--fh);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;box-shadow:0 6px 24px rgba(37,211,102,.3);transition:background .2s,transform .2s,box-shadow .2s}
+.btn-wa:hover{background:#1eb659;transform:translateY(-2px);box-shadow:0 10px 32px rgba(37,211,102,.45)}
+
+/* quick links */
+.quick-links{margin-top:32px;animation:fadeUp .6s .8s both}
+.ql-label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.ql-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.ql-link{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;background:var(--card);border:1px solid var(--border2);border-radius:20px;font-size:12px;font-weight:500;color:var(--light);text-decoration:none;transition:border-color .2s,color .2s,transform .2s}
+.ql-link:hover{border-color:rgba(0,120,71,.35);color:var(--white);transform:translateY(-1px)}
+
+/* sa stripe */
+.sa-stripe{display:flex;height:3px;width:52px;border-radius:4px;overflow:hidden;margin:28px auto 0}
+.sa-stripe span{flex:1}
+.sa-stripe span:nth-child(1){background:var(--green)}.sa-stripe span:nth-child(2){background:var(--gold)}
+.sa-stripe span:nth-child(3){background:var(--red)}.sa-stripe span:nth-child(4){background:var(--blue)}
+
+/* ── FOOTER ── */
+footer{background:rgba(22,22,22,.9);border-top:1px solid var(--border);padding:22px 0;position:relative;z-index:1;backdrop-filter:blur(8px)}
+.foot-inner{max-width:1100px;margin:0 auto;padding:0 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.foot-brand{display:flex;align-items:center;gap:10px}
+.foot-sub{font-size:11px;color:var(--muted)}
+.foot-links{display:flex;gap:16px}
+.foot-links a{font-size:12px;color:var(--muted);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:var(--green2)}
+.foot-copy{font-size:11px;color:var(--muted)}
+
+/* floating WA */
+.wa-float{position:fixed;bottom:26px;right:26px;z-index:100;width:56px;height:56px;background:var(--wa);border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:transform .25s,box-shadow .25s;animation:waRing 4s 3s infinite}
+.wa-float:hover{transform:scale(1.12);animation:none;box-shadow:0 6px 30px rgba(37,211,102,.6)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .nav-mob{display:flex}
+  main{padding:80px 20px 60px}
+  .foot-inner{flex-direction:column;text-align:center;padding:0 20px}
+  .foot-links{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ── VIDEO BACKGROUND ── -->
+<div class="page-video-bg">
+  <video autoplay muted loop playsinline preload="auto" aria-hidden="true">
+    <source src="views.mp4" type="video/mp4">
+  </video>
+</div>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="LaafWeb" class="logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#directory">Directory</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li>
+      <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20my%20business%20online" class="nav-wa" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp Us
+      </a>
+    </li>
+  </ul>
+  <button class="nav-mob" onclick="openMob()" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</nav>
+
+<!-- mobile menu -->
+<div class="mob-overlay" id="mobOverlay" onclick="closeMobOut(event)">
+  <div class="mob-panel">
+    <div class="mob-head">
+      <img src="logo.png" alt="LaafWeb" class="logo-img-mob">
+      <button class="mob-x" onclick="closeMob()">✕</button>
+    </div>
+    <div class="mob-nav">
+      <a href="index.html" onclick="closeMob()">Home</a>
+      <a href="index.html#directory" onclick="closeMob()">Directory</a>
+      <a href="pricing.html" onclick="closeMob()">Pricing</a>
+      <a href="about.html" onclick="closeMob()">About</a>
+      <a href="contact.html" onclick="closeMob()">Contact</a>
+    </div>
+    <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20started" class="mob-wa-btn" target="_blank" rel="noopener" onclick="closeMob()">
+      <svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      WhatsApp Us Now
+    </a>
+  </div>
+</div>
+
+<!-- ── MAIN ── -->
+<main>
+  <div class="error-wrap">
+
+    <!-- floating compass emoji -->
+    <span class="compass">🧭</span>
+
+    <!-- glitchy 404 -->
+    <div class="four-o-four">
+      <div class="fof-main">404</div>
+      <div class="fof-glitch-1">404</div>
+      <div class="fof-glitch-2">404</div>
+    </div>
+
+    <div class="error-tag">
+      <span class="pill-dot"></span>
+      Lost on the West Coast
+    </div>
+
+    <h1 class="error-title">Looks like this page got lost<br>somewhere between Saldanha and Langebaan.</h1>
+
+    <p class="error-sub">The page you're looking for doesn't exist, was moved, or the link might be broken. Let's get you back on track.</p>
+
+    <div class="error-btns">
+      <a href="index.html" class="btn-home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" width="15" height="15"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Go Back Home
+      </a>
+      <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%20got%20a%20404%20error%20and%20need%20help" class="btn-wa" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="white" width="15" height="15"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp Us
+      </a>
+    </div>
+
+    <!-- quick links -->
+    <div class="quick-links">
+      <div class="ql-label">Or jump to</div>
+      <div class="ql-row">
+        <a href="index.html#directory" class="ql-link">📍 Directory</a>
+        <a href="pricing.html" class="ql-link">💰 Pricing</a>
+        <a href="about.html" class="ql-link">👋 About</a>
+        <a href="contact.html" class="ql-link">💬 Contact</a>
+      </div>
+    </div>
+
+    <div class="sa-stripe"><span></span><span></span><span></span><span></span></div>
+
+  </div>
+</main>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <img src="logo.png" alt="LaafWeb" class="logo-img-sm">
+      <div class="foot-sub">Part of the Laafstyl Ecosystem · West Coast, SA</div>
+    </div>
+    <div class="foot-links">
+      <a href="index.html">Home</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="foot-copy">© 2026 LaafStyl (Pty) Ltd. Built in 🇿🇦 South Africa.</div>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20my%20business%20listed" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+function openMob()  { document.getElementById('mobOverlay').classList.add('open'); }
+function closeMob() { document.getElementById('mobOverlay').classList.remove('open'); }
+function closeMobOut(e) { if(e.target===document.getElementById('mobOverlay')) closeMob(); }
+</script>
+</body>
+</html>
