@@ -503,6 +503,14 @@ nav.solid {
 #cta { background:var(--bg); position:relative; overflow:hidden; padding:120px 0; }
 .cta-glow { position:absolute; inset:0; background:radial-gradient(ellipse 60% 80% at 50% 50%, rgba(0,120,71,.07), transparent); pointer-events:none; }
 .cta-grid-bg { position:absolute; inset:0; background-image:linear-gradient(rgba(0,120,71,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,120,71,.04) 1px,transparent 1px); background-size:48px 48px; mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,black,transparent); pointer-events:none; }
+/* views video sits behind the CTA content */
+.cta-video-bg { position:absolute; inset:0; z-index:0; overflow:hidden; }
+.cta-video-bg video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.12; filter:saturate(.4) brightness(.55); }
+.cta-video-bg::after { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 90% 100% at 50% 50%, rgba(15,15,15,.55) 0%, rgba(15,15,15,.92) 100%); z-index:1; }
+/* logo image in nav, mobile menu, footer */
+.logo-img { height:32px; width:auto; display:block; object-fit:contain; }
+.logo-img-sm { height:24px; width:auto; display:block; object-fit:contain; }
+.logo-img-mob { height:28px; width:auto; display:block; object-fit:contain; }
 .cta-inner { text-align:center; position:relative; z-index:1; max-width:660px; margin:0 auto; }
 .cta-inner .tag { justify-content:center; }
 .cta-title { font-family:var(--fh); font-size:clamp(38px,5vw,64px); font-weight:900; line-height:.9; letter-spacing:-.03em; color:var(--white); text-transform:uppercase; margin-bottom:18px; }
@@ -611,7 +619,7 @@ footer {
   padding:28px 0; position:relative; z-index:1;
 }
 .foot-inner { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; }
-.foot-brand { display:flex; align-items:center; gap:10px; }
+.foot-brand { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
 .foot-brand-name { font-family:var(--fh); font-weight:900; font-size:15px; color:var(--white); }
 .foot-sub { font-size:11px; color:var(--muted); margin-top:1px; }
 .foot-links { display:flex; gap:18px; flex-wrap:wrap; }
@@ -671,8 +679,7 @@ footer {
 ══════════════════════════════════ -->
 <nav id="nav">
   <a href="#home" class="nav-logo">
-    <div class="dot-strip"><span></span><span></span><span></span><span></span></div>
-    LaafWeb
+    <img src="logo.png" alt="LaafWeb" class="logo-img">
   </a>
   <ul class="nav-links">
     <li><a href="#how">How It Works</a></li>
@@ -695,7 +702,7 @@ footer {
 <div class="mob-overlay" id="mobOverlay" onclick="closeMobOut(event)">
   <div class="mob-panel">
     <div class="mob-head">
-      <div style="font-family:var(--fh);font-weight:900;font-size:1.1rem;color:var(--white)">LaafWeb</div>
+      <img src="logo.png" alt="LaafWeb" class="logo-img-mob">
       <button class="mob-x" onclick="closeMob()">✕</button>
     </div>
     <div class="mob-nav">
@@ -1154,6 +1161,12 @@ footer {
      FINAL CTA
 ══════════════════════════════════ -->
 <section id="cta">
+  <!-- views.mp4 plays silently behind the CTA -->
+  <div class="cta-video-bg">
+    <video autoplay muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="views.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="cta-glow"></div>
   <div class="cta-grid-bg"></div>
   <div class="container">
@@ -1174,38 +1187,14 @@ footer {
 </section>
 
 <!-- ══════════════════════════════════
-     VIEWS VIDEO
-══════════════════════════════════ -->
-<section id="views-section">
-  <div class="container">
-    <div class="views-inner">
-      <div class="views-label sr">See It in Action</div>
-      <h2 class="views-title sr">What a LaafWeb Site <em style="font-style:normal;background:linear-gradient(135deg,var(--green),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Looks Like</em></h2>
-      <p class="views-sub sr">Watch how local businesses on the West Coast are getting found, building trust, and receiving leads every day.</p>
-
-      <div class="video-card sr">
-        <video autoplay muted loop playsinline preload="auto" aria-label="LaafWeb site showcase">
-          <source src="views.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="views-stripe sr"><span></span><span></span><span></span><span></span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════
      FOOTER
 ══════════════════════════════════ -->
 <footer>
   <div class="container">
     <div class="foot-inner">
       <div class="foot-brand">
-        <div class="dot-strip"><span></span><span></span><span></span><span></span></div>
-        <div>
-          <div class="foot-brand-name">LaafWeb</div>
-          <div class="foot-sub">Part of the Laafstyl Ecosystem · West Coast, SA</div>
-        </div>
+        <img src="logo.png" alt="LaafWeb" class="logo-img-sm">
+        <div class="foot-sub">Part of the Laafstyl Ecosystem · West Coast, SA</div>
       </div>
       <div class="foot-links">
         <a href="#how">How It Works</a>
