@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us – LaafWeb</title>
+<meta name="description" content="Get in touch with LaafWeb. WhatsApp us to list your business or ask anything about the West Coast directory.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   LAAFWEB — CONTACT.HTML
+   Design system: LaafStyl dark theme
+   Primary CTA: WhatsApp
+═══════════════════════════════════════════ */
+
+:root {
+  --green:  #007847;
+  --green2: #00a85f;
+  --gold:   #FFB612;
+  --red:    #DE3831;
+  --blue:   #00AEEF;
+  --wa:     #25D366;
+  --bg:     #0f0f0f;
+  --bg2:    #161616;
+  --card:   #1c1c1c;
+  --card2:  #222222;
+  --input:  #161616;
+  --border: #2a2a2a;
+  --border2:#383838;
+  --muted:  #666;
+  --body:   #888;
+  --light:  #bbb;
+  --white:  #ffffff;
+  --radius: 18px;
+  --fh: 'Poppins', sans-serif;
+  --fb: 'Inter', sans-serif;
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+::-webkit-scrollbar { width:3px; }
+::-webkit-scrollbar-track { background:var(--bg); }
+::-webkit-scrollbar-thumb { background:var(--green); border-radius:2px; }
+
+body {
+  font-family: var(--fb);
+  background: var(--bg);
+  color: var(--body);
+  min-height: 100vh;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* noise texture */
+body::before {
+  content:'';
+  position:fixed; inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events:none; z-index:0;
+}
+
+/* orbs */
+.orb { position:fixed; border-radius:50%; filter:blur(140px); pointer-events:none; z-index:0; animation:drift 16s ease-in-out infinite alternate; }
+.orb-1 { width:500px; height:500px; background:var(--green); top:-200px; left:-150px; opacity:.08; }
+.orb-2 { width:400px; height:400px; background:var(--blue); bottom:-150px; right:-150px; opacity:.06; animation-delay:-7s; }
+@keyframes drift { from{transform:translate(0,0)} to{transform:translate(35px,25px)} }
+
+/* animations */
+@keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
+@keyframes pulse  { 0%,100%{opacity:1} 50%{opacity:.3} }
+@keyframes blink  { 0%,100%{box-shadow:0 0 6px rgba(222,56,49,.6)} 50%{box-shadow:0 0 14px rgba(222,56,49,1)} }
+
+/* reveal */
+.sr  { opacity:0; transform:translateY(22px); transition:opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1); }
+.sr.in { opacity:1; transform:none; }
+.d1{transition-delay:.08s} .d2{transition-delay:.16s} .d3{transition-delay:.24s}
+.d4{transition-delay:.32s} .d5{transition-delay:.40s} .d6{transition-delay:.48s}
+
+/* ═══ NAV ═══ */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  height:64px; display:flex; align-items:center; padding:0 36px;
+  background:rgba(15,15,15,.95); backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo { display:flex; align-items:center; text-decoration:none; }
+.logo-img  { height:32px; width:auto; display:block; object-fit:contain; }
+.nav-links { display:flex; align-items:center; gap:26px; margin-left:auto; list-style:none; }
+.nav-links a { font-size:.86rem; font-weight:500; color:var(--body); text-decoration:none; letter-spacing:.04em; transition:color .2s; position:relative; }
+.nav-links a:not(.nav-wa):hover { color:var(--white); }
+.nav-links a.active { color:var(--green2); }
+.nav-links a:not(.nav-wa):not(.active)::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:1.5px; background:var(--green); transition:width .25s; }
+.nav-links a:not(.nav-wa):hover::after { width:100%; }
+.nav-wa {
+  display:flex; align-items:center; gap:8px;
+  background:var(--wa); color:#fff !important;
+  padding:8px 18px; border-radius:8px;
+  font-weight:700 !important; font-size:.82rem !important;
+  box-shadow:0 4px 14px rgba(37,211,102,.25);
+  transition:background .2s, transform .2s, box-shadow .2s !important;
+}
+.nav-wa:hover { background:#1eb659 !important; transform:translateY(-1px) !important; box-shadow:0 6px 22px rgba(37,211,102,.4) !important; }
+.nav-wa::after { display:none !important; }
+.nav-mob { display:none; background:none; border:none; color:var(--white); cursor:pointer; margin-left:auto; padding:4px; }
+
+/* mobile overlay */
+.mob-overlay { display:none; position:fixed; inset:0; z-index:300; background:rgba(0,0,0,.75); backdrop-filter:blur(4px); }
+.mob-overlay.open { display:flex; }
+.mob-panel { width:280px; background:var(--bg2); border-right:1px solid var(--border2); padding:24px; display:flex; flex-direction:column; transform:translateX(-100%); transition:transform .35s cubic-bezier(.77,0,.18,1); }
+.mob-overlay.open .mob-panel { transform:translateX(0); }
+.mob-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:36px; }
+.mob-x { background:none; border:1px solid var(--border2); color:var(--white); width:32px; height:32px; border-radius:6px; cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center; }
+.logo-img-mob { height:28px; width:auto; object-fit:contain; }
+.mob-nav { display:flex; flex-direction:column; gap:4px; }
+.mob-nav a { display:block; padding:11px 14px; border-radius:8px; font-family:var(--fh); font-size:14px; font-weight:700; color:var(--light); text-decoration:none; text-transform:uppercase; letter-spacing:.04em; transition:background .2s, color .2s; }
+.mob-nav a:hover, .mob-nav a.active { background:rgba(0,120,71,.12); color:var(--white); }
+.mob-wa { margin-top:20px; display:flex; align-items:center; justify-content:center; gap:9px; padding:13px; background:var(--wa); color:#fff; border-radius:8px; font-family:var(--fh); font-size:13px; font-weight:700; text-decoration:none; text-transform:uppercase; letter-spacing:.08em; }
+
+/* ═══ HERO ═══ */
+.hero {
+  position:relative; padding:140px 36px 72px;
+  text-align:center; overflow:hidden; z-index:1;
+}
+.hero-bg {
+  position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 0%, rgba(0,120,71,.1) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 40% at 15% 85%, rgba(0,174,239,.07) 0%, transparent 55%),
+    radial-gradient(ellipse 30% 35% at 85% 60%, rgba(255,182,18,.05) 0%, transparent 50%);
+}
+.hero-pill {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(0,120,71,.1); border:1px solid rgba(0,120,71,.28);
+  color:var(--green2); font-size:.75rem; font-weight:700;
+  padding:5px 14px; border-radius:50px; margin-bottom:20px;
+  letter-spacing:.08em; text-transform:uppercase;
+  animation:fadeUp .5s ease both;
+}
+.pill-dot { width:7px; height:7px; border-radius:50%; background:var(--green2); animation:pulse 2s infinite; }
+.hero h1 {
+  font-family:var(--fh); font-size:clamp(2rem,4.5vw,3.2rem);
+  font-weight:900; line-height:1.05; color:var(--white);
+  letter-spacing:-.03em; margin-bottom:14px;
+  animation:fadeUp .5s ease .07s both;
+}
+.hero h1 em {
+  font-style:normal;
+  background:linear-gradient(135deg,var(--green2),var(--blue));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.hero-sub {
+  color:var(--body); font-size:1rem; max-width:480px; margin:0 auto 32px;
+  animation:fadeUp .5s ease .13s both;
+}
+/* primary WhatsApp hero button */
+.hero-wa-btn {
+  display:inline-flex; align-items:center; gap:10px;
+  background:var(--wa); color:#fff;
+  padding:15px 32px; border-radius:10px;
+  font-family:var(--fh); font-size:14px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  text-decoration:none; box-shadow:0 6px 24px rgba(37,211,102,.32);
+  transition:background .2s, transform .2s, box-shadow .2s;
+  animation:fadeUp .5s ease .2s both;
+}
+.hero-wa-btn:hover { background:#1eb659; transform:translateY(-2px); box-shadow:0 10px 32px rgba(37,211,102,.48); }
+.hero-note {
+  font-size:12px; color:var(--muted); margin-top:12px;
+  animation:fadeUp .5s ease .28s both;
+}
+.hero-note span { color:var(--green2); }
+
+/* ═══ MAIN LAYOUT ═══ */
+.container { max-width:1060px; margin:0 auto; padding:0 36px; }
+.page-wrap {
+  padding:0 36px 80px; max-width:1060px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:24px; align-items:start; position:relative; z-index:1;
+}
+
+/* ═══ FORM CARD ═══ */
+.form-card {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:32px;
+  position:relative; overflow:hidden;
+}
+.form-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--green),var(--blue)); }
+.form-title { font-family:var(--fh); font-size:1.1rem; font-weight:800; color:var(--white); margin-bottom:4px; }
+.form-sub   { color:var(--body); font-size:.85rem; margin-bottom:24px; }
+.form-row   { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px; }
+.field      { display:flex; flex-direction:column; gap:6px; margin-bottom:14px; }
+.field:last-of-type { margin-bottom:0; }
+
+label { font-size:.72rem; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; }
+
+input, select, textarea {
+  background:var(--input); border:1px solid var(--border);
+  border-radius:10px; color:var(--white);
+  font-family:var(--fb); font-size:.9rem;
+  padding:11px 14px; outline:none; width:100%;
+  transition:border-color .2s, box-shadow .2s;
+  -webkit-appearance:none;
+}
+input::placeholder, textarea::placeholder { color:var(--muted); }
+input:focus, select:focus, textarea:focus {
+  border-color:rgba(0,120,71,.6);
+  box-shadow:0 0 0 3px rgba(0,120,71,.1);
+}
+select {
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 14px center;
+  padding-right:36px; cursor:pointer;
+}
+select option { background:var(--card2); color:#fff; }
+textarea { resize:vertical; min-height:120px; line-height:1.65; }
+
+/* form submit — green primary */
+.btn-submit {
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  width:100%; background:linear-gradient(135deg,var(--green),#009958);
+  color:#fff; font-family:var(--fh); font-size:.9rem; font-weight:700;
+  border:none; border-radius:50px; padding:14px 24px;
+  cursor:pointer; margin-top:20px;
+  box-shadow:0 4px 20px rgba(0,120,71,.28);
+  transition:transform .22s, box-shadow .22s;
+}
+.btn-submit:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(0,120,71,.42); }
+.btn-arrow {
+  width:26px; height:26px; border-radius:50%;
+  background:rgba(255,255,255,.15);
+  display:inline-flex; align-items:center; justify-content:center;
+  flex-shrink:0; transition:transform .2s;
+}
+.btn-submit:hover .btn-arrow { transform:translateX(3px); }
+
+/* success state */
+.success-msg { display:none; text-align:center; padding:28px 16px; }
+.success-icon {
+  width:58px; height:58px; border-radius:50%;
+  background:rgba(0,120,71,.15); border:1.5px solid rgba(0,120,71,.4);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.5rem; margin:0 auto 14px; color:var(--green2);
+}
+.success-title { font-family:var(--fh); font-size:1.1rem; font-weight:800; color:var(--white); margin-bottom:6px; }
+.success-sub { color:var(--body); font-size:.85rem; }
+
+/* ═══ RIGHT SIDE ═══ */
+.right-side { display:flex; flex-direction:column; gap:14px; }
+
+/* WhatsApp featured card — top of right side */
+.wa-featured {
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+  background:linear-gradient(135deg,rgba(37,211,102,.1),rgba(0,120,71,.06));
+  border:1px solid rgba(37,211,102,.22); border-radius:var(--radius);
+  padding:28px 24px; gap:12px; text-decoration:none;
+  transition:transform .25s, box-shadow .25s, border-color .25s;
+  position:relative; overflow:hidden;
+}
+.wa-featured::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--wa),var(--green)); }
+.wa-featured:hover { transform:translateY(-4px); border-color:rgba(37,211,102,.4); box-shadow:0 16px 48px rgba(37,211,102,.12); }
+.wa-icon-wrap {
+  width:64px; height:64px; background:var(--wa); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 0 0 10px rgba(37,211,102,.12);
+}
+.wa-featured-title { font-family:var(--fh); font-size:1rem; font-weight:800; color:var(--white); }
+.wa-featured-sub   { font-size:.85rem; color:var(--body); max-width:260px; }
+.wa-featured-cta   {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--wa); color:#fff;
+  padding:10px 22px; border-radius:8px;
+  font-family:var(--fh); font-size:.82rem; font-weight:700;
+  letter-spacing:.08em; text-transform:uppercase;
+  box-shadow:0 4px 16px rgba(37,211,102,.3);
+  transition:background .2s, transform .2s;
+  margin-top:4px;
+}
+.wa-featured:hover .wa-featured-cta { background:#1eb659; transform:translateY(-1px); }
+.wa-response-badge {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:.72rem; font-weight:600; color:var(--green2);
+  background:rgba(0,120,71,.1); border:1px solid rgba(0,120,71,.2);
+  padding:3px 10px; border-radius:20px; letter-spacing:.06em;
+}
+
+/* channel cards */
+.channel-card {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:14px; padding:16px 20px;
+  display:flex; align-items:center; gap:14px;
+  text-decoration:none; color:var(--white);
+  transition:transform .25s, border-color .25s, box-shadow .25s;
+  position:relative; overflow:hidden;
+}
+.channel-card::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.025),transparent 60%);
+  opacity:0; transition:opacity .25s;
+}
+.channel-card:hover { transform:translateX(4px); border-color:var(--border2); box-shadow:0 8px 28px rgba(0,0,0,.25); }
+.channel-card:hover::after { opacity:1; }
+.ch-icon {
+  width:46px; height:46px; border-radius:10px;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.ch-green  { background:rgba(0,120,71,.15);    border:1px solid rgba(0,120,71,.28); }
+.ch-blue   { background:rgba(0,174,239,.12);   border:1px solid rgba(0,174,239,.25); }
+.ch-gold   { background:rgba(255,182,18,.12);  border:1px solid rgba(255,182,18,.25); }
+.ch-info { flex:1; }
+.ch-label { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:2px; }
+.ch-value { font-family:var(--fh); font-size:.92rem; font-weight:700; color:var(--white); }
+.ch-note  { font-size:.74rem; color:var(--muted); margin-top:1px; }
+.ch-chevron { color:var(--muted); transition:transform .2s, color .2s; flex-shrink:0; }
+.channel-card:hover .ch-chevron { transform:translateX(4px); color:var(--light); }
+
+/* office card */
+.office-card {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:14px; overflow:hidden;
+}
+.office-map { width:100%; height:160px; background:var(--card2); position:relative; overflow:hidden; }
+.office-map iframe { width:100%; height:100%; border:none; filter:grayscale(.6) brightness(.6) contrast(1.1); display:block; }
+.map-badge {
+  position:absolute; top:10px; left:10px;
+  background:rgba(20,20,20,.88); border:1px solid var(--border2);
+  border-radius:7px; padding:5px 10px;
+  font-size:.72rem; color:var(--body);
+  display:flex; align-items:center; gap:6px;
+  backdrop-filter:blur(4px);
+}
+.map-pin-dot { width:8px; height:8px; border-radius:50%; background:var(--red); animation:blink 2s infinite; flex-shrink:0; }
+.office-body { padding:16px 20px; }
+.office-name { font-family:var(--fh); font-size:.9rem; font-weight:700; color:var(--white); margin-bottom:4px; }
+.office-addr { font-size:.82rem; color:var(--body); line-height:1.6; }
+.office-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+.office-tag { font-size:.7rem; padding:3px 10px; border-radius:20px; background:var(--card2); border:1px solid var(--border); color:var(--muted); }
+
+/* ═══ SA DIVIDER ═══ */
+.sa-divider {
+  max-width:1060px; margin:0 auto 40px;
+  padding:0 36px;
+  display:flex; align-items:center; gap:14px;
+  position:relative; z-index:1;
+}
+.sa-line { flex:1; height:1px; background:var(--border); }
+.sa-flag { display:flex; gap:3px; align-items:center; }
+.sf { height:4px; border-radius:2px; opacity:.5; }
+
+/* ═══ FAQ ═══ */
+.faq-section { max-width:1060px; margin:0 auto 80px; padding:0 36px; position:relative; z-index:1; }
+.faq-hd { text-align:center; margin-bottom:32px; }
+.faq-hd h2 { font-family:var(--fh); font-size:clamp(1.4rem,2.5vw,1.9rem); font-weight:900; color:var(--white); margin-bottom:6px; letter-spacing:-.02em; }
+.faq-hd p  { font-size:.9rem; color:var(--body); }
+.faq-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(288px,1fr));
+  gap:14px;
+}
+.faq-item {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:14px; padding:20px;
+  transition:transform .25s, border-color .25s, box-shadow .25s;
+}
+.faq-item:hover { transform:translateY(-3px); border-color:var(--border2); box-shadow:0 10px 28px rgba(0,0,0,.25); }
+.faq-q {
+  font-family:var(--fh); font-size:.875rem; font-weight:700; color:var(--white);
+  margin-bottom:8px; display:flex; gap:10px; align-items:flex-start;
+}
+.faq-q-icon {
+  width:22px; height:22px; border-radius:6px;
+  background:rgba(0,120,71,.15); border:1px solid rgba(0,120,71,.28);
+  color:var(--green2); display:flex; align-items:center; justify-content:center;
+  font-size:.7rem; font-weight:800; flex-shrink:0; margin-top:1px;
+}
+.faq-a { font-size:.82rem; color:var(--body); line-height:1.65; }
+
+/* ═══ FOOTER ═══ */
+footer {
+  background:var(--bg2); border-top:1px solid var(--border);
+  padding:28px 0; position:relative; z-index:1;
+}
+.foot-inner {
+  max-width:1060px; margin:0 auto; padding:0 36px;
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;
+}
+.foot-brand { display:flex; align-items:center; gap:12px; }
+.logo-img-sm { height:24px; width:auto; object-fit:contain; }
+.foot-sub  { font-size:11px; color:var(--muted); }
+.foot-links { display:flex; gap:18px; flex-wrap:wrap; }
+.foot-links a { font-size:12px; color:var(--muted); text-decoration:none; transition:color .2s; }
+.foot-links a:hover { color:var(--green2); }
+.foot-copy { font-size:11px; color:var(--muted); }
+
+/* floating WhatsApp */
+.wa-float {
+  position:fixed; bottom:26px; right:26px; z-index:100;
+  width:56px; height:56px; background:var(--wa); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  text-decoration:none; box-shadow:0 4px 20px rgba(37,211,102,.45);
+  transition:transform .25s, box-shadow .25s;
+  animation:waRing 4s 6s infinite;
+}
+.wa-float:hover { transform:scale(1.12); animation:none; box-shadow:0 6px 30px rgba(37,211,102,.6); }
+@keyframes waRing {
+  0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}
+  50%{box-shadow:0 4px 36px rgba(37,211,102,.65),0 0 0 8px rgba(37,211,102,.07)}
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:900px){
+  nav { padding:0 20px; }
+  .nav-links { display:none; }
+  .nav-mob { display:flex; }
+  .hero { padding:120px 20px 56px; }
+  .page-wrap { grid-template-columns:1fr; padding:0 20px 64px; }
+  .right-side { order:-1; }
+  .sa-divider, .faq-section { padding:0 20px; }
+  .foot-inner { flex-direction:column; text-align:center; }
+  .foot-links { justify-content:center; }
+}
+@media(max-width:500px){
+  .form-row { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="LaafWeb" class="logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#directory">Directory</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+    <li>
+      <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20my%20business%20online" class="nav-wa" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp Us
+      </a>
+    </li>
+  </ul>
+  <button class="nav-mob" onclick="openMob()" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</nav>
+
+<!-- mobile menu -->
+<div class="mob-overlay" id="mobOverlay" onclick="closeMobOut(event)">
+  <div class="mob-panel">
+    <div class="mob-head">
+      <img src="logo.png" alt="LaafWeb" class="logo-img-mob">
+      <button class="mob-x" onclick="closeMob()">✕</button>
+    </div>
+    <div class="mob-nav">
+      <a href="index.html"           onclick="closeMob()">Home</a>
+      <a href="index.html#directory" onclick="closeMob()">Directory</a>
+      <a href="pricing.html"         onclick="closeMob()">Pricing</a>
+      <a href="contact.html" class="active" onclick="closeMob()">Contact</a>
+    </div>
+    <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20started" class="mob-wa" target="_blank" rel="noopener" onclick="closeMob()">
+      <svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      WhatsApp Us Now
+    </a>
+  </div>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pill sr"><span class="pill-dot"></span> We're here to help</div>
+  <h1 class="sr d1">Get in <em>Touch</em> With Us</h1>
+  <p class="hero-sub sr d2">Have a question, want to list your business, or need support? The fastest way to reach us is on WhatsApp — we respond within a few hours.</p>
+  <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20in%20touch" class="hero-wa-btn sr d3" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    WhatsApp Us — 063 669 1391
+  </a>
+  <div class="hero-note sr d4">Prefer email? <span>laafstylfamily@gmail.com</span> · We reply within 24 hours</div>
+</section>
+
+<!-- ═══ MAIN CONTENT ═══ -->
+<div class="page-wrap">
+
+  <!-- FORM CARD -->
+  <div class="form-card sr">
+    <div class="form-title">Send Us a Message</div>
+    <div class="form-sub">Prefer to write? Fill in the form and we'll get back to you within 24 hours.</div>
+
+    <form id="contactForm" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="field">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" placeholder="Johan" required>
+        </div>
+        <div class="field">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" placeholder="Smith" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="johan@example.co.za" required>
+      </div>
+
+      <div class="field">
+        <label for="phone">WhatsApp / Phone Number</label>
+        <input type="tel" id="phone" placeholder="+27 63 669 1391">
+      </div>
+
+      <div class="field">
+        <label for="subject">What Can We Help With?</label>
+        <select id="subject" required>
+          <option value="" disabled selected>Select a topic…</option>
+          <option>List My Business</option>
+          <option>Website &amp; Pricing Enquiry</option>
+          <option>Edit My Business Profile</option>
+          <option>Technical Support</option>
+          <option>Advertising &amp; Partnerships</option>
+          <option>General Enquiry</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="message">Your Message</label>
+        <textarea id="message" placeholder="Tell us how we can help…" required></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">
+        Send Message
+        <span class="btn-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </button>
+    </form>
+
+    <div class="success-msg" id="successMsg">
+      <div class="success-icon">✓</div>
+      <div class="success-title">Message Sent!</div>
+      <p class="success-sub">Thanks for reaching out. We'll get back to you within 24 hours — or WhatsApp us for a faster reply.</p>
+    </div>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="right-side">
+
+    <!-- PRIMARY: WhatsApp featured card -->
+    <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20in%20touch" class="wa-featured sr" target="_blank" rel="noopener">
+      <div class="wa-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="white" width="32" height="32"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      </div>
+      <div class="wa-response-badge">
+        <span class="pill-dot" style="width:6px;height:6px;border-radius:50%;background:var(--green2);animation:pulse 2s infinite;flex-shrink:0"></span>
+        Usually replies within 2 hours
+      </div>
+      <div class="wa-featured-title">Chat With Us on WhatsApp</div>
+      <div class="wa-featured-sub">The fastest way to get a quote, list your business, or ask anything about LaafWeb.</div>
+      <div class="wa-featured-cta">
+        <svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Open WhatsApp — 063 669 1391
+      </div>
+    </a>
+
+    <!-- Email -->
+    <a href="mailto:laafstylfamily@gmail.com" class="channel-card sr d1">
+      <div class="ch-icon ch-blue">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00AEEF" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div class="ch-info">
+        <div class="ch-label">Email</div>
+        <div class="ch-value" style="font-size:.84rem">laafstylfamily@gmail.com</div>
+        <div class="ch-note">Replies within 24 hours</div>
+      </div>
+      <svg class="ch-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+
+    <!-- Phone -->
+    <a href="tel:+27636691391" class="channel-card sr d2">
+      <div class="ch-icon ch-green">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00a85f" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.32 9.11a19.79 19.79 0 01-3.07-8.67A2 2 0 012.22 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.42a16 16 0 006.29 6.29l1.78-1.36a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      </div>
+      <div class="ch-info">
+        <div class="ch-label">Phone</div>
+        <div class="ch-value">063 669 1391</div>
+        <div class="ch-note">Mon – Fri, 8am – 5pm</div>
+      </div>
+      <svg class="ch-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+
+    <!-- Location -->
+    <a href="https://maps.google.com/?q=Saldanha,+West+Coast,+South+Africa" target="_blank" class="channel-card sr d3">
+      <div class="ch-icon ch-gold">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFB612" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="ch-info">
+        <div class="ch-label">Based In</div>
+        <div class="ch-value">Saldanha, West Coast</div>
+        <div class="ch-note">Western Cape, South Africa</div>
+      </div>
+      <svg class="ch-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+
+    <!-- Map card -->
+    <div class="office-card sr d4">
+      <div class="office-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52867.45!2d17.9441!3d-33.0118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc52c65a2a2413%3A0x6c59c5ee3b8d82de!2sSaldanha%2C%20Western%20Cape!5e0!3m2!1sen!2sza!4v1700000000000"
+          allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Saldanha, West Coast">
+        </iframe>
+        <div class="map-badge">
+          <div class="map-pin-dot"></div>
+          Saldanha, West Coast
+        </div>
+      </div>
+      <div class="office-body">
+        <div class="office-name">LaafWeb — West Coast, SA</div>
+        <div class="office-addr">Saldanha Bay, Western Cape<br>South Africa</div>
+        <div class="office-tags">
+          <span class="office-tag">Mon–Fri 8:00–17:00</span>
+          <span class="office-tag">WhatsApp preferred</span>
+          <span class="office-tag">Remote-first</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /right-side -->
+</div><!-- /page-wrap -->
+
+<!-- SA DIVIDER -->
+<div class="sa-divider">
+  <div class="sa-line"></div>
+  <div class="sa-flag">
+    <div class="sf" style="width:28px;background:var(--green)"></div>
+    <div class="sf" style="width:10px;background:var(--gold)"></div>
+    <div class="sf" style="width:28px;background:var(--red)"></div>
+    <div class="sf" style="width:10px;background:#fff;opacity:.18"></div>
+    <div class="sf" style="width:28px;background:var(--blue)"></div>
+  </div>
+  <div class="sa-line"></div>
+</div>
+
+<!-- ═══ FAQ ═══ -->
+<section class="faq-section">
+  <div class="faq-hd sr">
+    <h2>Frequently Asked Questions</h2>
+    <p>Quick answers to common questions about LaafWeb.</p>
+  </div>
+  <div class="faq-grid">
+    <div class="faq-item sr">
+      <div class="faq-q"><span class="faq-q-icon">Q</span>How do I list my business on LaafWeb?</div>
+      <p class="faq-a">WhatsApp us on 063 669 1391 to get started. We'll build your website and directory listing within 24 hours of receiving your details.</p>
+    </div>
+    <div class="faq-item sr d1">
+      <div class="faq-q"><span class="faq-q-icon">Q</span>What does a LaafWeb website cost?</div>
+      <p class="faq-a">Plans start from R200/month. A once-off R1,200 setup fee covers your domain, hosting, SSL, and business email. 14-day free trial available.</p>
+    </div>
+    <div class="faq-item sr d2">
+      <div class="faq-q"><span class="faq-q-icon">Q</span>Can I update my business information?</div>
+      <p class="faq-a">Yes — WhatsApp us any time with your updated details and we'll make changes same day. Growth and Pro plans include monthly or weekly updates.</p>
+    </div>
+    <div class="faq-item sr d3">
+      <div class="faq-q"><span class="faq-q-icon">Q</span>Do you only cover the West Coast?</div>
+      <p class="faq-a">For now we're focused on the West Coast — Saldanha, Vredenburg, Langebaan, Velddrif and surrounding towns. We're expanding soon.</p>
+    </div>
+    <div class="faq-item sr d4">
+      <div class="faq-q"><span class="faq-q-icon">Q</span>How do payments work?</div>
+      <p class="faq-a">Monthly subscriptions are processed securely through PayFast. We never store your card details. Cancel any time with no penalties.</p>
+    </div>
+    <div class="faq-item sr d5">
+      <div class="faq-q"><span class="faq-q-icon">Q</span>What if I want to cancel?</div>
+      <p class="faq-a">Just WhatsApp us. Cancellations take effect at the end of the current billing month — no fees, no hassle. You can export your content before leaving.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <img src="logo.png" alt="LaafWeb" class="logo-img-sm">
+      <div class="foot-sub">Part of the Laafstyl Ecosystem · West Coast, SA</div>
+    </div>
+    <div class="foot-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#directory">Directory</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="foot-copy">© 2026 LaafStyl (Pty) Ltd. Built in 🇿🇦 South Africa.</div>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20in%20touch" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+// scroll reveal
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold:.08, rootMargin:'0px 0px -24px 0px' });
+document.querySelectorAll('.sr').forEach(el => ro.observe(el));
+
+// mobile menu
+function openMob()  { document.getElementById('mobOverlay').classList.add('open'); }
+function closeMob() { document.getElementById('mobOverlay').classList.remove('open'); }
+function closeMobOut(e) { if (e.target === document.getElementById('mobOverlay')) closeMob(); }
+
+// form submit — shows success state
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('successMsg');
+  const btn = form.querySelector('.btn-submit');
+  btn.innerHTML = 'Sending…';
+  btn.disabled = true;
+  setTimeout(() => {
+    form.style.display = 'none';
+    success.style.display = 'block';
+  }, 1200);
+}
+</script>
+</body>
+</html>
