@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Directory — West Coast South Africa | LaafWeb</title>
+<meta name="description" content="Browse local businesses on the West Coast of South Africa. Find restaurants, accommodation, home services, beauty salons, transport and more in Saldanha, Langebaan, Vredenburg & beyond.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   LAAFWEB — DIRECTORY.HTML
+   Design system: LaafStyl dark theme
+   Primary CTA: WhatsApp
+   Fonts: Poppins (headings) + Inter (body)
+═══════════════════════════════════════════ */
+
+:root {
+  --green:  #007847;
+  --green2: #00a85f;
+  --gold:   #FFB612;
+  --red:    #DE3831;
+  --blue:   #00AEEF;
+  --wa:     #25D366;
+  --bg:     #0f0f0f;
+  --bg2:    #161616;
+  --card:   #1c1c1c;
+  --card2:  #222222;
+  --border: #2a2a2a;
+  --border2:#333333;
+  --muted:  #666;
+  --body:   #888;
+  --light:  #bbb;
+  --white:  #ffffff;
+  --radius: 18px;
+  --fh: 'Poppins', sans-serif;
+  --fb: 'Inter', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--green); border-radius: 2px; }
+
+body {
+  background: var(--bg);
+  color: var(--body);
+  font-family: var(--fb);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* noise texture overlay */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 0;
+}
+
+/* ─── ORB BACKGROUNDS ─── */
+.orb { position: fixed; border-radius: 50%; filter: blur(140px); pointer-events: none; z-index: 0; animation: drift 16s ease-in-out infinite alternate; }
+.orb-1 { width: 600px; height: 600px; background: var(--green); top: -250px; right: -200px; opacity: .07; animation-delay: 0s; }
+.orb-2 { width: 450px; height: 450px; background: var(--gold); bottom: -200px; left: -150px; opacity: .06; animation-delay: -7s; }
+.orb-3 { width: 350px; height: 350px; background: var(--blue); top: 40%; left: 40%; opacity: .04; animation-delay: -3s; }
+@keyframes drift { from { transform: translate(0,0) } to { transform: translate(40px, 30px) } }
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp   { from { opacity:0; transform:translateY(28px) } to { opacity:1; transform:none } }
+@keyframes fadeIn   { from { opacity:0 } to { opacity:1 } }
+@keyframes shimmer  { 0% { background-position:200% center } 100% { background-position:-200% center } }
+@keyframes pulse    { 0%,100% { opacity:.7; transform:scale(1) } 50% { opacity:1; transform:scale(1.1) } }
+@keyframes waRing   { 0%,100% { box-shadow:0 4px 20px rgba(37,211,102,.4) } 50% { box-shadow:0 4px 36px rgba(37,211,102,.65), 0 0 0 8px rgba(37,211,102,.07) } }
+@keyframes gridMove { from { background-position:0 0 } to { background-position:44px 44px } }
+@keyframes ticker   { from { transform:translateX(0) } to { transform:translateX(-50%) } }
+@keyframes spin     { to { transform: rotate(360deg) } }
+
+/* scroll reveal */
+.sr  { opacity:0; transform:translateY(26px); transition:opacity .65s cubic-bezier(.16,1,.3,1), transform .65s cubic-bezier(.16,1,.3,1); }
+.srl { opacity:0; transform:translateX(-26px); transition:opacity .65s cubic-bezier(.16,1,.3,1), transform .65s cubic-bezier(.16,1,.3,1); }
+.srr { opacity:0; transform:translateX(26px);  transition:opacity .65s cubic-bezier(.16,1,.3,1), transform .65s cubic-bezier(.16,1,.3,1); }
+.sr.in, .srl.in, .srr.in { opacity:1; transform:none; }
+.d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}
+.d4{transition-delay:.24s}.d5{transition-delay:.30s}.d6{transition-delay:.36s}
+.d7{transition-delay:.42s}.d8{transition-delay:.48s}.d9{transition-delay:.54s}
+.d10{transition-delay:.60s}.d11{transition-delay:.66s}.d12{transition-delay:.72s}
+
+/* ─── LAYOUT ─── */
+.container { max-width: 1140px; margin: 0 auto; padding: 0 36px; }
+
+/* ─── SHARED TYPOGRAPHY ─── */
+.tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--green); margin-bottom: 14px;
+}
+.tag::before { content:''; width:14px; height:1.5px; background:var(--green); flex-shrink:0; }
+
+.sec-title {
+  font-family: var(--fh);
+  font-size: clamp(32px, 3.6vw, 52px);
+  font-weight: 900;
+  line-height: .94;
+  letter-spacing: -.03em;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.sec-title em { font-style:normal; background:linear-gradient(135deg,var(--green),var(--blue)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+
+/* ─── DOT STRIP ─── */
+.dot-strip { display:flex; gap:4px; }
+.dot-strip span { width:8px; height:8px; border-radius:50%; }
+.dot-strip span:nth-child(1){background:var(--green)}
+.dot-strip span:nth-child(2){background:var(--gold)}
+.dot-strip span:nth-child(3){background:var(--red)}
+.dot-strip span:nth-child(4){background:var(--blue)}
+
+/* ─── BUTTONS ─── */
+.btn-wa {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--wa); color: #fff;
+  padding: 14px 28px; border-radius: 10px;
+  font-family: var(--fh); font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  text-decoration: none; border: none; cursor: pointer;
+  box-shadow: 0 6px 24px rgba(37,211,102,.3);
+  transition: background .2s, transform .2s, box-shadow .2s;
+}
+.btn-wa:hover { background:#1eb659; transform:translateY(-2px); box-shadow:0 10px 32px rgba(37,211,102,.45); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: transparent; color: var(--light);
+  padding: 14px 28px; border-radius: 10px;
+  font-family: var(--fh); font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  text-decoration: none; border: 1.5px solid var(--border2); cursor: pointer;
+  transition: border-color .2s, color .2s, transform .2s;
+}
+.btn-outline:hover { border-color: var(--green); color: var(--white); transform: translateY(-2px); }
+
+/* ── LOGO SIZES ── */
+.logo-img { height:32px; width:auto; display:block; object-fit:contain; }
+.logo-img-sm { height:24px; width:auto; display:block; object-fit:contain; }
+.logo-img-mob { height:28px; width:auto; display:block; object-fit:contain; }
+
+/* ══════════════════════════════════
+   NAV
+══════════════════════════════════ */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index: 200;
+  height: 64px; display: flex; align-items: center; padding: 0 36px;
+  border-bottom: 1px solid transparent;
+  transition: background .4s, border-color .4s, backdrop-filter .4s;
+}
+nav.solid {
+  background: rgba(15,15,15,.95);
+  backdrop-filter: blur(18px);
+  border-bottom-color: var(--border);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+  font-family: var(--fh); font-weight: 900; font-size: 1.3rem; color: var(--white);
+}
+.nav-links { display:flex; align-items:center; gap:26px; margin-left:auto; list-style:none; }
+.nav-links a { font-size:.86rem; font-weight:500; color:var(--body); text-decoration:none; letter-spacing:.04em; transition:color .2s; position:relative; }
+.nav-links a:not(.nav-wa):hover { color:var(--white); }
+.nav-links a:not(.nav-wa)::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:1.5px; background:var(--green); transition:width .25s; }
+.nav-links a:not(.nav-wa):hover::after { width:100%; }
+.nav-links a.active { color: var(--white); }
+.nav-links a.active::after { width:100%; }
+.nav-wa {
+  display: flex; align-items:center; gap:8px;
+  background: var(--wa); color: #fff !important;
+  padding: 8px 18px; border-radius: 8px;
+  font-weight: 700 !important; font-size:.82rem !important;
+  box-shadow:0 4px 14px rgba(37,211,102,.25);
+  transition: background .2s, transform .2s, box-shadow .2s !important;
+}
+.nav-wa:hover { background:#1eb659 !important; transform:translateY(-1px) !important; box-shadow:0 6px 22px rgba(37,211,102,.4) !important; }
+.nav-wa::after { display:none !important; }
+.nav-mob { display:none; background:none; border:none; color:var(--white); cursor:pointer; margin-left:auto; padding:4px; }
+
+/* mobile overlay */
+.mob-overlay { display:none; position:fixed; inset:0; z-index:300; background:rgba(0,0,0,.75); backdrop-filter:blur(4px); }
+.mob-overlay.open { display:flex; }
+.mob-panel { width:280px; background:var(--bg2); border-right:1px solid var(--border2); padding:24px; display:flex; flex-direction:column; transform:translateX(-100%); transition:transform .35s cubic-bezier(.77,0,.18,1); }
+.mob-overlay.open .mob-panel { transform:translateX(0); }
+.mob-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:36px; }
+.mob-x { background:none; border:1px solid var(--border2); color:var(--white); width:32px; height:32px; border-radius:6px; cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center; }
+.mob-nav { display:flex; flex-direction:column; gap:4px; }
+.mob-nav a { display:block; padding:11px 14px; border-radius:8px; font-family:var(--fh); font-size:14px; font-weight:700; color:var(--light); text-decoration:none; text-transform:uppercase; letter-spacing:.04em; transition:background .2s, color .2s; }
+.mob-nav a:hover { background:rgba(0,120,71,.12); color:var(--white); }
+.mob-wa { margin-top:20px; display:flex; align-items:center; justify-content:center; gap:9px; padding:13px; background:var(--wa); color:#fff; border-radius:8px; font-family:var(--fh); font-size:13px; font-weight:700; text-decoration:none; text-transform:uppercase; letter-spacing:.08em; }
+
+/* ══════════════════════════════════
+   DIRECTORY HERO
+══════════════════════════════════ */
+#dir-hero {
+  padding-top: 64px;
+  min-height: 380px;
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+  background: var(--bg2);
+}
+
+.dir-hero-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(0,120,71,.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0,120,71,.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+  animation: gridMove 20s linear infinite;
+  mask-image: radial-gradient(ellipse 80% 90% at 50% 60%, black, transparent 100%);
+  pointer-events: none; z-index: 0;
+}
+
+.dir-hero-inner {
+  position: relative; z-index: 2;
+  width: 100%;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 60px 0 52px;
+}
+
+.dir-hero-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px; border-radius: 20px;
+  background: rgba(0,120,71,.1); border: 1px solid rgba(0,120,71,.25);
+  font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--green2);
+  margin-bottom: 20px;
+  opacity:0; animation: fadeUp .6s .3s forwards;
+}
+.dir-hero-pill .pdot { width:6px; height:6px; background:var(--green2); border-radius:50%; animation: pulse 2s infinite; }
+
+.dir-hero-h {
+  font-family: var(--fh);
+  font-size: clamp(38px, 5vw, 70px);
+  font-weight: 900;
+  line-height: .9;
+  letter-spacing: -.04em;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  opacity:0; animation: fadeUp .7s .45s forwards;
+}
+.dir-hero-h .grad {
+  background: linear-gradient(135deg, var(--green) 0%, var(--blue) 55%, var(--green2) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  animation: shimmer 5s linear infinite 1.5s;
+}
+
+.dir-hero-sub {
+  font-size: 16px; color: var(--light); line-height: 1.7; font-weight: 300;
+  max-width: 500px; margin: 0 auto 36px;
+  opacity:0; animation: fadeUp .6s .6s forwards;
+}
+
+/* ─── SEARCH BAR ─── */
+.search-wrap {
+  width: 100%; max-width: 680px;
+  opacity:0; animation: fadeUp .6s .75s forwards;
+}
+.search-bar {
+  display: flex; align-items: center;
+  background: var(--card); border: 1.5px solid var(--border2);
+  border-radius: 14px; overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,.4);
+  transition: border-color .25s, box-shadow .25s;
+}
+.search-bar:focus-within {
+  border-color: rgba(0,120,71,.5);
+  box-shadow: 0 8px 32px rgba(0,0,0,.4), 0 0 0 3px rgba(0,120,71,.1);
+}
+.search-icon {
+  padding: 0 16px;
+  display: flex; align-items: center;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+.search-input {
+  flex: 1; background: transparent; border: none; outline: none;
+  font-family: var(--fb); font-size: 15px; color: var(--white);
+  padding: 16px 0;
+}
+.search-input::placeholder { color: var(--muted); }
+.search-btn {
+  background: var(--green); color: #fff;
+  border: none; cursor: pointer;
+  padding: 14px 24px;
+  font-family: var(--fh); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  display: flex; align-items: center; gap: 8px;
+  transition: background .2s;
+  flex-shrink: 0;
+  margin: 5px; border-radius: 10px;
+}
+.search-btn:hover { background: var(--green2); }
+
+/* search meta */
+.search-meta {
+  display: flex; align-items: center; gap: 12px; justify-content: center;
+  margin-top: 14px; flex-wrap: wrap;
+  opacity:0; animation: fadeUp .5s .92s forwards;
+}
+.search-meta-tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; color: var(--muted); letter-spacing: .04em;
+}
+.search-meta-tag::before { content:''; width:4px; height:4px; border-radius:50%; background:var(--green); flex-shrink:0; }
+
+/* ─── CATEGORY PILLS ─── */
+.cat-row {
+  display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+  padding: 28px 36px 0;
+  max-width: 900px; margin: 0 auto;
+  opacity:0; animation: fadeUp .6s .88s forwards;
+}
+.cat-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 16px; border-radius: 50px;
+  font-family: var(--fh); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  background: var(--card); border: 1px solid var(--border2); color: var(--body);
+  cursor: pointer; transition: all .2s; white-space: nowrap;
+  user-select: none;
+}
+.cat-pill:hover { border-color: var(--green); color: var(--white); background: rgba(0,120,71,.08); }
+.cat-pill.active {
+  background: var(--green); border-color: var(--green); color: #fff;
+  box-shadow: 0 4px 16px rgba(0,120,71,.3);
+}
+.cat-pill .cat-count {
+  background: rgba(255,255,255,.15); border-radius: 10px;
+  padding: 1px 6px; font-size: 9px; font-weight: 700;
+}
+.cat-pill.active .cat-count { background: rgba(255,255,255,.25); }
+
+/* ══════════════════════════════════
+   STATS TICKER
+══════════════════════════════════ */
+.ticker-wrap {
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(0,120,71,.1), rgba(0,174,239,.07), rgba(0,120,71,.1));
+  border-top: 1px solid rgba(0,120,71,.15);
+  border-bottom: 1px solid rgba(0,120,71,.15);
+  position: relative; z-index: 1;
+}
+.ticker-inner { background: rgba(15,15,15,.7); backdrop-filter:blur(8px); }
+.ticker-track { display:flex; animation:ticker 30s linear infinite; white-space:nowrap; }
+.ticker-track:hover { animation-play-state:paused; }
+.tick-item { display:inline-flex; align-items:center; gap:9px; padding:10px 28px; font-family:var(--fh); font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--light); }
+.tick-sep { width:4px; height:4px; background:var(--green); border-radius:50%; opacity:.6; }
+
+/* ══════════════════════════════════
+   DIRECTORY SECTION
+══════════════════════════════════ */
+#directory {
+  padding: 72px 0;
+  position: relative; z-index: 1;
+}
+
+/* results bar */
+.results-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 32px; flex-wrap: wrap; gap: 12px;
+}
+.results-count {
+  font-size: 13px; color: var(--muted);
+}
+.results-count strong { color: var(--white); font-weight: 600; }
+.results-sort {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; color: var(--muted);
+}
+.sort-select {
+  background: var(--card); border: 1px solid var(--border2); color: var(--light);
+  padding: 6px 12px; border-radius: 7px; font-size: 12px; font-family: var(--fb);
+  outline: none; cursor: pointer;
+  transition: border-color .2s;
+}
+.sort-select:focus { border-color: var(--green); }
+
+/* ─── BUSINESS GRID ─── */
+.biz-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+}
+
+/* ─── BUSINESS CARD ─── */
+.biz-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform .25s, border-color .25s, box-shadow .25s;
+  display: flex; flex-direction: column;
+}
+.biz-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0,120,71,.3);
+  box-shadow: 0 18px 52px rgba(0,0,0,.4);
+}
+.biz-card.hidden { display: none; }
+
+.biz-banner {
+  height: 82px;
+  display: flex; align-items: center; justify-content: center; font-size: 36px;
+  position: relative; overflow: hidden;
+  flex-shrink: 0;
+}
+.biz-banner-tag {
+  position: absolute; top: 10px; right: 10px;
+  background: rgba(0,0,0,.5); backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 6px; padding: 3px 7px;
+  font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.7);
+}
+
+.biz-body { padding: 18px 16px 14px; display: flex; flex-direction: column; flex: 1; }
+.biz-cat {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 9px; border-radius: 20px;
+  font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  margin-bottom: 8px; width: fit-content;
+}
+.biz-name {
+  font-family: var(--fh); font-size: 15px; font-weight: 800; color: var(--white);
+  margin-bottom: 4px; line-height: 1.2;
+}
+.biz-loc {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 11.5px; color: var(--muted); margin-bottom: 10px;
+}
+.biz-loc svg { width:11px; height:11px; flex-shrink:0; }
+.biz-desc {
+  font-size: 12.5px; line-height: 1.55; color: var(--body);
+  margin-bottom: 14px; flex: 1;
+}
+.biz-actions { display: flex; gap: 6px; margin-top: auto; }
+.biz-btn {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 5px;
+  padding: 8px 4px; border-radius: 7px;
+  font-size: 11px; font-weight: 600; text-decoration: none; cursor: pointer; border: none;
+  transition: transform .15s, background .15s; white-space: nowrap;
+}
+.bb-call { background:rgba(0,174,239,.1);  border:1px solid rgba(0,174,239,.22);  color:var(--blue); }
+.bb-call:hover { background:rgba(0,174,239,.2); transform:translateY(-1px); }
+.bb-wa   { background:rgba(37,211,102,.1); border:1px solid rgba(37,211,102,.22); color:#4de88a; }
+.bb-wa:hover   { background:rgba(37,211,102,.2); transform:translateY(-1px); }
+.bb-web  { background:rgba(0,120,71,.1);   border:1px solid rgba(0,120,71,.22);   color:var(--green2); }
+.bb-web:hover  { background:rgba(0,120,71,.2); transform:translateY(-1px); }
+.biz-btn svg { width:11px; height:11px; flex-shrink:0; }
+
+/* ─── EMPTY STATE ─── */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center; padding: 80px 20px;
+  display: none;
+}
+.empty-state.show { display: block; }
+.empty-icon { font-size: 52px; margin-bottom: 16px; opacity: .5; }
+.empty-title { font-family: var(--fh); font-size: 22px; font-weight: 800; color: var(--white); margin-bottom: 8px; }
+.empty-sub { font-size: 14px; color: var(--body); margin-bottom: 24px; }
+
+/* ─── LOAD MORE ─── */
+.load-more-wrap {
+  text-align: center; margin-top: 52px;
+}
+.load-more-wrap.hidden { display: none; }
+
+/* ══════════════════════════════════
+   LIST YOUR BUSINESS CTA
+══════════════════════════════════ */
+#list-cta {
+  background: var(--bg2);
+  padding: 96px 0;
+  position: relative; overflow: hidden;
+}
+.list-cta-grid-bg {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(0,120,71,.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0,120,71,.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black, transparent);
+  pointer-events: none;
+}
+.list-cta-glow {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(0,120,71,.06), transparent);
+  pointer-events: none;
+}
+.list-cta-inner {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.list-cta-left .tag { display: flex; }
+.cta-title {
+  font-family: var(--fh); font-size: clamp(32px, 4vw, 56px);
+  font-weight: 900; line-height: .9; letter-spacing: -.035em;
+  color: var(--white); text-transform: uppercase; margin-bottom: 16px;
+}
+.cta-title em { font-style:normal; background:linear-gradient(135deg,var(--green),var(--blue)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.cta-sub { font-size: 15px; line-height: 1.75; color: var(--body); margin-bottom: 32px; }
+.cta-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.cta-note { font-size: 12px; color: var(--muted); margin-top: 14px; }
+.cta-note span { color: var(--green2); }
+
+/* perks list */
+.perks-card {
+  background: var(--card); border: 1px solid var(--border2); border-radius: var(--radius);
+  padding: 34px; box-shadow: 0 24px 64px rgba(0,0,0,.45);
+  position: relative; overflow: hidden;
+}
+.perks-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--green),var(--blue)); }
+.perks-list { display: flex; flex-direction: column; gap: 0; }
+.perk-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 16px 0; border-bottom: 1px solid var(--border);
+  transition: padding-left .2s; cursor: default;
+}
+.perk-item:first-child { padding-top: 0; }
+.perk-item:last-child { border-bottom: none; padding-bottom: 0; }
+.perk-item:hover { padding-left: 4px; }
+.perk-ico {
+  width: 40px; height: 40px; flex-shrink: 0;
+  background: rgba(0,120,71,.1); border: 1px solid rgba(0,120,71,.2); border-radius: 9px;
+  display: flex; align-items: center; justify-content: center; font-size: 18px;
+  transition: background .25s;
+}
+.perk-item:hover .perk-ico { background: var(--green); }
+.perk-title { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 2px; }
+.perk-desc  { font-size: 12.5px; line-height: 1.55; }
+
+/* ══════════════════════════════════
+   FOOTER
+══════════════════════════════════ */
+footer {
+  background: var(--bg2); border-top: 1px solid var(--border);
+  padding: 28px 0; position: relative; z-index: 1;
+}
+.foot-inner { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; }
+.foot-brand { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.foot-brand-name { font-family:var(--fh); font-weight:900; font-size:15px; color:var(--white); }
+.foot-sub { font-size:11px; color:var(--muted); margin-top:1px; }
+.foot-links { display:flex; gap:18px; flex-wrap:wrap; }
+.foot-links a { font-size:12px; color:var(--muted); text-decoration:none; transition:color .2s; }
+.foot-links a:hover { color:var(--green2); }
+.foot-copy { font-size:11px; color:var(--muted); }
+
+/* ══════════════════════════════════
+   FLOATING WHATSAPP
+══════════════════════════════════ */
+.wa-float {
+  position:fixed; bottom:26px; right:26px; z-index:100;
+  width:56px; height:56px; background:var(--wa); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  text-decoration:none; box-shadow:0 4px 20px rgba(37,211,102,.45);
+  transition:transform .25s, box-shadow .25s;
+  animation: waRing 4s 6s infinite;
+}
+.wa-float:hover { transform:scale(1.12); animation:none; box-shadow:0 6px 30px rgba(37,211,102,.6); }
+
+/* ══════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════ */
+@media(max-width:1060px){
+  .biz-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media(max-width:900px){
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .nav-mob { display: flex; }
+  .container { padding: 0 20px; }
+  .list-cta-inner { grid-template-columns: 1fr; gap: 44px; }
+  .foot-inner { flex-direction: column; text-align: center; }
+  .foot-links { justify-content: center; }
+  .cat-row { padding: 24px 20px 0; }
+}
+@media(max-width:600px){
+  .biz-grid { grid-template-columns: 1fr; }
+  .results-bar { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<!-- ══════════════════════════════════
+     NAV
+══════════════════════════════════ -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="LaafWeb" class="logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#how">How It Works</a></li>
+    <li><a href="directory.html" class="active">Directory</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="index.html#ecosystem">Ecosystem</a></li>
+    <li>
+      <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20my%20business%20online" class="nav-wa" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp Us
+      </a>
+    </li>
+  </ul>
+  <button class="nav-mob" onclick="openMob()" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</nav>
+
+<!-- mobile overlay -->
+<div class="mob-overlay" id="mobOverlay" onclick="closeMobOut(event)">
+  <div class="mob-panel">
+    <div class="mob-head">
+      <img src="logo.png" alt="LaafWeb" class="logo-img-mob">
+      <button class="mob-x" onclick="closeMob()">✕</button>
+    </div>
+    <div class="mob-nav">
+      <a href="index.html#how"     onclick="closeMob()">How It Works</a>
+      <a href="directory.html"     onclick="closeMob()">Directory</a>
+      <a href="index.html#pricing" onclick="closeMob()">Pricing</a>
+      <a href="index.html#ecosystem" onclick="closeMob()">Ecosystem</a>
+    </div>
+    <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20started" class="mob-wa" target="_blank" rel="noopener" onclick="closeMob()">
+      <svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      WhatsApp Us Now
+    </a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     DIRECTORY HERO
+══════════════════════════════════ -->
+<section id="dir-hero">
+  <div class="dir-hero-grid"></div>
+  <div class="container">
+    <div class="dir-hero-inner">
+      <div class="dir-hero-pill"><span class="pdot"></span> West Coast South Africa · 12+ Local Businesses</div>
+      <h1 class="dir-hero-h">
+        West Coast<br><span class="grad">Business</span><br>Directory
+      </h1>
+      <p class="dir-hero-sub">Find trusted local businesses in Saldanha, Langebaan, Vredenburg, Velddrif and beyond.</p>
+
+      <!-- Search Bar -->
+      <div class="search-wrap">
+        <div class="search-bar">
+          <span class="search-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </span>
+          <input type="text" class="search-input" id="searchInput" placeholder="Search businesses, services, locations…" autocomplete="off">
+          <button class="search-btn" onclick="doSearch()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Search
+          </button>
+        </div>
+        <div class="search-meta">
+          <span class="search-meta-tag">Saldanha</span>
+          <span class="search-meta-tag">Langebaan</span>
+          <span class="search-meta-tag">Vredenburg</span>
+          <span class="search-meta-tag">Velddrif</span>
+          <span class="search-meta-tag">Paternoster</span>
+        </div>
+      </div>
+
+      <!-- Category Pills -->
+      <div class="cat-row" id="catRow">
+        <button class="cat-pill active" data-cat="all" onclick="filterCat(this,'all')">🌍 All <span class="cat-count">12</span></button>
+        <button class="cat-pill" data-cat="food" onclick="filterCat(this,'food')">🍽️ Food &amp; Dining <span class="cat-count">2</span></button>
+        <button class="cat-pill" data-cat="accommodation" onclick="filterCat(this,'accommodation')">🛏️ Accommodation <span class="cat-count">2</span></button>
+        <button class="cat-pill" data-cat="home" onclick="filterCat(this,'home')">🔧 Home Services <span class="cat-count">2</span></button>
+        <button class="cat-pill" data-cat="beauty" onclick="filterCat(this,'beauty')">💇 Beauty &amp; Hair <span class="cat-count">1</span></button>
+        <button class="cat-pill" data-cat="transport" onclick="filterCat(this,'transport')">🚐 Transport <span class="cat-count">2</span></button>
+        <button class="cat-pill" data-cat="construction" onclick="filterCat(this,'construction')">🏗️ Construction <span class="cat-count">1</span></button>
+        <button class="cat-pill" data-cat="retail" onclick="filterCat(this,'retail')">🛒 Retail <span class="cat-count">1</span></button>
+        <button class="cat-pill" data-cat="health" onclick="filterCat(this,'health')">🏥 Health <span class="cat-count">1</span></button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <div class="ticker-track">
+      <span class="tick-item">142 Businesses Listed <span class="tick-sep"></span></span>
+      <span class="tick-item">Saldanha Bay <span class="tick-sep"></span></span>
+      <span class="tick-item">Langebaan <span class="tick-sep"></span></span>
+      <span class="tick-item">Vredenburg <span class="tick-sep"></span></span>
+      <span class="tick-item">Velddrif <span class="tick-sep"></span></span>
+      <span class="tick-item">Paternoster <span class="tick-sep"></span></span>
+      <span class="tick-item">St Helena Bay <span class="tick-sep"></span></span>
+      <span class="tick-item">2.4k+ Leads Generated <span class="tick-sep"></span></span>
+      <span class="tick-item">List Your Business Free <span class="tick-sep"></span></span>
+      <span class="tick-item">WhatsApp 063 669 1391 <span class="tick-sep"></span></span>
+      <span class="tick-item">142 Businesses Listed <span class="tick-sep"></span></span>
+      <span class="tick-item">Saldanha Bay <span class="tick-sep"></span></span>
+      <span class="tick-item">Langebaan <span class="tick-sep"></span></span>
+      <span class="tick-item">Vredenburg <span class="tick-sep"></span></span>
+      <span class="tick-item">Velddrif <span class="tick-sep"></span></span>
+      <span class="tick-item">Paternoster <span class="tick-sep"></span></span>
+      <span class="tick-item">St Helena Bay <span class="tick-sep"></span></span>
+      <span class="tick-item">2.4k+ Leads Generated <span class="tick-sep"></span></span>
+      <span class="tick-item">List Your Business Free <span class="tick-sep"></span></span>
+      <span class="tick-item">WhatsApp 063 669 1391 <span class="tick-sep"></span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     DIRECTORY GRID
+══════════════════════════════════ -->
+<section id="directory">
+  <div class="container">
+
+    <div class="results-bar">
+      <div class="results-count">Showing <strong id="resultCount">12</strong> businesses in <strong id="resultCat">All Categories</strong></div>
+      <div class="results-sort">
+        <span>Sort by:</span>
+        <select class="sort-select" onchange="sortCards(this.value)">
+          <option value="default">Featured</option>
+          <option value="name">Name A–Z</option>
+          <option value="cat">Category</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="biz-grid" id="bizGrid">
+
+      <!-- ── CARD 1: Food & Dining ── -->
+      <div class="biz-card sr" data-cat="food" data-name="Saldanha Fish & Chips" data-loc="Saldanha">
+        <div class="biz-banner" style="background:linear-gradient(135deg,#1a3a1a,#0f2a1a)">
+          🐟
+          <span class="biz-banner-tag">Featured</span>
+        </div>
+        <div class="biz-body">
+          <div class="biz-cat" style="background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.22);color:#ff8c5a">🍽️ Food &amp; Dining</div>
+          <div class="biz-name">Saldanha Fish &amp; Chips</div>
+          <div class="biz-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Saldanha, West Coast</div>
+          <div class="biz-desc">Fresh line fish, calamari, and prawns straight from the harbour. Family-friendly takeaway &amp; sit-down with views of the bay.</div>
+          <div class="biz-actions">
+            <a href="tel:+27220001111" class="biz-btn bb-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.63 2 2 0 011.72-2.18H4.6A2 2 0 016.61 3.7c.328.96.56 1.95.69 2.95a2 2 0 01-.45 2.11L5.8 9.83a16 16 0 006 6l1.07-.56A2 2 0 0115 14.82c1 .13 1.99.36 2.95.69a2 2 0 011.73 2.01z"/></svg>Call</a>
+            <a href="https://wa.me/27220001111" class="biz-btn bb-wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>WhatsApp</a>
+            <a href="#" class="biz-btn bb-web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>Website</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CARD 2: Accommodation ── -->
+      <div class="biz-card sr d1" data-cat="accommodation" data-name="Langebaan Beach Guesthouse" data-loc="Langebaan">
+        <div class="biz-banner" style="background:linear-gradient(135deg,#0a1f3a,#0a2a40)">🏖️</div>
+        <div class="biz-body">
+          <div class="biz-cat" style="background:rgba(0,174,239,.08);border:1px solid rgba(0,174,239,.22);color:var(--blue)">🛏️ Accommodation</div>
+          <div class="biz-name">Langebaan Beach Guesthouse</div>
+          <div class="biz-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Langebaan, West Coast</div>
+          <div class="biz-desc">Cosy sea-view rooms 50m from the lagoon. Ideal for kite surfers, families, and weekend escapes. Includes braai facilities.</div>
+          <div class="biz-actions">
+            <a href="tel:+27220002222" class="biz-btn bb-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.63 2 2 0 011.72-2.18H4.6A2 2 0 016.61 3.7c.328.96.56 1.95.69 2.95a2 2 0 01-.45 2.11L5.8 9.83a16 16 0 006 6l1.07-.56A2 2 0 0115 14.82c1 .13 1.99.36 2.95.69a2 2 0 011.73 2.01z"/></svg>Call</a>
+            <a href="https://wa.me/27220002222" class="biz-btn bb-wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>WhatsApp</a>
+            <a href="#" class="biz-btn bb-web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>Website</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CARD 3: Home Services ── -->
+      <div class="biz-card sr d2" data-cat="home" data-name="Vredenburg Plumbing & Co." data-loc="Vredenburg">
+        <div class="biz-banner" style="background:linear-gradient(135deg,#1c1a0a,#2a220a)">🔧</div>
+        <div class="biz-body">
+          <div class="biz-cat" style="background:rgba(255,182,18,.08);border:1px solid rgba(255,182,18,.22);color:var(--gold)">🔧 Home Services</div>
+          <div class="biz-name">Vredenburg Plumbing &amp; Co.</div>
+          <div class="biz-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Vredenburg, West Coast</div>
+          <div class="biz-desc">Trusted plumbers for the West Coast. Emergency call-outs, geyser installations, burst pipes, and full bathroom renovations.</div>
+          <div class="biz-actions">
+            <a href="tel:+27220003333" class="biz-btn bb-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.63 2 2 0 011.72-2.18H4.6A2 2 0 016.61 3.7c.328.96.56 1.95.69 2.95a2 2 0 01-.45 2.11L5.8 9.83a16 16 0 006 6l1.07-.56A2 2 0 0115 14.82c1 .13 1.99.36 2.95.69a2 2 0 011.73 2.01z"/></svg>Call</a>
+            <a href="https://wa.me/27220003333" class="biz-btn bb-wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>WhatsApp</a>
+            <a href="#" class="biz-btn bb-web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>Website</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CARD 4: Beauty & Hair ── -->
+      <div class="biz-card sr d3" data-cat="beauty" data-name="Glam Studio Saldanha" data-loc="Saldanha">
+        <div class="biz-banner" style="background:linear-gradient(135deg,#1a0f2e,#22103e)">💇</div>
+        <div class="biz-body">
+          <div class="biz-cat" style="background:rgba(200,100,255,.08);border:1px solid rgba(200,100,255,.22);color:#c87eff">💇 Beauty &amp; Hair</div>
+          <div class="biz-name">Glam Studio Saldanha</div>
+          <div class="biz-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Saldanha, West Coast</div>
+          <div class="biz-desc">Full hair salon, nails, lashes, and luxury beauty treatments. Walk-ins welcome, bookings preferred. Bridal packages available.</div>
+          <div class="biz-actions">
+            <a href="tel:+27220004444" class="biz-btn bb-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.63 2 2 0 011.72-2.18H4.6A2 2 0 016.61 3.7c.328.96.56 1.95.69 2.95a2 2 0 01-.45 2.11L5.8 9.83a16 16 0 006 6l1.07-.56A2 2 0 0115 14.82c1 .13 1.99.36 2.95.69a2 2 0 011.73 2.01z"/></svg>Call</a>
+            <a href="https://wa.me/27220004444" class="biz-btn bb-wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>WhatsApp</a>
+            <a href="#" class="biz-btn bb-web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>Website</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CARD 5: Transport (REAL) ── -->
+      <div class="biz-card sr d4" data-cat="transport" data-name="West Coast Shuttle" data-loc="Saldanha">
+        <div class="biz-banner" style="background:linear-gradient(135deg,#0f1f1a,#0a1f18)">
+          🚐
+          <span class="biz-banner-tag">Real Business</span>
+        </div>
+        <div class="biz-body">
+          <div class="biz-cat" style="background:rgba(0,120,71,.08);border:1px solid rgba(0,120,71,.22);color:var(--green2)">🚐 Transport</div>
+          <div class="biz-name">West Coast Shuttle</div>
+          <div class="biz-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Saldanha Bay, West Coast</div>
+          <div class="biz-desc">Reliable airport transfers and local shuttles. Saldanha ↔ Cape Town. Book online or on WhatsApp. Daily departures available.</div>
+          <div class="biz-actions">
+            <a href="tel:+27636691391" class="biz-btn bb-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.63 2 2 0 011.72-2.18H4.6A2 2 0 016.61 3.7c.328.96.56 1.95.69 2.95a2 2 0 01-.45 2.11L5.8 9.83a16 16 0 006 6l1.07-.56A2 2 0 0115 14.82c1 .13 1.99.36 2.95.69a2 2 0 011.73 2.01z"/></svg>Call</a>
+            <a href="https://wa.me/27636691391?text=Hi%2C%20I%27d%20like%20to%20book%20a%20shuttle" class="biz-btn bb-wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>WhatsApp</a>
+            <a href="https://shuttle.laafstyl.org" class="biz-btn bb-web" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>Website</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CARD 6: Construction ── -->
+      <div class="biz-card sr d5" data-cat="construction" data-name="Velddrif Build & Renovate" data-loc="Velddrif">
+        <div class="biz-banner" style="background:linear-gradient(135deg,#0a1a2e,#081526)">🏗️</div>
+        <div class="biz-body">
+          <div class="biz-cat" style="background:rgba(222,56,49,.08);border:1px solid rgba(222,56,49,.22);color:#f07070">🏗️ Construction</div>
+          <div class="biz-name">Velddrif Build &amp; Renovate</div>
+          <div class="biz-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Velddrif, West Coast</div>
+          <div class="biz-desc">Residential and commercial construction, alterations, and tiling across the West Coast. CIDB registered. Free quotes.</div>
+          <div class="biz-actions">
+            <a href="tel:+27220006666" class="biz-btn bb-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.63 2 2 0 011.72-2.18H4.6A2 2 0 016.61 3.7c.328.96.56 1.95.69 2.95a2 2 0 01-.45 2.11L5.8 9.83a16 16 0 006 6l1.07-.56A2 2 0 0115 14.82c1 .13 1.99.36 2.95.69a2 2 0 011.73 2.01z"/></svg>Call</a>
+            <a href="https://wa.me/27220006666" class="biz-btn bb-wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>WhatsApp</a>
+            <a href="#" class="biz-btn bb-web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>Website</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CARD 7: Retail ── -->
+      <div class="biz-card sr d6" data-cat="retail" data-name="Paternoster General Store" data-loc="Paternoster">
+        <div class="biz-banner" style="background:linear-gradient(135deg,#1a1a2e,#12122a)">🛒</div>
+        <div class="biz-body">
+          <div class="biz-cat" style="background:rgba(0,174,239,.08);border:1px solid rgba(0,174,239,.22);color:var(--blue)">🛒 Retail</div>
+          <div class="biz-name">Paternoster General Store</div>
+          <div class="biz-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Paternoster, West Coast</div>
+          <div class="biz-desc">Your one-stop shop in the heart of Paternoster. Groceries, fishing supplies, cold drinks, bait, and local crafts.</div>
+          <div class="biz-actions">
+            <a href="tel:+27220007777" class="biz-btn bb-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.63 2 2 0 011.72-2.18H4.6A2 2 0 016.61 3.7c.328.96.56 1.95.69 2.95a2 2 0 01-.45 2.11L5.8 9.83a16 16 0 006 6l1.07-.56A2 2 0 0115 14.82c1 .13 1.99.36 2.95.69a2 2 0 011.73 2.01z"/></svg>Call</a>
+            <a href="https://wa.me/27220007777" class="biz-btn bb-wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>WhatsApp</a>
+            <a href="#" class="biz-btn bb-web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>Website</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CARD 8: Health ── -->
+      <div class="biz-card sr d7" data-cat="health" data-name="West Coast Wellness Clinic" data-loc="Vredenburg">
+        <div class="biz-banner" style="background:linear-gradient(135deg,#0a2a1a,#0a1f15)">🏥</div>
+        <div class="biz-body">
+          <div class="biz-cat" style="background:rgba(0,168,95,.08);border:1px solid rgba(0,168,95,.22);color:var(--green2)">🏥 Health</div>
+          <div class="biz-name">West Coast Wellness Clinic</div>
+          <div class="biz-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Vredenburg, West Coast</div>
+          <div class="biz-desc">General practitioner, chronic disease management, occupational health certificates. Monday–Friday 8am–5pm. Saturdays by appointment.</div>
+          <div class="biz-actions">
+            <a href="tel:+27220008888" class="biz-btn bb-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.63 2 2 0 011.72-2.18H4.6A2 2 0 016.61 3.7c.328.96.56 1.95.69 2.95a2 2 0 01-.45 2.11L5.8 9.83a16 16 0 006 6l1.07-.56A2 2 0 0115 14.82c1 .13 1.99.36 2.95.69a2 2 0 011.73 2.01z"/></svg>Call</a>
+            <a href="https://wa.me/27220008888" class="biz-btn bb-wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>WhatsApp</a>
+            <a href="#" class="biz-btn bb-web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>Website</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CARD 9: Accommodation ── -->
+      <div class="biz-card sr d8" data-cat="accommodation" data-name="Paternoster Cottages" data-loc="Paternoster">
+        <div class="biz-banner" style="background:linear-gradient(135deg,#1f1a0a,#2a2008)">🏡</div>
+        <div class="biz-body">
+          <div class="biz-cat" style="background:rgba(255,182,18,.08);border:1px solid rgba(255,182,18,.22);color:var(--gold)">🛏️ Accommodation</div>
+          <div class="biz-name">Paternoster Cottages</div>
+          <div class="biz-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Paternoster, West Coast</div>
+          <div class="biz-desc">Whitewashed self-catering cottages in the iconic village of Paternoster. Steps from the beach, perfect for families and couples.</div>
+          <div class="biz-actions">
+            <a href="tel:+27220009999" class="biz-btn bb-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.63 2 2 0 011.72-2.18H4.6A2 2 0 016.61 3.7c.328.96.56 1.95.69 2.95a2 2 0 01-.45 2.11L5.8 9.83a16 16 0 006 6l1.07-.56A2 2 0 0115 14.82c1 .13 1.99.36 2.95.69a2 2 0 011.73 2.01z"/></svg>Call</a>
+            <a href="https://wa.me/27220009999" class="biz-btn bb-wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>WhatsApp</a>
+            <a href="#" class="biz-btn bb-web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>Website</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CARD 10: Home Services ── -->
+      <div class="biz-card sr d9" data-cat="home" data-name="Saldanha Electrical & Solar" data-loc="Saldanha">
+        <div class="biz-banner" style="background:linear-gradient(135deg,#1a1a0a,#28280a)">⚡</div>
+        <div class="biz-body">
+          <div class="biz-cat" style="background:rgba(255,182,18,.08);border:1px solid rgba(255,182,18,.22);color:var(--gold)">🔧 Home Services</div>
+          <div class="biz-name">Saldanha Electrical &amp; Solar</div>
+          <div class="biz-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Saldanha, West Coast</div>
+          <div class="biz-desc">Licensed electricians and solar panel installers. Load-shedding solutions, fault finding, compliance certificates, and new installations.</div>
+          <div class="biz-actions">
+            <a href="tel:+27220010101" class="biz-btn bb-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.63 2 2 0 011.72-2.18H4.6A2 2 0 016.61 3.7c.328.96.56 1.95.69 2.95a2 2 0 01-.45 2.11L5.8 9.83a16 16 0 006 6l1.07-.56A2 2 0 0115 14.82c1 .13 1.99.36 2.95.69a2 2 0 011.73 2.01z"/></svg>Call</a>
+            <a href="https://wa.me/27220010101" class="biz-btn bb-wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>WhatsApp</a>
+            <a href="#" class="biz-btn bb-web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>Website</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CARD 11: Food & Dining ── -->
+      <div class="biz-card sr d10" data-cat="food" data-name="Langebaan Lagoon Bistro" data-loc="Langebaan">
+        <div class="biz-banner" style="background:linear-gradient(135deg,#1a1209,#281a08)">🍷</div>
+        <div class="biz-body">
+          <div class="biz-cat" style="background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.22);color:#ff8c5a">🍽️ Food &amp; Dining</div>
+          <div class="biz-name">Langebaan Lagoon Bistro</div>
+          <div class="biz-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Langebaan, West Coast</div>
+          <div class="biz-desc">Waterfront dining with panoramic lagoon views. Seafood platters, West Coast mussels, craft beer, and award-winning sunsets.</div>
+          <div class="biz-actions">
+            <a href="tel:+27220011111" class="biz-btn bb-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.63 2 2 0 011.72-2.18H4.6A2 2 0 016.61 3.7c.328.96.56 1.95.69 2.95a2 2 0 01-.45 2.11L5.8 9.83a16 16 0 006 6l1.07-.56A2 2 0 0115 14.82c1 .13 1.99.36 2.95.69a2 2 0 011.73 2.01z"/></svg>Call</a>
+            <a href="https://wa.me/27220011111" class="biz-btn bb-wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>WhatsApp</a>
+            <a href="#" class="biz-btn bb-web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>Website</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CARD 12: Transport ── -->
+      <div class="biz-card sr d11" data-cat="transport" data-name="Velddrif Taxi & Transfers" data-loc="Velddrif">
+        <div class="biz-banner" style="background:linear-gradient(135deg,#101a2a,#0a1520)">🚖</div>
+        <div class="biz-body">
+          <div class="biz-cat" style="background:rgba(0,120,71,.08);border:1px solid rgba(0,120,71,.22);color:var(--green2)">🚐 Transport</div>
+          <div class="biz-name">Velddrif Taxi &amp; Transfers</div>
+          <div class="biz-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Velddrif, West Coast</div>
+          <div class="biz-desc">Local taxi services and long-distance transfers from Velddrif. Available 7 days a week. Funeral, hospital, and group bookings welcome.</div>
+          <div class="biz-actions">
+            <a href="tel:+27220012121" class="biz-btn bb-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.63 2 2 0 011.72-2.18H4.6A2 2 0 016.61 3.7c.328.96.56 1.95.69 2.95a2 2 0 01-.45 2.11L5.8 9.83a16 16 0 006 6l1.07-.56A2 2 0 0115 14.82c1 .13 1.99.36 2.95.69a2 2 0 011.73 2.01z"/></svg>Call</a>
+            <a href="https://wa.me/27220012121" class="biz-btn bb-wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>WhatsApp</a>
+            <a href="#" class="biz-btn bb-web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>Website</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty state -->
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">🔍</div>
+        <div class="empty-title">No businesses found</div>
+        <div class="empty-sub">Try a different search term or browse another category.</div>
+        <button onclick="resetAll()" class="btn-outline" style="margin:0 auto">Clear Search</button>
+      </div>
+
+    </div><!-- /biz-grid -->
+
+  </div><!-- /container -->
+</section>
+
+<!-- ══════════════════════════════════
+     LIST YOUR BUSINESS CTA
+══════════════════════════════════ -->
+<section id="list-cta">
+  <div class="list-cta-grid-bg"></div>
+  <div class="list-cta-glow"></div>
+  <div class="container">
+    <div class="list-cta-inner">
+
+      <div class="list-cta-left">
+        <div class="tag srl">Get Listed</div>
+        <h2 class="cta-title srl">Is Your Business<br>on the <em>Directory?</em></h2>
+        <p class="cta-sub srl">Thousands of people across the West Coast search for local businesses every week. Get your business in front of them — your listing is live in 24 hours.</p>
+        <div class="cta-btns srl">
+          <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20list%20my%20business%20in%20the%20directory" class="btn-wa" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="white" width="15" height="15"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            List My Business on WhatsApp
+          </a>
+          <a href="index.html#pricing" class="btn-outline">View Pricing →</a>
+        </div>
+        <div class="cta-note srl">From <span>R200/month</span> · Live in 24 hours · Cancel anytime</div>
+      </div>
+
+      <div class="srr">
+        <div class="perks-card">
+          <div class="perks-list">
+            <div class="perk-item">
+              <div class="perk-ico">📍</div>
+              <div>
+                <div class="perk-title">Local Directory Listing</div>
+                <div class="perk-desc">Your business appears in the West Coast directory — found by thousands of local customers.</div>
+              </div>
+            </div>
+            <div class="perk-item">
+              <div class="perk-ico">🌐</div>
+              <div>
+                <div class="perk-title">Professional Website</div>
+                <div class="perk-desc">We build your website within 24 hours. No tech skills needed — just WhatsApp us your details.</div>
+              </div>
+            </div>
+            <div class="perk-item">
+              <div class="perk-ico">📲</div>
+              <div>
+                <div class="perk-title">Leads Direct to Your Phone</div>
+                <div class="perk-desc">WhatsApp, calls, and form enquiries come straight to you — no middleman, no missed leads.</div>
+              </div>
+            </div>
+            <div class="perk-item">
+              <div class="perk-ico">💰</div>
+              <div>
+                <div class="perk-title">From R200/Month</div>
+                <div class="perk-desc">No big setup costs or agency fees. A simple monthly subscription covers everything.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     FOOTER
+══════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="foot-inner">
+      <div class="foot-brand">
+        <img src="logo.png" alt="LaafWeb" class="logo-img-sm">
+        <div class="foot-sub">Part of the Laafstyl Ecosystem · West Coast, SA</div>
+      </div>
+      <div class="foot-links">
+        <a href="index.html#how">How It Works</a>
+        <a href="directory.html">Directory</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="https://shuttle.laafstyl.org" target="_blank">LaafShuttle</a>
+        <a href="https://register.laafstyl.org" target="_blank">LaafConnect</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="foot-copy">© 2026 LaafStyl (Pty) Ltd. Built in 🇿🇦 South Africa.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════
+     FLOATING WHATSAPP
+══════════════════════════════════ -->
+<a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20list%20my%20business%20in%20the%20directory" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- ══════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════ -->
+<script>
+// ── NAV SOLID ON SCROLL ──
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('solid', scrollY > 50);
+});
+// init solid if already scrolled
+if (scrollY > 50) document.getElementById('nav').classList.add('solid');
+
+// ── SCROLL REVEAL ──
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: .06, rootMargin: '0px 0px -20px 0px' });
+document.querySelectorAll('.sr,.srl,.srr').forEach(el => ro.observe(el));
+
+// ── MOBILE MENU ──
+function openMob()  { document.getElementById('mobOverlay').classList.add('open'); }
+function closeMob() { document.getElementById('mobOverlay').classList.remove('open'); }
+function closeMobOut(e) { if (e.target === document.getElementById('mobOverlay')) closeMob(); }
+
+// ── SEARCH + FILTER STATE ──
+let activeSearch = '';
+let activeCat = 'all';
+
+function getCards() {
+  return Array.from(document.querySelectorAll('#bizGrid .biz-card'));
+}
+
+function applyFilters() {
+  const cards = getCards();
+  let visible = 0;
+
+  cards.forEach(card => {
+    const cat   = card.dataset.cat || '';
+    const name  = (card.dataset.name || '').toLowerCase();
+    const loc   = (card.dataset.loc || '').toLowerCase();
+    const desc  = (card.querySelector('.biz-desc')?.textContent || '').toLowerCase();
+    const full  = name + ' ' + loc + ' ' + cat + ' ' + desc;
+
+    const matchCat    = activeCat === 'all' || cat === activeCat;
+    const matchSearch = !activeSearch || full.includes(activeSearch);
+
+    if (matchCat && matchSearch) {
+      card.classList.remove('hidden');
+      visible++;
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+
+  // update results bar
+  document.getElementById('resultCount').textContent = visible;
+  const catLabels = {
+    all: 'All Categories', food: 'Food & Dining', accommodation: 'Accommodation',
+    home: 'Home Services', beauty: 'Beauty & Hair', transport: 'Transport',
+    construction: 'Construction', retail: 'Retail', health: 'Health'
+  };
+  document.getElementById('resultCat').textContent = catLabels[activeCat] || 'All Categories';
+
+  // empty state
+  const empty = document.getElementById('emptyState');
+  empty.classList.toggle('show', visible === 0);
+}
+
+// ── CATEGORY FILTER ──
+function filterCat(btn, cat) {
+  activeCat = cat;
+  document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+
+// ── SEARCH ──
+function doSearch() {
+  activeSearch = document.getElementById('searchInput').value.trim().toLowerCase();
+  applyFilters();
+}
+
+// live search on input
+document.getElementById('searchInput').addEventListener('input', function() {
+  activeSearch = this.value.trim().toLowerCase();
+  applyFilters();
+});
+
+// enter key
+document.getElementById('searchInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') doSearch();
+});
+
+// ── RESET ──
+function resetAll() {
+  activeSearch = '';
+  activeCat = 'all';
+  document.getElementById('searchInput').value = '';
+  document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+  document.querySelector('.cat-pill[data-cat="all"]').classList.add('active');
+  applyFilters();
+}
+
+// ── SORT ──
+function sortCards(mode) {
+  const grid = document.getElementById('bizGrid');
+  const cards = getCards();
+
+  if (mode === 'name') {
+    cards.sort((a, b) => (a.dataset.name || '').localeCompare(b.dataset.name || ''));
+  } else if (mode === 'cat') {
+    cards.sort((a, b) => (a.dataset.cat || '').localeCompare(b.dataset.cat || ''));
+  } else {
+    // default: restore DOM order by index
+    cards.sort((a, b) => {
+      const allCards = Array.from(document.querySelectorAll('#bizGrid .biz-card'));
+      return allCards.indexOf(a) - allCards.indexOf(b);
+    });
+  }
+
+  // re-append in new order (empty state stays last)
+  const emptyState = document.getElementById('emptyState');
+  cards.forEach(c => grid.insertBefore(c, emptyState));
+}
+
+// ── INIT ──
+applyFilters();
+</script>
+</body>
+</html>
