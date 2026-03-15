@@ -3,440 +3,316 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us – LaafWeb</title>
-<meta name="description" content="Get in touch with LaafWeb. WhatsApp us to list your business or ask anything about the West Coast directory.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Contact Us – LaafWeb | West Coast South Africa</title>
+<meta name="description" content="Get in touch with LaafWeb. WhatsApp us on 063 669 1391 or send a message — we help West Coast businesses get online in 24 hours.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════════════════════════════════
-   LAAFWEB — CONTACT.HTML
-   Design system: LaafStyl dark theme
-   Primary CTA: WhatsApp
-═══════════════════════════════════════════ */
+  :root {
+    --green: #007847;
+    --green-light: #00a35e;
+    --green-glow: rgba(0,120,71,0.18);
+    --gold: #FFB612;
+    --red: #DE3831;
+    --blue: #00AEEF;
+    --wa: #25D366;
+    --bg: #0f0f0f;
+    --bg2: #161616;
+    --card-bg: #1c1c1c;
+    --card-bg-2: #222222;
+    --input-bg: #161616;
+    --text: #ffffff;
+    --text-muted: #9a9a9a;
+    --text-subtle: #555;
+    --border: #2a2a2a;
+    --border2: #333333;
+    --border-light: #383838;
+    --muted: #666;
+    --body: #888;
+    --light: #bbb;
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --radius: 18px;
+    --fh: 'Poppins', sans-serif;
+    --fb: 'Inter', sans-serif;
+  }
 
-:root {
-  --green:  #007847;
-  --green2: #00a85f;
-  --gold:   #FFB612;
-  --red:    #DE3831;
-  --blue:   #00AEEF;
-  --wa:     #25D366;
-  --bg:     #0f0f0f;
-  --bg2:    #161616;
-  --card:   #1c1c1c;
-  --card2:  #222222;
-  --input:  #161616;
-  --border: #2a2a2a;
-  --border2:#383838;
-  --muted:  #666;
-  --body:   #888;
-  --light:  #bbb;
-  --white:  #ffffff;
-  --radius: 18px;
-  --fh: 'Poppins', sans-serif;
-  --fb: 'Inter', sans-serif;
-}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 2px; }
 
-*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
-html { scroll-behavior:smooth; }
-::-webkit-scrollbar { width:3px; }
-::-webkit-scrollbar-track { background:var(--bg); }
-::-webkit-scrollbar-thumb { background:var(--green); border-radius:2px; }
+  body {
+    font-family: var(--fb);
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
 
-body {
-  font-family: var(--fb);
-  background: var(--bg);
-  color: var(--body);
-  min-height: 100vh;
-  line-height: 1.7;
-  overflow-x: hidden;
-}
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0;
+  }
 
-/* noise texture */
-body::before {
-  content:'';
-  position:fixed; inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  pointer-events:none; z-index:0;
-}
+  /* ── ORBS ── */
+  .orb { position: fixed; border-radius: 50%; filter: blur(140px); pointer-events: none; z-index: 0; animation: drift 16s ease-in-out infinite alternate; }
+  .orb-1 { width: 600px; height: 600px; background: var(--green); top: -250px; right: -200px; opacity: .07; animation-delay: 0s; }
+  .orb-2 { width: 450px; height: 450px; background: var(--gold); bottom: -200px; left: -150px; opacity: .06; animation-delay: -7s; }
+  .orb-3 { width: 350px; height: 350px; background: var(--blue); top: 40%; left: 40%; opacity: .04; animation-delay: -3s; }
+  @keyframes drift { from { transform: translate(0,0) } to { transform: translate(40px, 30px) } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+  @keyframes pulse { 0%,100% { opacity:.7; transform:scale(1) } 50% { opacity:1; transform:scale(1.1) } }
+  @keyframes waRing { 0%,100% { box-shadow:0 4px 20px rgba(37,211,102,.4) } 50% { box-shadow:0 4px 36px rgba(37,211,102,.65), 0 0 0 8px rgba(37,211,102,.07) } }
 
-/* orbs */
-.orb { position:fixed; border-radius:50%; filter:blur(140px); pointer-events:none; z-index:0; animation:drift 16s ease-in-out infinite alternate; }
-.orb-1 { width:500px; height:500px; background:var(--green); top:-200px; left:-150px; opacity:.08; }
-.orb-2 { width:400px; height:400px; background:var(--blue); bottom:-150px; right:-150px; opacity:.06; animation-delay:-7s; }
-@keyframes drift { from{transform:translate(0,0)} to{transform:translate(35px,25px)} }
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 200;
+    background: rgba(15,15,15,0.92);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 36px;
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
 
-/* animations */
-@keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
-@keyframes pulse  { 0%,100%{opacity:1} 50%{opacity:.3} }
-@keyframes blink  { 0%,100%{box-shadow:0 0 6px rgba(222,56,49,.6)} 50%{box-shadow:0 0 14px rgba(222,56,49,1)} }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+    font-family: var(--fh); font-weight: 900; font-size: 1.3rem; color: var(--text);
+  }
+  .logo-img     { height: 32px; width: auto; display: block; object-fit: contain; }
+  .logo-img-sm  { height: 24px; width: auto; display: block; object-fit: contain; }
+  .logo-img-mob { height: 28px; width: auto; display: block; object-fit: contain; }
 
-/* reveal */
-.sr  { opacity:0; transform:translateY(22px); transition:opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1); }
-.sr.in { opacity:1; transform:none; }
-.d1{transition-delay:.08s} .d2{transition-delay:.16s} .d3{transition-delay:.24s}
-.d4{transition-delay:.32s} .d5{transition-delay:.40s} .d6{transition-delay:.48s}
+  .nav-links { display: flex; gap: 26px; align-items: center; list-style: none; }
+  .nav-links a { font-size: .86rem; font-weight: 500; color: var(--body); text-decoration: none; letter-spacing: .04em; transition: color .2s; position: relative; }
+  .nav-links a:not(.nav-wa):hover { color: var(--text); }
+  .nav-links a:not(.nav-wa)::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px; background: var(--green); transition: width .25s; }
+  .nav-links a:not(.nav-wa):hover::after { width: 100%; }
+  .nav-links a.active { color: var(--text); }
+  .nav-links a.active::after { width: 100%; }
+  .nav-wa {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--wa); color: #fff !important;
+    padding: 8px 18px; border-radius: 8px;
+    font-weight: 700 !important; font-size: .82rem !important;
+    box-shadow: 0 4px 14px rgba(37,211,102,.25);
+    transition: background .2s, transform .2s, box-shadow .2s !important;
+  }
+  .nav-wa:hover { background: #1eb659 !important; transform: translateY(-1px) !important; box-shadow: 0 6px 22px rgba(37,211,102,.4) !important; }
+  .nav-wa::after { display: none !important; }
+  .nav-mob { display: none; background: none; border: none; color: var(--text); cursor: pointer; padding: 4px; }
 
-/* ═══ NAV ═══ */
-nav {
-  position:fixed; top:0; left:0; right:0; z-index:200;
-  height:64px; display:flex; align-items:center; padding:0 36px;
-  background:rgba(15,15,15,.95); backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--border);
-}
-.nav-logo { display:flex; align-items:center; text-decoration:none; }
-.logo-img  { height:32px; width:auto; display:block; object-fit:contain; }
-.nav-links { display:flex; align-items:center; gap:26px; margin-left:auto; list-style:none; }
-.nav-links a { font-size:.86rem; font-weight:500; color:var(--body); text-decoration:none; letter-spacing:.04em; transition:color .2s; position:relative; }
-.nav-links a:not(.nav-wa):hover { color:var(--white); }
-.nav-links a.active { color:var(--green2); }
-.nav-links a:not(.nav-wa):not(.active)::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:1.5px; background:var(--green); transition:width .25s; }
-.nav-links a:not(.nav-wa):hover::after { width:100%; }
-.nav-wa {
-  display:flex; align-items:center; gap:8px;
-  background:var(--wa); color:#fff !important;
-  padding:8px 18px; border-radius:8px;
-  font-weight:700 !important; font-size:.82rem !important;
-  box-shadow:0 4px 14px rgba(37,211,102,.25);
-  transition:background .2s, transform .2s, box-shadow .2s !important;
-}
-.nav-wa:hover { background:#1eb659 !important; transform:translateY(-1px) !important; box-shadow:0 6px 22px rgba(37,211,102,.4) !important; }
-.nav-wa::after { display:none !important; }
-.nav-mob { display:none; background:none; border:none; color:var(--white); cursor:pointer; margin-left:auto; padding:4px; }
+  /* mobile overlay */
+  .mob-overlay { display: none; position: fixed; inset: 0; z-index: 300; background: rgba(0,0,0,.75); backdrop-filter: blur(4px); }
+  .mob-overlay.open { display: flex; }
+  .mob-panel { width: 280px; background: var(--bg2); border-right: 1px solid var(--border2); padding: 24px; display: flex; flex-direction: column; transform: translateX(-100%); transition: transform .35s cubic-bezier(.77,0,.18,1); }
+  .mob-overlay.open .mob-panel { transform: translateX(0); }
+  .mob-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 36px; }
+  .mob-x { background: none; border: 1px solid var(--border2); color: var(--text); width: 32px; height: 32px; border-radius: 6px; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; }
+  .mob-nav { display: flex; flex-direction: column; gap: 4px; }
+  .mob-nav a { display: block; padding: 11px 14px; border-radius: 8px; font-family: var(--fh); font-size: 14px; font-weight: 700; color: var(--light); text-decoration: none; text-transform: uppercase; letter-spacing: .04em; transition: background .2s, color .2s; }
+  .mob-nav a:hover { background: rgba(0,120,71,.12); color: var(--text); }
+  .mob-wa-link { margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 9px; padding: 13px; background: var(--wa); color: #fff; border-radius: 8px; font-family: var(--fh); font-size: 13px; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: .08em; }
 
-/* mobile overlay */
-.mob-overlay { display:none; position:fixed; inset:0; z-index:300; background:rgba(0,0,0,.75); backdrop-filter:blur(4px); }
-.mob-overlay.open { display:flex; }
-.mob-panel { width:280px; background:var(--bg2); border-right:1px solid var(--border2); padding:24px; display:flex; flex-direction:column; transform:translateX(-100%); transition:transform .35s cubic-bezier(.77,0,.18,1); }
-.mob-overlay.open .mob-panel { transform:translateX(0); }
-.mob-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:36px; }
-.mob-x { background:none; border:1px solid var(--border2); color:var(--white); width:32px; height:32px; border-radius:6px; cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center; }
-.logo-img-mob { height:28px; width:auto; object-fit:contain; }
-.mob-nav { display:flex; flex-direction:column; gap:4px; }
-.mob-nav a { display:block; padding:11px 14px; border-radius:8px; font-family:var(--fh); font-size:14px; font-weight:700; color:var(--light); text-decoration:none; text-transform:uppercase; letter-spacing:.04em; transition:background .2s, color .2s; }
-.mob-nav a:hover, .mob-nav a.active { background:rgba(0,120,71,.12); color:var(--white); }
-.mob-wa { margin-top:20px; display:flex; align-items:center; justify-content:center; gap:9px; padding:13px; background:var(--wa); color:#fff; border-radius:8px; font-family:var(--fh); font-size:13px; font-weight:700; text-decoration:none; text-transform:uppercase; letter-spacing:.08em; }
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    padding: 80px 1.5rem 56px;
+    text-align: center;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 0%, rgba(0,120,71,0.12) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(0,174,239,0.07) 0%, transparent 55%),
+      radial-gradient(ellipse 30% 40% at 80% 60%, rgba(255,182,18,0.06) 0%, transparent 50%);
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(0,120,71,0.12); border: 1px solid rgba(0,120,71,0.3);
+    color: #00c06a;
+    font-size: .75rem; font-weight: 700;
+    padding: 5px 14px; border-radius: 50px;
+    margin-bottom: 1.25rem;
+    letter-spacing: .06em; text-transform: uppercase;
+    animation: fadeUp .5s ease both;
+  }
+  .hero-eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green-light); animation: blink 2s infinite; }
+  .hero h1 {
+    font-family: var(--fh);
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 900; line-height: 1.1;
+    animation: fadeUp .5s ease .07s both;
+  }
+  .hero h1 .highlight {
+    background: linear-gradient(90deg, var(--green-light), var(--blue));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .hero-sub { color: var(--text-muted); font-size: 1rem; max-width: 500px; margin: 1rem auto 0; animation: fadeUp .5s ease .12s both; }
 
-/* ═══ HERO ═══ */
-.hero {
-  position:relative; padding:140px 36px 72px;
-  text-align:center; overflow:hidden; z-index:1;
-}
-.hero-bg {
-  position:absolute; inset:0; pointer-events:none;
-  background:
-    radial-gradient(ellipse 70% 55% at 50% 0%, rgba(0,120,71,.1) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 40% at 15% 85%, rgba(0,174,239,.07) 0%, transparent 55%),
-    radial-gradient(ellipse 30% 35% at 85% 60%, rgba(255,182,18,.05) 0%, transparent 50%);
-}
-.hero-pill {
-  display:inline-flex; align-items:center; gap:8px;
-  background:rgba(0,120,71,.1); border:1px solid rgba(0,120,71,.28);
-  color:var(--green2); font-size:.75rem; font-weight:700;
-  padding:5px 14px; border-radius:50px; margin-bottom:20px;
-  letter-spacing:.08em; text-transform:uppercase;
-  animation:fadeUp .5s ease both;
-}
-.pill-dot { width:7px; height:7px; border-radius:50%; background:var(--green2); animation:pulse 2s infinite; }
-.hero h1 {
-  font-family:var(--fh); font-size:clamp(2rem,4.5vw,3.2rem);
-  font-weight:900; line-height:1.05; color:var(--white);
-  letter-spacing:-.03em; margin-bottom:14px;
-  animation:fadeUp .5s ease .07s both;
-}
-.hero h1 em {
-  font-style:normal;
-  background:linear-gradient(135deg,var(--green2),var(--blue));
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-}
-.hero-sub {
-  color:var(--body); font-size:1rem; max-width:480px; margin:0 auto 32px;
-  animation:fadeUp .5s ease .13s both;
-}
-/* primary WhatsApp hero button */
-.hero-wa-btn {
-  display:inline-flex; align-items:center; gap:10px;
-  background:var(--wa); color:#fff;
-  padding:15px 32px; border-radius:10px;
-  font-family:var(--fh); font-size:14px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  text-decoration:none; box-shadow:0 6px 24px rgba(37,211,102,.32);
-  transition:background .2s, transform .2s, box-shadow .2s;
-  animation:fadeUp .5s ease .2s both;
-}
-.hero-wa-btn:hover { background:#1eb659; transform:translateY(-2px); box-shadow:0 10px 32px rgba(37,211,102,.48); }
-.hero-note {
-  font-size:12px; color:var(--muted); margin-top:12px;
-  animation:fadeUp .5s ease .28s both;
-}
-.hero-note span { color:var(--green2); }
+  /* ── LAYOUT ── */
+  .page-wrap {
+    max-width: 1060px; margin: 0 auto;
+    padding: 0 1.25rem 4rem;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5rem; align-items: start;
+    position: relative; z-index: 1;
+  }
 
-/* ═══ MAIN LAYOUT ═══ */
-.container { max-width:1060px; margin:0 auto; padding:0 36px; }
-.page-wrap {
-  padding:0 36px 80px; max-width:1060px; margin:0 auto;
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:24px; align-items:start; position:relative; z-index:1;
-}
+  /* ── FORM CARD ── */
+  .form-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: var(--radius-xl); padding: 2rem;
+    animation: fadeUp .5s ease .15s both;
+    position: relative; overflow: hidden;
+  }
+  .form-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--green), var(--blue)); }
+  .form-title { font-family: var(--fh); font-size: 1.2rem; font-weight: 700; margin-bottom: .35rem; }
+  .form-sub { color: var(--text-muted); font-size: .85rem; margin-bottom: 1.75rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+  .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+  label { font-size: .78rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: .06em; }
+  input, select, textarea {
+    background: var(--input-bg); border: 1px solid var(--border); border-radius: var(--radius-md);
+    color: var(--text); font-family: var(--fb); font-size: .9rem; padding: 11px 14px;
+    outline: none; transition: border-color .2s, box-shadow .2s; width: 100%; -webkit-appearance: none;
+  }
+  input::placeholder, textarea::placeholder { color: var(--text-subtle); }
+  input:focus, select:focus, textarea:focus { border-color: rgba(0,120,71,.6); box-shadow: 0 0 0 3px rgba(0,120,71,.12); }
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 14px center;
+    padding-right: 36px; cursor: pointer;
+  }
+  select option { background: #1c1c1c; color: #fff; }
+  textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
 
-/* ═══ FORM CARD ═══ */
-.form-card {
-  background:var(--card); border:1px solid var(--border);
-  border-radius:var(--radius); padding:32px;
-  position:relative; overflow:hidden;
-}
-.form-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--green),var(--blue)); }
-.form-title { font-family:var(--fh); font-size:1.1rem; font-weight:800; color:var(--white); margin-bottom:4px; }
-.form-sub   { color:var(--body); font-size:.85rem; margin-bottom:24px; }
-.form-row   { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px; }
-.field      { display:flex; flex-direction:column; gap:6px; margin-bottom:14px; }
-.field:last-of-type { margin-bottom:0; }
+  .btn-submit {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; background: linear-gradient(135deg, var(--green) 0%, #009958 100%);
+    color: #fff; font-family: var(--fh); font-size: .95rem; font-weight: 600;
+    border: none; border-radius: 50px; padding: 14px 24px; cursor: pointer;
+    margin-top: 1.5rem; box-shadow: 0 4px 20px rgba(0,120,71,.28);
+    transition: all .22s ease; position: relative; overflow: hidden;
+  }
+  .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,120,71,.42); }
+  .btn-arrow { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; background: rgba(255,255,255,.15); flex-shrink: 0; transition: transform .2s; }
+  .btn-submit:hover .btn-arrow { transform: translateX(3px); }
 
-label { font-size:.72rem; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; }
+  /* success */
+  .success-msg { display: none; text-align: center; padding: 2rem 1rem; }
+  .success-icon { width: 56px; height: 56px; border-radius: 50%; background: rgba(0,120,71,.15); border: 1.5px solid rgba(0,120,71,.4); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 1rem; }
+  .success-title { font-family: var(--fh); font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+  .success-sub { color: var(--text-muted); font-size: .85rem; }
 
-input, select, textarea {
-  background:var(--input); border:1px solid var(--border);
-  border-radius:10px; color:var(--white);
-  font-family:var(--fb); font-size:.9rem;
-  padding:11px 14px; outline:none; width:100%;
-  transition:border-color .2s, box-shadow .2s;
-  -webkit-appearance:none;
-}
-input::placeholder, textarea::placeholder { color:var(--muted); }
-input:focus, select:focus, textarea:focus {
-  border-color:rgba(0,120,71,.6);
-  box-shadow:0 0 0 3px rgba(0,120,71,.1);
-}
-select {
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-  background-repeat:no-repeat; background-position:right 14px center;
-  padding-right:36px; cursor:pointer;
-}
-select option { background:var(--card2); color:#fff; }
-textarea { resize:vertical; min-height:120px; line-height:1.65; }
+  /* ── RIGHT SIDE ── */
+  .right-side { display: flex; flex-direction: column; gap: 1.25rem; }
 
-/* form submit — green primary */
-.btn-submit {
-  display:flex; align-items:center; justify-content:center; gap:10px;
-  width:100%; background:linear-gradient(135deg,var(--green),#009958);
-  color:#fff; font-family:var(--fh); font-size:.9rem; font-weight:700;
-  border:none; border-radius:50px; padding:14px 24px;
-  cursor:pointer; margin-top:20px;
-  box-shadow:0 4px 20px rgba(0,120,71,.28);
-  transition:transform .22s, box-shadow .22s;
-}
-.btn-submit:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(0,120,71,.42); }
-.btn-arrow {
-  width:26px; height:26px; border-radius:50%;
-  background:rgba(255,255,255,.15);
-  display:inline-flex; align-items:center; justify-content:center;
-  flex-shrink:0; transition:transform .2s;
-}
-.btn-submit:hover .btn-arrow { transform:translateX(3px); }
+  .channel-card {
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg);
+    padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1rem;
+    text-decoration: none; color: var(--text);
+    transition: all .25s ease; animation: fadeUp .5s ease both; position: relative; overflow: hidden;
+  }
+  .channel-card:hover { border-color: var(--border-light); transform: translateX(4px); box-shadow: 0 8px 28px rgba(0,0,0,.25); }
+  .channel-card:nth-child(1){animation-delay:.18s}.channel-card:nth-child(2){animation-delay:.22s}
+  .channel-card:nth-child(3){animation-delay:.26s}.channel-card:nth-child(4){animation-delay:.30s}
 
-/* success state */
-.success-msg { display:none; text-align:center; padding:28px 16px; }
-.success-icon {
-  width:58px; height:58px; border-radius:50%;
-  background:rgba(0,120,71,.15); border:1.5px solid rgba(0,120,71,.4);
-  display:flex; align-items:center; justify-content:center;
-  font-size:1.5rem; margin:0 auto 14px; color:var(--green2);
-}
-.success-title { font-family:var(--fh); font-size:1.1rem; font-weight:800; color:var(--white); margin-bottom:6px; }
-.success-sub { color:var(--body); font-size:.85rem; }
+  .channel-icon { width: 48px; height: 48px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.3rem; }
+  .channel-icon.green { background: rgba(0,120,71,.15); border: 1px solid rgba(0,120,71,.3); }
+  .channel-icon.blue  { background: rgba(0,174,239,.12); border: 1px solid rgba(0,174,239,.25); }
+  .channel-icon.gold  { background: rgba(255,182,18,.12); border: 1px solid rgba(255,182,18,.25); }
+  .channel-icon.wa    { background: rgba(37,211,102,.12); border: 1px solid rgba(37,211,102,.25); }
 
-/* ═══ RIGHT SIDE ═══ */
-.right-side { display:flex; flex-direction:column; gap:14px; }
+  .channel-info { flex: 1; }
+  .channel-label { font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--text-muted); margin-bottom: 2px; }
+  .channel-value { font-family: var(--fh); font-size: .95rem; font-weight: 600; color: var(--text); }
+  .channel-note  { font-size: .75rem; color: var(--text-muted); margin-top: 1px; }
+  .channel-chevron { color: var(--text-subtle); transition: transform .2s, color .2s; flex-shrink: 0; }
+  .channel-card:hover .channel-chevron { transform: translateX(4px); color: var(--text-muted); }
 
-/* WhatsApp featured card — top of right side */
-.wa-featured {
-  display:flex; flex-direction:column; align-items:center; text-align:center;
-  background:linear-gradient(135deg,rgba(37,211,102,.1),rgba(0,120,71,.06));
-  border:1px solid rgba(37,211,102,.22); border-radius:var(--radius);
-  padding:28px 24px; gap:12px; text-decoration:none;
-  transition:transform .25s, box-shadow .25s, border-color .25s;
-  position:relative; overflow:hidden;
-}
-.wa-featured::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--wa),var(--green)); }
-.wa-featured:hover { transform:translateY(-4px); border-color:rgba(37,211,102,.4); box-shadow:0 16px 48px rgba(37,211,102,.12); }
-.wa-icon-wrap {
-  width:64px; height:64px; background:var(--wa); border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  box-shadow:0 0 0 10px rgba(37,211,102,.12);
-}
-.wa-featured-title { font-family:var(--fh); font-size:1rem; font-weight:800; color:var(--white); }
-.wa-featured-sub   { font-size:.85rem; color:var(--body); max-width:260px; }
-.wa-featured-cta   {
-  display:inline-flex; align-items:center; gap:8px;
-  background:var(--wa); color:#fff;
-  padding:10px 22px; border-radius:8px;
-  font-family:var(--fh); font-size:.82rem; font-weight:700;
-  letter-spacing:.08em; text-transform:uppercase;
-  box-shadow:0 4px 16px rgba(37,211,102,.3);
-  transition:background .2s, transform .2s;
-  margin-top:4px;
-}
-.wa-featured:hover .wa-featured-cta { background:#1eb659; transform:translateY(-1px); }
-.wa-response-badge {
-  display:inline-flex; align-items:center; gap:6px;
-  font-size:.72rem; font-weight:600; color:var(--green2);
-  background:rgba(0,120,71,.1); border:1px solid rgba(0,120,71,.2);
-  padding:3px 10px; border-radius:20px; letter-spacing:.06em;
-}
+  /* map / office card */
+  .office-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; animation: fadeUp .5s ease .32s both; }
+  .office-map { width: 100%; height: 180px; background: var(--card-bg-2); position: relative; overflow: hidden; }
+  .office-map iframe { width: 100%; height: 100%; border: none; filter: grayscale(.65) brightness(.65) contrast(1.15); display: block; }
+  .map-pin-badge { position: absolute; top: 10px; left: 10px; background: rgba(20,20,20,.88); border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 5px 10px; font-size: .72rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px; backdrop-filter: blur(4px); }
+  .pin-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); box-shadow: 0 0 8px rgba(222,56,49,.7); animation: pulse 2s infinite; flex-shrink: 0; }
+  .office-body { padding: 1.25rem 1.5rem; }
+  .office-name { font-family: var(--fh); font-size: .95rem; font-weight: 700; margin-bottom: 4px; }
+  .office-address { font-size: .82rem; color: var(--text-muted); line-height: 1.6; }
+  .office-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .office-tag { font-size: .7rem; padding: 3px 10px; border-radius: 50px; background: var(--card-bg-2); border: 1px solid var(--border); color: var(--text-muted); }
 
-/* channel cards */
-.channel-card {
-  background:var(--card); border:1px solid var(--border);
-  border-radius:14px; padding:16px 20px;
-  display:flex; align-items:center; gap:14px;
-  text-decoration:none; color:var(--white);
-  transition:transform .25s, border-color .25s, box-shadow .25s;
-  position:relative; overflow:hidden;
-}
-.channel-card::after {
-  content:''; position:absolute; inset:0;
-  background:linear-gradient(135deg,rgba(255,255,255,.025),transparent 60%);
-  opacity:0; transition:opacity .25s;
-}
-.channel-card:hover { transform:translateX(4px); border-color:var(--border2); box-shadow:0 8px 28px rgba(0,0,0,.25); }
-.channel-card:hover::after { opacity:1; }
-.ch-icon {
-  width:46px; height:46px; border-radius:10px;
-  display:flex; align-items:center; justify-content:center; flex-shrink:0;
-}
-.ch-green  { background:rgba(0,120,71,.15);    border:1px solid rgba(0,120,71,.28); }
-.ch-blue   { background:rgba(0,174,239,.12);   border:1px solid rgba(0,174,239,.25); }
-.ch-gold   { background:rgba(255,182,18,.12);  border:1px solid rgba(255,182,18,.25); }
-.ch-info { flex:1; }
-.ch-label { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:2px; }
-.ch-value { font-family:var(--fh); font-size:.92rem; font-weight:700; color:var(--white); }
-.ch-note  { font-size:.74rem; color:var(--muted); margin-top:1px; }
-.ch-chevron { color:var(--muted); transition:transform .2s, color .2s; flex-shrink:0; }
-.channel-card:hover .ch-chevron { transform:translateX(4px); color:var(--light); }
+  /* ── FAQ ── */
+  .faq-section { max-width: 1060px; margin: 0 auto 4rem; padding: 0 1.25rem; position: relative; z-index: 1; }
+  .faq-header { text-align: center; margin-bottom: 2rem; animation: fadeUp .5s ease .1s both; }
+  .faq-header h2 { font-family: var(--fh); font-size: 1.6rem; font-weight: 700; margin-bottom: .5rem; }
+  .faq-header p { color: var(--text-muted); font-size: .9rem; }
+  .faq-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1rem; }
+  .faq-item { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.25rem; transition: all .25s ease; animation: fadeUp .5s ease both; }
+  .faq-item:hover { border-color: var(--border-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+  .faq-q { font-family: var(--fh); font-size: .88rem; font-weight: 600; margin-bottom: 8px; color: var(--text); display: flex; gap: 10px; align-items: flex-start; }
+  .faq-q-icon { width: 22px; height: 22px; border-radius: 6px; background: var(--green-glow); border: 1px solid rgba(0,120,71,.3); color: var(--green-light); display: flex; align-items: center; justify-content: center; font-size: .7rem; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .faq-a { font-size: .82rem; color: var(--text-muted); line-height: 1.65; }
 
-/* office card */
-.office-card {
-  background:var(--card); border:1px solid var(--border);
-  border-radius:14px; overflow:hidden;
-}
-.office-map { width:100%; height:160px; background:var(--card2); position:relative; overflow:hidden; }
-.office-map iframe { width:100%; height:100%; border:none; filter:grayscale(.6) brightness(.6) contrast(1.1); display:block; }
-.map-badge {
-  position:absolute; top:10px; left:10px;
-  background:rgba(20,20,20,.88); border:1px solid var(--border2);
-  border-radius:7px; padding:5px 10px;
-  font-size:.72rem; color:var(--body);
-  display:flex; align-items:center; gap:6px;
-  backdrop-filter:blur(4px);
-}
-.map-pin-dot { width:8px; height:8px; border-radius:50%; background:var(--red); animation:blink 2s infinite; flex-shrink:0; }
-.office-body { padding:16px 20px; }
-.office-name { font-family:var(--fh); font-size:.9rem; font-weight:700; color:var(--white); margin-bottom:4px; }
-.office-addr { font-size:.82rem; color:var(--body); line-height:1.6; }
-.office-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
-.office-tag { font-size:.7rem; padding:3px 10px; border-radius:20px; background:var(--card2); border:1px solid var(--border); color:var(--muted); }
+  /* sa divider */
+  .sa-divider { max-width: 1060px; margin: 0 auto 2.5rem; padding: 0 1.25rem; display: flex; align-items: center; gap: 1rem; position: relative; z-index: 1; }
+  .sa-divider-line { flex: 1; height: 1px; background: var(--border); }
+  .sa-flag-bar { display: flex; gap: 3px; align-items: center; }
+  .flag-seg { height: 4px; border-radius: 2px; opacity: .55; }
 
-/* ═══ SA DIVIDER ═══ */
-.sa-divider {
-  max-width:1060px; margin:0 auto 40px;
-  padding:0 36px;
-  display:flex; align-items:center; gap:14px;
-  position:relative; z-index:1;
-}
-.sa-line { flex:1; height:1px; background:var(--border); }
-.sa-flag { display:flex; gap:3px; align-items:center; }
-.sf { height:4px; border-radius:2px; opacity:.5; }
+  /* ── FOOTER ── */
+  footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 28px 0; position: relative; z-index: 1; }
+  .foot-inner { max-width: 1060px; margin: 0 auto; padding: 0 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
+  .foot-brand { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .foot-sub { font-size: 11px; color: var(--muted); margin-top: 1px; }
+  .foot-links { display: flex; gap: 18px; flex-wrap: wrap; }
+  .foot-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color .2s; }
+  .foot-links a:hover { color: var(--green-light); }
+  .foot-copy { font-size: 11px; color: var(--muted); }
 
-/* ═══ FAQ ═══ */
-.faq-section { max-width:1060px; margin:0 auto 80px; padding:0 36px; position:relative; z-index:1; }
-.faq-hd { text-align:center; margin-bottom:32px; }
-.faq-hd h2 { font-family:var(--fh); font-size:clamp(1.4rem,2.5vw,1.9rem); font-weight:900; color:var(--white); margin-bottom:6px; letter-spacing:-.02em; }
-.faq-hd p  { font-size:.9rem; color:var(--body); }
-.faq-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(288px,1fr));
-  gap:14px;
-}
-.faq-item {
-  background:var(--card); border:1px solid var(--border);
-  border-radius:14px; padding:20px;
-  transition:transform .25s, border-color .25s, box-shadow .25s;
-}
-.faq-item:hover { transform:translateY(-3px); border-color:var(--border2); box-shadow:0 10px 28px rgba(0,0,0,.25); }
-.faq-q {
-  font-family:var(--fh); font-size:.875rem; font-weight:700; color:var(--white);
-  margin-bottom:8px; display:flex; gap:10px; align-items:flex-start;
-}
-.faq-q-icon {
-  width:22px; height:22px; border-radius:6px;
-  background:rgba(0,120,71,.15); border:1px solid rgba(0,120,71,.28);
-  color:var(--green2); display:flex; align-items:center; justify-content:center;
-  font-size:.7rem; font-weight:800; flex-shrink:0; margin-top:1px;
-}
-.faq-a { font-size:.82rem; color:var(--body); line-height:1.65; }
+  /* floating WA */
+  .wa-float { position: fixed; bottom: 26px; right: 26px; z-index: 100; width: 56px; height: 56px; background: var(--wa); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(37,211,102,.45); transition: transform .25s, box-shadow .25s; animation: waRing 4s 6s infinite; }
+  .wa-float:hover { transform: scale(1.12); animation: none; box-shadow: 0 6px 30px rgba(37,211,102,.6); }
 
-/* ═══ FOOTER ═══ */
-footer {
-  background:var(--bg2); border-top:1px solid var(--border);
-  padding:28px 0; position:relative; z-index:1;
-}
-.foot-inner {
-  max-width:1060px; margin:0 auto; padding:0 36px;
-  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;
-}
-.foot-brand { display:flex; align-items:center; gap:12px; }
-.logo-img-sm { height:24px; width:auto; object-fit:contain; }
-.foot-sub  { font-size:11px; color:var(--muted); }
-.foot-links { display:flex; gap:18px; flex-wrap:wrap; }
-.foot-links a { font-size:12px; color:var(--muted); text-decoration:none; transition:color .2s; }
-.foot-links a:hover { color:var(--green2); }
-.foot-copy { font-size:11px; color:var(--muted); }
-
-/* floating WhatsApp */
-.wa-float {
-  position:fixed; bottom:26px; right:26px; z-index:100;
-  width:56px; height:56px; background:var(--wa); border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  text-decoration:none; box-shadow:0 4px 20px rgba(37,211,102,.45);
-  transition:transform .25s, box-shadow .25s;
-  animation:waRing 4s 6s infinite;
-}
-.wa-float:hover { transform:scale(1.12); animation:none; box-shadow:0 6px 30px rgba(37,211,102,.6); }
-@keyframes waRing {
-  0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}
-  50%{box-shadow:0 4px 36px rgba(37,211,102,.65),0 0 0 8px rgba(37,211,102,.07)}
-}
-
-/* ═══ RESPONSIVE ═══ */
-@media(max-width:900px){
-  nav { padding:0 20px; }
-  .nav-links { display:none; }
-  .nav-mob { display:flex; }
-  .hero { padding:120px 20px 56px; }
-  .page-wrap { grid-template-columns:1fr; padding:0 20px 64px; }
-  .right-side { order:-1; }
-  .sa-divider, .faq-section { padding:0 20px; }
-  .foot-inner { flex-direction:column; text-align:center; }
-  .foot-links { justify-content:center; }
-}
-@media(max-width:500px){
-  .form-row { grid-template-columns:1fr; }
-}
+  @media(max-width:900px){
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-mob { display: flex; }
+    .page-wrap { grid-template-columns: 1fr; }
+    .right-side { order: -1; }
+    .foot-inner { flex-direction: column; text-align: center; }
+    .foot-links { justify-content: center; }
+  }
+  @media(max-width:500px){
+    .form-row { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
 
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
 
-<!-- ═══ NAV ═══ -->
+<!-- NAV -->
 <nav id="nav">
   <a href="index.html" class="nav-logo">
     <img src="logo.png" alt="LaafWeb" class="logo-img">
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="index.html#directory">Directory</a></li>
+    <li><a href="directory.html">Directory</a></li>
     <li><a href="pricing.html">Pricing</a></li>
     <li><a href="contact.html" class="active">Contact</a></li>
     <li>
@@ -451,7 +327,7 @@ footer {
   </button>
 </nav>
 
-<!-- mobile menu -->
+<!-- mobile overlay -->
 <div class="mob-overlay" id="mobOverlay" onclick="closeMobOut(event)">
   <div class="mob-panel">
     <div class="mob-head">
@@ -459,77 +335,75 @@ footer {
       <button class="mob-x" onclick="closeMob()">✕</button>
     </div>
     <div class="mob-nav">
-      <a href="index.html"           onclick="closeMob()">Home</a>
-      <a href="index.html#directory" onclick="closeMob()">Directory</a>
-      <a href="pricing.html"         onclick="closeMob()">Pricing</a>
-      <a href="contact.html" class="active" onclick="closeMob()">Contact</a>
+      <a href="index.html"    onclick="closeMob()">Home</a>
+      <a href="directory.html" onclick="closeMob()">Directory</a>
+      <a href="pricing.html"  onclick="closeMob()">Pricing</a>
+      <a href="contact.html"  onclick="closeMob()">Contact</a>
     </div>
-    <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20started" class="mob-wa" target="_blank" rel="noopener" onclick="closeMob()">
+    <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20started" class="mob-wa-link" target="_blank" rel="noopener" onclick="closeMob()">
       <svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
       WhatsApp Us Now
     </a>
   </div>
 </div>
 
-<!-- ═══ HERO ═══ -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-pill sr"><span class="pill-dot"></span> We're here to help</div>
-  <h1 class="sr d1">Get in <em>Touch</em> With Us</h1>
-  <p class="hero-sub sr d2">Have a question, want to list your business, or need support? The fastest way to reach us is on WhatsApp — we respond within a few hours.</p>
-  <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20in%20touch" class="hero-wa-btn sr d3" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-    WhatsApp Us — 063 669 1391
-  </a>
-  <div class="hero-note sr d4">Prefer email? <span>laafstylfamily@gmail.com</span> · We reply within 24 hours</div>
+  <div class="hero-eyebrow">
+    <span class="hero-eyebrow-dot"></span>
+    West Coast South Africa
+  </div>
+  <h1>Get in <span class="highlight">Touch</span> With Us</h1>
+  <p class="hero-sub">Have a question or ready to get your business online? WhatsApp us on <strong>063 669 1391</strong> for the fastest response.</p>
 </section>
 
-<!-- ═══ MAIN CONTENT ═══ -->
+<!-- MAIN CONTENT -->
 <div class="page-wrap">
 
-  <!-- FORM CARD -->
-  <div class="form-card sr">
-    <div class="form-title">Send Us a Message</div>
-    <div class="form-sub">Prefer to write? Fill in the form and we'll get back to you within 24 hours.</div>
+  <!-- FORM -->
+  <div class="form-card">
+    <div class="form-title">Send us a Message</div>
+    <div class="form-sub">Fill in the form below and we'll get back to you within 24 hours.</div>
 
     <form id="contactForm" onsubmit="handleSubmit(event)">
       <div class="form-row">
         <div class="field">
           <label for="fname">First Name</label>
-          <input type="text" id="fname" placeholder="Johan" required>
+          <input type="text" id="fname" placeholder="Jan" required>
         </div>
         <div class="field">
           <label for="lname">Last Name</label>
-          <input type="text" id="lname" placeholder="Smith" required>
+          <input type="text" id="lname" placeholder="van der Merwe" required>
         </div>
       </div>
 
       <div class="field">
         <label for="email">Email Address</label>
-        <input type="email" id="email" placeholder="johan@example.co.za" required>
+        <input type="email" id="email" placeholder="jan@mybusiness.co.za" required>
       </div>
 
       <div class="field">
         <label for="phone">WhatsApp / Phone Number</label>
-        <input type="tel" id="phone" placeholder="+27 63 669 1391">
+        <input type="tel" id="phone" placeholder="+27 63 123 4567">
       </div>
 
       <div class="field">
-        <label for="subject">What Can We Help With?</label>
+        <label for="subject">Subject</label>
         <select id="subject" required>
           <option value="" disabled selected>Select a topic…</option>
-          <option>List My Business</option>
-          <option>Website &amp; Pricing Enquiry</option>
-          <option>Edit My Business Profile</option>
+          <option>List my Business</option>
+          <option>Edit Business Profile</option>
+          <option>Report a Listing</option>
+          <option>Pricing Enquiry</option>
           <option>Technical Support</option>
-          <option>Advertising &amp; Partnerships</option>
           <option>General Enquiry</option>
         </select>
       </div>
 
       <div class="field">
         <label for="message">Your Message</label>
-        <textarea id="message" placeholder="Tell us how we can help…" required></textarea>
+        <textarea id="message" placeholder="Tell us how we can help you…" required></textarea>
       </div>
 
       <button type="submit" class="btn-submit">
@@ -543,145 +417,136 @@ footer {
     <div class="success-msg" id="successMsg">
       <div class="success-icon">✓</div>
       <div class="success-title">Message Sent!</div>
-      <p class="success-sub">Thanks for reaching out. We'll get back to you within 24 hours — or WhatsApp us for a faster reply.</p>
+      <p class="success-sub">Thanks for reaching out. We'll get back to you within 24 hours — or WhatsApp us directly for a faster response.</p>
     </div>
   </div>
 
   <!-- RIGHT SIDE -->
   <div class="right-side">
 
-    <!-- PRIMARY: WhatsApp featured card -->
-    <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20in%20touch" class="wa-featured sr" target="_blank" rel="noopener">
-      <div class="wa-icon-wrap">
-        <svg viewBox="0 0 24 24" fill="white" width="32" height="32"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    <a href="tel:+27636691391" class="channel-card">
+      <div class="channel-icon green">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00c06a" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.32 9.11a19.79 19.79 0 01-3.07-8.67A2 2 0 012.22 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.42a16 16 0 006.29 6.29l1.78-1.36a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
       </div>
-      <div class="wa-response-badge">
-        <span class="pill-dot" style="width:6px;height:6px;border-radius:50%;background:var(--green2);animation:pulse 2s infinite;flex-shrink:0"></span>
-        Usually replies within 2 hours
+      <div class="channel-info">
+        <div class="channel-label">Phone</div>
+        <div class="channel-value">063 669 1391</div>
+        <div class="channel-note">Mon – Sat, 8am – 6pm</div>
       </div>
-      <div class="wa-featured-title">Chat With Us on WhatsApp</div>
-      <div class="wa-featured-sub">The fastest way to get a quote, list your business, or ask anything about LaafWeb.</div>
-      <div class="wa-featured-cta">
-        <svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        Open WhatsApp — 063 669 1391
-      </div>
+      <svg class="channel-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
 
-    <!-- Email -->
-    <a href="mailto:laafstylfamily@gmail.com" class="channel-card sr d1">
-      <div class="ch-icon ch-blue">
+    <a href="mailto:laafstylfamily@gmail.com" class="channel-card">
+      <div class="channel-icon blue">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00AEEF" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       </div>
-      <div class="ch-info">
-        <div class="ch-label">Email</div>
-        <div class="ch-value" style="font-size:.84rem">laafstylfamily@gmail.com</div>
-        <div class="ch-note">Replies within 24 hours</div>
+      <div class="channel-info">
+        <div class="channel-label">Email</div>
+        <div class="channel-value" style="font-size:.85rem">laafstylfamily@gmail.com</div>
+        <div class="channel-note">Replies within 24 hours</div>
       </div>
-      <svg class="ch-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      <svg class="channel-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
 
-    <!-- Phone -->
-    <a href="tel:+27636691391" class="channel-card sr d2">
-      <div class="ch-icon ch-green">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00a85f" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.32 9.11a19.79 19.79 0 01-3.07-8.67A2 2 0 012.22 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.42a16 16 0 006.29 6.29l1.78-1.36a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+    <a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20in%20touch" target="_blank" rel="noopener" class="channel-card">
+      <div class="channel-icon wa">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.116.555 4.103 1.524 5.825L.057 23.882c-.05.201-.003.415.131.563a.57.57 0 00.616.179l6.217-1.607A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.82 9.82 0 01-4.96-1.342l-.356-.21-3.69.954.983-3.596-.232-.37A9.819 9.819 0 012.182 12C2.182 6.573 6.573 2.182 12 2.182c5.428 0 9.818 4.391 9.818 9.818 0 5.428-4.39 9.818-9.818 9.818z"/></svg>
       </div>
-      <div class="ch-info">
-        <div class="ch-label">Phone</div>
-        <div class="ch-value">063 669 1391</div>
-        <div class="ch-note">Mon – Fri, 8am – 5pm</div>
+      <div class="channel-info">
+        <div class="channel-label">WhatsApp — fastest response</div>
+        <div class="channel-value">063 669 1391</div>
+        <div class="channel-note">Chat with us directly</div>
       </div>
-      <svg class="ch-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      <svg class="channel-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
 
-    <!-- Location -->
-    <a href="https://maps.google.com/?q=Saldanha,+West+Coast,+South+Africa" target="_blank" class="channel-card sr d3">
-      <div class="ch-icon ch-gold">
+    <div class="channel-card" style="cursor:default">
+      <div class="channel-icon gold">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFB612" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
       </div>
-      <div class="ch-info">
-        <div class="ch-label">Based In</div>
-        <div class="ch-value">Saldanha, West Coast</div>
-        <div class="ch-note">Western Cape, South Africa</div>
+      <div class="channel-info">
+        <div class="channel-label">Location</div>
+        <div class="channel-value" style="font-size:.85rem;line-height:1.4">Saldanha Bay, West Coast</div>
+        <div class="channel-note">Western Cape, South Africa</div>
       </div>
-      <svg class="ch-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-    </a>
+    </div>
 
-    <!-- Map card -->
-    <div class="office-card sr d4">
+    <!-- MAP CARD — Saldanha Bay -->
+    <div class="office-card">
       <div class="office-map">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52867.45!2d17.9441!3d-33.0118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc52c65a2a2413%3A0x6c59c5ee3b8d82de!2sSaldanha%2C%20Western%20Cape!5e0!3m2!1sen!2sza!4v1700000000000"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26508.0!2d17.9443!3d-33.0119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dbbe9a3a2c1b4b5%3A0x0!2sSaldanha%2C%20Western%20Cape!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza"
           allowfullscreen="" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="Saldanha, West Coast">
+          title="Saldanha Bay, West Coast">
         </iframe>
-        <div class="map-badge">
-          <div class="map-pin-dot"></div>
-          Saldanha, West Coast
+        <div class="map-pin-badge">
+          <div class="pin-dot"></div>
+          Saldanha Bay
         </div>
       </div>
       <div class="office-body">
-        <div class="office-name">LaafWeb — West Coast, SA</div>
-        <div class="office-addr">Saldanha Bay, Western Cape<br>South Africa</div>
+        <div class="office-name">LaafWeb — West Coast</div>
+        <div class="office-address">Saldanha Bay, Western Cape<br>South Africa</div>
         <div class="office-tags">
-          <span class="office-tag">Mon–Fri 8:00–17:00</span>
+          <span class="office-tag">Mon–Sat 8:00–18:00</span>
           <span class="office-tag">WhatsApp preferred</span>
-          <span class="office-tag">Remote-first</span>
+          <span class="office-tag">By appointment</span>
         </div>
       </div>
     </div>
 
-  </div><!-- /right-side -->
-</div><!-- /page-wrap -->
+  </div>
+</div>
 
 <!-- SA DIVIDER -->
 <div class="sa-divider">
-  <div class="sa-line"></div>
-  <div class="sa-flag">
-    <div class="sf" style="width:28px;background:var(--green)"></div>
-    <div class="sf" style="width:10px;background:var(--gold)"></div>
-    <div class="sf" style="width:28px;background:var(--red)"></div>
-    <div class="sf" style="width:10px;background:#fff;opacity:.18"></div>
-    <div class="sf" style="width:28px;background:var(--blue)"></div>
+  <div class="sa-divider-line"></div>
+  <div class="sa-flag-bar">
+    <div class="flag-seg" style="width:28px;background:#007847"></div>
+    <div class="flag-seg" style="width:10px;background:#FFB612"></div>
+    <div class="flag-seg" style="width:28px;background:#DE3831"></div>
+    <div class="flag-seg" style="width:10px;background:#fff;opacity:.2"></div>
+    <div class="flag-seg" style="width:28px;background:#00AEEF"></div>
   </div>
-  <div class="sa-line"></div>
+  <div class="sa-divider-line"></div>
 </div>
 
-<!-- ═══ FAQ ═══ -->
+<!-- FAQ -->
 <section class="faq-section">
-  <div class="faq-hd sr">
+  <div class="faq-header">
     <h2>Frequently Asked Questions</h2>
-    <p>Quick answers to common questions about LaafWeb.</p>
+    <p>Quick answers about LaafWeb and getting your business online.</p>
   </div>
   <div class="faq-grid">
-    <div class="faq-item sr">
-      <div class="faq-q"><span class="faq-q-icon">Q</span>How do I list my business on LaafWeb?</div>
-      <p class="faq-a">WhatsApp us on 063 669 1391 to get started. We'll build your website and directory listing within 24 hours of receiving your details.</p>
+    <div class="faq-item" style="animation-delay:.05s">
+      <div class="faq-q"><span class="faq-q-icon">Q</span>How do I list my business?</div>
+      <p class="faq-a">WhatsApp us on 063 669 1391 with your business name, category, location, and a short description. We'll have your listing live within 24 hours.</p>
     </div>
-    <div class="faq-item sr d1">
-      <div class="faq-q"><span class="faq-q-icon">Q</span>What does a LaafWeb website cost?</div>
-      <p class="faq-a">Plans start from R200/month. A once-off R1,200 setup fee covers your domain, hosting, SSL, and business email. 14-day free trial available.</p>
+    <div class="faq-item" style="animation-delay:.10s">
+      <div class="faq-q"><span class="faq-q-icon">Q</span>How much does it cost?</div>
+      <p class="faq-a">Plans start at R200/month with a once-off R1,200 setup fee. A free 14-day trial is available — no credit card required. See our <a href="pricing.html" style="color:#00a85f">pricing page</a> for full details.</p>
     </div>
-    <div class="faq-item sr d2">
-      <div class="faq-q"><span class="faq-q-icon">Q</span>Can I update my business information?</div>
-      <p class="faq-a">Yes — WhatsApp us any time with your updated details and we'll make changes same day. Growth and Pro plans include monthly or weekly updates.</p>
+    <div class="faq-item" style="animation-delay:.15s">
+      <div class="faq-q"><span class="faq-q-icon">Q</span>How fast will my website go live?</div>
+      <p class="faq-a">We build and launch your website within 24 hours of receiving your business details. Send us the info on WhatsApp and we handle the rest.</p>
     </div>
-    <div class="faq-item sr d3">
-      <div class="faq-q"><span class="faq-q-icon">Q</span>Do you only cover the West Coast?</div>
-      <p class="faq-a">For now we're focused on the West Coast — Saldanha, Vredenburg, Langebaan, Velddrif and surrounding towns. We're expanding soon.</p>
+    <div class="faq-item" style="animation-delay:.20s">
+      <div class="faq-q"><span class="faq-q-icon">Q</span>Can I update my business info?</div>
+      <p class="faq-a">Yes — just WhatsApp or email us any changes and we'll update your listing and website, usually within 1 business day.</p>
     </div>
-    <div class="faq-item sr d4">
-      <div class="faq-q"><span class="faq-q-icon">Q</span>How do payments work?</div>
-      <p class="faq-a">Monthly subscriptions are processed securely through PayFast. We never store your card details. Cancel any time with no penalties.</p>
+    <div class="faq-item" style="animation-delay:.25s">
+      <div class="faq-q"><span class="faq-q-icon">Q</span>Which areas do you cover?</div>
+      <p class="faq-a">We focus on the West Coast of the Western Cape — Saldanha, Langebaan, Vredenburg, Velddrif, Paternoster, St Helena Bay, and surrounding towns.</p>
     </div>
-    <div class="faq-item sr d5">
-      <div class="faq-q"><span class="faq-q-icon">Q</span>What if I want to cancel?</div>
-      <p class="faq-a">Just WhatsApp us. Cancellations take effect at the end of the current billing month — no fees, no hassle. You can export your content before leaving.</p>
+    <div class="faq-item" style="animation-delay:.30s">
+      <div class="faq-q"><span class="faq-q-icon">Q</span>Can I cancel anytime?</div>
+      <p class="faq-a">Yes — no lock-in contracts. Cancel at any time via WhatsApp or email. Your service runs until the end of the current billing period with no penalties.</p>
     </div>
   </div>
 </section>
 
-<!-- ═══ FOOTER ═══ -->
+<!-- FOOTER -->
 <footer>
   <div class="foot-inner">
     <div class="foot-brand">
@@ -690,8 +555,10 @@ footer {
     </div>
     <div class="foot-links">
       <a href="index.html">Home</a>
-      <a href="index.html#directory">Directory</a>
+      <a href="directory.html">Directory</a>
       <a href="pricing.html">Pricing</a>
+      <a href="https://shuttle.laafstyl.org" target="_blank">LaafShuttle</a>
+      <a href="https://register.laafstyl.org" target="_blank">LaafConnect</a>
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
       <a href="contact.html">Contact</a>
@@ -700,36 +567,26 @@ footer {
   </div>
 </footer>
 
-<!-- FLOATING WHATSAPP -->
-<a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20in%20touch" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20my%20business%20listed" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24" fill="white" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
 
 <script>
-// scroll reveal
-const ro = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-}, { threshold:.08, rootMargin:'0px 0px -24px 0px' });
-document.querySelectorAll('.sr').forEach(el => ro.observe(el));
-
-// mobile menu
-function openMob()  { document.getElementById('mobOverlay').classList.add('open'); }
-function closeMob() { document.getElementById('mobOverlay').classList.remove('open'); }
-function closeMobOut(e) { if (e.target === document.getElementById('mobOverlay')) closeMob(); }
-
-// form submit — shows success state
-function handleSubmit(e) {
-  e.preventDefault();
-  const form = document.getElementById('contactForm');
-  const success = document.getElementById('successMsg');
-  const btn = form.querySelector('.btn-submit');
-  btn.innerHTML = 'Sending…';
-  btn.disabled = true;
-  setTimeout(() => {
-    form.style.display = 'none';
-    success.style.display = 'block';
-  }, 1200);
-}
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = document.getElementById('contactForm');
+    const success = document.getElementById('successMsg');
+    const btn = form.querySelector('.btn-submit');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    setTimeout(() => {
+      form.style.display = 'none';
+      success.style.display = 'block';
+    }, 1200);
+  }
+  function openMob()  { document.getElementById('mobOverlay').classList.add('open'); }
+  function closeMob() { document.getElementById('mobOverlay').classList.remove('open'); }
+  function closeMobOut(e) { if (e.target === document.getElementById('mobOverlay')) closeMob(); }
 </script>
 </body>
 </html>
