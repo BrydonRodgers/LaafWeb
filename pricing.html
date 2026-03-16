@@ -948,10 +948,16 @@ function updateCalc() {
   const total = 2000 + (extra * 350);
 
   document.getElementById('calc-pages').textContent = pages + ' page' + (pages !== 1 ? 's' : '') + ' total';
-  document.getElementById('calc-total').textContent = 'R' + total.toLocaleString('en-ZA');
+  document.getElementById('extra-price').textContent = 'R' + (extra * 350).toLocaleString('en-ZA');
+  } else {
+    extraRow.style.display = 'none';
+  }
 
-  const extraRow = document.getElementById('extra-row');
-  if (extra > 0) {
-    extraRow.style.display = 'flex';
-    document.getElementById('extra-label').textContent = extra + ' extra page' + (extra > 1 ? 's' : '');
-    document.getElementById('extra-price').textContent = 'R' + (extra * 350).toLocaleStri
+  document.getElementById('calc-hint').textContent =
+    extra > 0
+      ? extra + ' extra page' + (extra > 1 ? 's' : '') + ' × R350 added'
+      : 'Drag the slider to estimate your total';
+}
+</script>
+</body>
+</html>
