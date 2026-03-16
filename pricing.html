@@ -248,6 +248,78 @@ details[open] .setup-acc-q svg{transform:rotate(180deg)}
 .ref-terms-note a{color:rgba(37,211,102,.6);text-decoration:none}
 .ref-terms-note a:hover{color:var(--wa)}
 
+/* BUSINESS STARTER PACK */
+.starter-section{margin-bottom:22px}
+.starter-header{text-align:center;margin-bottom:22px}
+.starter-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,182,18,.08);border:1px solid rgba(255,182,18,.25);color:var(--gold);font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.starter-title{font-family:var(--fh);font-weight:800;font-size:1.25rem;text-transform:uppercase;color:var(--white);margin-bottom:6px}
+.starter-sub{font-size:.85rem;color:var(--muted);max-width:560px;margin:0 auto}
+.starter-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px}
+.starter-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px 18px;position:relative;overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+.starter-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(0,0,0,.45)}
+.starter-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.starter-card.biz-reg::before{background:linear-gradient(90deg,#f59e0b,#ef4444)}
+.starter-card.letterhead::before{background:linear-gradient(90deg,var(--green),#00d4aa)}
+.starter-card.email-sig::before{background:linear-gradient(90deg,var(--blue),#6366f1)}
+.starter-card.google-biz::before{background:linear-gradient(90deg,#ea4335,#fbbc04)}
+.starter-card.email-setup::before{background:linear-gradient(90deg,#4285f4,#34a853)}
+.starter-card.wa-biz::before{background:linear-gradient(90deg,var(--wa),#128c7e)}
+.starter-card.biz-reg:hover{border-color:rgba(245,158,11,.35)}
+.starter-card.letterhead:hover{border-color:rgba(0,168,95,.35)}
+.starter-card.email-sig:hover{border-color:rgba(0,174,239,.35)}
+.starter-card.google-biz:hover{border-color:rgba(234,67,53,.35)}
+.starter-card.email-setup:hover{border-color:rgba(66,133,244,.35)}
+.starter-card.wa-biz:hover{border-color:rgba(37,211,102,.35)}
+.starter-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:10px}
+.starter-ico{font-size:1.8rem;line-height:1}
+.starter-price-block{text-align:right}
+.starter-price{font-family:var(--fh);font-size:1.4rem;font-weight:900;line-height:1}
+.starter-card.biz-reg .starter-price{color:#f59e0b}
+.starter-card.letterhead .starter-price{color:var(--green2)}
+.starter-card.email-sig .starter-price{color:var(--blue)}
+.starter-card.google-biz .starter-price{color:#ea4335}
+.starter-card.email-setup .starter-price{color:#4285f4}
+.starter-card.wa-biz .starter-price{color:var(--wa)}
+.starter-once{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.09em;display:block;margin-top:2px}
+.starter-name{font-family:var(--fh);font-size:.88rem;font-weight:800;color:var(--white);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em}
+.starter-desc{font-size:.78rem;color:var(--muted);line-height:1.6;flex:1;margin-bottom:12px}
+.starter-includes{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.starter-inc{display:flex;align-items:center;gap:7px;font-size:.74rem;color:#bbb}
+.starter-inc::before{content:'✓';width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.5rem;font-weight:700;color:rgba(255,255,255,.4);flex-shrink:0}
+.starter-wa-btn{display:flex;align-items:center;justify-content:center;gap:7px;padding:10px 14px;background:var(--wa);color:#fff;border-radius:8px;font-family:var(--fh);font-size:.76rem;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:.06em;transition:background .2s,transform .2s;margin-top:auto}
+.starter-wa-btn:hover{background:#1eb659;transform:translateY(-1px)}
+
+/* COMPLIANCE SECTION */
+.compliance-section{margin-bottom:22px}
+.compliance-banner{background:linear-gradient(135deg,rgba(99,102,241,.1),rgba(139,92,246,.07));border:1px solid rgba(99,102,241,.25);border-radius:var(--radius);padding:36px 32px;position:relative;overflow:hidden}
+.compliance-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#6366f1,#8b5cf6,#a855f7)}
+.compliance-inner{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.compliance-left{}
+.compliance-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.28);color:#a5b4fc;font-family:var(--fh);font-size:.7rem;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+.compliance-h{font-family:var(--fh);font-size:1.2rem;font-weight:900;color:var(--white);margin-bottom:6px}
+.compliance-sub{font-size:.85rem;color:var(--muted);margin-bottom:20px;line-height:1.65}
+.compliance-price-row{display:flex;align-items:flex-end;gap:4px;margin-bottom:4px}
+.compliance-curr{font-family:var(--fh);font-size:1rem;font-weight:700;color:var(--muted);margin-bottom:6px}
+.compliance-amount{font-family:var(--fh);font-size:2.8rem;font-weight:900;color:#a5b4fc;line-height:1;letter-spacing:-2px}
+.compliance-period{font-size:.78rem;color:rgba(255,255,255,.4);margin-bottom:16px;text-transform:uppercase;letter-spacing:.08em}
+.compliance-wa-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:var(--wa);color:#fff;border-radius:9px;font-family:var(--fh);font-size:.85rem;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:.06em;box-shadow:0 4px 18px rgba(37,211,102,.3);transition:background .2s,transform .2s}
+.compliance-wa-btn:hover{background:#1eb659;transform:translateY(-2px)}
+.compliance-docs{display:flex;flex-direction:column;gap:12px}
+.compliance-doc{display:flex;align-items:flex-start;gap:14px;background:rgba(255,255,255,.03);border:1px solid rgba(99,102,241,.15);border-radius:10px;padding:14px 16px}
+.compliance-doc-ico{font-size:1.4rem;flex-shrink:0;margin-top:2px}
+.compliance-doc-title{font-family:var(--fh);font-size:.84rem;font-weight:700;color:var(--white);margin-bottom:2px}
+.compliance-doc-body{font-size:.75rem;color:var(--muted);line-height:1.5}
+.compliance-doc-price{font-family:var(--fh);font-size:.8rem;font-weight:800;color:#a5b4fc;margin-top:4px}
+.compliance-note{margin-top:16px;font-size:.74rem;color:rgba(255,255,255,.28);line-height:1.6;text-align:center}
+
+@media(max-width:900px){
+  .starter-grid{grid-template-columns:1fr 1fr}
+  .compliance-inner{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .starter-grid{grid-template-columns:1fr}
+}
+
 .notes-section{margin-top:48px;text-align:center;margin-bottom:48px}
 .notes-section h3{font-family:var(--fh);font-weight:700;font-size:1.15rem;margin-bottom:24px;color:var(--white)}
 .notes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
@@ -653,6 +725,189 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
 
     </div>
     <p class="addons-note">All add-ons are non-refundable once work has commenced · Extra revisions R49/round · <a href="terms.html#addons">Full add-on terms →</a></p>
+  </div>
+
+  <!-- BUSINESS STARTER PACK -->
+  <div class="starter-section reveal">
+    <div class="starter-header">
+      <div class="starter-badge">🚀 Business Starter Services</div>
+      <div class="starter-title">Get Your Business Fully Set Up</div>
+      <p class="starter-sub">Everything a new or growing West Coast business needs to look professional from day one — all ordered via WhatsApp, no agency fees.</p>
+    </div>
+    <div class="starter-grid">
+
+      <!-- BUSINESS REGISTRATION -->
+      <div class="starter-card biz-reg">
+        <div class="starter-top">
+          <span class="starter-ico">🏢</span>
+          <div class="starter-price-block"><div class="starter-price">R799</div><span class="starter-once">Once-off</span></div>
+        </div>
+        <div class="starter-name">Business Registration</div>
+        <div class="starter-desc">We handle your CIPC registration from start to finish — company name search, reservation, and registration. You get your CK number without the admin headache.</div>
+        <div class="starter-includes">
+          <div class="starter-inc">CIPC name search &amp; reservation</div>
+          <div class="starter-inc">Private company (Pty) Ltd registration</div>
+          <div class="starter-inc">CoR14.3 certificate delivered</div>
+          <div class="starter-inc">Includes CIPC fees</div>
+        </div>
+        <a href="https://wa.me/27636691391?text=Hi%2C%20I%27d%20like%20Business%20Registration%20(R799)" class="starter-wa-btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="white" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Order on WhatsApp
+        </a>
+      </div>
+
+      <!-- LETTERHEAD & INVOICE TEMPLATE -->
+      <div class="starter-card letterhead">
+        <div class="starter-top">
+          <span class="starter-ico">📄</span>
+          <div class="starter-price-block"><div class="starter-price">R149</div><span class="starter-once">Once-off</span></div>
+        </div>
+        <div class="starter-name">Letterhead &amp; Invoice Template</div>
+        <div class="starter-desc">Branded Word + Excel templates that match your logo and colours. Send professional quotes and invoices that make you look established from your very first client.</div>
+        <div class="starter-includes">
+          <div class="starter-inc">Branded letterhead (.docx)</div>
+          <div class="starter-inc">Invoice / quote template (.xlsx)</div>
+          <div class="starter-inc">Matches your brand colours &amp; logo</div>
+          <div class="starter-inc">Editable — fill in &amp; send yourself</div>
+        </div>
+        <a href="https://wa.me/27636691391?text=Hi%2C%20I%27d%20like%20a%20Letterhead%20%26%20Invoice%20Template%20(R149)" class="starter-wa-btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="white" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Order on WhatsApp
+        </a>
+      </div>
+
+      <!-- BRANDED EMAIL SIGNATURE -->
+      <div class="starter-card email-sig">
+        <div class="starter-top">
+          <span class="starter-ico">✍️</span>
+          <div class="starter-price-block"><div class="starter-price">R99</div><span class="starter-once">Once-off</span></div>
+        </div>
+        <div class="starter-name">Branded Email Signature</div>
+        <div class="starter-desc">A professional HTML email signature with your logo, contact details, and social links. Every email you send becomes a mini-advert for your business.</div>
+        <div class="starter-includes">
+          <div class="starter-inc">HTML email signature (works in Gmail, Outlook)</div>
+          <div class="starter-inc">Logo, phone, website, WhatsApp link</div>
+          <div class="starter-inc">Social media icon links</div>
+          <div class="starter-inc">Setup instructions included</div>
+        </div>
+        <a href="https://wa.me/27636691391?text=Hi%2C%20I%27d%20like%20a%20Branded%20Email%20Signature%20(R99)" class="starter-wa-btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="white" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Order on WhatsApp
+        </a>
+      </div>
+
+      <!-- GOOGLE BUSINESS PROFILE -->
+      <div class="starter-card google-biz">
+        <div class="starter-top">
+          <span class="starter-ico">📍</span>
+          <div class="starter-price-block"><div class="starter-price">R299</div><span class="starter-once">Once-off</span></div>
+        </div>
+        <div class="starter-name">Google Business Profile Setup</div>
+        <div class="starter-desc">Get your business showing up on Google Maps and local search results. Most West Coast businesses haven't set this up properly — it's free exposure you're leaving on the table.</div>
+        <div class="starter-includes">
+          <div class="starter-inc">Full Google Business Profile setup</div>
+          <div class="starter-inc">Business categories, hours &amp; description</div>
+          <div class="starter-inc">Photos, logo &amp; cover image uploaded</div>
+          <div class="starter-inc">Linked to your website</div>
+        </div>
+        <a href="https://wa.me/27636691391?text=Hi%2C%20I%27d%20like%20Google%20Business%20Profile%20Setup%20(R299)" class="starter-wa-btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="white" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Order on WhatsApp
+        </a>
+      </div>
+
+      <!-- PROFESSIONAL EMAIL SETUP -->
+      <div class="starter-card email-setup">
+        <div class="starter-top">
+          <span class="starter-ico">📧</span>
+          <div class="starter-price-block"><div class="starter-price">R149</div><span class="starter-once">Once-off</span></div>
+        </div>
+        <div class="starter-name">Professional Email Setup</div>
+        <div class="starter-desc">Stop using Gmail or Hotmail for your business. We set up a branded email address like <em style="color:var(--blue);font-style:normal">you@yourbusiness.co.za</em> via Google Workspace or Zoho.</div>
+        <div class="starter-includes">
+          <div class="starter-inc">Professional @yourdomain email address</div>
+          <div class="starter-inc">Google Workspace or Zoho Mail setup</div>
+          <div class="starter-inc">Works on phone, tablet &amp; desktop</div>
+          <div class="starter-inc">Up to 2 email addresses configured</div>
+        </div>
+        <a href="https://wa.me/27636691391?text=Hi%2C%20I%27d%20like%20Professional%20Email%20Setup%20(R149)" class="starter-wa-btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="white" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Order on WhatsApp
+        </a>
+      </div>
+
+      <!-- WHATSAPP BUSINESS SETUP -->
+      <div class="starter-card wa-biz">
+        <div class="starter-top">
+          <span class="starter-ico">💬</span>
+          <div class="starter-price-block"><div class="starter-price">R129</div><span class="starter-once">Once-off</span></div>
+        </div>
+        <div class="starter-name">WhatsApp Business Setup</div>
+        <div class="starter-desc">We set up and optimise your WhatsApp Business profile so customers see a professional business — not just a phone number. Includes auto-replies and a product/service catalogue.</div>
+        <div class="starter-includes">
+          <div class="starter-inc">WhatsApp Business profile fully configured</div>
+          <div class="starter-inc">Business description, hours &amp; address</div>
+          <div class="starter-inc">Away &amp; greeting auto-reply messages</div>
+          <div class="starter-inc">Basic services/products catalogue setup</div>
+        </div>
+        <a href="https://wa.me/27636691391?text=Hi%2C%20I%27d%20like%20WhatsApp%20Business%20Setup%20(R129)" class="starter-wa-btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="white" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Order on WhatsApp
+        </a>
+      </div>
+
+    </div>
+    <p class="addons-note">All starter services are once-off · Delivered within 3–5 business days · <a href="terms.html#addons">Full terms →</a></p>
+  </div>
+
+  <!-- ADMIN & COMPLIANCE -->
+  <div class="compliance-section reveal">
+    <p class="section-label" style="margin-bottom:8px">⚖️ Legal &amp; Compliance</p>
+    <div class="compliance-banner">
+      <div class="compliance-inner">
+        <div class="compliance-left">
+          <div class="compliance-badge">📋 Admin &amp; Compliance Docs</div>
+          <div class="compliance-h">Protect Your Business &amp; Stay POPIA Compliant</div>
+          <p class="compliance-sub">Every South African website that collects any customer data is legally required to have a Privacy Policy. Terms &amp; Conditions protect you from disputes. We write these specifically for your business — not generic copy-paste templates.</p>
+          <div class="compliance-price-row">
+            <span class="compliance-curr">R</span>
+            <span class="compliance-amount">350</span>
+          </div>
+          <div class="compliance-period">per document · added to any plan</div>
+          <a href="https://wa.me/27636691391?text=Hi%2C%20I%27d%20like%20Compliance%20Documents%20for%20my%20website" class="compliance-wa-btn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Order on WhatsApp
+          </a>
+          <p class="compliance-note" style="text-align:left;margin-top:14px">Bundle both docs for <strong style="color:#a5b4fc">R600</strong> — save R100 · We add them directly to your website</p>
+        </div>
+        <div class="compliance-docs">
+          <div class="compliance-doc">
+            <div class="compliance-doc-ico">🔒</div>
+            <div>
+              <div class="compliance-doc-title">Privacy Policy (POPIA)</div>
+              <div class="compliance-doc-body">Required by South African law if your website collects any personal info — including contact forms, WhatsApp buttons, or email links. We write it specifically for your business and add it to your site.</div>
+              <div class="compliance-doc-price">R350 · added to any plan</div>
+            </div>
+          </div>
+          <div class="compliance-doc">
+            <div class="compliance-doc-ico">📝</div>
+            <div>
+              <div class="compliance-doc-title">Terms &amp; Conditions</div>
+              <div class="compliance-doc-body">Covers payment terms, service scope, liability, and dispute resolution. Protects you if a client disputes work or payment. Essential for any business offering services online.</div>
+              <div class="compliance-doc-price">R350 · added to any plan</div>
+            </div>
+          </div>
+          <div class="compliance-doc">
+            <div class="compliance-doc-ico">🍪</div>
+            <div>
+              <div class="compliance-doc-title">Cookie Notice</div>
+              <div class="compliance-doc-body">If your site uses Google Analytics, Facebook Pixel, or any tracking, a cookie notice is required. We write and add a simple, compliant banner to your site.</div>
+              <div class="compliance-doc-price">R350 · added to any plan</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- REFERRAL -->
