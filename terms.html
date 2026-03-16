@@ -12,7 +12,7 @@
     --green:#007847;--green2:#00a85f;--gold:#FFB612;--red:#DE3831;--blue:#00AEEF;
     --wa:#25D366;
     --bg:#0f0f0f;--bg2:#161616;--card:#1c1c1c;--card2:#222;
-    --border:#2a2a2a;--border2:#333;--muted:#888;--body:#888;--light:#bbb;--text:#ffffff;
+    --border:#2a2a2a;--border2:#333;--muted:#888;--light:#bbb;--text:#ffffff;
     --radius:18px;--fh:'Poppins',sans-serif;--fb:'Inter',sans-serif;
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -26,7 +26,7 @@
   @keyframes drift{from{transform:translate(0,0)}to{transform:translate(30px,25px)}}
 
   /* NAV */
-  nav{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:20px 36px;border-bottom:1px solid var(--border);backdrop-filter:blur(14px);background:rgba(15,15,15,0.7)}
+  nav{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:20px 36px;border-bottom:1px solid var(--border);backdrop-filter:blur(14px);background:rgba(15,15,15,.7)}
   .nav-logo{display:flex;align-items:center;text-decoration:none}
   .logo-img{height:30px;width:auto;display:block;object-fit:contain}
   .logo-img-mob{height:26px;width:auto;object-fit:contain}
@@ -52,7 +52,6 @@
   /* LAYOUT */
   main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:60px 24px 100px}
 
-  /* PAGE HEADER */
   .page-header{margin-bottom:48px}
   .page-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,182,18,.1);border:1px solid rgba(255,182,18,.25);color:var(--gold);padding:5px 14px;border-radius:50px;font-size:.75rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;margin-bottom:20px}
   .page-header h1{font-family:var(--fh);font-weight:900;font-size:clamp(2rem,4vw,2.8rem);letter-spacing:-1px;margin-bottom:12px;line-height:1.15}
@@ -64,7 +63,6 @@
   .sa-stripe span:nth-child(3){background:var(--red)}
   .sa-stripe span:nth-child(4){background:var(--blue)}
 
-  /* TOC */
   .toc{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px;margin-bottom:48px;position:relative;overflow:hidden}
   .toc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--red))}
   .toc h3{font-family:var(--fh);font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:14px}
@@ -72,7 +70,6 @@
   .toc ol li a{color:var(--gold);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
   .toc ol li a:hover{color:var(--text)}
 
-  /* SECTIONS */
   .doc-section{margin-bottom:44px}
   .doc-section h2{font-family:var(--fh);font-weight:800;font-size:1.15rem;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
   .section-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:rgba(255,182,18,.15);color:var(--gold);font-size:.72rem;font-weight:800;flex-shrink:0}
@@ -87,18 +84,11 @@
   .warn-box{background:rgba(222,56,49,.07);border:1px solid rgba(222,56,49,.2);border-radius:12px;padding:16px 20px;margin:16px 0;display:flex;gap:12px;align-items:flex-start}
   .warn-box .warn-icon{font-size:1rem;flex-shrink:0;margin-top:1px}
   .warn-box p{color:#ccc;font-size:.875rem;margin:0}
-  .info-box{background:rgba(0,174,239,.07);border:1px solid rgba(0,174,239,.2);border-radius:12px;padding:16px 20px;margin:16px 0;display:flex;gap:12px;align-items:flex-start}
+  .info-box{background:rgba(0,174,239,.07);border:1px solid rgba(0,174,239,.2);border-radius:12px;padding:16px 20px;margin:16px 0}
   .info-box p{color:#ccc;font-size:.875rem;margin:0}
 
-  /* REFERRAL CALLOUT — special styling */
-  .referral-callout{
-    background:linear-gradient(135deg,rgba(0,120,71,.12),rgba(37,211,102,.06));
-    border:1px solid rgba(37,211,102,.25);
-    border-radius:var(--radius);
-    padding:28px 24px;
-    margin:18px 0;
-    position:relative;overflow:hidden;
-  }
+  /* REFERRAL CALLOUT */
+  .referral-callout{background:linear-gradient(135deg,rgba(0,120,71,.12),rgba(37,211,102,.06));border:1px solid rgba(37,211,102,.25);border-radius:var(--radius);padding:28px 24px;margin:18px 0;position:relative;overflow:hidden}
   .referral-callout::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--wa))}
   .referral-callout-header{display:flex;align-items:center;gap:12px;margin-bottom:14px}
   .referral-ico{font-size:1.8rem}
@@ -112,19 +102,55 @@
   .ref-wa-btn:hover{background:#1eb659;transform:translateY(-2px)}
 
   /* ADD-ON SERVICE CARDS */
-  .addon-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
-  .addon-card{background:var(--card2);border:1px solid var(--border2);border-radius:12px;padding:18px 16px;position:relative;overflow:hidden;transition:border-color .2s}
-  .addon-card:hover{border-color:rgba(255,182,18,.3)}
+  .addon-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+
+  .addon-card{
+    background:var(--card2);
+    border:1px solid var(--border2);
+    border-radius:14px;
+    padding:20px 18px;
+    position:relative;overflow:hidden;
+    transition:border-color .25s,transform .25s;
+    display:flex;flex-direction:column;
+  }
+  .addon-card:hover{transform:translateY(-3px)}
   .addon-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-  .addon-card.logo::before{background:linear-gradient(90deg,var(--blue),#a855f7)}
+  .addon-card.logo::before  {background:linear-gradient(90deg,var(--blue),#a855f7)}
   .addon-card.advert::before{background:linear-gradient(90deg,var(--gold),var(--red))}
-  .addon-card.biz-card::before{background:linear-gradient(90deg,var(--green),var(--blue))}
-  .addon-card.qr::before{background:linear-gradient(90deg,#a855f7,var(--red))}
-  .addon-ico{font-size:1.5rem;margin-bottom:8px}
-  .addon-name{font-family:var(--fh);font-size:.88rem;font-weight:700;color:#fff;margin-bottom:3px}
-  .addon-price{font-family:var(--fh);font-size:1.3rem;font-weight:900;color:var(--gold);line-height:1;margin-bottom:5px}
-  .addon-once{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
-  .addon-desc{font-size:.78rem;color:var(--muted);line-height:1.5;margin-top:6px}
+  .addon-card.bizcard::before{background:linear-gradient(90deg,var(--green),var(--blue))}
+  .addon-card.qrflyer::before{background:linear-gradient(90deg,#a855f7,var(--red))}
+  .addon-card.logo:hover  {border-color:rgba(168,139,250,.35)}
+  .addon-card.advert:hover {border-color:rgba(255,182,18,.35)}
+  .addon-card.bizcard:hover{border-color:rgba(0,120,71,.35)}
+  .addon-card.qrflyer:hover{border-color:rgba(168,85,247,.35)}
+
+  .addon-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:10px}
+  .addon-ico{font-size:1.7rem;line-height:1}
+  .addon-price-block{text-align:right}
+  .addon-price{font-family:var(--fh);font-size:1.45rem;font-weight:900;line-height:1}
+  .addon-card.logo   .addon-price{color:#a78bfa}
+  .addon-card.advert .addon-price{color:var(--gold)}
+  .addon-card.bizcard .addon-price{color:#4cd993}
+  .addon-card.qrflyer .addon-price{color:#c084fc}
+  .addon-once{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.09em;display:block;margin-top:1px}
+
+  .addon-name{font-family:var(--fh);font-size:.92rem;font-weight:800;color:#fff;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em}
+
+  /* pill tags under the name */
+  .addon-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+  .addon-tag{font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:.07em;text-transform:uppercase}
+  .tag-ai    {background:rgba(168,139,250,.12);border:1px solid rgba(168,139,250,.25);color:#c4b5fd}
+  .tag-custom{background:rgba(0,174,239,.1);border:1px solid rgba(0,174,239,.22);color:var(--blue)}
+  .tag-social{background:rgba(255,182,18,.1);border:1px solid rgba(255,182,18,.22);color:var(--gold)}
+  .tag-print {background:rgba(0,120,71,.1);border:1px solid rgba(0,120,71,.22);color:#4cd993}
+  .tag-design{background:rgba(222,56,49,.1);border:1px solid rgba(222,56,49,.22);color:#f08080}
+
+  .addon-desc{font-size:.8rem;color:var(--muted);line-height:1.6;flex:1}
+
+  /* what's included mini-list inside card */
+  .addon-includes{margin-top:10px;display:flex;flex-direction:column;gap:5px}
+  .addon-inc-item{display:flex;align-items:center;gap:7px;font-size:.77rem;color:#bbb}
+  .addon-inc-item::before{content:'✓';width:15px;height:15px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.58rem;font-weight:700;color:rgba(255,255,255,.45);flex-shrink:0}
 
   /* PLAN TABLE */
   .plan-table{width:100%;border-collapse:collapse;margin:16px 0}
@@ -133,11 +159,11 @@
   .plan-table tr:last-child td{border-bottom:none}
   .plan-table tr:hover td{background:rgba(255,255,255,.02)}
   .badge{display:inline-block;padding:2px 10px;border-radius:50px;font-size:.7rem;font-weight:700}
-  .badge-grey{background:rgba(150,150,150,.15);color:#999}
-  .badge-gold{background:rgba(255,182,18,.15);color:var(--gold)}
-  .badge-green{background:rgba(0,120,71,.15);color:#4cd993}
+  .badge-grey  {background:rgba(150,150,150,.15);color:#999}
+  .badge-gold  {background:rgba(255,182,18,.15);color:var(--gold)}
+  .badge-green {background:rgba(0,120,71,.15);color:#4cd993}
   .badge-purple{background:rgba(168,139,250,.15);color:#a78bfa}
-  .badge-blue{background:rgba(0,174,239,.15);color:var(--blue)}
+  .badge-blue  {background:rgba(0,174,239,.15);color:var(--blue)}
 
   /* CONTACT CARD */
   .contact-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px;margin-top:16px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
@@ -159,11 +185,9 @@
   footer a:hover{color:var(--text)}
   .footer-links{display:flex;gap:18px}
 
-  /* WA FLOAT */
   .wa-float{position:fixed;bottom:26px;right:26px;z-index:100;width:54px;height:54px;background:var(--wa);border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 18px rgba(37,211,102,.4);transition:transform .25s,box-shadow .25s}
   .wa-float:hover{transform:scale(1.12);box-shadow:0 6px 28px rgba(37,211,102,.58)}
 
-  /* REVEAL */
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
   .reveal.visible{opacity:1;transform:translateY(0)}
 
@@ -237,7 +261,7 @@
     <div class="sa-stripe"><span></span><span></span><span></span><span></span></div>
   </div>
 
-  <!-- TABLE OF CONTENTS -->
+  <!-- TOC -->
   <div class="toc reveal">
     <h3>Contents</h3>
     <ol>
@@ -264,7 +288,7 @@
   <div class="doc-section reveal" id="acceptance">
     <h2><span class="section-num">1</span> Acceptance of Terms</h2>
     <p>These Terms and Conditions ("Terms") govern your use of LaafWeb's services, offered by <strong>LaafStyl (Pty) Ltd</strong> (Registration No: <strong>YOUR_REG_NUMBER</strong>), a company registered in the Republic of South Africa ("we", "us", "our").</p>
-    <p>By submitting the onboarding form, starting a free trial, completing a PayFast subscription payment, or using any LaafWeb service, you confirm that you have read, understood, and agreed to these Terms in full. If you do not agree, please do not use our services.</p>
+    <p>By submitting the onboarding form, starting a free trial, completing a PayFast payment, or using any LaafWeb service, you confirm that you have read, understood, and agreed to these Terms in full.</p>
     <div class="highlight-box">
       <p>These Terms constitute a binding agreement between you (the client) and LaafStyl (Pty) Ltd under South African law, and incorporate our <a href="privacy.html" style="color:#4cd993">Privacy Policy</a> by reference.</p>
     </div>
@@ -284,7 +308,7 @@
       <li>Monthly content updates (Business &amp; Enterprise plans)</li>
       <li>Once-off add-on services as described in Section 4</li>
     </ul>
-    <p>All websites are built and maintained by LaafStyl (Pty) Ltd. Delivery timelines, content requirements, and design scope will be confirmed via WhatsApp after your setup fee is paid.</p>
+    <p>All websites are built and maintained by LaafStyl (Pty) Ltd. Delivery timelines and content requirements will be confirmed via WhatsApp after your setup fee is paid.</p>
   </div>
 
   <!-- 3. PLANS & PRICING -->
@@ -322,49 +346,113 @@
         </tr>
       </tbody>
     </table>
-    <p>Annual billing is available at a discounted rate (equivalent to 10 months' cost). Annual plans are non-refundable mid-term but may be cancelled at renewal. We reserve the right to adjust pricing with 30 days' written notice to active subscribers.</p>
+    <p>Annual billing is available at a discounted rate equivalent to 10 months. We reserve the right to adjust pricing with 30 days' written notice to active subscribers.</p>
   </div>
 
   <!-- 4. ADD-ON SERVICES -->
   <div class="doc-section reveal" id="addons">
     <h2><span class="section-num">4</span> Add-On Services</h2>
-    <p>The following once-off and optional services are available to any client, regardless of their subscription plan:</p>
+    <p>The following once-off services are available to any client regardless of subscription plan. All are delivered digitally — files sent via WhatsApp or email within 3 business days of payment confirmation.</p>
 
     <div class="addon-grid">
-      <div class="addon-card logo">
-        <div class="addon-ico">🎨</div>
-        <div class="addon-name">Logo Design</div>
-        <div class="addon-price">R49</div>
-        <div class="addon-once">Once-off</div>
-        <div class="addon-desc">A custom logo created for your business. Delivered as PNG and SVG. Up to 2 concepts — 1 round of revisions included.</div>
-      </div>
-      <div class="addon-card advert">
-        <div class="addon-ico">📢</div>
-        <div class="addon-name">Business Advert Design</div>
-        <div class="addon-price">R199</div>
-        <div class="addon-once">Once-off</div>
-        <div class="addon-desc">A professionally designed social media or print advert for your business. Delivered as a high-resolution file ready for you to post or print.</div>
-      </div>
-      <div class="addon-card biz-card">
-        <div class="addon-ico">🪪</div>
-        <div class="addon-name">Business Card Design</div>
-        <div class="addon-price">R79</div>
-        <div class="addon-once">Once-off</div>
-        <div class="addon-desc">A print-ready business card design (front &amp; back). Delivered in PDF format, sized for standard SA business cards.</div>
-      </div>
-      <div class="addon-card qr">
-        <div class="addon-ico">📱</div>
-        <div class="addon-name">QR Code + Flyer Design</div>
-        <div class="addon-price">R99</div>
-        <div class="addon-once">Once-off</div>
-        <div class="addon-desc">A branded QR code linking to your website, packaged in a print-ready A5 or A6 flyer design — ideal for physical handouts and signage.</div>
-      </div>
-    </div>
 
-    <p>Add-on services are non-refundable once design work has commenced. Delivery is within 3 business days of payment confirmation. All design files are delivered via WhatsApp or email. Additional revisions beyond the included round are charged at R49 per revision.</p>
+      <!-- LOGO -->
+      <div class="addon-card logo">
+        <div class="addon-top">
+          <span class="addon-ico">🎨</span>
+          <div class="addon-price-block">
+            <div class="addon-price">R129</div>
+            <span class="addon-once">Once-off</span>
+          </div>
+        </div>
+        <div class="addon-name">Logo Design</div>
+        <div class="addon-tags">
+          <span class="addon-tag tag-ai">AI-Assisted</span>
+          <span class="addon-tag tag-custom">3 Unique Designs</span>
+        </div>
+        <div class="addon-desc">A custom logo designed for your business. We use AI assistance to generate and then manually refine 3 distinct concepts tailored to your brand, colours, and style preferences — then you pick your favourite.</div>
+        <div class="addon-includes">
+          <div class="addon-inc-item">3 unique logo concepts</div>
+          <div class="addon-inc-item">1 round of revisions on chosen design</div>
+          <div class="addon-inc-item">Delivered as PNG + SVG (white &amp; colour versions)</div>
+          <div class="addon-inc-item">Transparent background included</div>
+        </div>
+      </div>
+
+      <!-- ADVERT -->
+      <div class="addon-card advert">
+        <div class="addon-top">
+          <span class="addon-ico">📢</span>
+          <div class="addon-price-block">
+            <div class="addon-price">R199</div>
+            <span class="addon-once">Once-off</span>
+          </div>
+        </div>
+        <div class="addon-name">Business Advert Design</div>
+        <div class="addon-tags">
+          <span class="addon-tag tag-social">Social Media</span>
+          <span class="addon-tag tag-print">Print-Ready</span>
+          <span class="addon-tag tag-design">Design + Posting</span>
+        </div>
+        <div class="addon-desc">A professionally designed advert for your business, created for <em>both</em> social media and print use. We design it and post it to your social pages on your behalf — you just supply the platforms and access.</div>
+        <div class="addon-includes">
+          <div class="addon-inc-item">Social media advert (optimised for Facebook &amp; Instagram)</div>
+          <div class="addon-inc-item">Print-ready version at high resolution (A5 or A6)</div>
+          <div class="addon-inc-item">We post it to your social page(s) once on your behalf</div>
+          <div class="addon-inc-item">Delivered as JPG + PDF</div>
+        </div>
+      </div>
+
+      <!-- BUSINESS CARD -->
+      <div class="addon-card bizcard">
+        <div class="addon-top">
+          <span class="addon-ico">🪪</span>
+          <div class="addon-price-block">
+            <div class="addon-price">R79</div>
+            <span class="addon-once">Once-off</span>
+          </div>
+        </div>
+        <div class="addon-name">Business Card Design</div>
+        <div class="addon-tags">
+          <span class="addon-tag tag-print">Print-Ready</span>
+          <span class="addon-tag tag-custom">Front &amp; Back</span>
+        </div>
+        <div class="addon-desc">A clean, professional business card design formatted to standard South African card dimensions. You take the file to any printer of your choice.</div>
+        <div class="addon-includes">
+          <div class="addon-inc-item">Front &amp; back design</div>
+          <div class="addon-inc-item">Print-ready PDF (85×55mm, 300dpi)</div>
+          <div class="addon-inc-item">1 round of revisions included</div>
+        </div>
+      </div>
+
+      <!-- QR + FLYER -->
+      <div class="addon-card qrflyer">
+        <div class="addon-top">
+          <span class="addon-ico">📱</span>
+          <div class="addon-price-block">
+            <div class="addon-price">R99</div>
+            <span class="addon-once">Once-off</span>
+          </div>
+        </div>
+        <div class="addon-name">QR Code + Flyer</div>
+        <div class="addon-tags">
+          <span class="addon-tag tag-print">Print-Ready</span>
+          <span class="addon-tag tag-custom">Branded</span>
+        </div>
+        <div class="addon-desc">A branded QR code linking to your website, packaged inside a print-ready A5 or A6 flyer — ideal for shop windows, handouts, or notice boards.</div>
+        <div class="addon-includes">
+          <div class="addon-inc-item">Custom QR code linking to your website</div>
+          <div class="addon-inc-item">Branded flyer design (A5 or A6, your choice)</div>
+          <div class="addon-inc-item">Delivered as PDF + PNG</div>
+        </div>
+      </div>
+
+    </div><!-- /addon-grid -->
+
+    <p style="margin-top:4px">Add-on services are <strong>non-refundable once design work has commenced</strong>. Additional revision rounds beyond those specified are charged at <strong>R49 per round</strong>. Posting of the advert on the client's social pages requires the client to grant temporary page access or send login credentials via WhatsApp — LaafStyl (Pty) Ltd will not retain access after posting.</p>
 
     <div class="info-box">
-      <p>💡 <strong style="color:#fff">To order any add-on service</strong> — simply WhatsApp us on <a href="https://wa.me/27636691391" target="_blank" style="color:#00AEEF">063 669 1391</a> with the service name, and we'll send you a payment link.</p>
+      <p>💡 <strong style="color:#fff">To order any add-on</strong> — WhatsApp us on <a href="https://wa.me/27636691391" target="_blank" style="color:var(--blue)">063 669 1391</a> with the service name, your business details, and preferred colours/style. We'll send a payment link and confirm delivery timing.</p>
     </div>
   </div>
 
@@ -378,38 +466,38 @@
       <li>You own the website files and source code outright upon receipt of full payment</li>
       <li>You are responsible for your own hosting, domain renewal, and future updates</li>
       <li>No monthly subscription is required</li>
-      <li>LaafStyl (Pty) Ltd provides no ongoing support under this option unless separately agreed in writing</li>
+      <li>LaafStyl (Pty) Ltd provides no ongoing support unless separately agreed in writing</li>
       <li>The LaafWeb directory listing and WhatsApp AI features are not included</li>
     </ul>
     <div class="warn-box">
       <span class="warn-icon">⚠️</span>
-      <p>The R2,000 self-host purchase is once-off and non-refundable once delivery has commenced. No hosting, support, or directory listing is included under this option.</p>
+      <p>The self-host purchase is once-off and non-refundable once delivery has commenced. No hosting, support, or directory listing is included.</p>
     </div>
   </div>
 
   <!-- 6. SUBSCRIPTIONS & BILLING -->
   <div class="doc-section reveal" id="subscriptions">
     <h2><span class="section-num">6</span> Subscriptions &amp; Billing</h2>
-    <p>Monthly subscriptions are processed via <strong>PayFast</strong>, South Africa's leading payment gateway. By subscribing, you authorise PayFast to debit your chosen payment method on a recurring monthly basis.</p>
+    <p>Monthly subscriptions are processed via <strong>PayFast</strong>, South Africa's leading payment gateway. By subscribing you authorise PayFast to debit your chosen payment method on a recurring monthly basis.</p>
     <ul>
       <li>Billing occurs monthly on or around your original subscription date</li>
       <li>Failed payments may result in temporary suspension of your website and directory listing</li>
       <li>You are responsible for keeping your payment details up to date with PayFast</li>
       <li>LaafStyl (Pty) Ltd does not store your card or banking details — these are managed entirely by PayFast</li>
-      <li>If a payment fails and is not resolved within 7 days, we reserve the right to suspend your services until payment is received</li>
-      <li>Accepted payment methods include credit/debit card, Instant EFT, SnapScan, and EFT (via PayFast)</li>
+      <li>If a payment fails and is not resolved within 7 days, we reserve the right to suspend your services</li>
+      <li>Accepted methods include credit/debit card, Instant EFT, SnapScan, and EFT (via PayFast)</li>
     </ul>
   </div>
 
   <!-- 7. FREE TRIAL -->
   <div class="doc-section reveal" id="free-trial">
     <h2><span class="section-num">7</span> Free 7-Day Trial</h2>
-    <p>New customers may access LaafWeb free for 7 days on any monthly plan. During the trial period:</p>
+    <p>New customers may access LaafWeb free for 7 days on any monthly plan. During the trial:</p>
     <ul>
-      <li>Your website will be built and your directory listing activated within 24 hours of sign-up</li>
+      <li>Your website will be built and your listing activated within 24 hours of sign-up</li>
       <li>No payment is required and no card details are stored during the trial</li>
-      <li>At the end of the trial, you will be contacted via WhatsApp to confirm your plan and payment</li>
-      <li>If you do not convert to a paid plan, your website and listing will be deactivated after the trial ends</li>
+      <li>At the end of the trial you will be contacted via WhatsApp to confirm your plan and payment</li>
+      <li>If you do not convert to a paid plan, your website and listing will be deactivated</li>
       <li>The setup fee is only charged when you activate a paid subscription, not during the trial</li>
     </ul>
     <div class="highlight-box">
@@ -420,21 +508,19 @@
   <!-- 8. REFERRAL PROGRAMME -->
   <div class="doc-section reveal" id="referral">
     <h2><span class="section-num">8</span> Referral Programme</h2>
-    <p>LaafWeb operates a cash referral programme that rewards you for introducing new paying clients to our services.</p>
+    <p>LaafWeb rewards you for introducing new paying clients to our services.</p>
 
     <div class="referral-callout">
       <div class="referral-callout-header">
         <span class="referral-ico">🤝</span>
-        <div>
-          <div class="referral-title">Earn for every client you refer</div>
-        </div>
+        <div><div class="referral-title">Earn for every client you refer</div></div>
       </div>
       <div class="referral-amount">R250</div>
-      <div class="referral-sub">per successful referral</div>
+      <div class="referral-sub">per successful referral · paid via EFT</div>
       <div class="referral-steps">
-        <div class="referral-step"><span class="rs-num">1</span>Tell someone about LaafWeb — share your name or contact as the referrer</div>
-        <div class="referral-step"><span class="rs-num">2</span>They sign up and complete their first full month's payment</div>
-        <div class="referral-step"><span class="rs-num">3</span>We pay you R250 via EFT to your South African bank account</div>
+        <div class="referral-step"><span class="rs-num">1</span>Register your referral with us on WhatsApp before the person signs up</div>
+        <div class="referral-step"><span class="rs-num">2</span>They start a subscription and complete their first full month's payment</div>
+        <div class="referral-step"><span class="rs-num">3</span>We pay R250 to your South African bank account via EFT within 7 business days</div>
       </div>
       <a href="https://wa.me/27636691391?text=Hi%2C%20I%27d%20like%20to%20refer%20someone%20to%20LaafWeb" class="ref-wa-btn" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="white" width="13" height="13"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -444,32 +530,32 @@
 
     <p>The following terms apply to the referral programme:</p>
     <ul>
-      <li>Referral rewards are paid out <strong>after the referred client completes their first full month's subscription payment</strong> — not at sign-up or during a free trial period</li>
-      <li>The referral must be registered with us <strong>before</strong> the referred client signs up — retroactive referral claims will not be accepted</li>
-      <li>Payment of R250 will be made via EFT to the referrer's South African bank account within 7 business days of the qualifying payment being confirmed</li>
-      <li>There is no limit to the number of referrals you can make — you earn R250 for each eligible client you introduce</li>
-      <li>Self-referrals, duplicate referrals, or referrals that result in fraudulent sign-ups will be disqualified</li>
-      <li>Referrals apply to monthly subscription plans only — once-off purchases (self-host, add-on services) do not qualify</li>
-      <li>LaafStyl (Pty) Ltd reserves the right to modify or discontinue the referral programme at any time with 14 days' notice. Pending qualifying payouts will be honoured</li>
+      <li>Referral rewards are paid out <strong>after the referred client completes their first full month's subscription payment</strong> — not at sign-up or during the free trial</li>
+      <li>The referral <strong>must be registered before the referred client signs up</strong> — retroactive claims will not be accepted</li>
+      <li>Payment of R250 is made via EFT to the referrer's South African bank account within 7 business days of the qualifying payment being confirmed</li>
+      <li>There is no limit on the number of referrals you can make</li>
+      <li>Self-referrals, duplicate referrals, or fraudulent sign-ups will be disqualified without payment</li>
+      <li>Referrals apply to monthly subscription plans only — once-off purchases do not qualify</li>
+      <li>LaafStyl (Pty) Ltd reserves the right to modify or discontinue the programme with 14 days' notice; pending qualifying payouts will be honoured</li>
     </ul>
     <div class="highlight-box">
-      <p>To register a referral, simply WhatsApp us with the name and contact details of the person you're referring, along with your own name and banking details for payment.</p>
+      <p>To register a referral, WhatsApp us with the name and contact details of the person you're referring, along with your name and banking details for payment.</p>
     </div>
   </div>
 
   <!-- 9. CANCELLATION -->
   <div class="doc-section reveal" id="cancellation">
     <h2><span class="section-num">9</span> Cancellation &amp; Refunds</h2>
-    <p>You may cancel your LaafWeb subscription at any time by contacting us via WhatsApp or email. Cancellations take effect at the end of the current billing period — you will not be charged for the following month.</p>
+    <p>You may cancel your subscription at any time via WhatsApp or email. Cancellations take effect at the end of the current billing period — you will not be charged for the following month.</p>
     <ul>
       <li>No cancellation fees or penalties apply</li>
       <li>Partial-month refunds are not provided</li>
-      <li>Upon cancellation, your website and directory listing will be taken offline at the end of the billing period</li>
+      <li>Your website and listing will be taken offline at the end of the billing period</li>
       <li>You may request an export of your website content within 30 days of cancellation</li>
     </ul>
     <div class="warn-box">
       <span class="warn-icon">⚠️</span>
-      <p>Once-off fees — including setup fees (R700 / R1,200), the self-host fee (R2,000), and all add-on service fees — are <strong>non-refundable</strong> once work has commenced. Domain transfer or renewal upon cancellation is your responsibility.</p>
+      <p>Once-off fees — setup fees (R700 / R1,200), self-host fee (R2,000), and all add-on service fees (logo, advert, business card, QR flyer) — are <strong>non-refundable once work has commenced</strong>. Domain transfer upon cancellation is your responsibility.</p>
     </div>
   </div>
 
@@ -479,12 +565,13 @@
     <p>You are responsible for all content, images, logos, and information you provide to LaafStyl (Pty) Ltd. By submitting content, you confirm that:</p>
     <ul>
       <li>You own or have the legal right to use all submitted content</li>
-      <li>Your content does not violate any South African laws or third-party intellectual property rights</li>
+      <li>Your content does not violate South African laws or third-party intellectual property rights</li>
       <li>Your content is accurate and not misleading to consumers</li>
       <li>Your business is operating legally in South Africa</li>
-      <li>You will not use the platform to promote illegal goods, services, hate speech, or adult content</li>
+      <li>You will not use the platform to promote illegal goods, hate speech, or adult content</li>
     </ul>
     <p>We reserve the right to refuse or remove content that we deem illegal, offensive, or in violation of these Terms, without prior notice.</p>
+    <p>For the advert posting service, by providing access to your social media page(s) you confirm you are the page owner or administrator and authorise us to publish one piece of content on your behalf. We will not store, share, or use your credentials for any other purpose.</p>
   </div>
 
   <!-- 11. OUR RESPONSIBILITIES -->
@@ -493,21 +580,23 @@
     <p>LaafStyl (Pty) Ltd will make reasonable efforts to:</p>
     <ul>
       <li>Deliver your website within 24 hours of receiving your setup fee and all required content</li>
+      <li>Deliver add-on design services within 3 business days of payment confirmation</li>
       <li>Keep your website live and accessible while your subscription is active and payments are up to date</li>
-      <li>Respond to support requests within 2 business days (Business &amp; Enterprise clients receive priority responses)</li>
+      <li>Respond to support requests within 2 business days (Business &amp; Enterprise clients receive priority)</li>
       <li>Notify you in advance of any planned maintenance or downtime</li>
       <li>Process referral payments within 7 business days of a qualifying payment being confirmed</li>
     </ul>
-    <p>We do not guarantee 100% uptime. We are not liable for downtime caused by hosting providers, PayFast, or other external services beyond our control.</p>
+    <p>We do not guarantee 100% uptime and are not liable for downtime caused by hosting providers, PayFast, or other external services.</p>
   </div>
 
   <!-- 12. INTELLECTUAL PROPERTY -->
   <div class="doc-section reveal" id="ip">
     <h2><span class="section-num">12</span> Intellectual Property</h2>
-    <p>For clients on a <strong>monthly subscription</strong>: LaafStyl (Pty) Ltd retains ownership of the website design, code, and structure. You are granted a licence to use the website while your subscription remains active. Upon cancellation, this licence ends.</p>
-    <p>For clients who purchase the <strong>self-host option (R2,000+)</strong>: Full ownership of the website files and code transfers to you upon receipt of payment and delivery. LaafStyl (Pty) Ltd retains no ownership of your website after delivery.</p>
-    <p>For <strong>add-on design services</strong> (logo, advert, business card, flyer): Full ownership of the delivered files transfers to you upon receipt of payment. LaafStyl (Pty) Ltd may retain the right to display work in its portfolio unless you expressly request otherwise.</p>
-    <p>In all cases, you retain full ownership of your own brand assets, logos, text, and images that you supplied to us.</p>
+    <p>For clients on a <strong>monthly subscription</strong>: LaafStyl (Pty) Ltd retains ownership of the website design, code, and structure. You receive a licence to use the website while your subscription is active. Upon cancellation, this licence ends.</p>
+    <p>For clients who purchase the <strong>self-host option</strong>: Full ownership of website files transfers to you upon receipt of payment and delivery.</p>
+    <p>For <strong>add-on design services</strong> (logo, advert, business card, QR flyer): Full ownership of the delivered files transfers to you upon receipt of payment. LaafStyl (Pty) Ltd may display the work in its portfolio unless you request otherwise in writing.</p>
+    <p>Note: Logo designs are partially AI-assisted. While you receive full ownership of the final delivered files, LaafStyl (Pty) Ltd cannot warrant exclusivity of underlying AI-generated visual elements. The final refined design and brand application are unique to your brief.</p>
+    <p>You retain full ownership of all brand assets, text, and images you supplied to us.</p>
   </div>
 
   <!-- 13. LIMITATION OF LIABILITY -->
@@ -515,11 +604,11 @@
     <h2><span class="section-num">13</span> Limitation of Liability</h2>
     <p>To the maximum extent permitted by South African law, LaafStyl (Pty) Ltd shall not be liable for any indirect, incidental, or consequential damages, including but not limited to:</p>
     <ul>
-      <li>Loss of business revenue or customers resulting from website downtime or design choices</li>
+      <li>Loss of business revenue resulting from website downtime or design choices</li>
       <li>Data loss or corruption</li>
-      <li>Downtime caused by third-party service providers (GitHub Pages, PayFast, etc.)</li>
-      <li>Any actions or omissions by PayFast or other integrated platforms</li>
-      <li>Results from referral introductions — we make no guarantees regarding client retention or conversion</li>
+      <li>Downtime caused by third-party providers (hosting, PayFast, social media platforms)</li>
+      <li>Outcomes of social media posting — including reach, engagement, or platform policy changes</li>
+      <li>Results from referral introductions — we make no guarantees regarding client conversion or retention</li>
     </ul>
     <p>Our total liability to you in any circumstance shall not exceed the total amount paid by you to LaafStyl (Pty) Ltd in the three months preceding the claim.</p>
   </div>
@@ -527,21 +616,21 @@
   <!-- 14. GOVERNING LAW -->
   <div class="doc-section reveal" id="governing-law">
     <h2><span class="section-num">14</span> Governing Law</h2>
-    <p>These Terms are governed by and construed in accordance with the laws of the <strong>Republic of South Africa</strong>. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the South African courts.</p>
+    <p>These Terms are governed by and construed in accordance with the laws of the <strong>Republic of South Africa</strong>. Any disputes shall be subject to the exclusive jurisdiction of the South African courts.</p>
     <p>Applicable legislation includes the Electronic Communications and Transactions Act 25 of 2002, the Consumer Protection Act 68 of 2008, and the Protection of Personal Information Act 4 of 2013.</p>
-    <p>We encourage clients to first attempt to resolve any dispute directly with us via the channels below before pursuing formal legal action.</p>
+    <p>We encourage clients to first attempt to resolve disputes directly with us before pursuing formal legal action.</p>
   </div>
 
   <!-- 15. CHANGES -->
   <div class="doc-section reveal" id="changes">
     <h2><span class="section-num">15</span> Changes to These Terms</h2>
-    <p>We may update these Terms from time to time. When we make material changes, we will notify active subscribers via WhatsApp or email with at least 14 days' notice. The updated date will always be shown at the top of this page. Continued use of LaafWeb after the effective date constitutes acceptance of the updated Terms.</p>
+    <p>We may update these Terms from time to time. When we make material changes, we will notify active subscribers via WhatsApp or email with at least 14 days' notice. The updated date is always shown at the top of this page. Continued use of LaafWeb after the effective date constitutes acceptance of the updated Terms.</p>
   </div>
 
   <!-- 16. CONTACT -->
   <div class="doc-section reveal" id="contact">
     <h2><span class="section-num">16</span> Contact Us</h2>
-    <p>For questions about these Terms, to register a referral, to order an add-on service, to request a cancellation, or to resolve a dispute, please contact us directly:</p>
+    <p>For questions about these Terms, to register a referral, to order an add-on service, to cancel, or to resolve a dispute:</p>
     <div class="contact-card">
       <div class="contact-row">
         <div class="contact-icon email">📧</div>
@@ -577,7 +666,7 @@
   </div>
 </footer>
 
-<a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20my%20business%20listed" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<a href="https://wa.me/27636691391?text=Hi%20LaafWeb%2C%20I%27d%20like%20to%20get%20started" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24" fill="white" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
 
@@ -586,7 +675,6 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
   function openMob()  { document.getElementById('mobOverlay').classList.add('open'); }
   function closeMob() { document.getElementById('mobOverlay').classList.remove('open'); }
   function closeMobOut(e) { if (e.target === document.getElementById('mobOverlay')) closeMob(); }
