@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LaafWeb — Terms &amp; Conditions</title>
+<title>LaafWeb — Terms &amp; Conditions | West Coast Web Design</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -25,7 +25,6 @@
   .orb-2{width:400px;height:400px;background:var(--green);bottom:-150px;left:-150px;opacity:.1;animation-delay:-6s}
   @keyframes drift{from{transform:translate(0,0)}to{transform:translate(30px,25px)}}
 
-  /* NAV */
   nav{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:20px 36px;border-bottom:1px solid var(--border);backdrop-filter:blur(14px);background:rgba(15,15,15,.7)}
   .nav-logo{display:flex;align-items:center;text-decoration:none}
   .logo-img{height:30px;width:auto;display:block;object-fit:contain}
@@ -49,7 +48,6 @@
   .mob-nav a:hover{background:rgba(0,120,71,.12);color:#fff}
   .mob-wa{margin-top:20px;display:flex;align-items:center;justify-content:center;gap:9px;padding:13px;background:var(--wa);color:#fff;border-radius:8px;font-family:var(--fh);font-size:13px;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:.08em}
 
-  /* LAYOUT */
   main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:60px 24px 100px}
 
   .page-header{margin-bottom:48px}
@@ -86,8 +84,9 @@
   .warn-box p{color:#ccc;font-size:.875rem;margin:0}
   .info-box{background:rgba(0,174,239,.07);border:1px solid rgba(0,174,239,.2);border-radius:12px;padding:16px 20px;margin:16px 0}
   .info-box p{color:#ccc;font-size:.875rem;margin:0}
+  .purple-box{background:rgba(99,102,241,.08);border:1px solid rgba(99,102,241,.22);border-radius:12px;padding:16px 20px;margin:16px 0}
+  .purple-box p{color:#ccc;font-size:.875rem;margin:0}
 
-  /* REFERRAL CALLOUT */
   .referral-callout{background:linear-gradient(135deg,rgba(0,120,71,.12),rgba(37,211,102,.06));border:1px solid rgba(37,211,102,.25);border-radius:var(--radius);padding:28px 24px;margin:18px 0;position:relative;overflow:hidden}
   .referral-callout::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--wa))}
   .referral-callout-header{display:flex;align-items:center;gap:12px;margin-bottom:14px}
@@ -101,58 +100,6 @@
   .ref-wa-btn{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:10px 20px;background:var(--wa);color:#fff;border-radius:8px;font-family:var(--fh);font-size:.82rem;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:.06em;transition:background .2s,transform .2s}
   .ref-wa-btn:hover{background:#1eb659;transform:translateY(-2px)}
 
-  /* ADD-ON SERVICE CARDS */
-  .addon-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
-
-  .addon-card{
-    background:var(--card2);
-    border:1px solid var(--border2);
-    border-radius:14px;
-    padding:20px 18px;
-    position:relative;overflow:hidden;
-    transition:border-color .25s,transform .25s;
-    display:flex;flex-direction:column;
-  }
-  .addon-card:hover{transform:translateY(-3px)}
-  .addon-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-  .addon-card.logo::before  {background:linear-gradient(90deg,var(--blue),#a855f7)}
-  .addon-card.advert::before{background:linear-gradient(90deg,var(--gold),var(--red))}
-  .addon-card.bizcard::before{background:linear-gradient(90deg,var(--green),var(--blue))}
-  .addon-card.qrflyer::before{background:linear-gradient(90deg,#a855f7,var(--red))}
-  .addon-card.logo:hover  {border-color:rgba(168,139,250,.35)}
-  .addon-card.advert:hover {border-color:rgba(255,182,18,.35)}
-  .addon-card.bizcard:hover{border-color:rgba(0,120,71,.35)}
-  .addon-card.qrflyer:hover{border-color:rgba(168,85,247,.35)}
-
-  .addon-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:10px}
-  .addon-ico{font-size:1.7rem;line-height:1}
-  .addon-price-block{text-align:right}
-  .addon-price{font-family:var(--fh);font-size:1.45rem;font-weight:900;line-height:1}
-  .addon-card.logo   .addon-price{color:#a78bfa}
-  .addon-card.advert .addon-price{color:var(--gold)}
-  .addon-card.bizcard .addon-price{color:#4cd993}
-  .addon-card.qrflyer .addon-price{color:#c084fc}
-  .addon-once{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.09em;display:block;margin-top:1px}
-
-  .addon-name{font-family:var(--fh);font-size:.92rem;font-weight:800;color:#fff;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em}
-
-  /* pill tags under the name */
-  .addon-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
-  .addon-tag{font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:.07em;text-transform:uppercase}
-  .tag-ai    {background:rgba(168,139,250,.12);border:1px solid rgba(168,139,250,.25);color:#c4b5fd}
-  .tag-custom{background:rgba(0,174,239,.1);border:1px solid rgba(0,174,239,.22);color:var(--blue)}
-  .tag-social{background:rgba(255,182,18,.1);border:1px solid rgba(255,182,18,.22);color:var(--gold)}
-  .tag-print {background:rgba(0,120,71,.1);border:1px solid rgba(0,120,71,.22);color:#4cd993}
-  .tag-design{background:rgba(222,56,49,.1);border:1px solid rgba(222,56,49,.22);color:#f08080}
-
-  .addon-desc{font-size:.8rem;color:var(--muted);line-height:1.6;flex:1}
-
-  /* what's included mini-list inside card */
-  .addon-includes{margin-top:10px;display:flex;flex-direction:column;gap:5px}
-  .addon-inc-item{display:flex;align-items:center;gap:7px;font-size:.77rem;color:#bbb}
-  .addon-inc-item::before{content:'✓';width:15px;height:15px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.58rem;font-weight:700;color:rgba(255,255,255,.45);flex-shrink:0}
-
-  /* PLAN TABLE */
   .plan-table{width:100%;border-collapse:collapse;margin:16px 0}
   .plan-table th{font-family:var(--fh);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);padding:10px 14px;border-bottom:1px solid var(--border);text-align:left}
   .plan-table td{font-size:.875rem;color:#ccc;padding:12px 14px;border-bottom:1px solid rgba(42,42,42,.6);vertical-align:top}
@@ -164,8 +111,18 @@
   .badge-green {background:rgba(0,120,71,.15);color:#4cd993}
   .badge-purple{background:rgba(168,139,250,.15);color:#a78bfa}
   .badge-blue  {background:rgba(0,174,239,.15);color:var(--blue)}
+  .badge-amber {background:rgba(245,158,11,.15);color:#f59e0b}
+  .badge-indigo{background:rgba(99,102,241,.15);color:#a5b4fc}
 
-  /* CONTACT CARD */
+  /* SERVICE PRICE LIST */
+  .service-list{display:flex;flex-direction:column;gap:8px;margin:14px 0}
+  .service-row{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--card2);border:1px solid var(--border2);border-radius:10px;padding:12px 16px}
+  .service-row-left{display:flex;align-items:center;gap:10px}
+  .service-ico{font-size:1.1rem;flex-shrink:0}
+  .service-name{font-family:var(--fh);font-size:.82rem;font-weight:700;color:var(--text)}
+  .service-note{font-size:.72rem;color:var(--muted);margin-top:2px}
+  .service-price{font-family:var(--fh);font-size:.95rem;font-weight:800;color:var(--gold);white-space:nowrap;flex-shrink:0}
+
   .contact-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px;margin-top:16px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
   .contact-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--red))}
   .contact-row{display:flex;align-items:center;gap:12px}
@@ -178,16 +135,13 @@
   .wa-cta{display:inline-flex;align-items:center;gap:10px;margin-top:4px;padding:12px 22px;background:var(--wa);color:#fff;border-radius:10px;font-family:var(--fh);font-size:.875rem;font-weight:700;text-decoration:none;transition:background .2s,transform .2s}
   .wa-cta:hover{background:#1eb659;transform:translateY(-2px)}
 
-  /* FOOTER */
   footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:28px 36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
   footer p{font-size:.76rem;color:var(--muted)}
   footer a{color:var(--muted);text-decoration:none;font-size:.76rem;transition:color .2s}
   footer a:hover{color:var(--text)}
   .footer-links{display:flex;gap:18px}
-
   .wa-float{position:fixed;bottom:26px;right:26px;z-index:100;width:54px;height:54px;background:var(--wa);border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 18px rgba(37,211,102,.4);transition:transform .25s,box-shadow .25s}
   .wa-float:hover{transform:scale(1.12);box-shadow:0 6px 28px rgba(37,211,102,.58)}
-
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
   .reveal.visible{opacity:1;transform:translateY(0)}
 
@@ -199,7 +153,7 @@
     footer{padding:22px 18px;flex-direction:column;text-align:center}
     .footer-links{justify-content:center}
     .plan-table{font-size:.8rem}
-    .addon-grid{grid-template-columns:1fr}
+    .service-row{flex-direction:column;align-items:flex-start;gap:6px}
   }
 </style>
 </head>
@@ -208,11 +162,9 @@
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
 
-<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="logo.png" alt="LaafWeb" class="logo-img"
-         onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-family:var(--fh);font-weight:900;font-size:1rem;color:#fff\'>LaafWeb</span>'">
+    <img src="logo.png" alt="LaafWeb" class="logo-img" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-family:var(--fh);font-weight:900;font-size:1rem;color:#fff\'>LaafWeb</span>'">
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
@@ -229,12 +181,10 @@
   </button>
 </nav>
 
-<!-- MOBILE MENU -->
 <div class="mob-overlay" id="mobOverlay" onclick="closeMobOut(event)">
   <div class="mob-panel">
     <div class="mob-head">
-      <img src="logo.png" alt="LaafWeb" class="logo-img-mob"
-           onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('afterbegin','<span style=\'font-family:var(--fh);font-weight:900;color:#fff\'>LaafWeb</span>')">
+      <img src="logo.png" alt="LaafWeb" class="logo-img-mob" onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('afterbegin','<span style=\'font-family:var(--fh);font-weight:900;color:#fff\'>LaafWeb</span>')">
       <button class="mob-x" onclick="closeMob()">✕</button>
     </div>
     <div class="mob-nav">
@@ -253,7 +203,6 @@
 
 <main>
 
-  <!-- PAGE HEADER -->
   <div class="page-header reveal">
     <div class="page-badge">📋 Legal</div>
     <h1>Terms &amp; Conditions</h1>
@@ -261,14 +210,16 @@
     <div class="sa-stripe"><span></span><span></span><span></span><span></span></div>
   </div>
 
-  <!-- TOC -->
   <div class="toc reveal">
     <h3>Contents</h3>
     <ol>
       <li><a href="#acceptance">Acceptance of Terms</a></li>
       <li><a href="#services">Our Services</a></li>
       <li><a href="#plans-pricing">Plans &amp; Pricing</a></li>
-      <li><a href="#addons">Add-On Services</a></li>
+      <li><a href="#addons">Add-On Design Services</a></li>
+      <li><a href="#starter">Business Starter Services</a></li>
+      <li><a href="#biz-reg">Business Registration Service</a></li>
+      <li><a href="#compliance">Admin &amp; Compliance Documents</a></li>
       <li><a href="#setup-fee">Setup Fee &amp; Self-Host Option</a></li>
       <li><a href="#subscriptions">Subscriptions &amp; Billing</a></li>
       <li><a href="#free-trial">Free 7-Day Trial</a></li>
@@ -288,7 +239,7 @@
   <div class="doc-section reveal" id="acceptance">
     <h2><span class="section-num">1</span> Acceptance of Terms</h2>
     <p>These Terms and Conditions ("Terms") govern your use of LaafWeb's services, offered by <strong>LaafStyl (Pty) Ltd</strong> (Registration No: <strong>YOUR_REG_NUMBER</strong>), a company registered in the Republic of South Africa ("we", "us", "our").</p>
-    <p>By submitting the onboarding form, starting a free trial, completing a PayFast payment, or using any LaafWeb service, you confirm that you have read, understood, and agreed to these Terms in full.</p>
+    <p>By submitting the onboarding form, starting a free trial, completing a PayFast payment, ordering any service via WhatsApp, or using any LaafWeb service, you confirm that you have read, understood, and agreed to these Terms in full.</p>
     <div class="highlight-box">
       <p>These Terms constitute a binding agreement between you (the client) and LaafStyl (Pty) Ltd under South African law, and incorporate our <a href="privacy.html" style="color:#4cd993">Privacy Policy</a> by reference.</p>
     </div>
@@ -297,18 +248,21 @@
   <!-- 2. SERVICES -->
   <div class="doc-section reveal" id="services">
     <h2><span class="section-num">2</span> Our Services</h2>
-    <p>LaafWeb provides West Coast South African businesses with the following digital services, depending on the plan and add-ons selected:</p>
+    <p>LaafWeb provides West Coast South African businesses with the following digital and business support services, depending on the plan and add-ons selected:</p>
     <ul>
-      <li>A professionally built business website, hosted on your behalf</li>
-      <li>A listing in the LaafWeb local business directory</li>
+      <li>Professionally built business websites, hosted on your behalf</li>
       <li>Lead capture via WhatsApp buttons, click-to-call, and contact forms</li>
       <li>Google Maps integration (Business &amp; Enterprise plans)</li>
       <li>LaafConnect WhatsApp AI bot (Enterprise plan)</li>
       <li>Priority customer support (Business &amp; Enterprise plans)</li>
       <li>Monthly content updates (Business &amp; Enterprise plans)</li>
-      <li>Once-off add-on services as described in Section 4</li>
+      <li>Once-off design add-ons: logo, advert, business card, QR flyer</li>
+      <li>Business starter services: letterhead, email signature, Google Business Profile, professional email, WhatsApp Business setup</li>
+      <li>Business registration (CIPC) assistance</li>
+      <li>Admin &amp; compliance documents: Privacy Policy, Terms &amp; Conditions, Cookie Notice</li>
+      <li>Social media management (custom-quoted)</li>
     </ul>
-    <p>All websites are built and maintained by LaafStyl (Pty) Ltd. Delivery timelines and content requirements will be confirmed via WhatsApp after your setup fee is paid.</p>
+    <p>All services are arranged and delivered remotely via WhatsApp and email. Delivery timelines and content requirements are confirmed via WhatsApp after payment is received.</p>
   </div>
 
   <!-- 3. PLANS & PRICING -->
@@ -346,119 +300,153 @@
         </tr>
       </tbody>
     </table>
-    <p>Annual billing is available at a discounted rate equivalent to 10 months. We reserve the right to adjust pricing with 30 days' written notice to active subscribers.</p>
+    <p>Annual billing is available at a rate equivalent to 10 months (2 months free). We reserve the right to adjust pricing with 30 days' written notice to active subscribers.</p>
   </div>
 
-  <!-- 4. ADD-ON SERVICES -->
+  <!-- 4. ADD-ON DESIGN SERVICES -->
   <div class="doc-section reveal" id="addons">
-    <h2><span class="section-num">4</span> Add-On Services</h2>
-    <p>The following once-off services are available to any client regardless of subscription plan. All are delivered digitally — files sent via WhatsApp or email within 3 business days of payment confirmation.</p>
+    <h2><span class="section-num">4</span> Add-On Design Services</h2>
+    <p>The following once-off design services are available to any client regardless of subscription plan. All are delivered digitally within <strong>3 business days</strong> of payment confirmation, via WhatsApp or email.</p>
 
-    <div class="addon-grid">
-
-      <!-- LOGO -->
-      <div class="addon-card logo">
-        <div class="addon-top">
-          <span class="addon-ico">🎨</span>
-          <div class="addon-price-block">
-            <div class="addon-price">R129</div>
-            <span class="addon-once">Once-off</span>
-          </div>
-        </div>
-        <div class="addon-name">Logo Design</div>
-        <div class="addon-tags">
-          <span class="addon-tag tag-ai">AI-Assisted</span>
-          <span class="addon-tag tag-custom">3 Unique Designs</span>
-        </div>
-        <div class="addon-desc">A custom logo designed for your business. We use AI assistance to generate and then manually refine 3 distinct concepts tailored to your brand, colours, and style preferences — then you pick your favourite.</div>
-        <div class="addon-includes">
-          <div class="addon-inc-item">3 unique logo concepts</div>
-          <div class="addon-inc-item">1 round of revisions on chosen design</div>
-          <div class="addon-inc-item">Delivered as PNG + SVG (white &amp; colour versions)</div>
-          <div class="addon-inc-item">Transparent background included</div>
-        </div>
+    <div class="service-list">
+      <div class="service-row">
+        <div class="service-row-left"><span class="service-ico">🎨</span><div><div class="service-name">Logo Design</div><div class="service-note">3 unique AI-assisted concepts · 1 revision round · PNG + SVG delivered</div></div></div>
+        <div class="service-price">R129</div>
       </div>
-
-      <!-- ADVERT -->
-      <div class="addon-card advert">
-        <div class="addon-top">
-          <span class="addon-ico">📢</span>
-          <div class="addon-price-block">
-            <div class="addon-price">R199</div>
-            <span class="addon-once">Once-off</span>
-          </div>
-        </div>
-        <div class="addon-name">Business Advert Design</div>
-        <div class="addon-tags">
-          <span class="addon-tag tag-social">Social Media</span>
-          <span class="addon-tag tag-print">Print-Ready</span>
-          <span class="addon-tag tag-design">Design + Posting</span>
-        </div>
-        <div class="addon-desc">A professionally designed advert for your business, created for <em>both</em> social media and print use. We design it and post it to your social pages on your behalf — you just supply the platforms and access.</div>
-        <div class="addon-includes">
-          <div class="addon-inc-item">Social media advert (optimised for Facebook &amp; Instagram)</div>
-          <div class="addon-inc-item">Print-ready version at high resolution (A5 or A6)</div>
-          <div class="addon-inc-item">We post it to your social page(s) once on your behalf</div>
-          <div class="addon-inc-item">Delivered as JPG + PDF</div>
-        </div>
+      <div class="service-row">
+        <div class="service-row-left"><span class="service-ico">📢</span><div><div class="service-name">Business Advert Design</div><div class="service-note">Social media + print-ready versions · we post once to your page</div></div></div>
+        <div class="service-price">R199</div>
       </div>
-
-      <!-- BUSINESS CARD -->
-      <div class="addon-card bizcard">
-        <div class="addon-top">
-          <span class="addon-ico">🪪</span>
-          <div class="addon-price-block">
-            <div class="addon-price">R79</div>
-            <span class="addon-once">Once-off</span>
-          </div>
-        </div>
-        <div class="addon-name">Business Card Design</div>
-        <div class="addon-tags">
-          <span class="addon-tag tag-print">Print-Ready</span>
-          <span class="addon-tag tag-custom">Front &amp; Back</span>
-        </div>
-        <div class="addon-desc">A clean, professional business card design formatted to standard South African card dimensions. You take the file to any printer of your choice.</div>
-        <div class="addon-includes">
-          <div class="addon-inc-item">Front &amp; back design</div>
-          <div class="addon-inc-item">Print-ready PDF (85×55mm, 300dpi)</div>
-          <div class="addon-inc-item">1 round of revisions included</div>
-        </div>
+      <div class="service-row">
+        <div class="service-row-left"><span class="service-ico">🪪</span><div><div class="service-name">Business Card Design</div><div class="service-note">Front &amp; back · print-ready PDF 85×55mm · 1 revision round</div></div></div>
+        <div class="service-price">R79</div>
       </div>
-
-      <!-- QR + FLYER -->
-      <div class="addon-card qrflyer">
-        <div class="addon-top">
-          <span class="addon-ico">📱</span>
-          <div class="addon-price-block">
-            <div class="addon-price">R99</div>
-            <span class="addon-once">Once-off</span>
-          </div>
-        </div>
-        <div class="addon-name">QR Code + Flyer</div>
-        <div class="addon-tags">
-          <span class="addon-tag tag-print">Print-Ready</span>
-          <span class="addon-tag tag-custom">Branded</span>
-        </div>
-        <div class="addon-desc">A branded QR code linking to your website, packaged inside a print-ready A5 or A6 flyer — ideal for shop windows, handouts, or notice boards.</div>
-        <div class="addon-includes">
-          <div class="addon-inc-item">Custom QR code linking to your website</div>
-          <div class="addon-inc-item">Branded flyer design (A5 or A6, your choice)</div>
-          <div class="addon-inc-item">Delivered as PDF + PNG</div>
-        </div>
+      <div class="service-row">
+        <div class="service-row-left"><span class="service-ico">📱</span><div><div class="service-name">QR Code + Flyer</div><div class="service-note">Branded A5 or A6 flyer with QR code · PDF + PNG delivered</div></div></div>
+        <div class="service-price">R99</div>
       </div>
+    </div>
 
-    </div><!-- /addon-grid -->
-
-    <p style="margin-top:4px">Add-on services are <strong>non-refundable once design work has commenced</strong>. Additional revision rounds beyond those specified are charged at <strong>R49 per round</strong>. Posting of the advert on the client's social pages requires the client to grant temporary page access or send login credentials via WhatsApp — LaafStyl (Pty) Ltd will not retain access after posting.</p>
-
+    <p>Add-on services are <strong>non-refundable once design work has commenced</strong>. Additional revision rounds beyond those included are charged at <strong>R49 per round</strong>. For the advert posting service, the client must grant temporary page access via WhatsApp — LaafStyl (Pty) Ltd will not retain access after posting is complete.</p>
     <div class="info-box">
-      <p>💡 <strong style="color:#fff">To order any add-on</strong> — WhatsApp us on <a href="https://wa.me/27636691391" target="_blank" style="color:var(--blue)">063 669 1391</a> with the service name, your business details, and preferred colours/style. We'll send a payment link and confirm delivery timing.</p>
+      <p>💡 To order any add-on, WhatsApp us on <a href="https://wa.me/27636691391" target="_blank" style="color:var(--blue)">063 669 1391</a> with the service name, your business details, and preferred colours or style. We'll send a payment link and confirm delivery timing.</p>
     </div>
   </div>
 
-  <!-- 5. SETUP FEE -->
+  <!-- 5. BUSINESS STARTER SERVICES -->
+  <div class="doc-section reveal" id="starter">
+    <h2><span class="section-num">5</span> Business Starter Services</h2>
+    <p>The following once-off setup services are available to any client to help establish a professional online and business presence. All are delivered within <strong>3–5 business days</strong> of payment, unless otherwise stated.</p>
+
+    <div class="service-list">
+      <div class="service-row">
+        <div class="service-row-left"><span class="service-ico">📄</span><div><div class="service-name">Letterhead &amp; Invoice Template</div><div class="service-note">Branded .docx letterhead + .xlsx invoice/quote template · editable</div></div></div>
+        <div class="service-price">R149</div>
+      </div>
+      <div class="service-row">
+        <div class="service-row-left"><span class="service-ico">✍️</span><div><div class="service-name">Branded Email Signature</div><div class="service-note">HTML signature · works in Gmail &amp; Outlook · setup instructions included</div></div></div>
+        <div class="service-price">R99</div>
+      </div>
+      <div class="service-row">
+        <div class="service-row-left"><span class="service-ico">📍</span><div><div class="service-name">Google Business Profile Setup</div><div class="service-note">Full setup · categories, hours, photos, linked to your website</div></div></div>
+        <div class="service-price">R299</div>
+      </div>
+      <div class="service-row">
+        <div class="service-row-left"><span class="service-ico">📧</span><div><div class="service-name">Professional Email Setup</div><div class="service-note">@yourdomain.co.za via Google Workspace or Zoho · up to 2 addresses</div></div></div>
+        <div class="service-price">R149</div>
+      </div>
+      <div class="service-row">
+        <div class="service-row-left"><span class="service-ico">💬</span><div><div class="service-name">WhatsApp Business Setup</div><div class="service-note">Profile, auto-replies, greeting messages &amp; basic catalogue</div></div></div>
+        <div class="service-price">R129</div>
+      </div>
+    </div>
+
+    <p>The following additional terms apply to specific starter services:</p>
+    <ul>
+      <li><strong>Google Business Profile:</strong> The client must provide access to or create a Google account. LaafStyl (Pty) Ltd will not retain access after setup is complete. We are not responsible for Google's verification process or delays caused by Google's systems.</li>
+      <li><strong>Professional Email Setup:</strong> The ongoing subscription cost for Google Workspace or Zoho Mail is the client's responsibility and is not included in the R149 setup fee. We configure the service — the client pays the email provider directly.</li>
+      <li><strong>WhatsApp Business Setup:</strong> The client's phone and WhatsApp number are required. Setup is performed remotely via screen-sharing or step-by-step WhatsApp instructions. We do not take possession of the client's phone or SIM card.</li>
+      <li><strong>Letterhead &amp; Invoice Template:</strong> Requires Microsoft Word and Excel (or compatible). LaafStyl (Pty) Ltd is not responsible for formatting issues caused by alternative software.</li>
+    </ul>
+    <p>All starter services are <strong>non-refundable once work has commenced</strong>. Additional revisions are charged at R49 per round.</p>
+  </div>
+
+  <!-- 6. BUSINESS REGISTRATION -->
+  <div class="doc-section reveal" id="biz-reg">
+    <h2><span class="section-num">6</span> Business Registration Service</h2>
+
+    <div class="service-list">
+      <div class="service-row">
+        <div class="service-row-left"><span class="service-ico">🏢</span><div><div class="service-name">Business Registration (CIPC Pty Ltd)</div><div class="service-note">Name search, reservation &amp; registration · CoR14.3 certificate · CIPC fees included</div></div></div>
+        <div class="service-price">R799</div>
+      </div>
+    </div>
+
+    <p>The R799 fee covers LaafStyl (Pty) Ltd's assistance with the CIPC registration process, including company name search, name reservation, and submission of registration documents for a Private Company (Pty) Ltd. CIPC registration fees are included in this price.</p>
+
+    <div class="warn-box">
+      <span class="warn-icon">⚠️</span>
+      <p><strong style="color:#fff">Important disclaimer:</strong> LaafStyl (Pty) Ltd is not a law firm, attorney, or registered agent with CIPC. We assist clients with the administrative process of submitting a company registration application. This service does not constitute legal advice. We strongly recommend consulting a qualified attorney or accountant for advice on company structures, tax obligations, or regulatory compliance.</p>
+    </div>
+
+    <p>The following terms apply specifically to this service:</p>
+    <ul>
+      <li>The client is responsible for providing accurate information, including director details, identity numbers, and chosen company name(s). LaafStyl (Pty) Ltd accepts no liability for errors caused by incorrect information supplied by the client.</li>
+      <li>CIPC may reject a company name if it is too similar to an existing name, is offensive, or does not meet their naming criteria. In such cases, LaafStyl (Pty) Ltd will assist in selecting an alternative name at no additional charge for one further attempt. Subsequent name changes may attract an additional fee.</li>
+      <li>CIPC processing times are outside of our control and typically take <strong>5–15 business days</strong> from submission. LaafStyl (Pty) Ltd is not liable for delays caused by CIPC's own processing queues, system downtime, or government holidays.</li>
+      <li>Upon successful registration, the CoR14.3 certificate will be delivered to the client electronically via WhatsApp or email.</li>
+      <li>This service covers registration only. Tax registration (SARS), UIF, or other regulatory registrations are not included and are the client's own responsibility.</li>
+      <li>This service is <strong>non-refundable once the CIPC submission has been made</strong>. If CIPC rejects the application for reasons outside our control, we will make one further attempt at no additional charge.</li>
+    </ul>
+    <div class="highlight-box">
+      <p>To get started, WhatsApp us the following: your full name, ID number, chosen company name (with 1–2 alternatives), and your intended business activities. We will confirm requirements and send a payment link.</p>
+    </div>
+  </div>
+
+  <!-- 7. COMPLIANCE DOCUMENTS -->
+  <div class="doc-section reveal" id="compliance">
+    <h2><span class="section-num">7</span> Admin &amp; Compliance Documents</h2>
+
+    <div class="service-list">
+      <div class="service-row">
+        <div class="service-row-left"><span class="service-ico">🔒</span><div><div class="service-name">Privacy Policy (POPIA)</div><div class="service-note">Written specifically for your business · added to your website</div></div></div>
+        <div class="service-price">R350</div>
+      </div>
+      <div class="service-row">
+        <div class="service-row-left"><span class="service-ico">📝</span><div><div class="service-name">Terms &amp; Conditions</div><div class="service-note">Covers payment, scope, liability &amp; disputes · added to your website</div></div></div>
+        <div class="service-price">R350</div>
+      </div>
+      <div class="service-row">
+        <div class="service-row-left"><span class="service-ico">🍪</span><div><div class="service-name">Cookie Notice</div><div class="service-note">Required for sites using analytics or tracking · banner added to your site</div></div></div>
+        <div class="service-price">R350</div>
+      </div>
+      <div class="service-row">
+        <div class="service-row-left"><span class="service-ico">📦</span><div><div class="service-name">Privacy Policy + T&amp;Cs Bundle</div><div class="service-note">Both documents together · save R100</div></div></div>
+        <div class="service-price">R600</div>
+      </div>
+    </div>
+
+    <div class="warn-box">
+      <span class="warn-icon">⚠️</span>
+      <p><strong style="color:#fff">Legal disclaimer:</strong> LaafStyl (Pty) Ltd is not a law firm and the compliance documents we produce do not constitute legal advice. These documents are written based on common South African business practice and the requirements of POPIA (Protection of Personal Information Act 4 of 2013). They are designed for small to medium-sized businesses operating in South Africa. We strongly recommend that clients with complex operations, specific industry regulations, or high-value contracts have these documents reviewed by a qualified South African attorney before publication.</p>
+    </div>
+
+    <p>The following terms apply to compliance document services:</p>
+    <ul>
+      <li>Documents are written specifically for the client's business based on information provided via WhatsApp. The client is responsible for providing accurate and complete information about their business activities, data collection practices, and services offered.</li>
+      <li>LaafStyl (Pty) Ltd accepts no liability for regulatory fines, legal disputes, or enforcement actions arising from the use of these documents. The client uses them at their own risk.</li>
+      <li>Documents will be added directly to the client's LaafWeb website. For self-hosted clients, documents will be delivered as HTML or PDF for the client to publish themselves.</li>
+      <li>If the client's business activities change materially after the document is published, it is the client's responsibility to request an updated version. Updates to existing documents are charged at <strong>R150 per document</strong>.</li>
+      <li>These services are <strong>non-refundable once writing has commenced</strong>.</li>
+    </ul>
+    <div class="highlight-box">
+      <p>To order, WhatsApp us with a brief description of your business, what personal information you collect (e.g. contact forms, emails, phone numbers), and whether you use any tracking tools such as Google Analytics.</p>
+    </div>
+  </div>
+
+  <!-- 8. SETUP FEE -->
   <div class="doc-section reveal" id="setup-fee">
-    <h2><span class="section-num">5</span> Setup Fee &amp; Self-Host Option</h2>
+    <h2><span class="section-num">8</span> Setup Fee &amp; Self-Host Option</h2>
     <p>New subscriptions on the Basic and Launch plans require a once-off <strong>setup fee of R700</strong>. The Business plan requires a once-off <strong>setup fee of R1,200</strong>. The Enterprise plan carries no setup fee. These fees cover domain registration, hosting setup, SSL certificate, and the initial website build.</p>
     <p>Setup fees are <strong>non-refundable</strong> once design or build work has commenced.</p>
     <p>Clients may alternatively purchase their website outright for a once-off fee of <strong>R2,000</strong> (base price for 3 pages; R350 per additional page). Under this arrangement:</p>
@@ -467,7 +455,7 @@
       <li>You are responsible for your own hosting, domain renewal, and future updates</li>
       <li>No monthly subscription is required</li>
       <li>LaafStyl (Pty) Ltd provides no ongoing support unless separately agreed in writing</li>
-      <li>The LaafWeb directory listing and WhatsApp AI features are not included</li>
+      <li>WhatsApp AI features are not included in the outright purchase</li>
     </ul>
     <div class="warn-box">
       <span class="warn-icon">⚠️</span>
@@ -475,13 +463,13 @@
     </div>
   </div>
 
-  <!-- 6. SUBSCRIPTIONS & BILLING -->
+  <!-- 9. SUBSCRIPTIONS & BILLING -->
   <div class="doc-section reveal" id="subscriptions">
-    <h2><span class="section-num">6</span> Subscriptions &amp; Billing</h2>
+    <h2><span class="section-num">9</span> Subscriptions &amp; Billing</h2>
     <p>Monthly subscriptions are processed via <strong>PayFast</strong>, South Africa's leading payment gateway. By subscribing you authorise PayFast to debit your chosen payment method on a recurring monthly basis.</p>
     <ul>
       <li>Billing occurs monthly on or around your original subscription date</li>
-      <li>Failed payments may result in temporary suspension of your website and directory listing</li>
+      <li>Failed payments may result in temporary suspension of your website</li>
       <li>You are responsible for keeping your payment details up to date with PayFast</li>
       <li>LaafStyl (Pty) Ltd does not store your card or banking details — these are managed entirely by PayFast</li>
       <li>If a payment fails and is not resolved within 7 days, we reserve the right to suspend your services</li>
@@ -489,15 +477,15 @@
     </ul>
   </div>
 
-  <!-- 7. FREE TRIAL -->
+  <!-- 10. FREE TRIAL -->
   <div class="doc-section reveal" id="free-trial">
-    <h2><span class="section-num">7</span> Free 7-Day Trial</h2>
+    <h2><span class="section-num">10</span> Free 7-Day Trial</h2>
     <p>New customers may access LaafWeb free for 7 days on any monthly plan. During the trial:</p>
     <ul>
-      <li>Your website will be built and your listing activated within 24 hours of sign-up</li>
+      <li>Your website will be built and activated within 24 hours of sign-up</li>
       <li>No payment is required and no card details are stored during the trial</li>
       <li>At the end of the trial you will be contacted via WhatsApp to confirm your plan and payment</li>
-      <li>If you do not convert to a paid plan, your website and listing will be deactivated</li>
+      <li>If you do not convert to a paid plan, your website will be deactivated</li>
       <li>The setup fee is only charged when you activate a paid subscription, not during the trial</li>
     </ul>
     <div class="highlight-box">
@@ -505,11 +493,10 @@
     </div>
   </div>
 
-  <!-- 8. REFERRAL PROGRAMME -->
+  <!-- 11. REFERRAL -->
   <div class="doc-section reveal" id="referral">
-    <h2><span class="section-num">8</span> Referral Programme</h2>
+    <h2><span class="section-num">11</span> Referral Programme</h2>
     <p>LaafWeb rewards you for introducing new paying clients to our services.</p>
-
     <div class="referral-callout">
       <div class="referral-callout-header">
         <span class="referral-ico">🤝</span>
@@ -527,41 +514,53 @@
         Register a Referral on WhatsApp
       </a>
     </div>
-
     <p>The following terms apply to the referral programme:</p>
     <ul>
-      <li>Referral rewards are paid out <strong>after the referred client completes their first full month's subscription payment</strong> — not at sign-up or during the free trial</li>
+      <li>Referral rewards are paid after the referred client completes their <strong>first full month's subscription payment</strong> — not at sign-up or during the free trial</li>
       <li>The referral <strong>must be registered before the referred client signs up</strong> — retroactive claims will not be accepted</li>
-      <li>Payment of R250 is made via EFT to the referrer's South African bank account within 7 business days of the qualifying payment being confirmed</li>
+      <li>Payment of R250 is made via EFT within 7 business days of the qualifying payment being confirmed</li>
       <li>There is no limit on the number of referrals you can make</li>
       <li>Self-referrals, duplicate referrals, or fraudulent sign-ups will be disqualified without payment</li>
-      <li>Referrals apply to monthly subscription plans only — once-off purchases do not qualify</li>
+      <li>Referrals apply to monthly subscription plans only — once-off service purchases do not qualify</li>
       <li>LaafStyl (Pty) Ltd reserves the right to modify or discontinue the programme with 14 days' notice; pending qualifying payouts will be honoured</li>
     </ul>
-    <div class="highlight-box">
-      <p>To register a referral, WhatsApp us with the name and contact details of the person you're referring, along with your name and banking details for payment.</p>
-    </div>
   </div>
 
-  <!-- 9. CANCELLATION -->
+  <!-- 12. CANCELLATION & REFUNDS -->
   <div class="doc-section reveal" id="cancellation">
-    <h2><span class="section-num">9</span> Cancellation &amp; Refunds</h2>
+    <h2><span class="section-num">12</span> Cancellation &amp; Refunds</h2>
     <p>You may cancel your subscription at any time via WhatsApp or email. Cancellations take effect at the end of the current billing period — you will not be charged for the following month.</p>
     <ul>
-      <li>No cancellation fees or penalties apply</li>
+      <li>No cancellation fees or penalties apply to monthly subscriptions</li>
       <li>Partial-month refunds are not provided</li>
-      <li>Your website and listing will be taken offline at the end of the billing period</li>
+      <li>Your website will be taken offline at the end of the billing period</li>
       <li>You may request an export of your website content within 30 days of cancellation</li>
     </ul>
+    <p>The table below summarises the refund policy across all service types:</p>
+    <table class="plan-table">
+      <thead>
+        <tr><th>Service</th><th>Refundable?</th><th>Condition</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Monthly subscription</td><td>No partial refunds</td><td>Cancel anytime; ends at billing period close</td></tr>
+        <tr><td>Setup fee (R700 / R1,200)</td><td>Non-refundable</td><td>Once build work has commenced</td></tr>
+        <tr><td>Self-host purchase (R2,000+)</td><td>Non-refundable</td><td>Once delivery has commenced</td></tr>
+        <tr><td>Design add-ons (logo, advert, etc.)</td><td>Non-refundable</td><td>Once design work has commenced</td></tr>
+        <tr><td>Business starter services</td><td>Non-refundable</td><td>Once setup work has commenced</td></tr>
+        <tr><td>Business registration (R799)</td><td>Non-refundable</td><td>Once CIPC submission has been made</td></tr>
+        <tr><td>Compliance documents (R350/each)</td><td>Non-refundable</td><td>Once writing has commenced</td></tr>
+        <tr><td>Social media management</td><td>Per agreement</td><td>As agreed in writing at time of engagement</td></tr>
+      </tbody>
+    </table>
     <div class="warn-box">
       <span class="warn-icon">⚠️</span>
-      <p>Once-off fees — setup fees (R700 / R1,200), self-host fee (R2,000), and all add-on service fees (logo, advert, business card, QR flyer) — are <strong>non-refundable once work has commenced</strong>. Domain transfer upon cancellation is your responsibility.</p>
+      <p>Domain names purchased on your behalf are registered in your name. Upon cancellation, domain management and renewal becomes your responsibility. We will provide transfer instructions on request.</p>
     </div>
   </div>
 
-  <!-- 10. YOUR CONTENT -->
+  <!-- 13. YOUR CONTENT -->
   <div class="doc-section reveal" id="your-content">
-    <h2><span class="section-num">10</span> Your Content &amp; Responsibilities</h2>
+    <h2><span class="section-num">13</span> Your Content &amp; Responsibilities</h2>
     <p>You are responsible for all content, images, logos, and information you provide to LaafStyl (Pty) Ltd. By submitting content, you confirm that:</p>
     <ul>
       <li>You own or have the legal right to use all submitted content</li>
@@ -569,68 +568,76 @@
       <li>Your content is accurate and not misleading to consumers</li>
       <li>Your business is operating legally in South Africa</li>
       <li>You will not use the platform to promote illegal goods, hate speech, or adult content</li>
+      <li>For business registration: all information supplied (including identity numbers and director details) is accurate and truthful</li>
+      <li>For compliance documents: you have accurately described your business activities and data practices to us</li>
     </ul>
-    <p>We reserve the right to refuse or remove content that we deem illegal, offensive, or in violation of these Terms, without prior notice.</p>
+    <p>We reserve the right to refuse or remove content that we deem illegal, offensive, or in violation of these Terms without prior notice.</p>
     <p>For the advert posting service, by providing access to your social media page(s) you confirm you are the page owner or administrator and authorise us to publish one piece of content on your behalf. We will not store, share, or use your credentials for any other purpose.</p>
   </div>
 
-  <!-- 11. OUR RESPONSIBILITIES -->
+  <!-- 14. OUR RESPONSIBILITIES -->
   <div class="doc-section reveal" id="our-responsibilities">
-    <h2><span class="section-num">11</span> Our Responsibilities</h2>
+    <h2><span class="section-num">14</span> Our Responsibilities</h2>
     <p>LaafStyl (Pty) Ltd will make reasonable efforts to:</p>
     <ul>
       <li>Deliver your website within 24 hours of receiving your setup fee and all required content</li>
-      <li>Deliver add-on design services within 3 business days of payment confirmation</li>
+      <li>Deliver design add-ons and starter services within 3–5 business days of payment confirmation</li>
+      <li>Submit CIPC registrations within 3 business days of receiving all required client information and payment</li>
+      <li>Deliver compliance documents within 5 business days of payment and receipt of business details</li>
       <li>Keep your website live and accessible while your subscription is active and payments are up to date</li>
       <li>Respond to support requests within 2 business days (Business &amp; Enterprise clients receive priority)</li>
       <li>Notify you in advance of any planned maintenance or downtime</li>
       <li>Process referral payments within 7 business days of a qualifying payment being confirmed</li>
     </ul>
-    <p>We do not guarantee 100% uptime and are not liable for downtime caused by hosting providers, PayFast, or other external services.</p>
+    <p>We do not guarantee 100% uptime and are not liable for downtime caused by hosting providers, PayFast, CIPC systems, or other external services.</p>
   </div>
 
-  <!-- 12. INTELLECTUAL PROPERTY -->
+  <!-- 15. INTELLECTUAL PROPERTY -->
   <div class="doc-section reveal" id="ip">
-    <h2><span class="section-num">12</span> Intellectual Property</h2>
+    <h2><span class="section-num">15</span> Intellectual Property</h2>
     <p>For clients on a <strong>monthly subscription</strong>: LaafStyl (Pty) Ltd retains ownership of the website design, code, and structure. You receive a licence to use the website while your subscription is active. Upon cancellation, this licence ends.</p>
     <p>For clients who purchase the <strong>self-host option</strong>: Full ownership of website files transfers to you upon receipt of payment and delivery.</p>
-    <p>For <strong>add-on design services</strong> (logo, advert, business card, QR flyer): Full ownership of the delivered files transfers to you upon receipt of payment. LaafStyl (Pty) Ltd may display the work in its portfolio unless you request otherwise in writing.</p>
+    <p>For <strong>design add-ons and starter services</strong> (logo, advert, business card, QR flyer, letterhead, email signature): Full ownership of the delivered files transfers to you upon receipt of payment. LaafStyl (Pty) Ltd may display the work in its portfolio unless you request otherwise in writing.</p>
+    <p>For <strong>compliance documents</strong>: Full ownership of the written documents transfers to you upon receipt of payment. You are free to publish and use them on your website or in your business. LaafStyl (Pty) Ltd does not retain any rights to the documents after delivery.</p>
     <p>Note: Logo designs are partially AI-assisted. While you receive full ownership of the final delivered files, LaafStyl (Pty) Ltd cannot warrant exclusivity of underlying AI-generated visual elements. The final refined design and brand application are unique to your brief.</p>
-    <p>You retain full ownership of all brand assets, text, and images you supplied to us.</p>
+    <p>You retain full ownership of all brand assets, text, images, and business information you supplied to us throughout any engagement.</p>
   </div>
 
-  <!-- 13. LIMITATION OF LIABILITY -->
+  <!-- 16. LIMITATION OF LIABILITY -->
   <div class="doc-section reveal" id="limitation">
-    <h2><span class="section-num">13</span> Limitation of Liability</h2>
+    <h2><span class="section-num">16</span> Limitation of Liability</h2>
     <p>To the maximum extent permitted by South African law, LaafStyl (Pty) Ltd shall not be liable for any indirect, incidental, or consequential damages, including but not limited to:</p>
     <ul>
       <li>Loss of business revenue resulting from website downtime or design choices</li>
       <li>Data loss or corruption</li>
-      <li>Downtime caused by third-party providers (hosting, PayFast, social media platforms)</li>
+      <li>Downtime caused by third-party providers (hosting, PayFast, social media platforms, Google)</li>
       <li>Outcomes of social media posting — including reach, engagement, or platform policy changes</li>
+      <li>CIPC rejection, delays, or processing errors outside of our control</li>
+      <li>Legal or regulatory consequences arising from the use of compliance documents we produce</li>
+      <li>Ongoing costs of third-party services (Google Workspace, Zoho Mail, WhatsApp Business API) arranged on the client's behalf</li>
       <li>Results from referral introductions — we make no guarantees regarding client conversion or retention</li>
     </ul>
-    <p>Our total liability to you in any circumstance shall not exceed the total amount paid by you to LaafStyl (Pty) Ltd in the three months preceding the claim.</p>
+    <p>Our total liability to you in any circumstance shall not exceed the total amount paid by you to LaafStyl (Pty) Ltd in the <strong>three months preceding the claim</strong>.</p>
   </div>
 
-  <!-- 14. GOVERNING LAW -->
+  <!-- 17. GOVERNING LAW -->
   <div class="doc-section reveal" id="governing-law">
-    <h2><span class="section-num">14</span> Governing Law</h2>
+    <h2><span class="section-num">17</span> Governing Law</h2>
     <p>These Terms are governed by and construed in accordance with the laws of the <strong>Republic of South Africa</strong>. Any disputes shall be subject to the exclusive jurisdiction of the South African courts.</p>
     <p>Applicable legislation includes the Electronic Communications and Transactions Act 25 of 2002, the Consumer Protection Act 68 of 2008, and the Protection of Personal Information Act 4 of 2013.</p>
     <p>We encourage clients to first attempt to resolve disputes directly with us before pursuing formal legal action.</p>
   </div>
 
-  <!-- 15. CHANGES -->
+  <!-- 18. CHANGES -->
   <div class="doc-section reveal" id="changes">
-    <h2><span class="section-num">15</span> Changes to These Terms</h2>
-    <p>We may update these Terms from time to time. When we make material changes, we will notify active subscribers via WhatsApp or email with at least 14 days' notice. The updated date is always shown at the top of this page. Continued use of LaafWeb after the effective date constitutes acceptance of the updated Terms.</p>
+    <h2><span class="section-num">18</span> Changes to These Terms</h2>
+    <p>We may update these Terms from time to time. When we make material changes, we will notify active subscribers via WhatsApp or email with at least <strong>14 days' notice</strong>. The updated date is always shown at the top of this page. Continued use of LaafWeb after the effective date constitutes acceptance of the updated Terms.</p>
   </div>
 
-  <!-- 16. CONTACT -->
+  <!-- 19. CONTACT -->
   <div class="doc-section reveal" id="contact">
-    <h2><span class="section-num">16</span> Contact Us</h2>
-    <p>For questions about these Terms, to register a referral, to order an add-on service, to cancel, or to resolve a dispute:</p>
+    <h2><span class="section-num">19</span> Contact Us</h2>
+    <p>For questions about these Terms, to place a service order, to register a referral, to cancel, or to resolve a dispute:</p>
     <div class="contact-card">
       <div class="contact-row">
         <div class="contact-icon email">📧</div>
@@ -656,8 +663,7 @@
 </main>
 
 <footer>
-  <img src="logo.png" alt="LaafWeb" style="height:22px;width:auto;object-fit:contain"
-       onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('afterbegin','<span style=\'font-family:var(--fh);font-weight:900;font-size:.9rem;color:#fff\'>LaafWeb</span>')">
+  <img src="logo.png" alt="LaafWeb" style="height:22px;width:auto;object-fit:contain" onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('afterbegin','<span style=\'font-family:var(--fh);font-weight:900;font-size:.9rem;color:#fff\'>LaafWeb</span>')">
   <p>© 2026 LaafStyl (Pty) Ltd. All rights reserved. Built in 🇿🇦 South Africa.</p>
   <div class="footer-links">
     <a href="privacy.html">Privacy</a>
