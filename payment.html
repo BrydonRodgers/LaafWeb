@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activate Your Plan | LaafWeb</title>
+    <meta name="description" content="Activate your LaafWeb website plan. Pay setup fee via EFT and start your monthly subscription.">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green:#007847;--green2:#00a85f;--gold:#FFB612;--blue:#00AEEF;--purple:#a855f7;--wa:#25D366;
+            --bg:#0f0f0f;--bg2:#161616;--card:#1c1c1c;--border:#2a2a2a;--border2:#333;
+            --muted:#666;--body:#888;--light:#bbb;--white:#fff;
+            --fh:'Poppins',sans-serif;--fb:'Inter',sans-serif;
+        }
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        html{scroll-behavior:smooth}
+        ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--green);border-radius:2px}
+        body{background:var(--bg);color:var(--body);font-family:var(--fb);line-height:1.6;overflow-x:hidden}
+        body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E")}
+        .orb{position:fixed;border-radius:50%;filter:blur(130px);pointer-events:none;z-index:0}
+        .orb-1{width:500px;height:500px;background:var(--green);top:-180px;left:-100px;opacity:.09}
+        .orb-2{width:400px;height:400px;background:var(--blue);bottom:-100px;right:-80px;opacity:.07}
+
+        nav{position:sticky;top:0;z-index:100;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;background:rgba(15,15,15,.96);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+        .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+        .nav-logo img{height:28px;object-fit:contain}
+        .nav-logo-text{font-family:var(--fh);font-weight:900;font-size:1.05rem;color:var(--white);letter-spacing:-.02em}
+        .nav-right{display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--green2);font-weight:600}
+        .nav-right svg{width:13px;height:13px}
+
+        main{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:52px 20px 80px}
+
+        .hero{text-align:center;margin-bottom:44px}
+        .hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(0,120,71,.1);border:1px solid rgba(0,120,71,.25);color:#4cd993;padding:5px 14px;border-radius:50px;font-size:.7rem;font-weight:700;letter-spacing:.7px;text-transform:uppercase;margin-bottom:16px}
+        .hero h1{font-family:var(--fh);font-weight:900;font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.1;letter-spacing:-1px;color:var(--white);margin-bottom:12px}
+        .hero h1 span{color:var(--green2)}
+        .hero p{font-size:.9rem;color:var(--muted);max-width:420px;margin:0 auto;line-height:1.7}
+
+        .how{display:flex;margin-bottom:44px;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+        .how-step{flex:1;padding:20px 16px;text-align:center;border-right:1px solid var(--border)}
+        .how-step:last-child{border-right:none}
+        .how-num{width:30px;height:30px;border-radius:50%;background:rgba(0,168,95,.12);border:1px solid rgba(0,168,95,.25);color:var(--green2);font-family:var(--fh);font-size:.75rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 8px}
+        .how-title{font-family:var(--fh);font-size:.75rem;font-weight:700;color:var(--white);margin-bottom:3px}
+        .how-desc{font-size:.68rem;color:var(--muted);line-height:1.5}
+
+        .packages{display:flex;flex-direction:column;gap:18px;margin-bottom:36px}
+
+        .pkg{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .2s}
+        .pkg.featured{border-color:rgba(0,168,95,.3)}
+        .pkg-top{padding:22px 26px 18px;border-bottom:1px solid var(--border)}
+        .pkg.basic .pkg-top{border-top:3px solid #888}
+        .pkg.launch .pkg-top{border-top:3px solid var(--gold)}
+        .pkg.business .pkg-top{border-top:3px solid var(--green2)}
+        .pkg.enterprise .pkg-top{border-top:3px solid var(--purple)}
+
+        .pkg-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}
+        .pkg-name{font-family:var(--fh);font-weight:900;font-size:1.05rem;color:var(--white);margin-bottom:3px}
+        .pkg.basic .pkg-name{color:#ccc}
+        .pkg.launch .pkg-name{color:var(--gold)}
+        .pkg.business .pkg-name{color:var(--green2)}
+        .pkg.enterprise .pkg-name{color:#c084fc}
+        .pkg-tagline{font-size:.75rem;color:var(--muted)}
+        .pkg-badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:20px;font-size:.62rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+        .badge-popular{background:linear-gradient(135deg,var(--green),#00a862);color:#fff}
+        .badge-limited{background:linear-gradient(135deg,var(--gold),#e67e00);color:#000}
+        .badge-enterprise{background:linear-gradient(135deg,var(--purple),#7c3aed);color:#fff}
+
+        .pkg-pricing{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+        .price-block{display:flex;flex-direction:column;gap:2px}
+        .price-label{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+        .price-amount{font-family:var(--fh);font-size:1.45rem;font-weight:900;line-height:1;color:var(--white);letter-spacing:-.5px}
+        .price-sub{font-size:.65rem;color:var(--muted);margin-top:1px}
+        .price-divider{width:1px;height:34px;background:var(--border)}
+        .no-setup{display:inline-flex;align-items:center;gap:5px;background:rgba(0,168,95,.08);border:1px solid rgba(0,168,95,.2);color:var(--green2);font-size:.68rem;font-weight:700;padding:4px 10px;border-radius:20px}
+
+        .pkg-body{display:grid;grid-template-columns:1fr 1fr}
+        .pkg-section{padding:20px 26px}
+        .pkg-section+.pkg-section{border-left:1px solid var(--border)}
+        .pkg-section-title{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+        .pkg-section-title::before{content:'';width:12px;height:1px;background:var(--border2)}
+
+        .bank-rows{display:flex;flex-direction:column;gap:7px}
+        .bank-row{display:flex;flex-direction:column;gap:1px}
+        .bank-key{font-size:.62rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+        .bank-val{font-size:.82rem;color:var(--light);font-weight:500}
+        .bank-val.mono{font-family:'Courier New',monospace;color:var(--white);font-size:.88rem;letter-spacing:.04em}
+        .copy-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+        .copy-btn{display:flex;align-items:center;gap:4px;background:rgba(255,255,255,.05);border:1px solid var(--border2);color:var(--light);border-radius:5px;padding:3px 8px;font-size:.62rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:var(--fb)}
+        .copy-btn:hover{background:rgba(0,168,95,.12);color:var(--green2);border-color:rgba(0,168,95,.3)}
+        .copy-btn.copied{color:var(--green2);border-color:rgba(0,168,95,.3)}
+        .copy-btn svg{width:10px;height:10px}
+
+        .ref-note{margin-top:12px;padding:10px 12px;background:rgba(255,182,18,.05);border:1px solid rgba(255,182,18,.15);border-radius:8px;font-size:.7rem;color:var(--gold);line-height:1.5}
+        .ref-note strong{display:block;margin-bottom:2px}
+
+        .subscribe-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px 18px;border-radius:9px;font-family:var(--fh);font-size:.8rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:none;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s;margin-bottom:8px}
+        .subscribe-btn:hover{transform:translateY(-2px)}
+        .subscribe-btn svg{width:14px;height:14px;flex-shrink:0}
+        .btn-green{background:var(--green);color:#fff;box-shadow:0 4px 18px rgba(0,120,71,.3)}
+        .btn-green:hover{background:var(--green2);box-shadow:0 8px 26px rgba(0,168,95,.4)}
+        .btn-gold{background:var(--gold);color:#000;box-shadow:0 4px 18px rgba(255,182,18,.25)}
+        .btn-gold:hover{background:#ffca3a;box-shadow:0 8px 26px rgba(255,182,18,.4)}
+        .btn-purple{background:var(--purple);color:#fff;box-shadow:0 4px 18px rgba(168,85,247,.25)}
+        .btn-purple:hover{background:#9333ea;box-shadow:0 8px 26px rgba(168,85,247,.4)}
+        .btn-grey{background:#3a3a3a;color:var(--light)}
+        .btn-grey:hover{background:#444}
+        .sub-note{font-size:.65rem;color:var(--muted);text-align:center;line-height:1.5}
+
+        .pkg.enterprise .pkg-body{grid-template-columns:1fr}
+        .pkg.enterprise .pkg-section{border-left:none}
+        .ent-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+        .pop-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:18px}
+        .pop-box h3{font-family:var(--fh);font-size:.88rem;font-weight:700;color:var(--white);margin-bottom:6px}
+        .pop-box p{font-size:.78rem;color:var(--muted);line-height:1.7;margin-bottom:14px}
+        .pop-wa-btn{display:inline-flex;align-items:center;gap:8px;background:var(--wa);color:#fff;padding:11px 20px;border-radius:8px;font-family:var(--fh);font-size:.78rem;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:.06em;transition:background .2s,transform .2s}
+        .pop-wa-btn:hover{background:#1eb659;transform:translateY(-1px)}
+        .pop-wa-btn svg{width:14px;height:14px}
+
+        .trust-bar{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;padding:18px;background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:18px}
+        .t-item{display:flex;align-items:center;gap:6px;font-size:.7rem;color:var(--muted)}
+        .t-item svg{width:13px;height:13px;color:var(--green2);flex-shrink:0}
+
+        footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--border);padding:20px;text-align:center;font-size:.7rem;color:var(--muted);line-height:1.9}
+        footer a{color:var(--muted);text-decoration:none}
+        footer a:hover{color:var(--green2)}
+
+        .fu{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+        .fu.visible{opacity:1;transform:translateY(0)}
+
+        @media(max-width:600px){
+            .pkg-body{grid-template-columns:1fr}
+            .pkg-section+.pkg-section{border-left:none;border-top:1px solid var(--border)}
+            .pkg.enterprise .ent-grid{grid-template-columns:1fr}
+            .how{flex-direction:column}
+            .how-step{border-right:none;border-bottom:1px solid var(--border)}
+            .how-step:last-child{border-bottom:none}
+            nav{padding:0 16px}
+            main{padding:32px 16px 60px}
+        }
+    </style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<nav>
+    <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="LaafWeb" onerror="this.style.display='none'">
+        <span class="nav-logo-text">LaafWeb</span>
+    </a>
+    <div class="nav-right">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        Secure Payment Page
+    </div>
+</nav>
+
+<main>
+
+    <div class="hero fu">
+        <div class="hero-badge">🇿🇦 West Coast · Langebaan</div>
+        <h1>Activate your <span>LaafWeb</span> plan</h1>
+        <p>Your 7-day trial is done — let's make it official. Pay your once-off setup fee via EFT, then click subscribe to start your monthly billing.</p>
+    </div>
+
+    <div class="how fu">
+        <div class="how-step"><div class="how-num">1</div><div class="how-title">Find your plan</div><div class="how-desc">Scroll to the package you chose during your trial.</div></div>
+        <div class="how-step"><div class="how-num">2</div><div class="how-title">Pay setup via EFT</div><div class="how-desc">Use your name as reference. Once-off payment.</div></div>
+        <div class="how-step"><div class="how-num">3</div><div class="how-title">Subscribe monthly</div><div class="how-desc">Click the button to set up your recurring debit.</div></div>
+        <div class="how-step"><div class="how-num">4</div><div class="how-title">Send us your POP</div><div class="how-desc">WhatsApp proof of payment — site goes live same day.</div></div>
+    </div>
+
+    <div class="packages">
+
+        <!-- BASIC -->
+        <div class="pkg basic fu">
+            <div class="pkg-top">
+                <div class="pkg-header">
+                    <div><div class="pkg-name">🔘 Basic Plan</div><div class="pkg-tagline">Single-page website · get found online</div></div>
+                </div>
+                <div class="pkg-pricing">
+                    <div class="price-block"><div class="price-label">Setup Fee (once-off)</div><div class="price-amount">R700</div><div class="price-sub">Pay via EFT · only once</div></div>
+                    <div class="price-divider"></div>
+                    <div class="price-block"><div class="price-label">Monthly</div><div class="price-amount">R49</div><div class="price-sub">Billed via PayFast</div></div>
+                </div>
+            </div>
+            <div class="pkg-body">
+                <div class="pkg-section">
+                    <div class="pkg-section-title">Step 1 — EFT Setup Fee</div>
+                    <div class="bank-rows">
+                        <div class="bank-row"><div class="bank-key">Bank</div><div class="bank-val">Capitec Bank</div></div>
+                        <div class="bank-row"><div class="bank-key">Account Holder</div><div class="bank-val">LaafWeb</div></div>
+                        <div class="bank-row"><div class="bank-key">Account Type</div><div class="bank-val">Main Account</div></div>
+                        <div class="bank-row"><div class="bank-key">Account Number</div><div class="copy-row"><div class="bank-val mono">1581744291</div><button class="copy-btn" onclick="copyText('1581744291',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>Copy</button></div></div>
+                        <div class="bank-row"><div class="bank-key">Branch Code</div><div class="bank-val mono">470010</div></div>
+                        <div class="bank-row"><div class="bank-key">SWIFT / BIC</div><div class="bank-val mono">CABLZAJJ</div></div>
+                    </div>
+                    <div class="ref-note"><strong>⚡ Reference</strong>Use your full name so we can match your payment quickly.</div>
+                </div>
+                <div class="pkg-section">
+                    <div class="pkg-section-title">Step 2 — Monthly Subscription</div>
+                    <p style="font-size:.75rem;color:var(--muted);line-height:1.6;margin-bottom:14px">Set up your R49/month recurring payment. Cancel anytime.</p>
+                    <a href="https://www.payfast.co.za/eng/process?merchant_id=33811799&merchant_key=igwldnq55rvor&amount=49.00&item_name=LaafWeb+Basic+Plan&subscription_type=1&recurring_amount=49.00&frequency=3&cycles=0" target="_blank" class="subscribe-btn btn-grey">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+                        Subscribe R49/month
+                    </a>
+                    <div class="sub-note">PayFast · Card, Instant EFT, SnapScan · Cancel anytime</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LAUNCH -->
+        <div class="pkg launch fu">
+            <div class="pkg-top">
+                <div class="pkg-header">
+                    <div><div class="pkg-name">🟡 Launch Plan</div><div class="pkg-tagline">1–3 pages · WhatsApp CTA · contact form · basic SEO</div></div>
+                    <span class="pkg-badge badge-limited">🔥 Limited Offer</span>
+                </div>
+                <div class="pkg-pricing">
+                    <div class="price-block"><div class="price-label">Setup Fee (once-off)</div><div class="price-amount">R700</div><div class="price-sub">Pay via EFT · only once</div></div>
+                    <div class="price-divider"></div>
+                    <div class="price-block"><div class="price-label">Monthly</div><div class="price-amount" style="color:var(--gold)">R120</div><div class="price-sub">Was R180 · limited offer</div></div>
+                </div>
+            </div>
+            <div class="pkg-body">
+                <div class="pkg-section">
+                    <div class="pkg-section-title">Step 1 — EFT Setup Fee</div>
+                    <div class="bank-rows">
+                        <div class="bank-row"><div class="bank-key">Bank</div><div class="bank-val">Capitec Bank</div></div>
+                        <div class="bank-row"><div class="bank-key">Account Holder</div><div class="bank-val">LaafWeb</div></div>
+                        <div class="bank-row"><div class="bank-key">Account Type</div><div class="bank-val">Main Account</div></div>
+                        <div class="bank-row"><div class="bank-key">Account Number</div><div class="copy-row"><div class="bank-val mono">1581744291</div><button class="copy-btn" onclick="copyText('1581744291',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>Copy</button></div></div>
+                        <div class="bank-row"><div class="bank-key">Branch Code</div><div class="bank-val mono">470010</div></div>
+                        <div class="bank-row"><div class="bank-key">SWIFT / BIC</div><div class="bank-val mono">CABLZAJJ</div></div>
+                    </div>
+                    <div class="ref-note"><strong>⚡ Reference</strong>Use your full name so we can match your payment quickly.</div>
+                </div>
+                <div class="pkg-section">
+                    <div class="pkg-section-title">Step 2 — Monthly Subscription</div>
+                    <p style="font-size:.75rem;color:var(--muted);line-height:1.6;margin-bottom:14px">Set up your R120/month recurring payment. Cancel anytime.</p>
+                    <a href="https://www.payfast.co.za/eng/process?merchant_id=33811799&merchant_key=igwldnq55rvor&amount=120.00&item_name=LaafWeb+Launch+Plan&subscription_type=1&recurring_amount=120.00&frequency=3&cycles=0" target="_blank" class="subscribe-btn btn-gold">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+                        Subscribe R120/month
+                    </a>
+                    <div class="sub-note">PayFast · Card, Instant EFT, SnapScan · Cancel anytime</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BUSINESS -->
+        <div class="pkg business featured fu">
+            <div class="pkg-top">
+                <div class="pkg-header">
+                    <div><div class="pkg-name">🟢 Business Plan</div><div class="pkg-tagline">Up to 6 pages · Google Maps · advanced SEO · priority support</div></div>
+                    <span class="pkg-badge badge-popular">Most Popular</span>
+                </div>
+                <div class="pkg-pricing">
+                    <div class="price-block"><div class="price-label">Setup Fee (once-off)</div><div class="price-amount">R1,200</div><div class="price-sub">Pay via EFT · only once</div></div>
+                    <div class="price-divider"></div>
+                    <div class="price-block"><div class="price-label">Monthly</div><div class="price-amount" style="color:var(--green2)">R450</div><div class="price-sub">Billed via PayFast</div></div>
+                </div>
+            </div>
+            <div class="pkg-body">
+                <div class="pkg-section">
+                    <div class="pkg-section-title">Step 1 — EFT Setup Fee</div>
+                    <div class="bank-rows">
+                        <div class="bank-row"><div class="bank-key">Bank</div><div class="bank-val">Capitec Bank</div></div>
+                        <div class="bank-row"><div class="bank-key">Account Holder</div><div class="bank-val">LaafWeb</div></div>
+                        <div class="bank-row"><div class="bank-key">Account Type</div><div class="bank-val">Main Account</div></div>
+                        <div class="bank-row"><div class="bank-key">Account Number</div><div class="copy-row"><div class="bank-val mono">1581744291</div><button class="copy-btn" onclick="copyText('1581744291',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>Copy</button></div></div>
+                        <div class="bank-row"><div class="bank-key">Branch Code</div><div class="bank-val mono">470010</div></div>
+                        <div class="bank-row"><div class="bank-key">SWIFT / BIC</div><div class="bank-val mono">CABLZAJJ</div></div>
+                    </div>
+                    <div class="ref-note"><strong>⚡ Reference</strong>Use your full name so we can match your payment quickly.</div>
+                </div>
+                <div class="pkg-section">
+                    <div class="pkg-section-title">Step 2 — Monthly Subscription</div>
+                    <p style="font-size:.75rem;color:var(--muted);line-height:1.6;margin-bottom:14px">Set up your R450/month recurring payment. Cancel anytime.</p>
+                    <a href="https://www.payfast.co.za/eng/process?merchant_id=33811799&merchant_key=igwldnq55rvor&amount=450.00&item_name=LaafWeb+Business+Plan&subscription_type=1&recurring_amount=450.00&frequency=3&cycles=0" target="_blank" class="subscribe-btn btn-green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+                        Subscribe R450/month
+                    </a>
+                    <div class="sub-note">PayFast · Card, Instant EFT, SnapScan · Cancel anytime</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ENTERPRISE -->
+        <div class="pkg enterprise fu">
+            <div class="pkg-top">
+                <div class="pkg-header">
+                    <div><div class="pkg-name">🟣 Enterprise Plan</div><div class="pkg-tagline">Everything in Business + 24/7 WhatsApp AI bot · no setup fee</div></div>
+                    <span class="pkg-badge badge-enterprise">⚡ Enterprise</span>
+                </div>
+                <div class="pkg-pricing">
+                    <div class="no-setup">✦ No setup fee</div>
+                    <div class="price-divider"></div>
+                    <div class="price-block"><div class="price-label">Monthly</div><div class="price-amount" style="color:#c084fc">R899</div><div class="price-sub">Includes LaafConnect AI</div></div>
+                </div>
+            </div>
+            <div class="pkg-body">
+                <div class="pkg-section">
+                    <div class="pkg-section-title">No Setup Fee — Subscribe Directly</div>
+                    <p style="font-size:.75rem;color:var(--muted);line-height:1.6;margin-bottom:16px">Enterprise has no setup fee. Just subscribe below and you're live.</p>
+                    <div class="ent-grid">
+                        <div>
+                            <a href="https://www.payfast.co.za/eng/process?merchant_id=33811799&merchant_key=igwldnq55rvor&amount=899.00&item_name=LaafWeb+Enterprise+Plan&subscription_type=1&recurring_amount=899.00&frequency=3&cycles=0" target="_blank" class="subscribe-btn btn-purple">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+                                Subscribe R899/month
+                            </a>
+                            <div class="sub-note">PayFast · Card, Instant EFT, SnapScan</div>
+                        </div>
+                        <div style="background:rgba(168,85,247,.06);border:1px solid rgba(168,85,247,.15);border-radius:10px;padding:14px">
+                            <div style="font-size:.62rem;font-weight:700;color:#c084fc;text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px">Includes</div>
+                            <div style="font-size:.72rem;color:var(--light);line-height:1.7">✓ Full Business website<br>✓ WhatsApp AI bot<br>✓ All 11 SA languages<br>✓ Human handoff alerts<br>✓ No setup fee ever</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SEND POP -->
+    <div class="pop-box fu">
+        <h3>📎 After your EFT — send us proof of payment</h3>
+        <p>Once you've done the EFT for the setup fee, WhatsApp us a screenshot or PDF. We'll confirm receipt and your site goes live the same day. No waiting around.</p>
+        <a href="https://wa.me/27636691391?text=Hi%2C%20I've%20paid%20my%20setup%20fee%20%E2%80%94%20sending%20proof%20of%20payment%20now." class="pop-wa-btn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            WhatsApp Proof of Payment
+        </a>
+    </div>
+
+    <!-- TRUST BAR -->
+    <div class="trust-bar fu">
+        <div class="t-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>No lock-in contracts</div>
+        <div class="t-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Site live same day</div>
+        <div class="t-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Cancel anytime</div>
+        <div class="t-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>PayFast secured</div>
+    </div>
+
+</main>
+
+<footer>
+    © 2026 LaafWeb · Long Acres, Langebaan, Western Cape &nbsp;·&nbsp;
+    <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+    <a href="terms.html">Terms</a> &nbsp;·&nbsp;
+    Questions? <a href="https://wa.me/27636691391" target="_blank" style="color:var(--green2)">WhatsApp 063 669 1391</a>
+</footer>
+
+<script>
+    function copyText(text, btn) {
+        navigator.clipboard.writeText(text).then(() => {
+            btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="10" height="10"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="10" height="10"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy';
+                btn.classList.remove('copied');
+            }, 2500);
+        });
+    }
+
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
