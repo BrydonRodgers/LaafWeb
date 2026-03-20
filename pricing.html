@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Website Pricing Langebaan | West Coast Web Design from R120/mo | LaafWeb</title>
-<meta name="description" content="Transparent pricing for West Coast small businesses. Launch from R120/month, Business R450/month, Enterprise R899/month. Plus once-off services: business registration, Google profile, compliance docs. 7-day free trial. Based in Langebaan.">
+<title>Website Pricing Langebaan | West Coast Web Design from R49/mo | LaafWeb</title>
+<meta name="description" content="Transparent pricing for West Coast small businesses. Basic from R49/month, Launch R120/month, Business R450/month, Enterprise R899/month. Plus once-off services: business registration, Google profile, compliance docs. 7-day free trial. Based in Langebaan.">
 <meta name="keywords" content="website pricing Langebaan, web design cost Saldanha, affordable website West Coast, website packages South Africa">
 <meta name="author" content="LaafWeb — Brydon, Long Acres, Langebaan">
 <meta name="geo.region" content="ZA-WC">
 <meta name="geo.placename" content="Langebaan, Western Cape">
 <meta name="geo.position" content="-33.1;18.03">
 <meta name="ICBM" content="-33.1, 18.03">
-<meta property="og:title" content="LaafWeb Pricing — From R120/month | West Coast Web Design">
-<meta property="og:description" content="3 transparent plans for West Coast small businesses. 7-day free trial, no card needed.">
+<meta property="og:title" content="LaafWeb Pricing — From R49/month | West Coast Web Design">
+<meta property="og:description" content="4 transparent plans for West Coast small businesses. 7-day free trial, no card needed.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -85,10 +85,11 @@ main{position:relative;z-index:1;max-width:1140px;margin:0 auto;padding:0 20px 1
 .compare-banner{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:56px}
 .compare-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 26px;display:flex;flex-direction:column;gap:4px;min-width:200px;transition:border-color .25s,transform .25s;position:relative;overflow:hidden}
 .compare-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-.compare-card:nth-child(1)::before{background:linear-gradient(90deg,var(--gold),#ff8c00)}
-.compare-card:nth-child(2)::before{background:linear-gradient(90deg,var(--green),var(--blue))}
-.compare-card:nth-child(3)::before{background:linear-gradient(90deg,var(--blue),#a855f7)}
-.compare-card:nth-child(4)::before{background:var(--blue)}
+.compare-card:nth-child(1)::before{background:linear-gradient(90deg,#555,#888)}
+.compare-card:nth-child(2)::before{background:linear-gradient(90deg,var(--gold),#ff8c00)}
+.compare-card:nth-child(3)::before{background:linear-gradient(90deg,var(--green),var(--blue))}
+.compare-card:nth-child(4)::before{background:linear-gradient(90deg,var(--blue),#a855f7)}
+.compare-card:nth-child(5)::before{background:var(--blue)}
 .compare-card:hover{border-color:var(--border2);transform:translateY(-3px)}
 .cc-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);font-weight:700}
 .cc-price{font-family:var(--fh);font-size:1.5rem;font-weight:900;color:var(--white);letter-spacing:-1px}
@@ -107,11 +108,12 @@ main{position:relative;z-index:1;max-width:1140px;margin:0 auto;padding:0 20px 1
 
 .section-label{text-align:center;font-size:.72rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);font-weight:700;margin-bottom:24px}
 
-/* 3-column plans grid for Launch, Business, Enterprise */
-.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start;margin-bottom:22px}
+/* 2-column plans grid for Basic, Launch, Business, Enterprise */
+.plans-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;align-items:start;margin-bottom:22px}
 .plan-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:34px 28px 30px;position:relative;overflow:hidden;transition:transform .3s cubic-bezier(.22,.68,0,1.2),box-shadow .3s,border-color .3s;display:flex;flex-direction:column}
 .plan-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,.5)}
 .plan-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
+.plan-card.basic::before{background:linear-gradient(90deg,#555,#888)}
 .plan-card.launch::before{background:linear-gradient(90deg,var(--gold),#ff8c00)}
 .plan-card.business::before{background:linear-gradient(90deg,var(--green),var(--blue))}
 .plan-card.enterprise::before{background:linear-gradient(90deg,var(--blue),#a855f7)}
@@ -123,6 +125,7 @@ main{position:relative;z-index:1;max-width:1140px;margin:0 auto;padding:0 20px 1
 .badge-limited{background:linear-gradient(135deg,var(--gold),#ff8c00);color:#000}
 .badge-enterprise{background:linear-gradient(135deg,var(--blue),#a855f7);color:#fff}
 .plan-name{font-family:var(--fh);font-weight:800;font-size:.9rem;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}
+.plan-card.basic .plan-name{color:#999}
 .plan-card.launch .plan-name{color:var(--gold)}
 .plan-card.business .plan-name{color:var(--green2)}
 .plan-card.enterprise .plan-name{color:#a78bfa}
@@ -139,9 +142,13 @@ main{position:relative;z-index:1;max-width:1140px;margin:0 auto;padding:0 20px 1
 .plan-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:18px;flex:1}
 .plan-features li{display:flex;align-items:flex-start;gap:9px;font-size:.875rem;color:#ccc;line-height:1.4}
 .feat-icon{width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-size:.6rem;font-weight:700}
+.plan-card.basic .feat-icon{background:rgba(150,150,150,.15);color:#999}
 .plan-card.launch .feat-icon{background:rgba(255,182,18,.12);color:var(--gold)}
 .plan-card.business .feat-icon{background:rgba(0,168,95,.15);color:var(--green2)}
 .plan-card.enterprise .feat-icon{background:rgba(168,139,250,.15);color:#a78bfa}
+.feat-crossed{color:var(--muted) !important;text-decoration:line-through;opacity:.5}
+.plan-original{font-size:13px;color:var(--muted);text-decoration:line-through;display:none;margin-bottom:2px}
+.plan-original.show{display:block}
 .plan-upgrade-hint{font-size:.72rem;color:var(--muted);font-style:italic;margin-bottom:16px;line-height:1.5;padding:8px 10px;background:rgba(255,255,255,.02);border-radius:6px;border-left:2px solid var(--border2)}
 .lc-callout{display:flex;align-items:flex-start;gap:10px;background:rgba(168,139,250,.06);border:1px solid rgba(168,139,250,.18);border-radius:10px;padding:12px 14px;margin-bottom:12px}
 .lc-callout-text{font-size:.78rem;color:#c4b5fd;line-height:1.5}
@@ -397,7 +404,7 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
     <li><a href="index.html#work">Our Work</a></li>
     <li><a href="#business-setup">All Services</a></li>
     <li><a href="pricing.html" class="active">Pricing</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://wa.me/27636691391?text=Hi%2C%20I%27d%20like%20to%20get%20in%20touch" target="_blank" rel="noopener">Contact</a></li>
     <li>
       <a href="https://wa.me/27636691391?text=Hi%2C%20Launch%20plan" class="nav-wa" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -422,7 +429,7 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
       <a href="index.html#work" onclick="closeMob()">Our Work</a>
       <a href="#business-setup" onclick="closeMob()">All Services</a>
       <a href="pricing.html" onclick="closeMob()">Pricing</a>
-      <a href="contact.html" onclick="closeMob()">Contact</a>
+      <a href="https://wa.me/27636691391?text=Hi%2C%20I%27d%20like%20to%20get%20in%20touch" target="_blank" rel="noopener" onclick="closeMob()">Contact</a>
     </div>
     <a href="https://wa.me/27636691391?text=Hi%2C%20Launch%20plan" class="mob-wa-link" target="_blank" rel="noopener" onclick="closeMob()">
       <svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -455,6 +462,11 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
 
   <!-- QUICK COMPARE -->
   <div class="compare-banner reveal">
+    <div class="compare-card">
+      <span class="cc-label">Basic</span>
+      <div class="cc-price">R49<span style="font-size:.9rem;color:var(--muted);font-weight:500">/mo</span></div>
+      <span class="cc-desc">+ R700 setup · 1 page, no support</span>
+    </div>
     <div class="compare-card">
       <span class="cc-label">Launch 🔥</span>
       <div class="cc-price" style="color:var(--gold)">R120<span style="font-size:.9rem;color:var(--muted);font-weight:500">/mo</span></div>
@@ -490,16 +502,38 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
 
   <p class="section-label reveal" id="plans">Choose your plan</p>
 
-  <!-- PLANS GRID — 3 columns: Launch, Business, Enterprise -->
+  <!-- PLANS GRID — 2 columns: Basic, Launch, Business, Enterprise -->
   <div class="plans-grid">
 
+    <!-- BASIC -->
+    <div class="plan-card basic reveal" style="transition-delay:.05s">
+      <div class="plan-name">🔘 Basic</div>
+      <div class="plan-tagline">Just need to be findable online. That's enough.</div>
+      <div class="plan-original" id="p-basic-orig">R49/month (R490/year)</div>
+      <div class="plan-price-row"><span class="plan-curr">R</span><span class="plan-amount" id="p-basic-price">49</span></div>
+      <div class="plan-period" id="p-basic-period">per month</div>
+      <div class="plan-setup-tag setup-gold">⚡ R700 once-off setup fee</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><div class="feat-icon">✓</div>Single-page website</li>
+        <li><div class="feat-icon">✓</div>Custom domain included</li>
+        <li><div class="feat-icon">✓</div>Hosting &amp; SSL included</li>
+        <li><div class="feat-icon">✓</div>Mobile-first responsive design</li>
+        <li><div class="feat-icon">✓</div>Annual content/photo update</li>
+        <li><div class="feat-icon" style="background:rgba(100,100,100,.1);color:#555">✕</div><span class="feat-crossed">WhatsApp &amp; contact integrations</span></li>
+        <li><div class="feat-icon" style="background:rgba(100,100,100,.1);color:#555">✕</div><span class="feat-crossed">Ongoing support</span></li>
+      </ul>
+      <div class="plan-upgrade-hint">Most Basic clients upgrade to Launch within 3 months — once they start getting traffic and want more.</div>
+      <a href="https://wa.me/27636691391?text=Hi%2C%20Basic%20plan" class="plan-btn btn-ghost" target="_blank" rel="noopener">Get Started</a>
+    </div>
+
     <!-- LAUNCH -->
-    <div class="plan-card launch reveal" style="transition-delay:.05s">
-      <div class="plan-badge badge-limited">First 10 Clients Only</div>
+    <div class="plan-card launch reveal" style="transition-delay:.12s">
+      <div class="plan-badge badge-limited">🔥 First 10 Clients Only</div>
       <div class="plan-name">🟡 Launch</div>
       <div class="plan-tagline">Start getting real leads — at a rate that makes sense.</div>
       <div class="plan-price-row"><span class="plan-curr">R</span><span class="plan-amount" id="p-launch-price">120</span></div>
-      <div class="plan-period" id="p-launch-period">per month · limited offer</div>
+      <div class="plan-period" id="p-launch-period">per month · limited spots</div>
       <div class="plan-setup-tag setup-gold">⚡ R700 once-off setup fee</div>
       <div class="plan-divider"></div>
       <ul class="plan-features">
@@ -519,7 +553,7 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
     </div>
 
     <!-- BUSINESS -->
-    <div class="plan-card business featured reveal" style="transition-delay:.12s">
+    <div class="plan-card business featured reveal" style="transition-delay:.19s">
       <div class="shimmer"></div>
       <div class="plan-badge badge-popular">Most Popular</div>
       <div class="plan-name">🟢 Business</div>
@@ -547,7 +581,7 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
     </div>
 
     <!-- ENTERPRISE -->
-    <div class="plan-card enterprise reveal" style="transition-delay:.19s">
+    <div class="plan-card enterprise reveal" style="transition-delay:.26s">
       <div class="plan-badge badge-enterprise">⚡ Enterprise</div>
       <div class="plan-name">🟣 Enterprise</div>
       <div class="plan-tagline">Full site + a 24/7 WhatsApp AI for your customers.</div>
@@ -726,7 +760,6 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
     </div>
     <div class="starter-grid">
 
-      <!-- BUSINESS REGISTRATION -->
       <div class="starter-card biz-reg">
         <div class="starter-top">
           <span class="starter-ico">🏢</span>
@@ -746,7 +779,6 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
         </a>
       </div>
 
-      <!-- LETTERHEAD & INVOICE TEMPLATE -->
       <div class="starter-card letterhead">
         <div class="starter-top">
           <span class="starter-ico">📄</span>
@@ -766,7 +798,6 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
         </a>
       </div>
 
-      <!-- BRANDED EMAIL SIGNATURE -->
       <div class="starter-card email-sig">
         <div class="starter-top">
           <span class="starter-ico">✍️</span>
@@ -786,7 +817,6 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
         </a>
       </div>
 
-      <!-- GOOGLE BUSINESS PROFILE -->
       <div class="starter-card google-biz">
         <div class="starter-top">
           <span class="starter-ico">📍</span>
@@ -806,7 +836,6 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
         </a>
       </div>
 
-      <!-- PROFESSIONAL EMAIL SETUP -->
       <div class="starter-card email-setup">
         <div class="starter-top">
           <span class="starter-ico">📧</span>
@@ -826,7 +855,6 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
         </a>
       </div>
 
-      <!-- WHATSAPP BUSINESS SETUP -->
       <div class="starter-card wa-biz">
         <div class="starter-top">
           <span class="starter-ico">💬</span>
@@ -1065,7 +1093,7 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
       <div class="foot-sub">Part of the Laafstyl Ecosystem · Long Acres, Langebaan, WC</div>
     </div>
     <div class="foot-links">
-      <a href="https://laafstyl.org" target="_blank">LaafStyl — Home</a>
+      <a href="https://laafstyl.org" target="_blank" rel="noopener">LaafStyl — Home</a>
       <a href="index.html">Home</a>
       <a href="index.html#work">Our Work</a>
       <a href="pricing.html">Pricing</a>
@@ -1074,7 +1102,7 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
       <a href="https://entertain.laafstyl.org" target="_blank">LaafEntertain</a>
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
-      <a href="contact.html">Contact</a>
+      <a href="https://wa.me/27636691391?text=Hi%2C%20I%27d%20like%20to%20get%20in%20touch" target="_blank" rel="noopener">Contact</a>
     </div>
     <div class="foot-copy">© 2026 LaafStyl (Pty) Ltd. Built in 🇿🇦 Long Acres, Langebaan.</div>
   </div>
@@ -1100,6 +1128,7 @@ function closeMobOut(e) { if (e.target === document.getElementById('mobOverlay')
 
 /* ANNUAL BILLING TOGGLE */
 const prices = {
+  basic:  { m: 49,   a: 490  },
   launch: { m: 120,  a: 1200 },
   biz:    { m: 450,  a: 4500 },
   ent:    { m: 899,  a: 8990 }
@@ -1110,8 +1139,11 @@ function toggleBilling() {
   document.getElementById('lbl-monthly').classList.toggle('active', !annual);
   document.getElementById('lbl-annual').classList.toggle('active', annual);
 
+  document.getElementById('p-basic-price').textContent  = annual ? prices.basic.a  : prices.basic.m;
+  document.getElementById('p-basic-period').textContent = annual ? 'per year (save R98)' : 'per month';
+
   document.getElementById('p-launch-price').textContent  = annual ? prices.launch.a  : prices.launch.m;
-  document.getElementById('p-launch-period').textContent = annual ? 'per year (save R240)' : 'per month · limited offer';
+  document.getElementById('p-launch-period').textContent = annual ? 'per year (save R240)' : 'per month · limited spots';
 
   document.getElementById('p-biz-price').textContent  = annual ? prices.biz.a  : prices.biz.m;
   document.getElementById('p-biz-period').textContent = annual ? 'per year (save R900)' : 'per month';
