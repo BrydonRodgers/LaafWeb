@@ -50,7 +50,7 @@
 
         .packages{display:flex;flex-direction:column;gap:18px;margin-bottom:36px}
 
-        .pkg{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .2s}
+        .pkg{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .2s;scroll-margin-top:80px}
         .pkg.featured{border-color:rgba(0,168,95,.3)}
         .pkg-top{padding:22px 26px 18px;border-bottom:1px solid var(--border)}
         .pkg.basic .pkg-top{border-top:3px solid #888}
@@ -194,7 +194,7 @@
     <div class="packages">
 
         <!-- BASIC -->
-        <div class="pkg basic fu">
+        <div class="pkg basic fu" id="basic">
             <div class="pkg-top">
                 <div class="pkg-header">
                     <div>
@@ -248,7 +248,7 @@
         </div>
 
         <!-- LAUNCH -->
-        <div class="pkg launch fu">
+        <div class="pkg launch fu" id="launch">
             <div class="pkg-top">
                 <div class="pkg-header">
                     <div>
@@ -303,7 +303,7 @@
         </div>
 
         <!-- BUSINESS -->
-        <div class="pkg business featured fu">
+        <div class="pkg business featured fu" id="business">
             <div class="pkg-top">
                 <div class="pkg-header">
                     <div>
@@ -358,7 +358,7 @@
         </div>
 
         <!-- ENTERPRISE -->
-        <div class="pkg enterprise fu">
+        <div class="pkg enterprise fu" id="enterprise">
             <div class="pkg-top">
                 <div class="pkg-header">
                     <div>
