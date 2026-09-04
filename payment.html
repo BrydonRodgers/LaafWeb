@@ -363,12 +363,16 @@
                 <div class="pkg-header">
                     <div>
                         <div class="pkg-name">🟣 Enterprise Plan</div>
-                        <div class="pkg-tagline">Everything in Business + 24/7 WhatsApp AI bot · no setup fee</div>
+                        <div class="pkg-tagline">Everything in Business + 24/7 WhatsApp AI bot</div>
                     </div>
                     <span class="pkg-badge badge-enterprise">⚡ Enterprise</span>
                 </div>
                 <div class="pkg-pricing">
-                    <div class="no-setup">✦ No setup fee</div>
+                    <div class="price-block">
+                        <div class="price-label">Setup Fee (once-off)</div>
+                        <div class="price-amount" style="color:#c084fc">R3,000</div>
+                        <div class="price-sub">Pay via EFT · only once</div>
+                    </div>
                     <div class="price-divider"></div>
                     <div class="price-block">
                         <div class="price-label">Monthly</div>
@@ -379,19 +383,37 @@
             </div>
             <div class="pkg-body">
                 <div class="pkg-section">
-                    <div class="pkg-section-title">No Setup Fee — Subscribe Directly</div>
-                    <p style="font-size:.75rem;color:var(--muted);line-height:1.6;margin-bottom:16px">Enterprise has no setup fee. Just subscribe below and you're live.</p>
+                    <div class="pkg-section-title">Step 1 — EFT Setup Fee</div>
+                    <div class="bank-rows">
+                        <div class="bank-row"><div class="bank-key">Bank</div><div class="bank-val">Capitec Bank</div></div>
+                        <div class="bank-row"><div class="bank-key">Account Holder</div><div class="bank-val">LaafWeb</div></div>
+                        <div class="bank-row"><div class="bank-key">Account Type</div><div class="bank-val">Main Account</div></div>
+                        <div class="bank-row">
+                            <div class="bank-key">Account Number</div>
+                            <div class="copy-row">
+                                <div class="bank-val mono">1581744291</div>
+                                <button class="copy-btn" onclick="copyText('1581744291',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>Copy</button>
+                            </div>
+                        </div>
+                        <div class="bank-row"><div class="bank-key">Branch Code</div><div class="bank-val mono">470010</div></div>
+                        <div class="bank-row"><div class="bank-key">SWIFT / BIC</div><div class="bank-val mono">CABLZAJJ</div></div>
+                    </div>
+                    <div class="ref-note"><strong>⚡ Reference</strong>Use your full name so we can match your payment quickly.</div>
+                </div>
+                <div class="pkg-section">
+                    <div class="pkg-section-title">Step 2 — Monthly Subscription</div>
+                    <p style="font-size:.75rem;color:var(--muted);line-height:1.6;margin-bottom:16px">Set up your R899/month recurring payment. Cancel anytime.</p>
                     <div class="ent-grid">
                         <div>
                             <a href="https://www.payfast.co.za/eng/process?merchant_id=33811799&merchant_key=igwldnq55rvor&amount=899.00&item_name=LaafWeb+Enterprise+Plan&subscription_type=1&recurring_amount=899.00&frequency=3&cycles=0&notify_url=https%3A%2F%2Fpay.laafstyl.org%2Fwebhook%2Fpayfast-itn&return_url=https%3A%2F%2Fweb.laafstyl.org%2Fpayment-success.html&cancel_url=https%3A%2F%2Fweb.laafstyl.org%2Fpayment-cancel.html" target="_blank" class="subscribe-btn btn-purple">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
                                 Subscribe R899/month
                             </a>
-                            <div class="sub-note">PayFast · Card, Instant EFT, SnapScan</div>
+                            <div class="sub-note">PayFast · Card, Instant EFT, SnapScan · Cancel anytime</div>
                         </div>
                         <div style="background:rgba(168,85,247,.06);border:1px solid rgba(168,85,247,.15);border-radius:10px;padding:14px">
                             <div style="font-size:.62rem;font-weight:700;color:#c084fc;text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px">Includes</div>
-                            <div style="font-size:.72rem;color:var(--light);line-height:1.7">✓ Full Business website<br>✓ WhatsApp AI bot<br>✓ All 11 SA languages<br>✓ Human handoff alerts<br>✓ No setup fee ever</div>
+                            <div style="font-size:.72rem;color:var(--light);line-height:1.7">✓ Full Business website<br>✓ WhatsApp AI bot<br>✓ All 11 SA languages<br>✓ Human handoff alerts<br>✓ Monthly VAT invoice</div>
                         </div>
                     </div>
                 </div>

@@ -138,6 +138,7 @@ main{position:relative;z-index:1;max-width:1140px;margin:0 auto;padding:0 20px 1
 .setup-gold{background:rgba(255,182,18,.07);border:1px solid rgba(255,182,18,.18);color:var(--gold)}
 .setup-green{background:rgba(0,120,71,.08);border:1px solid rgba(0,120,71,.2);color:var(--green2)}
 .setup-free{background:rgba(100,200,100,.08);border:1px solid rgba(100,200,100,.2);color:#4cd993}
+.setup-purple{background:rgba(168,139,250,.08);border:1px solid rgba(168,139,250,.22);color:#a78bfa}
 .plan-divider{height:1px;background:var(--border);margin:16px 0}
 .plan-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:18px;flex:1}
 .plan-features li{display:flex;align-items:flex-start;gap:9px;font-size:.875rem;color:#ccc;line-height:1.4}
@@ -482,7 +483,7 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
     <div class="compare-card">
       <span class="cc-label">Enterprise</span>
       <div class="cc-price">R899<span style="font-size:.9rem;color:var(--muted);font-weight:500">/mo</span></div>
-      <span class="cc-desc">No setup fee · Business + WhatsApp AI</span>
+      <span class="cc-desc">+ R3,000 setup · Business + WhatsApp AI</span>
     </div>
     <div class="compare-card">
       <span class="cc-label">Buy Outright</span>
@@ -587,7 +588,7 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
       <div class="plan-original" id="p-ent-orig">R899/month (R8,990/year)</div>
       <div class="plan-price-row"><span class="plan-curr">R</span><span class="plan-amount" id="p-ent-price">899</span></div>
       <div class="plan-period" id="p-ent-period">per month</div>
-      <div class="plan-setup-tag setup-free">✦ No setup fee required</div>
+      <div class="plan-setup-tag setup-purple">⚡ R3,000 once-off setup fee</div>
       <div class="plan-divider"></div>
       <div class="lc-callout">
         <div style="font-size:22px;flex-shrink:0">💬</div>
@@ -603,7 +604,6 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
         <li><div class="feat-icon">✓</div>All 11 SA languages auto-detected</li>
         <li><div class="feat-icon">✓</div>Human handoff alerts</li>
         <li><div class="feat-icon">✓</div>Monthly VAT invoice</li>
-        <li><div class="feat-icon">✓</div>No setup fee</li>
       </ul>
       <a href="https://web.laafstyl.org/payment.html#enterprise" class="plan-btn btn-wa-plan">Get Started</a>
       <a href="https://wa.me/27636691391?text=Hi%2C%20Enterprise%20plan" class="plan-btn-wa-secondary" target="_blank" rel="noopener">Chat on WhatsApp</a>
@@ -991,6 +991,19 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
             <li>Advanced on-page SEO configuration</li>
             <li>Lead capture forms connected to your email/WhatsApp</li>
             <li>Priority onboarding — we're on WhatsApp throughout</li>
+          </ul>
+        </div>
+      </details>
+      <details class="setup-acc">
+        <summary class="setup-acc-q">R3,000 Setup Fee — Enterprise Plan<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <div class="setup-acc-body">
+          <p style="margin-bottom:12px;color:var(--muted)">Everything in the R1,200 fee, plus the LaafConnect WhatsApp AI build:</p>
+          <ul class="setup-list">
+            <li>LaafConnect WhatsApp AI bot trained on your business</li>
+            <li>Knowledge base built from your services &amp; pricing</li>
+            <li>All 11 SA languages configured and tested</li>
+            <li>Human handoff alerts set up and tested</li>
+            <li>WhatsApp Business API connection &amp; verification</li>
           </ul>
         </div>
       </details>
