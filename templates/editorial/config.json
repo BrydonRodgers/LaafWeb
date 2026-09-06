@@ -1,0 +1,13 @@
+{
+  "template_id": "editorial",
+  "business_name": "Your Business Name",
+  "logo_path": "logo-placeholder.png",
+  "primary_color": "#007847",
+  "accent_color": "#00AEEF",
+  "contact": {
+    "phone": "+27 00 000 0000",
+    "email": "hello@example.co.za",
+    "address": "Your Town, Western Cape",
+    "whatsapp": "27000000000"
+  }
+}
