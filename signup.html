@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Your Website | LaafWeb</title>
+    <meta name="description" content="Sign up for your LaafWeb website: pick a plan, choose your style, and we'll take it from there.">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green:#007847;--green2:#00a85f;--gold:#FFB612;--blue:#00AEEF;--purple:#a855f7;
+            --bg:#0f0f0f;--bg2:#161616;--card:#1c1c1c;--border:#2a2a2a;--border2:#333;
+            --muted:#666;--body:#888;--light:#bbb;--white:#fff;
+            --fh:'Poppins',sans-serif;--fb:'Inter',sans-serif;
+        }
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        body{background:var(--bg);color:var(--body);font-family:var(--fb);line-height:1.6}
+        nav{position:sticky;top:0;z-index:100;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;background:rgba(15,15,15,.96);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+        .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+        .nav-logo img{height:28px;object-fit:contain}
+        .nav-logo-text{font-family:var(--fh);font-weight:900;font-size:1.05rem;color:var(--white)}
+        main{max-width:820px;margin:0 auto;padding:40px 20px 80px}
+        h1{font-family:var(--fh);font-weight:900;font-size:clamp(1.6rem,4vw,2.2rem);color:var(--white);margin-bottom:8px}
+        .sub{font-size:.9rem;color:var(--muted);margin-bottom:32px}
+        .step{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:20px}
+        .step-title{font-family:var(--fh);font-weight:800;font-size:.95rem;color:var(--white);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+        .step-num{width:24px;height:24px;border-radius:50%;background:rgba(0,168,95,.15);color:var(--green2);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800}
+        .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+        .plan-opt{border:1px solid var(--border2);border-radius:10px;padding:14px;cursor:pointer;transition:border-color .2s}
+        .plan-opt.selected{border-color:var(--green2);background:rgba(0,168,95,.06)}
+        .plan-opt .name{font-family:var(--fh);font-weight:700;color:var(--white);font-size:.85rem}
+        .plan-opt .price{font-size:.75rem;color:var(--muted);margin-top:4px}
+        .tpl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+        .tpl-opt{border:1px solid var(--border2);border-radius:10px;overflow:hidden;cursor:pointer;transition:border-color .2s}
+        .tpl-opt.selected{border-color:var(--green2)}
+        .tpl-opt img{width:100%;height:100px;object-fit:cover;object-position:top;display:block;background:#222}
+        .tpl-opt .tpl-name{font-size:.72rem;padding:8px;color:var(--light);text-align:center}
+        label{display:block;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;margin-top:14px}
+        label:first-child{margin-top:0}
+        input{width:100%;background:#111;border:1px solid var(--border2);border-radius:8px;padding:10px 12px;color:var(--white);font-family:var(--fb);font-size:.9rem}
+        input:focus{outline:none;border-color:var(--green2)}
+        .submit-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px 18px;border-radius:9px;font-family:var(--fh);font-size:.85rem;font-weight:800;text-transform:uppercase;cursor:pointer;border:none;background:var(--green);color:#fff;margin-top:24px}
+        .submit-btn:hover{background:var(--green2)}
+        .submit-btn:disabled{opacity:.5;cursor:not-allowed}
+        .msg{font-size:.8rem;margin-top:12px;padding:10px 12px;border-radius:8px;display:none}
+        .msg.error{display:block;background:rgba(220,50,50,.1);border:1px solid rgba(220,50,50,.3);color:#f88}
+        .msg.success{display:block;background:rgba(0,168,95,.1);border:1px solid rgba(0,168,95,.3);color:#4cd993}
+        .success-panel{display:none;text-align:center;padding:20px 0}
+        .success-panel h2{font-family:var(--fh);color:var(--white);margin-bottom:10px}
+        .pf-btn{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;padding:12px 22px;border-radius:9px;font-family:var(--fh);font-weight:800;text-decoration:none;text-transform:uppercase;font-size:.8rem;margin-top:16px}
+        footer{background:var(--bg2);border-top:1px solid var(--border);padding:20px;text-align:center;font-size:.7rem;color:var(--muted)}
+    </style>
+</head>
+<body>
+<nav>
+    <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="LaafWeb" onerror="this.style.display='none'">
+        <span class="nav-logo-text">LaafWeb</span>
+    </a>
+</nav>
+<main>
+    <div id="form-view">
+        <h1>Let's build your website</h1>
+        <p class="sub">Pick your plan, choose a style, tell us about your business — we'll email you the next step immediately.</p>
+
+        <div class="step">
+            <div class="step-title"><span class="step-num">1</span> Choose your plan</div>
+            <div class="plans" id="plan-picker">
+                <div class="plan-opt" data-plan="basic"><div class="name">Basic</div><div class="price">R49/mo</div></div>
+                <div class="plan-opt" data-plan="launch"><div class="name">Launch</div><div class="price">R120/mo</div></div>
+                <div class="plan-opt" data-plan="business"><div class="name">Business</div><div class="price">R450/mo</div></div>
+                <div class="plan-opt" data-plan="enterprise"><div class="name">Enterprise</div><div class="price">R899/mo</div></div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title"><span class="step-num">2</span> Choose your style</div>
+            <div class="tpl-grid" id="tpl-picker"></div>
+        </div>
+
+        <div class="step">
+            <div class="step-title"><span class="step-num">3</span> Your details</div>
+            <label for="business_name">Business name</label>
+            <input id="business_name" type="text" placeholder="e.g. Langebaan Bike Hire">
+            <label for="contact_email">Email</label>
+            <input id="contact_email" type="email" placeholder="you@business.co.za">
+            <label for="contact_phone">Phone / WhatsApp</label>
+            <input id="contact_phone" type="tel" placeholder="082 000 0000">
+        </div>
+
+        <button class="submit-btn" id="submit-btn">Sign Up</button>
+        <div class="msg" id="msg"></div>
+    </div>
+
+    <div class="success-panel" id="success-view">
+        <h2>🎉 Signup received!</h2>
+        <p>We've emailed you the next steps. Ready to pay your setup fee and subscribe?</p>
+        <a class="pf-btn" id="continue-link" href="#">Continue to Payment</a>
+    </div>
+</main>
+<footer>
+    © 2026 BROD Traders (Pty) Ltd, trading as LaafWeb, Reg. 2025/529742/07 · Long Acres, Langebaan
+</footer>
+
+<script>
+const API_BASE = 'https://laafweb-api.laafstyl.org';
+const TEMPLATES = [
+    {id:'agency', label:'Agency (service business)'},
+    {id:'small-business', label:'Small Business (restaurant/local shop)'},
+    {id:'freelancer', label:'Freelancer (portfolio)'},
+    {id:'shop-homepage', label:'Shop (e-commerce-lite)'},
+    {id:'modern-business', label:'Modern Business'},
+    {id:'strata', label:'Strata (general)'},
+    {id:'solid-state', label:'Solid State (agency)'},
+    {id:'story', label:'Story (general)'},
+    {id:'editorial', label:'Editorial (portfolio)'},
+    {id:'read-only', label:'Read Only (portfolio)'},
+];
+
+const tplPicker = document.getElementById('tpl-picker');
+TEMPLATES.forEach(t => {
+    const div = document.createElement('div');
+    div.className = 'tpl-opt';
+    div.dataset.tpl = t.id;
+    div.innerHTML = `<img src="screenshots/${t.id}.png" alt="${t.label}" loading="lazy"><div class="tpl-name">${t.label}</div>`;
+    div.onclick = () => {
+        document.querySelectorAll('.tpl-opt').forEach(e => e.classList.remove('selected'));
+        div.classList.add('selected');
+        state.template_id = t.id;
+    };
+    tplPicker.appendChild(div);
+});
+
+const state = { plan: null, template_id: null };
+
+// Preselect plan from ?plan= query param (e.g. linked from pricing.html)
+const params = new URLSearchParams(location.search);
+const preselect = params.get('plan');
+
+document.querySelectorAll('.plan-opt').forEach(el => {
+    el.onclick = () => {
+        document.querySelectorAll('.plan-opt').forEach(e => e.classList.remove('selected'));
+        el.classList.add('selected');
+        state.plan = el.dataset.plan;
+    };
+    if (preselect && el.dataset.plan === preselect) el.click();
+});
+
+function showMsg(text, type) {
+    const msg = document.getElementById('msg');
+    msg.textContent = text;
+    msg.className = `msg ${type}`;
+}
+
+document.getElementById('submit-btn').onclick = async () => {
+    const business_name = document.getElementById('business_name').value.trim();
+    const contact_email = document.getElementById('contact_email').value.trim();
+    const contact_phone = document.getElementById('contact_phone').value.trim();
+
+    if (!state.plan) return showMsg('Please choose a plan.', 'error');
+    if (!state.template_id) return showMsg('Please choose a style.', 'error');
+    if (!business_name) return showMsg('Please enter your business name.', 'error');
+    if (!contact_email) return showMsg('Please enter your email.', 'error');
+
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+
+    try {
+        const res = await fetch(`${API_BASE}/signup`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ business_name, contact_email, contact_phone, plan: state.plan, template_id: state.template_id }),
+        });
+        const data = await res.json();
+        if (!res.ok) {
+            showMsg(data.error || 'Something went wrong.', 'error');
+            btn.disabled = false;
+            btn.textContent = 'Sign Up';
+            return;
+        }
+        // Only now — after the backend has actually created/confirmed the
+        // signup record — do we show a success state.
+        document.getElementById('form-view').style.display = 'none';
+        document.getElementById('success-view').style.display = 'block';
+        const cont = document.getElementById('continue-link');
+        cont.href = `payment.html?sid=${encodeURIComponent(data.id)}&plan=${encodeURIComponent(data.plan)}&pf=${encodeURIComponent(data.payfast_url)}`;
+    } catch (err) {
+        showMsg('Network error — please try again or WhatsApp us.', 'error');
+        btn.disabled = false;
+        btn.textContent = 'Sign Up';
+    }
+};
+</script>
+</body>
+</html>

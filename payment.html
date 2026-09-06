@@ -168,6 +168,13 @@
         <p>Your 7-day trial is done — let's make it official. Pay your once-off setup fee via EFT, then click subscribe to start your monthly billing.</p>
     </div>
 
+    <div class="signup-banner fu" id="signup-banner" style="display:none;background:rgba(255,182,18,.08);border:1px solid rgba(255,182,18,.25);border-radius:12px;padding:14px 18px;margin-bottom:24px;font-size:.8rem;color:var(--gold)">
+        Haven't signed up yet? <a href="signup.html" style="color:var(--gold);text-decoration:underline">Start here</a> first — pick your plan and site style, and your subscribe button below will be linked to your account automatically.
+    </div>
+    <div class="signup-banner fu" id="linked-banner" style="display:none;background:rgba(0,168,95,.08);border:1px solid rgba(0,168,95,.25);border-radius:12px;padding:14px 18px;margin-bottom:24px;font-size:.8rem;color:#4cd993">
+        ✓ Signup #<span id="linked-sid"></span> found — your subscribe button below is linked to your account.
+    </div>
+
     <div class="how fu">
         <div class="how-step">
             <div class="how-num">1</div>
@@ -238,7 +245,7 @@
                 <div class="pkg-section">
                     <div class="pkg-section-title">Step 2 — Monthly Subscription</div>
                     <p style="font-size:.75rem;color:var(--muted);line-height:1.6;margin-bottom:14px">Set up your R49/month recurring payment. Cancel anytime.</p>
-                    <a href="https://www.payfast.co.za/eng/process?merchant_id=33811799&merchant_key=igwldnq55rvor&amount=49.00&item_name=LaafWeb+Basic+Plan&subscription_type=1&recurring_amount=49.00&frequency=3&cycles=0&notify_url=https%3A%2F%2Fpay.laafstyl.org%2Fwebhook%2Fpayfast-itn&return_url=https%3A%2F%2Fweb.laafstyl.org%2Fpayment-success.html&cancel_url=https%3A%2F%2Fweb.laafstyl.org%2Fpayment-cancel.html" target="_blank" class="subscribe-btn btn-grey">
+                    <a href="https://www.payfast.co.za/eng/process?merchant_id=33811799&merchant_key=igwldnq55rvor&amount=49.00&item_name=LaafWeb+Basic+Plan&subscription_type=1&recurring_amount=49.00&frequency=3&cycles=0&notify_url=https%3A%2F%2Fpay.laafstyl.org%2Fwebhook%2Fpayfast-itn&return_url=https%3A%2F%2Fweb.laafstyl.org%2Fpayment-success.html&cancel_url=https%3A%2F%2Fweb.laafstyl.org%2Fpayment-cancel.html" target="_blank" class="subscribe-btn btn-grey" id="pf-basic">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
                         Subscribe R49/month
                     </a>
@@ -293,7 +300,7 @@
                 <div class="pkg-section">
                     <div class="pkg-section-title">Step 2 — Monthly Subscription</div>
                     <p style="font-size:.75rem;color:var(--muted);line-height:1.6;margin-bottom:14px">Set up your R120/month recurring payment. Cancel anytime.</p>
-                    <a href="https://www.payfast.co.za/eng/process?merchant_id=33811799&merchant_key=igwldnq55rvor&amount=120.00&item_name=LaafWeb+Launch+Plan&subscription_type=1&recurring_amount=120.00&frequency=3&cycles=0&notify_url=https%3A%2F%2Fpay.laafstyl.org%2Fwebhook%2Fpayfast-itn&return_url=https%3A%2F%2Fweb.laafstyl.org%2Fpayment-success.html&cancel_url=https%3A%2F%2Fweb.laafstyl.org%2Fpayment-cancel.html" target="_blank" class="subscribe-btn btn-gold">
+                    <a href="https://www.payfast.co.za/eng/process?merchant_id=33811799&merchant_key=igwldnq55rvor&amount=120.00&item_name=LaafWeb+Launch+Plan&subscription_type=1&recurring_amount=120.00&frequency=3&cycles=0&notify_url=https%3A%2F%2Fpay.laafstyl.org%2Fwebhook%2Fpayfast-itn&return_url=https%3A%2F%2Fweb.laafstyl.org%2Fpayment-success.html&cancel_url=https%3A%2F%2Fweb.laafstyl.org%2Fpayment-cancel.html" target="_blank" class="subscribe-btn btn-gold" id="pf-launch">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
                         Subscribe R120/month
                     </a>
@@ -348,7 +355,7 @@
                 <div class="pkg-section">
                     <div class="pkg-section-title">Step 2 — Monthly Subscription</div>
                     <p style="font-size:.75rem;color:var(--muted);line-height:1.6;margin-bottom:14px">Set up your R450/month recurring payment. Cancel anytime.</p>
-                    <a href="https://www.payfast.co.za/eng/process?merchant_id=33811799&merchant_key=igwldnq55rvor&amount=450.00&item_name=LaafWeb+Business+Plan&subscription_type=1&recurring_amount=450.00&frequency=3&cycles=0&notify_url=https%3A%2F%2Fpay.laafstyl.org%2Fwebhook%2Fpayfast-itn&return_url=https%3A%2F%2Fweb.laafstyl.org%2Fpayment-success.html&cancel_url=https%3A%2F%2Fweb.laafstyl.org%2Fpayment-cancel.html" target="_blank" class="subscribe-btn btn-green">
+                    <a href="https://www.payfast.co.za/eng/process?merchant_id=33811799&merchant_key=igwldnq55rvor&amount=450.00&item_name=LaafWeb+Business+Plan&subscription_type=1&recurring_amount=450.00&frequency=3&cycles=0&notify_url=https%3A%2F%2Fpay.laafstyl.org%2Fwebhook%2Fpayfast-itn&return_url=https%3A%2F%2Fweb.laafstyl.org%2Fpayment-success.html&cancel_url=https%3A%2F%2Fweb.laafstyl.org%2Fpayment-cancel.html" target="_blank" class="subscribe-btn btn-green" id="pf-business">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
                         Subscribe R450/month
                     </a>
@@ -405,7 +412,7 @@
                     <p style="font-size:.75rem;color:var(--muted);line-height:1.6;margin-bottom:16px">Set up your R899/month recurring payment. Cancel anytime.</p>
                     <div class="ent-grid">
                         <div>
-                            <a href="https://www.payfast.co.za/eng/process?merchant_id=33811799&merchant_key=igwldnq55rvor&amount=899.00&item_name=LaafWeb+Enterprise+Plan&subscription_type=1&recurring_amount=899.00&frequency=3&cycles=0&notify_url=https%3A%2F%2Fpay.laafstyl.org%2Fwebhook%2Fpayfast-itn&return_url=https%3A%2F%2Fweb.laafstyl.org%2Fpayment-success.html&cancel_url=https%3A%2F%2Fweb.laafstyl.org%2Fpayment-cancel.html" target="_blank" class="subscribe-btn btn-purple">
+                            <a href="https://www.payfast.co.za/eng/process?merchant_id=33811799&merchant_key=igwldnq55rvor&amount=899.00&item_name=LaafWeb+Enterprise+Plan&subscription_type=1&recurring_amount=899.00&frequency=3&cycles=0&notify_url=https%3A%2F%2Fpay.laafstyl.org%2Fwebhook%2Fpayfast-itn&return_url=https%3A%2F%2Fweb.laafstyl.org%2Fpayment-success.html&cancel_url=https%3A%2F%2Fweb.laafstyl.org%2Fpayment-cancel.html" target="_blank" class="subscribe-btn btn-purple" id="pf-enterprise">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
                                 Subscribe R899/month
                             </a>
@@ -443,7 +450,7 @@
 </main>
 
 <footer>
-    © 2026 LaafWeb · Long Acres, Langebaan, Western Cape &nbsp;·&nbsp;
+    © 2026 BROD Traders (Pty) Ltd, trading as LaafWeb, Reg. 2025/529742/07 · Long Acres, Langebaan, Western Cape &nbsp;·&nbsp;
     <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
     <a href="terms.html">Terms</a> &nbsp;·&nbsp;
     Questions? <a href="https://wa.me/27636691391" target="_blank" style="color:var(--green2)">WhatsApp 063 669 1391</a>
@@ -465,6 +472,28 @@
         entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
     }, { threshold: 0.08 });
     document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+
+    // If arriving from signup.html, we get sid/plan/pf in the URL — pf is
+    // the already-correlated PayFast link (carries custom_str1=signup id)
+    // built by the backend. Swap it into that plan's subscribe button so
+    // clicking Subscribe here actually ties back to the signup record;
+    // without those params (a direct visit) the buttons keep their static,
+    // uncorrelated hrefs and we show a banner nudging the visitor to sign
+    // up first instead.
+    (function wireSignupCorrelation() {
+        const params = new URLSearchParams(location.search);
+        const sid = params.get('sid');
+        const plan = params.get('plan');
+        const pf = params.get('pf');
+        if (sid && plan && pf) {
+            const btn = document.getElementById(`pf-${plan}`);
+            if (btn) btn.href = pf;
+            document.getElementById('linked-sid').textContent = sid;
+            document.getElementById('linked-banner').style.display = 'block';
+        } else {
+            document.getElementById('signup-banner').style.display = 'block';
+        }
+    })();
 </script>
 </body>
 </html>
