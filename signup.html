@@ -38,7 +38,9 @@
         .tpl-opt{border:1px solid var(--border2);border-radius:10px;overflow:hidden;cursor:pointer;transition:border-color .2s}
         .tpl-opt.selected{border-color:var(--green2)}
         .tpl-opt img{width:100%;height:100px;object-fit:cover;object-position:top;display:block;background:#222}
-        .tpl-opt .tpl-name{font-size:.72rem;padding:8px;color:var(--light);text-align:center}
+        .tpl-opt .tpl-name{font-size:.72rem;padding:8px 8px 4px;color:var(--light);text-align:center}
+        .tpl-opt .tpl-preview{display:block;font-size:.68rem;padding:0 8px 8px;color:var(--green2);text-align:center;text-decoration:none}
+        .tpl-opt .tpl-preview:hover{text-decoration:underline}
         label{display:block;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;margin-top:14px}
         label:first-child{margin-top:0}
         input{width:100%;background:#111;border:1px solid var(--border2);border-radius:8px;padding:10px 12px;color:var(--white);font-family:var(--fb);font-size:.9rem}
@@ -108,17 +110,19 @@
 
 <script>
 const API_BASE = 'https://laafweb-api.laafstyl.org';
+// path is the entry file within templates/<id>/ — Start Bootstrap builds serve
+// from dist/index.html, HTML5UP templates serve directly from index.html.
 const TEMPLATES = [
-    {id:'agency', label:'Agency (service business)'},
-    {id:'small-business', label:'Small Business (restaurant/local shop)'},
-    {id:'freelancer', label:'Freelancer (portfolio)'},
-    {id:'shop-homepage', label:'Shop (e-commerce-lite)'},
-    {id:'modern-business', label:'Modern Business'},
-    {id:'strata', label:'Strata (general)'},
-    {id:'solid-state', label:'Solid State (agency)'},
-    {id:'story', label:'Story (general)'},
-    {id:'editorial', label:'Editorial (portfolio)'},
-    {id:'read-only', label:'Read Only (portfolio)'},
+    {id:'agency', label:'Agency (service business)', path:'dist/index.html'},
+    {id:'small-business', label:'Small Business (restaurant/local shop)', path:'dist/index.html'},
+    {id:'freelancer', label:'Freelancer (portfolio)', path:'dist/index.html'},
+    {id:'shop-homepage', label:'Shop (e-commerce-lite)', path:'dist/index.html'},
+    {id:'modern-business', label:'Modern Business', path:'dist/index.html'},
+    {id:'strata', label:'Strata (general)', path:'index.html'},
+    {id:'solid-state', label:'Solid State (agency)', path:'index.html'},
+    {id:'story', label:'Story (general)', path:'index.html'},
+    {id:'editorial', label:'Editorial (portfolio)', path:'index.html'},
+    {id:'read-only', label:'Read Only (portfolio)', path:'index.html'},
 ];
 
 const tplPicker = document.getElementById('tpl-picker');
@@ -126,7 +130,8 @@ TEMPLATES.forEach(t => {
     const div = document.createElement('div');
     div.className = 'tpl-opt';
     div.dataset.tpl = t.id;
-    div.innerHTML = `<img src="screenshots/${t.id}.png" alt="${t.label}" loading="lazy"><div class="tpl-name">${t.label}</div>`;
+    div.innerHTML = `<img src="screenshots/${t.id}.png" alt="${t.label}" loading="lazy"><div class="tpl-name">${t.label}</div><a class="tpl-preview" href="templates/${t.id}/${t.path}" target="_blank" rel="noopener">View live preview →</a>`;
+    div.querySelector('.tpl-preview').onclick = (e) => e.stopPropagation();
     div.onclick = () => {
         document.querySelectorAll('.tpl-opt').forEach(e => e.classList.remove('selected'));
         div.classList.add('selected');
