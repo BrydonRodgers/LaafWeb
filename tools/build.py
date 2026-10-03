@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Generates the static LaafWeb pages (AF default / EN toggle). Run from repo root: python3 tools/build.py"""
-import html, os
+import html, os, re
+from urllib.parse import quote
 E=lambda s: html.escape(s, quote=True)
+ICONS={'chat': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.7 7L4 20l1.1-4.2A8 8 0 1 1 21 12z"/></svg>', 'globe': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>', 'bolt': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>', 'image': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-8 9"/></svg>', 'form': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>', 'pin': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>', 'plus': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M12 8v8M8 12h8"/></svg>', 'pen': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>'}
 def T(af,en,tag="span",cls=None,extra=""):
     c=f' class="{cls}"' if cls else ""
     return f'<{tag}{c} data-af="{E(af)}" data-en="{E(en)}"{extra}>{af}</{tag}>'
@@ -9,7 +11,7 @@ WA_ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-
 LOGO='<svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#0b4f33"/><rect x="11" y="14" width="42" height="30" rx="5" fill="#fff"/><rect x="16" y="19" width="20" height="4" rx="2" fill="#0e6b45"/><rect x="16" y="26" width="32" height="3" rx="1.5" fill="#cfd8d2"/><rect x="16" y="32" width="26" height="3" rx="1.5" fill="#cfd8d2"/><path d="M20 44v10l10-10z" fill="#fff"/><circle cx="46" cy="38" r="7" fill="#1faa59"/></svg>'
 def wa(af,en,cls="btn wa",label=None,extra=""):
     lab=label or T("WhatsApp ons","WhatsApp us")
-    return f'<a class="{cls}" href="#" data-wa-af="{E(af)}" data-wa-en="{E(en)}" rel="noopener" target="_blank"{extra}>{WA_ICON}{lab}</a>'
+    return f'<a class="{cls}" href="https://wa.me/27636691391?text={quote(af)}" data-wa-af="{E(af)}" data-wa-en="{E(en)}" rel="noopener" target="_blank"{extra}>{WA_ICON}{lab}</a>'
 def head(title,desc,page,canon):
     return f'''<!DOCTYPE html>
 <html lang="af">
@@ -35,7 +37,7 @@ def head(title,desc,page,canon):
 <a class="l" href="index.html#hoe">{T("Hoe dit werk","How it works")}</a>
 <a class="l" href="pricing.html" {'aria-current="page"' if page=='pricing' else ''}>{T("Pryse","Pricing")}</a>
 <a class="l" href="contact.html" {'aria-current="page"' if page=='contact' else ''}>{T("Kontak","Contact")}</a>
-<div class="lang" role="group" aria-label="Language"><button type="button" id="bAf" class="on">AF</button><button type="button" id="bEn">EN</button></div>
+<div class="lang" role="group" aria-label="Language"><button type="button" id="bAf" class="on" aria-label="Afrikaans">AF</button><button type="button" id="bEn" aria-label="English">EN</button></div>
 {wa("Hallo LaafWeb, ek wil graag 'n webwerf vir my besigheid he.","Hi LaafWeb, I would like a website for my business.","btn wa sm",T("WhatsApp","WhatsApp"))}
 </nav></div></header>
 <main id="main">
@@ -44,7 +46,7 @@ def foot():
     return f'''</main>
 <footer><div class="wrap"><div class="cols">
 <div><h4 translate="no">LaafWeb</h4><p>{T("Eenvoudige, netjiese webwerwe vir klein besighede op die Weskus. Gebou in Langebaan.","Simple, neat websites for small businesses on the West Coast. Built in Langebaan.")}</p>
-<p>WhatsApp <a href="#" data-tel><span data-cfg="waDisplay"></span></a> &middot; Mon&ndash;Sat 8:00&ndash;18:00<br><a href="#" data-mail><span data-cfg="email"></span></a></p></div>
+<p>WhatsApp <a href="tel:+27636691391" data-tel><span data-cfg="waDisplay"></span></a> &middot; Mon&ndash;Sat 8:00&ndash;18:00<br><a href="mailto:laafstylfamily@gmail.com" data-mail><span data-cfg="email"></span></a></p></div>
 <div><h4>{T("Blaaie","Pages")}</h4><a href="pricing.html">{T("Pryse","Pricing")}</a><br><a href="contact.html">{T("Kontak","Contact")}</a><br><a href="terms.html">{T("Voorwaardes","Terms")}</a><br><a href="privacy.html">{T("Privaatheid","Privacy")}</a></div>
 <div><h4>{T("Areas","Areas")}</h4>Langebaan<br>Saldanha &middot; Vredenburg<br>Velddrif &middot; Paternoster<br>St Helena Bay</div>
 </div>
@@ -63,6 +65,9 @@ def faq(af_q,en_q,af_a,en_a):
 MSG_AF="Hallo LaafWeb, ek wil graag 'n webwerf vir my besigheid he."
 MSG_EN="Hi LaafWeb, I would like a website for my business."
 
+def polish(x):
+    x=x.replace("&#x27;","\u2019")
+    return re.sub(r'>([^<>]+)<',lambda m:'>'+m.group(1).replace("'","\u2019")+'<',x)
 # ---------------- HOME ----------------
 home=head("LaafWeb | Webwerwe vir klein besighede op die Weskus","Netjiese, vinnige eenbladsy-webwerwe vir ambagsmanne en klein besighede. Van R949 eenmalig plus R79 per maand. Kliënte bereik jou op WhatsApp.","home","")
 home+=f'''<section class="hero"><div class="wrap hgrid"><div>
@@ -79,12 +84,12 @@ home+=f'''<section class="hero"><div class="wrap hgrid"><div>
 <h2>{T("Alles wat 'n klein besigheid nodig het","Everything a small business needs")}</h2>
 <p class="sub">{T("Geen kompliseerde goed nie. Ons bou dit, jy gebruik dit.","Nothing complicated. We build it, you use it.")}</p>
 <div class="grid">
-{card("W","WhatsApp en bel-knoppies","WhatsApp and call buttons","Kliënte tik een knoppie en jy kry hul boodskap direk op jou foon.","Customers tap one button and their message lands straight on your phone.")}
-{card("A","Afrikaans en Engels","Afrikaans and English","Jou webwerf praat jou kliënte se taal, met 'n skakelaar bo-aan.","Your website speaks your customers' language, with a switch at the top.")}
-{card("&#9729;","Vinnig en veilig","Fast and secure","Laai vinnig op selfone, met 'n veilige skakel (SSL) ingesluit.","Loads fast on phones, with a secure connection (SSL) included.")}
-{card("&#9733;","Jou dienste en foto's","Your services and photos","Wat jy doen, waar jy werk, en foto's van jou werk, netjies uiteengesit.","What you do, where you work, and photos of your work, clearly laid out.")}
-{card("Q","Kwotasie-vorm","Quote form","Kliënte stuur hul besonderhede en dit kom as 'n WhatsApp-boodskap by jou uit.","Customers send their details and it reaches you as a WhatsApp message.")}
-{card("&#9873;","Plaaslik gebou","Built locally","Ons ken die Weskus. Jy praat met 'n mens, nie 'n bot nie.","We know the West Coast. You deal with a person, not a bot.")}
+{card(ICONS["chat"],"WhatsApp en bel-knoppies","WhatsApp and call buttons","Kliënte tik een knoppie en jy kry hul boodskap direk op jou foon.","Customers tap one button and their message lands straight on your phone.")}
+{card(ICONS["globe"],"Afrikaans en Engels","Afrikaans and English","Jou webwerf praat jou kliënte se taal, met 'n skakelaar bo-aan.","Your website speaks your customers' language, with a switch at the top.")}
+{card(ICONS["bolt"],"Vinnig en veilig","Fast and secure","Laai vinnig op selfone, met 'n veilige skakel (SSL) ingesluit.","Loads fast on phones, with a secure connection (SSL) included.")}
+{card(ICONS["image"],"Jou dienste en foto's","Your services and photos","Wat jy doen, waar jy werk, en foto's van jou werk, netjies uiteengesit.","What you do, where you work, and photos of your work, clearly laid out.")}
+{card(ICONS["form"],"Kwotasie-vorm","Quote form","Kliënte stuur hul besonderhede en dit kom as 'n WhatsApp-boodskap by jou uit.","Customers send their details and it reaches you as a WhatsApp message.")}
+{card(ICONS["pin"],"Plaaslik gebou","Built locally","Ons ken die Weskus. Jy praat met 'n mens, nie 'n bot nie.","We know the West Coast. You deal with a person, not a bot.")}
 </div></div></section>
 
 <section class="alt" id="hoe"><div class="wrap">
@@ -128,7 +133,7 @@ home+=f'''<section class="hero"><div class="wrap hgrid"><div>
 </div></section>
 '''
 home+=foot()
-open("index.html","w").write(home)
+open("index.html","w").write(polish(home))
 
 # ---------------- PRICING ----------------
 def li(af,en,no=False): return f'<li{" class=\"no\"" if no else ""}>{T(af,en)}</li>'
@@ -148,10 +153,10 @@ pr+=f'''<section class="hero" style="padding:48px 0 30px"><div class="wrap"><spa
 <section class="alt"><div class="wrap">
 <h2>{T("Byvoegings","Add-ons")}</h2><p class="sub">{T("Net as jy dit nodig het.","Only if you need them.")}</p>
 <div class="grid">
-{card("&#9873;","Eie .co.za-domein","Your own .co.za domain","Ons registreer dit vir jou, teen koste (vanaf ongeveer R150 per jaar).","We register it for you, at cost (from about R150 a year).")}
-{card("+","Ekstra bladsy","Extra page","R350 per bladsy by die Eenbladsy-pakket.","R350 per page added to the One-page package.")}
-{card("G","Google Besigheidsprofiel","Google Business Profile","Dat jy op Google Maps en in 'naby my'-soektogte wys. Prys op aanvraag.","So you show up on Google Maps and in 'near me' searches. Price on request.")}
-{card("L","Logo","Logo","Eenvoudige logo vir jou besigheid. Prys op aanvraag.","A simple logo for your business. Price on request.")}
+{card(ICONS["globe"],"Eie .co.za-domein","Your own .co.za domain","Ons registreer dit vir jou, teen koste (vanaf ongeveer R150 per jaar).","We register it for you, at cost (from about R150 a year).")}
+{card(ICONS["plus"],"Ekstra bladsy","Extra page","R350 per bladsy by die Eenbladsy-pakket.","R350 per page added to the One-page package.")}
+{card(ICONS["pin"],"Google Besigheidsprofiel","Google Business Profile","Dat jy op Google Maps en in 'naby my'-soektogte wys. Prys op aanvraag.","So you show up on Google Maps and in 'near me' searches. Price on request.")}
+{card(ICONS["pen"],"Logo","Logo","Eenvoudige logo vir jou besigheid. Prys op aanvraag.","A simple logo for your business. Price on request.")}
 </div></div></section>
 
 <section><div class="wrap" style="max-width:860px">
@@ -161,11 +166,11 @@ pr+=f'''<section class="hero" style="padding:48px 0 30px"><div class="wrap"><spa
 {faq("En die R79 per maand?","And the R79 a month?","Ons stuur jou 'n veilige betaalskakel vir 'n maandelikse betaling, of jy betaal per EFT. Jy kan enige tyd kanselleer.","We send you a secure payment link for a monthly payment, or you pay by EFT. You can cancel at any time.")}
 {faq("Wat as ek kanselleer?","What if I cancel?","Die webwerf bly aan tot die einde van die betaalde maand. Jy kan jou teks en foto's kry. Sien ons voorwaardes.","The website stays up until the end of the paid month. You can get your text and photos. See our terms.")}
 </div>
-<p class="note">{T("Pryse sluit alle toepaslike belasting in. Kyk ons <a href='terms.html'>voorwaardes</a> vir die volle detail.","Prices include any applicable tax. See our <a href='terms.html'>terms</a> for the full detail.")}</p>
+<p class="note">{T("Pryse sluit alle toepaslike belasting in. Kyk ons <a href=\"terms.html\">voorwaardes</a> vir die volle detail.","Prices include any applicable tax. See our <a href=\"terms.html\">terms</a> for the full detail.")}</p>
 </div></section>
 '''
 pr+=foot()
-open("pricing.html","w").write(pr)
+open("pricing.html","w").write(polish(pr))
 
 # ---------------- CONTACT ----------------
 ct=head("Kontak | LaafWeb","WhatsApp of bel LaafWeb in Langebaan. Maandag tot Saterdag 8:00 tot 18:00.","contact","contact.html")
@@ -173,26 +178,26 @@ ct+=f'''<section class="dark-sec" style="padding:56px 0"><div class="wrap"><h1 s
 <p class="sub">{T("WhatsApp is die vinnigste. Ons antwoord Maandag tot Saterdag, 8:00 tot 18:00.","WhatsApp is fastest. We reply Monday to Saturday, 8:00 to 18:00.")}</p>
 <div class="cgrid"><div class="ci">
 {wa(MSG_AF,MSG_EN,"",T("WhatsApp","WhatsApp"),' style="display:block;background:rgba(255,255,255,.1);padding:16px 18px;border-radius:14px;margin-bottom:12px;color:#fff;text-decoration:none"')}
-<a href="#" data-tel><small>{T("Bel","Call")}</small><strong data-cfg="waDisplay"></strong></a>
-<a href="#" data-mail><small>E-pos / Email</small><strong data-cfg="email"></strong></a>
-<a href="#" style="pointer-events:none"><small>{T("Areas","Areas")}</small><strong>Langebaan &middot; Saldanha &middot; Vredenburg &middot; Velddrif</strong></a></div>
+<a href="tel:+27636691391" data-tel><small>{T("Bel","Call")}</small><strong data-cfg="waDisplay"></strong></a>
+<a href="mailto:laafstylfamily@gmail.com" data-mail><small>E-pos / Email</small><strong data-cfg="email"></strong></a>
+<div style="background:rgba(255,255,255,.1);padding:16px 18px;border-radius:14px;margin-bottom:12px"><small style="display:block;color:#bfe0cc;font-size:.8rem">{T("Areas","Areas")}</small><strong style="font-size:1.15rem">Langebaan &middot; Saldanha &middot; Vredenburg &middot; Velddrif</strong></div></div>
 <form class="cform" id="qform"><h3 style="margin:0 0 14px">{T("Stuur ons jou besonderhede","Send us your details")}</h3>
 <label for="n">{T("Jou naam","Your name")}</label><input id="n" name="name" autocomplete="name" required>
 <label for="b">{T("Besigheid","Business")}</label><input id="b" name="business" autocomplete="organization">
 <label for="p">{T("Jou nommer","Your number")}</label><input id="p" name="phone" type="tel" inputmode="tel" autocomplete="tel">
 <label for="t">{T("Dorp","Town")}</label><input id="t" name="town" autocomplete="address-level2">
-<label for="m">{T("Besonderhede","Details")}</label><textarea id="m" name="details" autocomplete="off" data-ph-af="Wat doen jou besigheid?" data-ph-en="What does your business do?"></textarea>
+<label for="m">{T("Besonderhede","Details")}</label><textarea id="m" name="details" autocomplete="off" data-ph-af="Bv. ek sit PVC-plafonne op in Vredenburg…" data-ph-en="E.g. I fit PVC ceilings in Vredenburg…"></textarea>
 <button class="btn wa" type="submit" style="width:100%">{WA_ICON}{T("Stuur op WhatsApp","Send on WhatsApp")}</button>
 <p class="note" style="text-align:center;margin:10px 0 0">{T("Dit maak WhatsApp oop met jou boodskap reg om te stuur.","This opens WhatsApp with your message ready to send.")}</p></form></div></div></section>
 '''
 ct+=foot()
-open("contact.html","w").write(ct)
+open("contact.html","w").write(polish(ct))
 
 # ---------------- 404 ----------------
 nf=head("Nie gevind nie | LaafWeb","Hierdie blad bestaan nie.","404","404.html")
 nf+=f'''<section class="hero"><div class="wrap" style="text-align:center"><h1>{T("Hierdie blad is nie hier nie.","This page isn't here.")}</h1><p class="lead" style="margin:0 auto 22px">{T("Dalk is die skakel verouderd. Gaan terug na die tuisblad of WhatsApp ons.","The link may be out of date. Go back to the home page or WhatsApp us.")}</p><div class="cta" style="justify-content:center"><a class="btn dark" href="index.html">{T("Tuisblad","Home")}</a>{wa(MSG_AF,MSG_EN,"btn wa",T("WhatsApp ons","WhatsApp us"))}</div></div></section>'''
 nf+=foot()
-open("404.html","w").write(nf)
+open("404.html","w").write(polish(nf))
 print("built index, pricing, contact, 404")
 
 # ---------------- TERMS ----------------
@@ -211,11 +216,11 @@ terms+=sec("8. Availability","<p>We aim to keep your website online but we do no
 terms+=sec("9. Our work as an example","<p>We will only show your website or business name as an example of our work with your permission.</p>")
 terms+=sec("10. Referrals","<p>If you introduce a new client and that client pays their setup fee, we will pay you R250 by EFT within 7 business days of receiving the payment. The new client must name you when they first contact us. Self-referrals do not qualify.</p>")
 terms+=sec("11. Liability","<p>To the extent the law allows, our total liability to you is limited to the amounts you paid us in the three months before the event. We are not liable for indirect or consequential loss, such as lost profits.</p>")
-terms+=sec("12. Privacy","<p>We handle personal information as set out in our <a href='privacy.html'>Privacy Policy</a>.</p>")
+terms+=sec("12. Privacy","<p>We handle personal information as set out in our <a href=\"privacy.html\">Privacy Policy</a>.</p>")
 terms+=sec("13. General","<p>These terms are governed by the laws of the Republic of South Africa. Any dispute will first be discussed in good faith; failing that, the competent court in the Western Cape has jurisdiction. Contact: WhatsApp 063 669 1391, laafstylfamily@gmail.com.</p>")
 terms+='</div></section>'
 terms+=foot()
-open("terms.html","w").write(terms)
+open("terms.html","w").write(polish(terms))
 
 # ---------------- PRIVACY ----------------
 pv=head("Privaatheid | Privacy | LaafWeb","Hoe LaafWeb persoonlike inligting hanteer (POPIA).","privacy","privacy.html")
@@ -231,5 +236,5 @@ pv+=sec("7. Cookies and local storage","<p>We do not use cookies for tracking. Y
 pv+=sec("8. Contact","<p>WhatsApp 063 669 1391, laafstylfamily@gmail.com. We may update this policy; the date at the top shows the latest version.</p>")
 pv+='</div></section>'
 pv+=foot()
-open("privacy.html","w").write(pv)
+open("privacy.html","w").write(polish(pv))
 print("built terms, privacy")
