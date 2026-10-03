@@ -112,8 +112,14 @@ home+=f'''<section class="hero"><div class="wrap hgrid"><div>
 
 <section class="alt" id="werk"><div class="wrap">
 <h2>{T("Ons werk","Our work")}</h2>
-<p class="sub">{T("Ons bou tans ons portefeulje op. Ons wys net regte, lewendige webwerwe wanneer die kliënt saamstem.","We are building our portfolio. We only show real, live websites once the client agrees.")}</p>
-<div class="work"><div class="wk"><h3 style="margin:0 0 6px;color:var(--ink)">{T("Jou webwerf kan die volgende wees","Your website could be next")}</h3><p style="margin:0 0 14px">{T("Wil jy een van ons eerste kliënte wees? Praat met ons oor 'n goeie ooreenkoms.","Want to be one of our first clients? Talk to us about a good deal.")}</p>{wa(MSG_AF,MSG_EN,"btn wa sm",T("WhatsApp ons","WhatsApp us"))}</div></div>
+<p class="sub">{T("Sien hoe 'n LaafWeb-webwerf lyk. Die drie voorbeelde is voorbeeldontwerpe, nie regte besighede nie. 735 Auto is 'n regte, lewendige webwerf.","See what a LaafWeb website looks like. The three samples are example designs, not real businesses. 735 Auto is a real, live website.")}</p>
+<div class="work">
+<a class="wk wl" href="https://auto.laafstyl.org" rel="noopener"><span class="tag">{T("Regte webwerf","Live website")}</span><h3>735 Auto</h3><p>{T("Motorwasplek. Dienste, pryse en WhatsApp-bespreking.","Car wash. Services, prices and WhatsApp booking.")}</p><span class="go">{T("Besoek webwerf","Visit website")} &rarr;</span></a>
+<a class="wk wl" href="https://lw-sample-plumber.pages.dev" rel="noopener"><span class="tag">{T("Voorbeeld","Sample")}</span><h3>{T("Loodgieter","Plumber")}</h3><p>{T("Voorbeeldontwerp vir loodgieters en ander noodhulpdienste.","Example design for plumbers and other call-out trades.")}</p><span class="go">{T("Sien voorbeeld","See sample")} &rarr;</span></a>
+<a class="wk wl" href="https://lw-sample-painter.pages.dev" rel="noopener"><span class="tag">{T("Voorbeeld","Sample")}</span><h3>{T("Verwer","Painter")}</h3><p>{T("Voorbeeldontwerp vir verwers en dekorateurs, met 'n foto-galery.","Example design for painters and decorators, with a photo gallery.")}</p><span class="go">{T("Sien voorbeeld","See sample")} &rarr;</span></a>
+<a class="wk wl" href="https://lw-sample-salon.pages.dev" rel="noopener"><span class="tag">{T("Voorbeeld","Sample")}</span><h3>{T("Haarsalon","Hair salon")}</h3><p>{T("Voorbeeldontwerp vir salonne, met pryslys en bespreking.","Example design for salons, with a price list and booking.")}</p><span class="go">{T("Sien voorbeeld","See sample")} &rarr;</span></a>
+</div>
+<p style="margin-top:22px">{T("Wil jy een van ons eerste kliënte wees? Praat met ons oor 'n goeie ooreenkoms.","Want to be one of our first clients? Talk to us about a good deal.")} {wa(MSG_AF,MSG_EN,"btn wa sm",T("WhatsApp ons","WhatsApp us"))}</p>
 </div></section>
 
 <section><div class="wrap faq" style="max-width:860px">
