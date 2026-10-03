@@ -198,27 +198,16 @@ def make_assets():
         for y in range(H):
             c = int(0x0b + (0x14 - 0x0b) * y / H), int(0x4f + (0x7a - 0x4f) * y / H), int(0x33 + (0x4e - 0x33) * y / H)
             d.line([(0, y), (W, y)], fill=c)
-        d.rounded_rectangle([80, 90, 200, 210], 28, fill="#ffffff")
-        d.rounded_rectangle([100, 118, 150, 130], 6, fill="#0e6b45"); d.rounded_rectangle([100, 142, 180, 150], 4, fill="#cfd8d2"); d.rounded_rectangle([100, 160, 165, 168], 4, fill="#cfd8d2")
-        d.ellipse([160, 170, 196, 206], fill="#1faa59")
-        d.text((230, 100), "LaafWeb", font=ImageFont.truetype(fb, 96), fill="#ffffff")
+        gm = Image.open(os.path.join(ROOT, "assets", "logo.png")).convert("RGBA").resize((150, 150), Image.LANCZOS)
+        d.ellipse([70, 70, 230, 230], fill="#ffffff")
+        im.paste(gm, (75, 75), gm)
+        d.text((260, 100), "LaafWeb", font=ImageFont.truetype(fb, 96), fill="#ffffff")
         d.text((80, 270), "Websites for small businesses", font=ImageFont.truetype(fb, 64), fill="#ffffff")
         d.text((80, 350), "on the West Coast", font=ImageFont.truetype(fb, 64), fill="#8fe3b5")
-        d.rounded_rectangle([80, 460, 760, 540], 40, fill="#ffffff")
+        d.rounded_rectangle([80, 460, 835, 540], 40, fill="#ffffff")
         d.text((115, 475), "From R949 once-off + R79 a month", font=ImageFont.truetype(fb, 40), fill="#0b4f33")
         d.text((80, 565), "Built in Langebaan  ·  EN  AF  XH  ZU", font=ImageFont.truetype(fr, 28), fill="#d6efe1")
         im.save(og, optimize=True)
-    lg = os.path.join(ROOT, "assets", "logo.png")
-    if not os.path.exists(lg):
-        S = 512
-        im = Image.new("RGBA", (S, S), (0, 0, 0, 0)); d = ImageDraw.Draw(im); k = S / 64
-        d.rounded_rectangle([0, 0, S, S], 15 * k, fill="#0b4f33")
-        d.rounded_rectangle([11 * k, 14 * k, 53 * k, 44 * k], 5 * k, fill="#fff")
-        d.rounded_rectangle([16 * k, 19 * k, 36 * k, 23 * k], 2 * k, fill="#0e6b45")
-        d.rounded_rectangle([16 * k, 26 * k, 48 * k, 29 * k], 1.5 * k, fill="#cfd8d2"); d.rounded_rectangle([16 * k, 32 * k, 42 * k, 35 * k], 1.5 * k, fill="#cfd8d2")
-        d.polygon([(20 * k, 44 * k), (20 * k, 54 * k), (30 * k, 44 * k)], fill="#fff")
-        d.ellipse([39 * k, 31 * k, 53 * k, 45 * k], fill="#1faa59")
-        im.save(lg, optimize=True)
 
 
 def sitemap():

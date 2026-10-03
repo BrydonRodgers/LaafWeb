@@ -16,7 +16,7 @@ def T(af,en,tag="span",cls=None,extra=""):
     c=f' class="{cls}"' if cls else ""
     return f'<{tag}{c} data-en="{E(en)}" data-af="{E(af)}" data-xh="{E(tr(en,"xh"))}" data-zu="{E(tr(en,"zu"))}"{extra}>{en}</{tag}>'
 WA_ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7s1.8 2.8 4.4 3.9c1.6.7 2.3.7 3.1.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg>'
-LOGO='<svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#0b4f33"/><rect x="11" y="14" width="42" height="30" rx="5" fill="#fff"/><rect x="16" y="19" width="20" height="4" rx="2" fill="#0e6b45"/><rect x="16" y="26" width="32" height="3" rx="1.5" fill="#cfd8d2"/><rect x="16" y="32" width="26" height="3" rx="1.5" fill="#cfd8d2"/><path d="M20 44v10l10-10z" fill="#fff"/><circle cx="46" cy="38" r="7" fill="#1faa59"/></svg>'
+LOGO='<img src="assets/logo-mark-128.png" width="38" height="38" alt="" decoding="async">'
 def wa(af,en,cls="btn wa",label=None,extra=""):
     lab=label or T("WhatsApp ons","WhatsApp us")
     return f'<a class="{cls}" href="https://wa.me/27636691391?text={quote(en)}" data-wa-en="{E(en)}" data-wa-af="{E(af)}" data-wa-xh="{E(tr(en,"xh"))}" data-wa-zu="{E(tr(en,"zu"))}" rel="noopener" target="_blank"{extra}>{WA_ICON}{lab}</a>'
@@ -30,7 +30,7 @@ def head(title,desc,page,canon):
 <meta name="description" content="{E(desc)}">
 <meta name="theme-color" content="#0b4f33">
 <link rel="canonical" href="https://web.laafstyl.org/{canon}">
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" href="assets/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png"><link rel="apple-touch-icon" href="assets/favicon-180.png">
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:type" content="website"><meta property="og:url" content="https://web.laafstyl.org/{canon}"><meta property="og:locale" content="en_ZA">
 <link rel="stylesheet" href="assets/site.css">
 <script type="application/ld+json">{{"@context":"https://schema.org","@type":"ProfessionalService","name":"LaafWeb","description":"Eenbladsy-webwerwe vir klein besighede op die Weskus / One-page websites for small businesses on the West Coast","url":"https://web.laafstyl.org/","telephone":"+27636691391","areaServed":["Langebaan","Saldanha","Vredenburg","Velddrif","Paternoster","St Helena Bay"],"address":{{"@type":"PostalAddress","addressLocality":"Langebaan","addressRegion":"Western Cape","addressCountry":"ZA"}},"parentOrganization":{{"@type":"Organization","name":"BROD Traders (Pty) Ltd"}}}}</script>
