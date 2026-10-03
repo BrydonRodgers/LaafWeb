@@ -79,7 +79,16 @@ def polish(x):
     return re.sub(r'>([^<>]+)<',lambda m:'>'+m.group(1).replace("'","\u2019")+'<',x)
 # ---------------- HOME ----------------
 home=head("LaafWeb | Websites for small businesses on the West Coast","Neat, fast one-page websites for tradesmen and small businesses. From R949 once-off plus R79 a month. Customers reach you on WhatsApp.","home","")
-home+=f'''<section class="hero"><div class="wrap hgrid"><div>
+home+=f'''<section class="hero"><div class="hero-bg" aria-hidden="true"><div class="dots"></div>
+<svg class="ic i1" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+<svg class="ic i2" viewBox="0 0 24 24"><rect x="3" y="3" width="14" height="6" rx="1.5"/><path d="M17 6h3v5H11v3"/><rect x="9" y="14" width="4" height="7" rx="1"/></svg>
+<svg class="ic i3" viewBox="0 0 24 24"><path d="M12 2.7s6 6.2 6 10.6a6 6 0 0 1-12 0C6 8.9 12 2.7 12 2.7z"/></svg>
+<svg class="ic i4" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.1 15.9M14.5 14.5L20 20M8.1 8.1L12 12"/></svg>
+<svg class="ic i5" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>
+<svg class="ic i6" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+<svg class="wave w1" viewBox="0 0 2880 160" preserveAspectRatio="none"><path d="M0 80Q180 20 360 80T720 80T1080 80T1440 80T1800 80T2160 80T2520 80T2880 80V160H0Z"/></svg>
+<svg class="wave w2" viewBox="0 0 2880 160" preserveAspectRatio="none"><path d="M0 96Q240 46 480 96T960 96T1440 96T1920 96T2400 96T2880 96V160H0Z"/></svg>
+</div><div class="wrap hgrid"><div>
 <span class="eyebrow">{T("Gebou in Langebaan · Vir die Weskus","Built in Langebaan · For the West Coast")}</span>
 <h1>{T("'n Webwerf wat vir jou <em>kliënte</em> werk.","A website that brings you <em>customers</em>.")}</h1>
 <p class="lead">{T("Netjiese, vinnige eenbladsy-webwerwe vir ambagsmanne en klein besighede. Kliënte bereik jou met een tik op WhatsApp of 'n oproep.","Neat, fast one-page websites for tradesmen and small businesses. Customers reach you with one tap on WhatsApp or a call.")}</p>
