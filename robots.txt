@@ -1,3 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /signup.html
+Disallow: /payment.html
+Disallow: /payment-success.html
+Disallow: /payment-cancel.html
+
 Sitemap: https://web.laafstyl.org/sitemap.xml

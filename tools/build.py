@@ -4,6 +4,7 @@ import html, os, re
 from urllib.parse import quote
 E=lambda s: html.escape(s, quote=True)
 ICONS={'chat': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.7 7L4 20l1.1-4.2A8 8 0 1 1 21 12z"/></svg>', 'globe': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>', 'bolt': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>', 'image': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-8 9"/></svg>', 'form': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>', 'pin': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>', 'plus': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M12 8v8M8 12h8"/></svg>', 'pen': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>'}
+PAGES={}
 import json
 TR=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),"i18n.json"))) if os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)),"i18n.json")) else {}
 SEEN=set()
@@ -130,6 +131,11 @@ home+=f'''<section class="hero"><div class="wrap hgrid"><div>
 <p style="margin-top:22px">{T("Wil jy een van ons eerste kliënte wees? Praat met ons oor 'n goeie ooreenkoms.","Want to be one of our first clients? Talk to us about a good deal.")} {wa(MSG_AF,MSG_EN,"btn wa sm",T("WhatsApp ons","WhatsApp us"))}</p>
 </div></section>
 
+<section id="areas"><div class="wrap" style="max-width:860px">
+<h2>{T("Webwerwe vir Weskus-ambagsmanne en klein besighede","Websites for West Coast tradesmen and small businesses")}</h2>
+<p>{T("Ons bou netjiese, vinnige eenbladsy-webwerwe vir loodgieters, elektrisiëns, verwers, bouers, plafon- en teëlkontrakteurs, haarsalonne, gastehuise, motorwasplekke en ander klein besighede in Langebaan, Saldanha, Vredenburg, Velddrif, Paternoster en St Helenabaai. Kliënte vind jou op Google en kontak jou met een tik op WhatsApp.","We build neat, fast one-page websites for plumbers, electricians, painters, builders, ceiling and tile fitters, hair salons, guesthouses, car washes and other small businesses in Langebaan, Saldanha, Vredenburg, Velddrif, Paternoster and St Helena Bay. Customers find you on Google and contact you with one tap on WhatsApp.")}</p>
+</div></section>
+
 <section><div class="wrap faq" style="max-width:860px">
 <h2>{T("Gereelde vrae","Common questions")}</h2><p class="sub">{T("Kort en reguit antwoorde.","Short, straight answers.")}</p>
 {faq("Hoe lank neem dit?","How long does it take?","Gewoonlik 'n paar dae nadat ons jou besonderhede en foto's het. Ons wys eers 'n voorskou.","Usually a few days after we have your details and photos. We show you a preview first.")}
@@ -147,7 +153,7 @@ home+=f'''<section class="hero"><div class="wrap hgrid"><div>
 </div></section>
 '''
 home+=foot()
-open("index.html","w").write(polish(home))
+PAGES["index.html"]=polish(home)
 
 # ---------------- PRICING ----------------
 def li(af,en,no=False): return f'<li{" class=\"no\"" if no else ""}>{T(af,en)}</li>'
@@ -184,7 +190,7 @@ pr+=f'''<section class="hero" style="padding:48px 0 30px"><div class="wrap"><spa
 </div></section>
 '''
 pr+=foot()
-open("pricing.html","w").write(polish(pr))
+PAGES["pricing.html"]=polish(pr)
 
 # ---------------- CONTACT ----------------
 ct=head("Contact | LaafWeb","WhatsApp or call LaafWeb in Langebaan. Monday to Saturday 8:00 to 18:00.","contact","contact.html")
@@ -205,13 +211,13 @@ ct+=f'''<section class="dark-sec" style="padding:56px 0"><div class="wrap"><h1 s
 <p class="note" style="text-align:center;margin:10px 0 0">{T("Dit maak WhatsApp oop met jou boodskap reg om te stuur.","This opens WhatsApp with your message ready to send.")}</p></form></div></div></section>
 '''
 ct+=foot()
-open("contact.html","w").write(polish(ct))
+PAGES["contact.html"]=polish(ct)
 
 # ---------------- 404 ----------------
 nf=head("Page not found | LaafWeb","This page does not exist.","404","404.html")
 nf+=f'''<section class="hero"><div class="wrap" style="text-align:center"><h1>{T("Hierdie blad is nie hier nie.","This page isn't here.")}</h1><p class="lead" style="margin:0 auto 22px">{T("Dalk is die skakel verouderd. Gaan terug na die tuisblad of WhatsApp ons.","The link may be out of date. Go back to the home page or WhatsApp us.")}</p><div class="cta" style="justify-content:center"><a class="btn dark" href="index.html">{T("Tuisblad","Home")}</a>{wa(MSG_AF,MSG_EN,"btn wa",T("WhatsApp ons","WhatsApp us"))}</div></div></section>'''
 nf+=foot()
-open("404.html","w").write(polish(nf))
+PAGES["404.html"]=polish(nf)
 print("built index, pricing, contact, 404")
 
 # ---------------- TERMS ----------------
@@ -234,7 +240,7 @@ terms+=sec("12. Privacy","<p>We handle personal information as set out in our <a
 terms+=sec("13. General","<p>These terms are governed by the laws of the Republic of South Africa. Any dispute will first be discussed in good faith; failing that, the competent court in the Western Cape has jurisdiction. Contact: WhatsApp 063 669 1391, laafstylfamily@gmail.com.</p>")
 terms+='</div></section>'
 terms+=foot()
-open("terms.html","w").write(polish(terms))
+PAGES["terms.html"]=polish(terms)
 
 # ---------------- PRIVACY ----------------
 pv=head("Privacy Policy | LaafWeb","How LaafWeb handles personal information (POPIA).","privacy","privacy.html")
@@ -250,7 +256,10 @@ pv+=sec("7. Cookies and local storage","<p>We do not use cookies for tracking. Y
 pv+=sec("8. Contact","<p>WhatsApp 063 669 1391, laafstylfamily@gmail.com. We may update this policy; the date at the top shows the latest version.</p>")
 pv+='</div></section>'
 pv+=foot()
-open("privacy.html","w").write(polish(pv))
+PAGES["privacy.html"]=polish(pv)
 print("built terms, privacy")
 
 
+
+import sys; sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
+import seo_langs; seo_langs.run(PAGES,TR)
