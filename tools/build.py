@@ -86,7 +86,15 @@ home+=f'''<section class="hero"><div class="wrap hgrid"><div>
 <div class="cta">{wa(MSG_AF,MSG_EN,"btn wa",T("WhatsApp ons","WhatsApp us"))}<a class="btn ghost" href="pricing.html">{T("Sien pryse","See pricing")}</a></div>
 <div class="pricepill"><span>{T("Eenbladsy-webwerf","One-page website")}</span><b>R949</b><span>{T("eenmalig +","once-off +")} <b style="font-size:1.1rem">R79</b> {T("per maand","a month")}</span></div>
 </div>
-<div aria-hidden="true"><div class="phone"><div class="screen"><div class="sh"><i></i><b>{T("Jou besigheid, netjies aanlyn","Your business, neatly online")}</b><small>{T("Gratis kwotasies · Jou dorp","Free quotes · Your town")}</small><span>{T("WhatsApp vir ons","WhatsApp us")}</span></div><div class="sb"><div><u></u><s></s></div><div><u></u><s></s></div><div><u></u><s></s></div></div><div class="badge">{T("Vra 'n kwotasie","Request a quote")}</div></div></div></div>
+<div class="stage" aria-hidden="true"><div class="phone"><span class="notch"></span><div class="screen"><div class="scr">
+<div class="urlbar"><i></i><span class="url"><span class="typed">yourbusiness.co.za</span></span></div>
+<div class="sh"><i></i><b>{T("Jou besigheid, netjies aanlyn","Your business, neatly online")}</b><small>{T("Gratis kwotasies · Jou dorp","Free quotes · Your town")}</small><span>{T("WhatsApp vir ons","WhatsApp us")}</span></div>
+<div class="sb"><div><u></u><s></s></div><div><u></u><s></s></div><div><u></u><s></s></div></div>
+<div class="badge">{T("Vra 'n kwotasie","Request a quote")}</div>
+<span class="tap"></span>
+</div></div></div>
+<div class="toast"><span class="ti">{WA_ICON}</span><div><b>{T("Nuwe boodskap","New message")}</b><span>{T("Hallo, kan jy vir my 'n kwotasie gee om 'n geyser in Langebaan te herstel?","Hi, can you quote me to repair a geyser in Langebaan?")}</span></div></div>
+</div>
 </div></section>
 
 <section id="wat"><div class="wrap">

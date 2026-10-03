@@ -16,6 +16,7 @@ var s=stored(),p=location.pathname;
 if(page==="en"&&s&&s!=="en"&&/^\/(index\.html|pricing\.html|contact\.html)?$/.test(p)&&!location.search){
   location.replace("/"+s+(p==="/index.html"?"/":p));return;
 }
+document.documentElement.classList.add("js");
 document.addEventListener('DOMContentLoaded',function(){
   q('[data-cfg]').forEach(function(e){e.textContent=CFG[e.dataset.cfg];});
   q('a[data-mail]').forEach(function(a){a.href='mailto:'+CFG.email;});
@@ -26,6 +27,13 @@ document.addEventListener('DOMContentLoaded',function(){
   var bg=document.getElementById('burger'),mn=document.getElementById('menu');
   if(bg){bg.onclick=function(){var o=mn.classList.toggle('open');bg.setAttribute('aria-expanded',o);};
     q('#menu a').forEach(function(a){a.addEventListener('click',function(){mn.classList.remove('open');bg.setAttribute('aria-expanded',false);});});}
+  // pause the hero loop when it is off screen; light the steps once when they scroll into view
+  if("IntersectionObserver" in window){
+    var st=document.querySelector('.stage');
+    if(st){new IntersectionObserver(function(es){es.forEach(function(e){st.classList.toggle('off',!e.isIntersecting);});},{threshold:.05}).observe(st);}
+    var sp=document.querySelector('.steps');
+    if(sp){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){sp.classList.add('in');io.disconnect();}});},{threshold:.4});io.observe(sp);}
+  }else{var sp2=document.querySelector('.steps');if(sp2)sp2.classList.add('in');}
   var f=document.getElementById('qform');
   if(f){f.addEventListener('submit',function(e){e.preventDefault();
     function v(i){return document.getElementById(i).value.trim();}
