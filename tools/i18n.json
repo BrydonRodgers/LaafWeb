@@ -1,0 +1,566 @@
+{
+ "1 neat page, mobile-first design": {
+  "xh": "Ikhasi eli-1 elicocekileyo, elenzelwe iiselula kuqala",
+  "zu": "Ikhasi elilodwa elihlanzekile, eliklanyelwe ucingo kuqala"
+ },
+ "A local service of BROD Traders (Pty) Ltd in Langebaan. You talk directly to the people who build your website.": {
+  "xh": "Inkonzo yasekuhlaleni ye-BROD Traders (Pty) Ltd eLangebaan. Uthetha ngqo nabantu abakwakhela iwebhusayithi yakho.",
+  "zu": "Isevisi yasendaweni ye-BROD Traders (Pty) Ltd eLangebaan. Ukhuluma ngqo nabantu abakwakhela iwebhusayithi yakho."
+ },
+ "A simple logo for your business. Price on request.": {
+  "xh": "Ilogo elula yeshishini lakho. Ixabiso xa uyicela.",
+  "zu": "Ilogo elula yebhizinisi lakho. Intengo uma uyicela."
+ },
+ "A website that brings you <em>customers</em>.": {
+  "xh": "Iwebhusayithi ekuzisela <em>abathengi</em>.",
+  "zu": "Iwebhusayithi ekuletha <em>amakhasimende</em>."
+ },
+ "Add-ons": {
+  "xh": "Izongezo",
+  "zu": "Izengezo"
+ },
+ "Afrikaans and English": {
+  "xh": "isiAfrikaans nesiNgesi",
+  "zu": "isiAfrikaans nesiNgisi"
+ },
+ "Afrikaans and English with a switch": {
+  "xh": "isiAfrikaans nesiNgesi, kunye neqhosha lokutshintsha",
+  "zu": "isiAfrikaans nesiNgisi, kanye nenkinobho yokushintsha"
+ },
+ "After you approve the preview and before we publish it. By EFT or card.": {
+  "xh": "Emva kokuba uvumile into ebonisiweyo, nangaphambi kokuba siyipapashe. Nge-EFT okanye ikhadi.",
+  "zu": "Ngemva kokuba uvumile isibonelo, nangaphambi kokuba siyishicilele. Nge-EFT noma ikhadi."
+ },
+ "All prices in rand. No contract, no hidden fees. We show you a preview before you pay.": {
+  "xh": "Onke amaxabiso ngeerandi. Akukho sivumelwano, akukho zimali zifihliweyo. Sikubonisa into ebonisiweyo phambi kokuba uhlawule.",
+  "zu": "Zonke izintengo zingama-rand. Asikho isivumelwano, azikho izindleko ezifihliwe. Sikukhombisa isibonelo ngaphambi kokuba ukhokhe."
+ },
+ "And the R79 a month?": {
+  "xh": "Kwaye i-R79 ngenyanga?",
+  "zu": "Futhi i-R79 ngenyanga?"
+ },
+ "Areas": {
+  "xh": "Iindawo",
+  "zu": "Izindawo"
+ },
+ "Basic search-engine setup (SEO)": {
+  "xh": "Useto olusisiseko lwenjini yokukhangela (SEO)",
+  "zu": "Ukusetha okuyisisekelo kwenjini yokusesha (SEO)"
+ },
+ "Built in Langebaan · For the West Coast": {
+  "xh": "Yakhelwe eLangebaan · Kunxweme Lwentshona",
+  "zu": "Yakhelwe eLangebaan · Ogwini Lwentshonalanga"
+ },
+ "Built locally": {
+  "xh": "Yakhelwe apha ekhaya",
+  "zu": "Yakhelwe endaweni"
+ },
+ "Business": {
+  "xh": "Ishishini",
+  "zu": "Ibhizinisi"
+ },
+ "Business (more pages)": {
+  "xh": "Ishishini (amakhasi amaninzi)",
+  "zu": "Ibhizinisi (amakhasi amaningi)"
+ },
+ "By EFT or card. For the monthly fee we send a secure payment link, or give you our bank details.": {
+  "xh": "Nge-EFT okanye ikhadi. Kwintlawulo yenyanga sikuthumelela ikhonkco lentlawulo elikhuselekileyo, okanye sikunike iinkcukacha zebhanki yethu.",
+  "zu": "Nge-EFT noma ikhadi. Ngenkokhelo yenyanga sikuthumelela isixhumanisi sokukhokha esiphephile, noma sikunike imininingwane yebhange lethu."
+ },
+ "Call": {
+  "xh": "Tsalela",
+  "zu": "Shayela"
+ },
+ "Car wash. Services, prices and WhatsApp booking.": {
+  "xh": "Indawo yokuhlamba iimoto. Iinkonzo, amaxabiso nokubhukisha nge-WhatsApp.",
+  "zu": "Indawo yokugeza izimoto. Izinsizakalo, izintengo nokubhuka nge-WhatsApp."
+ },
+ "Common questions": {
+  "xh": "Imibuzo ebuzwa rhoqo",
+  "zu": "Imibuzo evame ukubuzwa"
+ },
+ "Contact": {
+  "xh": "Qhagamshelana",
+  "zu": "Xhumana"
+ },
+ "Customers send their details and it reaches you as a WhatsApp message.": {
+  "xh": "Abathengi bathumela iinkcukacha zabo yaye zifika kuwe njengomyalezo we-WhatsApp.",
+  "zu": "Amakhasimende athumela imininingwane yawo futhi ifika kuwe njengomlayezo we-WhatsApp."
+ },
+ "Customers tap one button and their message lands straight on your phone.": {
+  "xh": "Abathengi bacofa iqhosha elinye yaye umyalezo wabo uwela ngqo kumnxeba wakho.",
+  "zu": "Amakhasimende athinta inkinobho eyodwa futhi umlayezo wawo uwela ngqo ocingweni lwakho."
+ },
+ "Details": {
+  "xh": "Iinkcukacha",
+  "zu": "Imininingwane"
+ },
+ "Do I get my own domain name?": {
+  "xh": "Ndiyifumana igama lesizinda sam?",
+  "zu": "Ngithola igama lesizinda sami?"
+ },
+ "E.g. I fit PVC ceilings in Vredenburg…": {
+  "xh": "Umz. ndifaka izilingi ze-PVC eVredenburg…",
+  "zu": "Isib. ngifaka izilingi ze-PVC eVredenburg…"
+ },
+ "Email": {
+  "xh": "I-imeyile",
+  "zu": "I-imeyili"
+ },
+ "Everything a small business needs": {
+  "xh": "Yonke into efunwa lishishini elincinci",
+  "zu": "Konke ibhizinisi elincane elikudingayo"
+ },
+ "Example design for painters and decorators, with a photo gallery.": {
+  "xh": "Umzekelo wedizayini wabapeyinti nabahombisi, kunye negalari yeefoto.",
+  "zu": "Isibonelo sedizayini sabapendi nabahlobisi, kanye negalari yezithombe."
+ },
+ "Example design for plumbers and other call-out trades.": {
+  "xh": "Umzekelo wedizayini yabalungisi bemibhobho nabanye ochwepheshe abahamba bayokwenza umsebenzi.",
+  "zu": "Isibonelo sedizayini yabashi bamapayipi nabanye abasebenzi abaya ezindaweni zamakhasimende."
+ },
+ "Example design for salons, with a price list and booking.": {
+  "xh": "Umzekelo wedizayini yeesalon, kunye noluhlu lwamaxabiso nokubhukisha.",
+  "zu": "Isibonelo sedizayini yamasalon, kanye nohlu lwezintengo nokubhuka."
+ },
+ "Extra page": {
+  "xh": "Ikhasi elongezelelweyo",
+  "zu": "Ikhasi elengeziwe"
+ },
+ "Fast and secure": {
+  "xh": "Ikhawuleza kwaye ikhuselekile",
+  "zu": "Ikhawulezile futhi iphephile"
+ },
+ "For businesses with more services, a gallery or a map.": {
+  "xh": "Kumashishini anemisebenzi emininzi, igalari okanye imaphu.",
+  "zu": "Kumabhizinisi anezinsizakalo eziningi, igalari noma imephu."
+ },
+ "For tradesmen and small businesses that want to be found.": {
+  "xh": "Kubasebenzi bezandla namashishini amancinci afuna ukufunyanwa.",
+  "zu": "Kubasebenzi bezandla nasemabhizinisini amancane afuna ukutholakala."
+ },
+ "For tradesmen and small businesses.": {
+  "xh": "Kubasebenzi bezandla namashishini amancinci.",
+  "zu": "Kubasebenzi bezandla nasemabhizinisini amancane."
+ },
+ "Free quotes · Your town": {
+  "xh": "Ikowuteyishini yasimahla · Idolophu yakho",
+  "zu": "Isilinganiso sentengo samahhala · Idolobha lakho"
+ },
+ "Free web address (yourname.pages.dev)": {
+  "xh": "Idilesi yewebhu yasimahla (yourname.pages.dev)",
+  "zu": "Ikheli lewebhu lamahhala (yourname.pages.dev)"
+ },
+ "Get in touch": {
+  "xh": "Qhagamshelana nathi",
+  "zu": "Xhumana nathi"
+ },
+ "Go live": {
+  "xh": "Yiya kwi-intanethi",
+  "zu": "Iya ku-inthanethi"
+ },
+ "Google Business Profile": {
+  "xh": "Iprofayile yeShishini yeGoogle",
+  "zu": "Iphrofayela yebhizinisi ye-Google"
+ },
+ "Google Maps and Google Business Profile": {
+  "xh": "iGoogle Maps neprofayile yeShishini yeGoogle",
+  "zu": "i-Google Maps nephrofayela yebhizinisi ye-Google"
+ },
+ "Hair salon": {
+  "xh": "Isalon yeenwele",
+  "zu": "Isalon yezinwele"
+ },
+ "Hi LaafWeb, I am interested in the One-page website (R949 + R79 pm).": {
+  "xh": "Molo LaafWeb, ndinomdla kwiwebhusayithi yekhasi elinye (R949 + R79 ngenyanga).",
+  "zu": "Sawubona LaafWeb, nginentshisekelo ewebhusayithini yekhasi elilodwa (R949 + R79 ngenyanga)."
+ },
+ "Hi LaafWeb, I would like a quote for a larger website.": {
+  "xh": "Molo LaafWeb, ndicela ikowuteyishini yewebhusayithi enkulu.",
+  "zu": "Sawubona LaafWeb, ngicela isilinganiso sentengo sewebhusayithi enkulu."
+ },
+ "Hi LaafWeb, I would like a website for my business.": {
+  "xh": "Molo LaafWeb, ndifuna iwebhusayithi yeshishini lam.",
+  "zu": "Sawubona LaafWeb, ngifuna iwebhusayithi yebhizinisi lami."
+ },
+ "Hi LaafWeb, I would like a website.": {
+  "xh": "Molo LaafWeb, ndifuna iwebhusayithi.",
+  "zu": "Sawubona LaafWeb, ngifuna iwebhusayithi."
+ },
+ "Home": {
+  "xh": "Ekhaya",
+  "zu": "Ikhaya"
+ },
+ "Honest pricing": {
+  "xh": "Amaxabiso athembekileyo",
+  "zu": "Izintengo eziqotho"
+ },
+ "How do I pay?": {
+  "xh": "Ndihlawula njani?",
+  "zu": "Ngikhokha kanjani?"
+ },
+ "How it works": {
+  "xh": "Isebenza njani",
+  "zu": "Isebenza kanjani"
+ },
+ "How long does it take?": {
+  "xh": "Ithatha ixesha elingakanani?",
+  "zu": "Kuthatha isikhathi esingakanani?"
+ },
+ "How payment works": {
+  "xh": "Intlawulo isebenza njani",
+  "zu": "Inkokhelo isebenza kanjani"
+ },
+ "Is there a contract?": {
+  "xh": "Ingaba kukho isivumelwano?",
+  "zu": "Ingabe kunesivumelwano?"
+ },
+ "It covers hosting, the secure connection and one small change a month (like a new photo or phone number).": {
+  "xh": "Igubungela indawo yokubamba iwebhusayithi, uqhagamshelo olukhuselekileyo notshintsho olunye oluncinci ngenyanga (njengefoto entsha okanye inombolo yomnxeba).",
+  "zu": "Ihlanganisa indawo yokubamba iwebhusayithi, uxhumano oluphephile kanye nenguquko eyodwa encane ngenyanga (njengesithombe esisha noma inombolo yocingo)."
+ },
+ "Just send us a WhatsApp. We reply Monday to Saturday, 8:00 to 18:00.": {
+  "xh": "Sithumele nje i-WhatsApp. Siphendula ngoMvulo ukuya kuMgqibelo, 8:00 ukuya 18:00.",
+  "zu": "Sithumelele nje i-WhatsApp. Siphendula ngoMsombuluko kuya kuMgqibelo, 8:00 kuya ku-18:00."
+ },
+ "Live website": {
+  "xh": "Iwebhusayithi eyiyo",
+  "zu": "Iwebhusayithi yangempela"
+ },
+ "Loads fast on phones, with a secure connection (SSL) included.": {
+  "xh": "Ilayisha ngokukhawuleza kwiifowuni, kuquka uqhagamshelo olukhuselekileyo (SSL).",
+  "zu": "Ilayisha ngokushesha ocingweni, kuhlanganise uxhumano oluphephile (SSL)."
+ },
+ "Logo": {
+  "xh": "Ilogo",
+  "zu": "Ilogo"
+ },
+ "Menu": {
+  "xh": "Imenyu",
+  "zu": "Imenyu"
+ },
+ "Neat, fast one-page websites for tradesmen and small businesses. Customers reach you with one tap on WhatsApp or a call.": {
+  "xh": "Iiwebhusayithi zekhasi elinye ezicocekileyo nezikhawulezayo zabasebenzi bezandla namashishini amancinci. Abathengi bakufikelela ngokucofa kanye kuWhatsApp okanye ngomnxeba.",
+  "zu": "Amawebhusayithi ekhasi elilodwa ahlanzekile futhi asheshayo kubasebenzi bezandla nasemabhizinisini amancane. Amakhasimende akufinyelela ngokuthinta kanye ku-WhatsApp noma ngocingo."
+ },
+ "No. The monthly fee can be cancelled at any time. See our terms for the detail.": {
+  "xh": "Hayi. Intlawulo yenyanga inokurhoxiswa nanini na. Jonga imigaqo yethu ukufumana iinkcukacha.",
+  "zu": "Cha. Inkokhelo yenyanga ingakhanselwa noma kunini. Bheka imigomo yethu ukuthola imininingwane."
+ },
+ "Nothing complicated. We build it, you use it.": {
+  "xh": "Akukho nto inzima. Siyakha, wena uyisebenzisa.",
+  "zu": "Akukho okuyinkimbinkimbi. Thina siyakha, wena uyasebenzisa."
+ },
+ "On request": {
+  "xh": "Xa uyicela",
+  "zu": "Uma uyicela"
+ },
+ "One page, everything included, no contract.": {
+  "xh": "Ikhasi elinye, yonke into ibandakanyiwe, akukho sivumelwano.",
+  "zu": "Ikhasi elilodwa, konke kuhlanganisiwe, asikho isivumelwano."
+ },
+ "One small change a month": {
+  "xh": "Utshintsho olunye oluncinci ngenyanga",
+  "zu": "Inguquko eyodwa encane ngenyanga"
+ },
+ "One-page": {
+  "xh": "Ikhasi elinye",
+  "zu": "Ikhasi elilodwa"
+ },
+ "One-page website": {
+  "xh": "Iwebhusayithi yekhasi elinye",
+  "zu": "Iwebhusayithi yekhasi elilodwa"
+ },
+ "Only if you need them.": {
+  "xh": "Kuphela ukuba uyazidinga.",
+  "zu": "Kuphela uma uzidinga."
+ },
+ "Our work": {
+  "xh": "Umsebenzi wethu",
+  "zu": "Umsebenzi wethu"
+ },
+ "Own domain and email on request": {
+  "xh": "Isizinda sakho kunye ne-imeyile xa uyicela",
+  "zu": "Isizinda sakho ne-imeyili uma uyicela"
+ },
+ "Pages": {
+  "xh": "Amakhasi",
+  "zu": "Amakhasi"
+ },
+ "Painter": {
+  "xh": "Umpeyinti",
+  "zu": "Umpendi"
+ },
+ "Photo gallery of your work": {
+  "xh": "Igalari yeefoto zomsebenzi wakho",
+  "zu": "Igalari yezithombe zomsebenzi wakho"
+ },
+ "Plumber": {
+  "xh": "Umlungisi wemibhobho",
+  "zu": "Umshi wamapayipi"
+ },
+ "Prices include any applicable tax. See our <a href=\"terms.html\">terms</a> for the full detail.": {
+  "xh": "Amaxabiso aquka naluphi na irhafu esebenzayo. Jonga <a href=\"terms.html\">imigaqo</a> yethu ukufumana iinkcukacha ezigcweleyo.",
+  "zu": "Izintengo zihlanganisa noma yiluphi irhafu esebenzayo. Bheka <a href=\"terms.html\">imigomo</a> yethu ukuthola imininingwane egcwele."
+ },
+ "Pricing": {
+  "xh": "Amaxabiso",
+  "zu": "Izintengo"
+ },
+ "Privacy": {
+  "xh": "Ubumfihlo",
+  "zu": "Ubumfihlo"
+ },
+ "Quote form": {
+  "xh": "Ifom yekowuteyishini",
+  "zu": "Ifomu lesilinganiso sentengo"
+ },
+ "R350 per page added to the One-page package.": {
+  "xh": "I-R350 ikhasi ngalinye elongezwa kwiphakheji yekhasi elinye.",
+  "zu": "I-R350 ikhasi ngalinye elengezwa kuphakheji yekhasi elilodwa."
+ },
+ "Ready to be found?": {
+  "xh": "Ukulungele ukufunyanwa?",
+  "zu": "Ukulungele ukutholakala?"
+ },
+ "Request a quote": {
+  "xh": "Cela ikowuteyishini",
+  "zu": "Cela isilinganiso sentengo"
+ },
+ "Sample": {
+  "xh": "Umzekelo",
+  "zu": "Isibonelo"
+ },
+ "Secure connection (SSL) and fast hosting": {
+  "xh": "Uqhagamshelo olukhuselekileyo (SSL) nokubamba okukhawulezayo",
+  "zu": "Uxhumano oluphephile (SSL) nokubamba okusheshayo"
+ },
+ "See pricing": {
+  "xh": "Jonga amaxabiso",
+  "zu": "Bheka izintengo"
+ },
+ "See sample": {
+  "xh": "Jonga umzekelo",
+  "zu": "Bheka isibonelo"
+ },
+ "See what a LaafWeb website looks like. The three samples are example designs, not real businesses. 735 Auto is a real, live website.": {
+  "xh": "Jonga ukuba iwebhusayithi ye-LaafWeb ibonakala njani. Imizekelo emithathu yimizekelo yedizayini, asingawo amashishini okwenyani. I-735 Auto yiwebhusayithi yokwenyani, esebenzayo.",
+  "zu": "Bheka ukuthi iwebhusayithi ye-LaafWeb ibukeka kanjani. Izibonelo ezintathu yizibonelo zedizayini, hhayi amabhizinisi angempela. I-735 Auto iwebhusayithi yangempela, esebenzayo."
+ },
+ "See what's included": {
+  "xh": "Jonga okubandakanyiweyo",
+  "zu": "Bheka okuhlanganisiwe"
+ },
+ "Send on WhatsApp": {
+  "xh": "Thumela nge-WhatsApp",
+  "zu": "Thumela nge-WhatsApp"
+ },
+ "Send us a WhatsApp": {
+  "xh": "Sithumele i-WhatsApp",
+  "zu": "Sithumelele i-WhatsApp"
+ },
+ "Send us your details": {
+  "xh": "Sithumele iinkcukacha zakho",
+  "zu": "Sithumelele imininingwane yakho"
+ },
+ "Short, straight answers.": {
+  "xh": "Iimpendulo ezimfutshane, ezithe ngqo.",
+  "zu": "Izimpendulo ezimfushane, ezisobala."
+ },
+ "Simple, <em>honest</em> pricing.": {
+  "xh": "Amaxabiso alula, <em>athembekileyo</em>.",
+  "zu": "Izintengo ezilula, <em>eziqotho</em>."
+ },
+ "Simple, neat websites for small businesses on the West Coast. Built in Langebaan.": {
+  "xh": "Iiwebhusayithi ezilula nezicocekileyo zamashishini amancinci kunxweme lwaseNtshona. Zakhelwe eLangebaan.",
+  "zu": "Amawebhusayithi alula futhi ahlanzekile emabhizinisi amancane Ogwini Lwentshonalanga. Akhelwe eLangebaan."
+ },
+ "Skip to content": {
+  "xh": "Tsiba uye kumxholo",
+  "zu": "Weqela uye okuqukethwe"
+ },
+ "So you show up on Google Maps and in 'near me' searches. Price on request.": {
+  "xh": "Ukuze ubonakale kwiGoogle Maps nakwiimeko zokukhangela \"kufuphi nam\". Ixabiso xa uyicela.",
+  "zu": "Ukuze ubonakale ku-Google Maps nasekusesheni kwe-\"eduze nami\". Intengo uma uyicela."
+ },
+ "Start here": {
+  "xh": "Qala apha",
+  "zu": "Qala lapha"
+ },
+ "Start on WhatsApp": {
+  "xh": "Qala nge-WhatsApp",
+  "zu": "Qala nge-WhatsApp"
+ },
+ "Tell us what you do and where you work, and send photos or a logo if you have them.": {
+  "xh": "Sixelele ukuba wenza ntoni nokuba usebenza phi, uthumele iifoto okanye ilogo ukuba unazo.",
+  "zu": "Sitshele ukuthi wenzani nokuthi usebenza kuphi, uthumele izithombe noma ilogo uma unazo."
+ },
+ "Terms": {
+  "xh": "Imigaqo",
+  "zu": "Imigomo"
+ },
+ "The link may be out of date. Go back to the home page or WhatsApp us.": {
+  "xh": "Ikhonkco kusenokwenzeka lidala. Buyela ekhasini lekhaya okanye usibhalele kuWhatsApp.",
+  "zu": "Isixhumanisi kungenzeka sidala. Buyela ekhasini lasekhaya noma usibhalele ku-WhatsApp."
+ },
+ "The website stays up until the end of the paid month. You can get your text and photos. See our terms.": {
+  "xh": "Iwebhusayithi ihlala iphezulu kude kube sekupheleni kwenyanga ehlawuliweyo. Unokufumana isicatshulwa neefoto zakho. Jonga imigaqo yethu.",
+  "zu": "Iwebhusayithi ihlala iku-inthanethi kuze kube sekupheleni kwenyanga ekhokhiwe. Ungathola umbhalo nezithombe zakho. Bheka imigomo yethu."
+ },
+ "This opens WhatsApp with your message ready to send.": {
+  "xh": "Oku kuvula i-WhatsApp nomyalezo wakho ulungele ukuthunyelwa.",
+  "zu": "Lokhu kuvula i-WhatsApp nomlayezo wakho ukulungele ukuthunyelwa."
+ },
+ "This page isn't here.": {
+  "xh": "Eli khasi alikho apha.",
+  "zu": "Leli khasi alikho lapha."
+ },
+ "Three simple steps, no surprises.": {
+  "xh": "Amanyathelo amathathu alula, akukho ziphazamiso.",
+  "zu": "Izinyathelo ezintathu ezilula, azikho izimanga."
+ },
+ "Town": {
+  "xh": "Idolophu",
+  "zu": "Idolobha"
+ },
+ "Up to about 5 pages": {
+  "xh": "Ukuya kumakhasi ali-5 malunga",
+  "zu": "Kuze kufike emakhasini angaba ngu-5"
+ },
+ "Usually a few days after we have your details and photos. We show you a preview first.": {
+  "xh": "Ngokuqhelekileyo kwiintsuku ezimbalwa emva kokuba sinazo iinkcukacha neefoto zakho. Sikubonisa into ebonisiweyo kuqala.",
+  "zu": "Ngokuvamile ezinsukwini ezimbalwa ngemva kokuba sinemininingwane nezithombe zakho. Sikukhombisa isibonelo kuqala."
+ },
+ "Visit website": {
+  "xh": "Tyelela iwebhusayithi",
+  "zu": "Vakashela iwebhusayithi"
+ },
+ "Want to be one of our first clients? Talk to us about a good deal.": {
+  "xh": "Ufuna ukuba ngomnye wabathengi bethu bokuqala? Thetha nathi ngesivumelwano esilungileyo.",
+  "zu": "Ufuna ukuba ngomunye wamakhasimende ethu okuqala? Khuluma nathi ngesivumelwano esihle."
+ },
+ "We build a preview": {
+  "xh": "Sakha into ebonisiweyo",
+  "zu": "Sakha isibonelo"
+ },
+ "We know the West Coast. You deal with a person, not a bot.": {
+  "xh": "Siyawazi unxweme lwaseNtshona. Uthetha nomntu, hayi irobhothi.",
+  "zu": "Siyakwazi Ogwini Lwentshonalanga. Ubhekana nomuntu, hhayi irobhothi."
+ },
+ "We quote according to what you need": {
+  "xh": "Sikunika ixabiso ngokwento oyidingayo",
+  "zu": "Sikunika intengo ngokwalokho okudingayo"
+ },
+ "We register it for you, at cost (from about R150 a year).": {
+  "xh": "Siyakubhalisela, ngexabiso lokwenyani (ukususela malunga ne-R150 ngonyaka).",
+  "zu": "Sikubhalisela, ngezindleko zangempela (kusukela cishe ku-R150 ngonyaka)."
+ },
+ "We send you a secure payment link for a monthly payment, or you pay by EFT. You can cancel at any time.": {
+  "xh": "Sikuthumelela ikhonkco lentlawulo ekhuselekileyo yentlawulo yenyanga, okanye uhlawule nge-EFT. Ungarhoxisa nanini na.",
+  "zu": "Sikuthumelela isixhumanisi sokukhokha esiphephile senkokhelo yenyanga, noma ukhokhe nge-EFT. Ungakhansela noma kunini."
+ },
+ "What if I cancel?": {
+  "xh": "Kuthekani ukuba ndirhoxisa?",
+  "zu": "Kuthiwani uma ngikhansela?"
+ },
+ "What you do, where you work, and photos of your work, clearly laid out.": {
+  "xh": "Oko ukwenzayo, apho usebenza khona, neefoto zomsebenzi wakho, zicwangciswe ngokucacileyo.",
+  "zu": "Lokho okwenzayo, lapho usebenza khona, nezithombe zomsebenzi wakho, kuhlelwe ngokucacile."
+ },
+ "What you get": {
+  "xh": "Oko ukufumanayo",
+  "zu": "Okutholayo"
+ },
+ "WhatsApp and call buttons": {
+  "xh": "Amaqhosha e-WhatsApp nokutsalela",
+  "zu": "Izinkinobho ze-WhatsApp nokushayela"
+ },
+ "WhatsApp is fastest. We reply Monday to Saturday, 8:00 to 18:00.": {
+  "xh": "I-WhatsApp yeyona ikhawulezayo. Siphendula ngoMvulo ukuya kuMgqibelo, 8:00 ukuya 18:00.",
+  "zu": "I-WhatsApp iyona esheshayo. Siphendula ngoMsombuluko kuya kuMgqibelo, 8:00 kuya ku-18:00."
+ },
+ "WhatsApp us": {
+  "xh": "Sibhalele kuWhatsApp",
+  "zu": "Sibhalele ku-WhatsApp"
+ },
+ "WhatsApp us now": {
+  "xh": "Sibhalele kuWhatsApp ngoku",
+  "zu": "Sibhalele ku-WhatsApp manje"
+ },
+ "WhatsApp, call and quote buttons": {
+  "xh": "Amaqhosha e-WhatsApp, okutsalela nekowuteyishini",
+  "zu": "Izinkinobho ze-WhatsApp, zokushayela nezesilinganiso sentengo"
+ },
+ "When do I pay the R949?": {
+  "xh": "Ndihlawula nini i-R949?",
+  "zu": "Ngikhokha nini i-R949?"
+ },
+ "Where most businesses start": {
+  "xh": "Apho amashishini amaninzi aqala khona",
+  "zu": "Lapho amabhizinisi amaningi aqala khona"
+ },
+ "Who is LaafWeb?": {
+  "xh": "Ngubani i-LaafWeb?",
+  "zu": "Ubani i-LaafWeb?"
+ },
+ "Why R79 a month?": {
+  "xh": "Kutheni i-R79 ngenyanga?",
+  "zu": "Kungani i-R79 ngenyanga?"
+ },
+ "You approve it, pay and we publish it. Your customers can now find you.": {
+  "xh": "Uyayamkela, uhlawule yaye siyipapashe. Abathengi bakho bangakufumana ngoku.",
+  "zu": "Uyayamukela, ukhokhe futhi siyishicilele. Amakhasimende akho angakuthola manje."
+ },
+ "You see your website before it goes live and ask for changes.": {
+  "xh": "Uyibona iwebhusayithi yakho phambi kokuba iye kwi-intanethi yaye ucele utshintsho.",
+  "zu": "Uyibona iwebhusayithi yakho ngaphambi kokuba ibe ku-inthanethi futhi ucele izinguquko."
+ },
+ "Your business, neatly online": {
+  "xh": "Ishishini lakho, licocekile kwi-intanethi",
+  "zu": "Ibhizinisi lakho, lihlanzekile ku-inthanethi"
+ },
+ "Your name": {
+  "xh": "Igama lakho",
+  "zu": "Igama lakho"
+ },
+ "Your number": {
+  "xh": "Inombolo yakho",
+  "zu": "Inombolo yakho"
+ },
+ "Your own .co.za domain": {
+  "xh": "Isizinda sakho se-.co.za",
+  "zu": "Isizinda sakho se-.co.za"
+ },
+ "Your services and photos": {
+  "xh": "Iinkonzo neefoto zakho",
+  "zu": "Izinsizakalo nezithombe zakho"
+ },
+ "Your services, areas and photos": {
+  "xh": "Iinkonzo, iindawo neefoto zakho",
+  "zu": "Izinsizakalo, izindawo nezithombe zakho"
+ },
+ "Your site gets a free address. Your own .co.za domain can be added at cost (from about R150 a year).": {
+  "xh": "Iwebhusayithi yakho ifumana idilesi yasimahla. Isizinda sakho se-.co.za singongezwa ngexabiso lokwenyani (ukususela malunga ne-R150 ngonyaka).",
+  "zu": "Iwebhusayithi yakho ithola ikheli lamahhala. Isizinda sakho se-.co.za singengezwa ngezindleko zangempela (kusukela cishe ku-R150 ngonyaka)."
+ },
+ "Your website speaks your customers' language, with a switch at the top.": {
+  "xh": "Iwebhusayithi yakho ithetha ulwimi lwabathengi bakho, kunye neqhosha lokutshintsha phezulu.",
+  "zu": "Iwebhusayithi yakho ikhuluma ulimi lwamakhasimende akho, kunenkinobho yokushintsha phezulu."
+ },
+ "a month": {
+  "xh": "ngenyanga",
+  "zu": "ngenyanga"
+ },
+ "a month for hosting and small updates": {
+  "xh": "ngenyanga yokubamba iwebhusayithi neenguqulelo ezincinci",
+  "zu": "ngenyanga yokubamba iwebhusayithi nezinguquko ezincane"
+ },
+ "once-off": {
+  "xh": "kanye kuphela",
+  "zu": "kanye kuphela"
+ },
+ "once-off +": {
+  "xh": "kanye kuphela +",
+  "zu": "kanye kuphela +"
+ }
+}

@@ -1,20 +1,27 @@
 #!/usr/bin/env python3
-"""Generates the static LaafWeb pages (AF default / EN toggle). Run from repo root: python3 tools/build.py"""
+"""Generates the static LaafWeb pages (EN default; AF/XH/ZU via toggle). Run from repo root: python3 tools/build.py"""
 import html, os, re
 from urllib.parse import quote
 E=lambda s: html.escape(s, quote=True)
 ICONS={'chat': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.7 7L4 20l1.1-4.2A8 8 0 1 1 21 12z"/></svg>', 'globe': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>', 'bolt': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>', 'image': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-8 9"/></svg>', 'form': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>', 'pin': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>', 'plus': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M12 8v8M8 12h8"/></svg>', 'pen': '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>'}
+import json
+TR=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),"i18n.json"))) if os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)),"i18n.json")) else {}
+SEEN=set()
+def _norm(x): return x.replace("\u2019","'")
+def tr(en,lang):
+    SEEN.add(en)
+    return TR.get(en,{}).get(lang) or en
 def T(af,en,tag="span",cls=None,extra=""):
     c=f' class="{cls}"' if cls else ""
-    return f'<{tag}{c} data-af="{E(af)}" data-en="{E(en)}"{extra}>{af}</{tag}>'
+    return f'<{tag}{c} data-en="{E(en)}" data-af="{E(af)}" data-xh="{E(tr(en,"xh"))}" data-zu="{E(tr(en,"zu"))}"{extra}>{en}</{tag}>'
 WA_ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7s1.8 2.8 4.4 3.9c1.6.7 2.3.7 3.1.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg>'
 LOGO='<svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#0b4f33"/><rect x="11" y="14" width="42" height="30" rx="5" fill="#fff"/><rect x="16" y="19" width="20" height="4" rx="2" fill="#0e6b45"/><rect x="16" y="26" width="32" height="3" rx="1.5" fill="#cfd8d2"/><rect x="16" y="32" width="26" height="3" rx="1.5" fill="#cfd8d2"/><path d="M20 44v10l10-10z" fill="#fff"/><circle cx="46" cy="38" r="7" fill="#1faa59"/></svg>'
 def wa(af,en,cls="btn wa",label=None,extra=""):
     lab=label or T("WhatsApp ons","WhatsApp us")
-    return f'<a class="{cls}" href="https://wa.me/27636691391?text={quote(af)}" data-wa-af="{E(af)}" data-wa-en="{E(en)}" rel="noopener" target="_blank"{extra}>{WA_ICON}{lab}</a>'
+    return f'<a class="{cls}" href="https://wa.me/27636691391?text={quote(en)}" data-wa-en="{E(en)}" data-wa-af="{E(af)}" data-wa-xh="{E(tr(en,"xh"))}" data-wa-zu="{E(tr(en,"zu"))}" rel="noopener" target="_blank"{extra}>{WA_ICON}{lab}</a>'
 def head(title,desc,page,canon):
     return f'''<!DOCTYPE html>
-<html lang="af">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +30,7 @@ def head(title,desc,page,canon):
 <meta name="theme-color" content="#0b4f33">
 <link rel="canonical" href="https://web.laafstyl.org/{canon}">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:type" content="website"><meta property="og:url" content="https://web.laafstyl.org/{canon}"><meta property="og:locale" content="af_ZA">
+<meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:type" content="website"><meta property="og:url" content="https://web.laafstyl.org/{canon}"><meta property="og:locale" content="en_ZA">
 <link rel="stylesheet" href="assets/site.css">
 <script type="application/ld+json">{{"@context":"https://schema.org","@type":"ProfessionalService","name":"LaafWeb","description":"Eenbladsy-webwerwe vir klein besighede op die Weskus / One-page websites for small businesses on the West Coast","url":"https://web.laafstyl.org/","telephone":"+27636691391","areaServed":["Langebaan","Saldanha","Vredenburg","Velddrif","Paternoster","St Helena Bay"],"address":{{"@type":"PostalAddress","addressLocality":"Langebaan","addressRegion":"Western Cape","addressCountry":"ZA"}},"parentOrganization":{{"@type":"Organization","name":"BROD Traders (Pty) Ltd"}}}}</script>
 </head>
@@ -37,8 +44,8 @@ def head(title,desc,page,canon):
 <a class="l" href="index.html#hoe">{T("Hoe dit werk","How it works")}</a>
 <a class="l" href="pricing.html" {'aria-current="page"' if page=='pricing' else ''}>{T("Pryse","Pricing")}</a>
 <a class="l" href="contact.html" {'aria-current="page"' if page=='contact' else ''}>{T("Kontak","Contact")}</a>
-<div class="lang" role="group" aria-label="Language"><button type="button" id="bAf" class="on" aria-label="Afrikaans">AF</button><button type="button" id="bEn" aria-label="English">EN</button></div>
-{wa("Hallo LaafWeb, ek wil graag 'n webwerf vir my besigheid he.","Hi LaafWeb, I would like a website for my business.","btn wa sm",T("WhatsApp","WhatsApp"))}
+<div class="lang" role="group" aria-label="Language"><button type="button" data-l="en" class="on" lang="en" aria-label="English">EN</button><button type="button" data-l="af" lang="af" aria-label="Afrikaans">AF</button><button type="button" data-l="xh" lang="xh" aria-label="isiXhosa">XH</button><button type="button" data-l="zu" lang="zu" aria-label="isiZulu">ZU</button></div>
+{wa("Hallo LaafWeb, ek wil graag 'n webwerf vir my besigheid hê.","Hi LaafWeb, I would like a website for my business.","btn wa sm",T("WhatsApp","WhatsApp"))}
 </nav></div></header>
 <main id="main">
 '''
@@ -51,7 +58,7 @@ def foot():
 <div><h4>{T("Areas","Areas")}</h4>Langebaan<br>Saldanha &middot; Vredenburg<br>Velddrif &middot; Paternoster<br>St Helena Bay</div>
 </div>
 <small>&copy; <span id="yr"></span> BROD Traders (Pty) Ltd, trading as LaafWeb &middot; Reg. 2025/529742/07 &middot; Langebaan, Western Cape</small></div></footer>
-{wa("Hallo LaafWeb, ek wil graag 'n webwerf he.","Hi LaafWeb, I would like a website.","fab","WhatsApp")}
+{wa("Hallo LaafWeb, ek wil graag 'n webwerf hê.","Hi LaafWeb, I would like a website.","fab","WhatsApp")}
 <script src="assets/site.js" defer></script>
 </body>
 </html>
@@ -62,14 +69,15 @@ def step(af_t,en_t,af_p,en_p):
     return f'<div class="step"><h3>{T(af_t,en_t)}</h3><p>{T(af_p,en_p)}</p></div>'
 def faq(af_q,en_q,af_a,en_a):
     return f'<details><summary>{T(af_q,en_q)}</summary><p>{T(af_a,en_a)}</p></details>'
-MSG_AF="Hallo LaafWeb, ek wil graag 'n webwerf vir my besigheid he."
+MSG_AF="Hallo LaafWeb, ek wil graag 'n webwerf vir my besigheid hê."
 MSG_EN="Hi LaafWeb, I would like a website for my business."
 
+PH_XH=tr("E.g. I fit PVC ceilings in Vredenburg…","xh"); PH_ZU=tr("E.g. I fit PVC ceilings in Vredenburg…","zu")
 def polish(x):
     x=x.replace("&#x27;","\u2019")
     return re.sub(r'>([^<>]+)<',lambda m:'>'+m.group(1).replace("'","\u2019")+'<',x)
 # ---------------- HOME ----------------
-home=head("LaafWeb | Webwerwe vir klein besighede op die Weskus","Netjiese, vinnige eenbladsy-webwerwe vir ambagsmanne en klein besighede. Van R949 eenmalig plus R79 per maand. Kliënte bereik jou op WhatsApp.","home","")
+home=head("LaafWeb | Websites for small businesses on the West Coast","Neat, fast one-page websites for tradesmen and small businesses. From R949 once-off plus R79 a month. Customers reach you on WhatsApp.","home","")
 home+=f'''<section class="hero"><div class="wrap hgrid"><div>
 <span class="eyebrow">{T("Gebou in Langebaan · Vir die Weskus","Built in Langebaan · For the West Coast")}</span>
 <h1>{T("'n Webwerf wat vir jou <em>kliënte</em> werk.","A website that brings you <em>customers</em>.")}</h1>
@@ -143,7 +151,7 @@ open("index.html","w").write(polish(home))
 
 # ---------------- PRICING ----------------
 def li(af,en,no=False): return f'<li{" class=\"no\"" if no else ""}>{T(af,en)}</li>'
-pr=head("Pryse | LaafWeb","Eenbladsy-webwerf R949 eenmalig plus R79 per maand. Groter webwerwe op aanvraag. Geen kontrak.","pricing","pricing.html")
+pr=head("Pricing | LaafWeb","One-page website R949 once-off plus R79 a month. Larger websites on request. No contract.","pricing","pricing.html")
 pr+=f'''<section class="hero" style="padding:48px 0 30px"><div class="wrap"><span class="eyebrow">{T("Pryse","Pricing")}</span><h1>{T("Eenvoudige, <em>eerlike</em> pryse.","Simple, <em>honest</em> pricing.")}</h1><p class="lead">{T("Alle pryse in rand. Geen kontrak, geen versteekte fooie. Ons wys jou 'n voorskou voordat jy betaal.","All prices in rand. No contract, no hidden fees. We show you a preview before you pay.")}</p></div></section>
 <section style="padding-top:20px"><div class="wrap"><div class="plans">
 <div class="plan hot"><span class="tag">{T("Begin hier","Start here")}</span><h3>{T("Eenbladsy","One-page")}</h3><p class="for">{T("Vir ambagsmanne en klein besighede.","For tradesmen and small businesses.")}</p>
@@ -179,20 +187,20 @@ pr+=foot()
 open("pricing.html","w").write(polish(pr))
 
 # ---------------- CONTACT ----------------
-ct=head("Kontak | LaafWeb","WhatsApp of bel LaafWeb in Langebaan. Maandag tot Saterdag 8:00 tot 18:00.","contact","contact.html")
+ct=head("Contact | LaafWeb","WhatsApp or call LaafWeb in Langebaan. Monday to Saturday 8:00 to 18:00.","contact","contact.html")
 ct+=f'''<section class="dark-sec" style="padding:56px 0"><div class="wrap"><h1 style="color:#fff;font-size:clamp(1.8rem,4vw,2.6rem)">{T("Kontak ons","Get in touch")}</h1>
 <p class="sub">{T("WhatsApp is die vinnigste. Ons antwoord Maandag tot Saterdag, 8:00 tot 18:00.","WhatsApp is fastest. We reply Monday to Saturday, 8:00 to 18:00.")}</p>
 <div class="cgrid"><div class="ci">
 {wa(MSG_AF,MSG_EN,"",T("WhatsApp","WhatsApp"),' style="display:block;background:rgba(255,255,255,.1);padding:16px 18px;border-radius:14px;margin-bottom:12px;color:#fff;text-decoration:none"')}
 <a href="tel:+27636691391" data-tel><small>{T("Bel","Call")}</small><strong data-cfg="waDisplay"></strong></a>
-<a href="mailto:laafstylfamily@gmail.com" data-mail><small>E-pos / Email</small><strong data-cfg="email"></strong></a>
+<a href="mailto:laafstylfamily@gmail.com" data-mail><small>{T("E-pos","Email")}</small><strong data-cfg="email"></strong></a>
 <div style="background:rgba(255,255,255,.1);padding:16px 18px;border-radius:14px;margin-bottom:12px"><small style="display:block;color:#bfe0cc;font-size:.8rem">{T("Areas","Areas")}</small><strong style="font-size:1.15rem">Langebaan &middot; Saldanha &middot; Vredenburg &middot; Velddrif</strong></div></div>
 <form class="cform" id="qform"><h3 style="margin:0 0 14px">{T("Stuur ons jou besonderhede","Send us your details")}</h3>
 <label for="n">{T("Jou naam","Your name")}</label><input id="n" name="name" autocomplete="name" required>
 <label for="b">{T("Besigheid","Business")}</label><input id="b" name="business" autocomplete="organization">
 <label for="p">{T("Jou nommer","Your number")}</label><input id="p" name="phone" type="tel" inputmode="tel" autocomplete="tel">
 <label for="t">{T("Dorp","Town")}</label><input id="t" name="town" autocomplete="address-level2">
-<label for="m">{T("Besonderhede","Details")}</label><textarea id="m" name="details" autocomplete="off" data-ph-af="Bv. ek sit PVC-plafonne op in Vredenburg…" data-ph-en="E.g. I fit PVC ceilings in Vredenburg…"></textarea>
+<label for="m">{T("Besonderhede","Details")}</label><textarea id="m" name="details" autocomplete="off" placeholder="E.g. I fit PVC ceilings in Vredenburg…" data-ph-en="E.g. I fit PVC ceilings in Vredenburg…" data-ph-af="Bv. ek sit PVC-plafonne op in Vredenburg…" data-ph-xh="{PH_XH}" data-ph-zu="{PH_ZU}"></textarea>
 <button class="btn wa" type="submit" style="width:100%">{WA_ICON}{T("Stuur op WhatsApp","Send on WhatsApp")}</button>
 <p class="note" style="text-align:center;margin:10px 0 0">{T("Dit maak WhatsApp oop met jou boodskap reg om te stuur.","This opens WhatsApp with your message ready to send.")}</p></form></div></div></section>
 '''
@@ -200,7 +208,7 @@ ct+=foot()
 open("contact.html","w").write(polish(ct))
 
 # ---------------- 404 ----------------
-nf=head("Nie gevind nie | LaafWeb","Hierdie blad bestaan nie.","404","404.html")
+nf=head("Page not found | LaafWeb","This page does not exist.","404","404.html")
 nf+=f'''<section class="hero"><div class="wrap" style="text-align:center"><h1>{T("Hierdie blad is nie hier nie.","This page isn't here.")}</h1><p class="lead" style="margin:0 auto 22px">{T("Dalk is die skakel verouderd. Gaan terug na die tuisblad of WhatsApp ons.","The link may be out of date. Go back to the home page or WhatsApp us.")}</p><div class="cta" style="justify-content:center"><a class="btn dark" href="index.html">{T("Tuisblad","Home")}</a>{wa(MSG_AF,MSG_EN,"btn wa",T("WhatsApp ons","WhatsApp us"))}</div></div></section>'''
 nf+=foot()
 open("404.html","w").write(polish(nf))
@@ -208,9 +216,9 @@ print("built index, pricing, contact, 404")
 
 # ---------------- TERMS ----------------
 def sec(h,body): return f'<h2>{h}</h2>{body}'
-terms=head("Voorwaardes | Terms | LaafWeb","LaafWeb dienstevoorwaardes: pryse, betaling, kansellasie, inhoud en aanspreeklikheid.","terms","terms.html")
+terms=head("Terms of Service | LaafWeb","LaafWeb terms of service: prices, payment, cancellation, content and liability.","terms","terms.html")
 terms+='''<section><div class="wrap legal"><span class="eyebrow">Legal / Wettig</span><h1 style="font-size:2.2rem">Terms of Service / Dienstevoorwaardes</h1>
-<p class="note">Last updated: October 2026. These terms are in English. If something is unclear, WhatsApp us and we will explain it in Afrikaans or English.</p>'''
+<p class="note">Last updated: October 2026. These terms are in English. If something is unclear, WhatsApp us and we will explain it in English, Afrikaans, isiXhosa or isiZulu.</p>'''
 terms+=sec("1. Who we are","<p>LaafWeb is a service of BROD Traders (Pty) Ltd (Reg. 2025/529742/07), Langebaan, Western Cape, South Africa (&ldquo;we&rdquo;, &ldquo;us&rdquo;). By ordering a website or paying any amount to us, you (&ldquo;the client&rdquo;) agree to these terms.</p>")
 terms+=sec("2. What we provide and prices","<p><b>One-page website:</b> R949 once-off setup plus R79 per month for hosting, the secure connection (SSL) and one small change a month. Includes a free web address (for example yourname.pages.dev), WhatsApp, call and quote buttons, and Afrikaans and English text where supplied.</p><p><b>Larger websites</b> and <b>add-ons</b> (extra pages, own domain, Google Business Profile, logo) are quoted in writing before we start. An extra page on the One-page package is R350. A .co.za domain is charged at cost.</p><p>All prices are in South African rand and include any applicable tax. We may change the monthly fee with at least 30 days' written notice; you may cancel before the change takes effect.</p>")
 terms+=sec("3. Preview and approval","<p>We build a preview from the information, text and photos you give us. You may ask for reasonable changes to the preview. The setup fee is payable after you approve the preview and before we publish the website. If you decide not to proceed before approving and paying, you owe us nothing.</p>")
@@ -229,18 +237,20 @@ terms+=foot()
 open("terms.html","w").write(polish(terms))
 
 # ---------------- PRIVACY ----------------
-pv=head("Privaatheid | Privacy | LaafWeb","Hoe LaafWeb persoonlike inligting hanteer (POPIA).","privacy","privacy.html")
+pv=head("Privacy Policy | LaafWeb","How LaafWeb handles personal information (POPIA).","privacy","privacy.html")
 pv+='''<section><div class="wrap legal"><span class="eyebrow">Legal / Wettig</span><h1 style="font-size:2.2rem">Privacy Policy / Privaatheidsbeleid</h1>
-<p class="note">Last updated: October 2026. This policy is in English. WhatsApp us if you want it explained in Afrikaans.</p>'''
+<p class="note">Last updated: October 2026. This policy is in English. WhatsApp us if you want it explained in Afrikaans, isiXhosa or isiZulu.</p>'''
 pv+=sec("1. Who we are","<p>LaafWeb is a service of BROD Traders (Pty) Ltd (Reg. 2025/529742/07), Langebaan, South Africa. We are the responsible party under the Protection of Personal Information Act, 4 of 2013 (POPIA).</p>")
 pv+=sec("2. What we collect","<p>Only what you give us: your name, business name, phone or WhatsApp number, email address, town, and the text, logo and photos you want on your website. If you pay by EFT we see the payment confirmation; if you pay by card or recurring payment link, the payment provider processes your card details and we do not store them. This website does not use advertising trackers or analytics cookies. Our hosting provider keeps basic server logs (such as IP address and browser type).</p>")
 pv+=sec("3. Why we use it","<p>To build, publish and support your website; to contact you about your order; to invoice and receive payment; and to meet legal duties. We only send marketing to people who contacted us or agreed to receive it, and you can opt out at any time by telling us.</p>")
 pv+=sec("4. Who we share it with","<p>Only service providers we need: WhatsApp (Meta) and email for messages; our hosting provider (Cloudflare) to publish websites; a payment provider (such as PayFast) if you pay by card or payment link; and a domain registrar if you buy a domain. We do not sell your information.</p>")
 pv+=sec("5. Security and retention","<p>We keep your information only as long as needed to provide the service and meet legal and accounting duties. We take reasonable steps to protect it, including secure connections and access controls.</p>")
 pv+=sec("6. Your rights","<p>You may ask to see, correct or delete your personal information, or object to its use, by contacting us. You may complain to the Information Regulator: inforeg@justice.gov.za.</p>")
-pv+=sec("7. Cookies and local storage","<p>We do not use cookies for tracking. Your browser stores your language choice (Afrikaans or English) locally so the site remembers it.</p>")
+pv+=sec("7. Cookies and local storage","<p>We do not use cookies for tracking. Your browser stores your language choice locally so the site remembers it.</p>")
 pv+=sec("8. Contact","<p>WhatsApp 063 669 1391, laafstylfamily@gmail.com. We may update this policy; the date at the top shows the latest version.</p>")
 pv+='</div></section>'
 pv+=foot()
 open("privacy.html","w").write(polish(pv))
 print("built terms, privacy")
+
+
