@@ -1,5 +1,5 @@
 (function(){
-var CFG={wa:"27636691391",waDisplay:"063 669 1391",email:"laafstylfamily@gmail.com"};
+var CFG={wa:"27636691391",waDisplay:"063 669 1391",email:"brodgerstraders@gmail.com"};
 var LANGS=["en","af","xh","zu"];
 var FORM={
  en:{hi:"Hi LaafWeb, I would like a website.",n:"Name",b:"Business",p:"Number",t:"Town",m:"Details"},

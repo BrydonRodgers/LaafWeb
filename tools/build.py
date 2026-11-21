@@ -54,7 +54,7 @@ def foot():
     return f'''</main>
 <footer><div class="wrap"><div class="cols">
 <div><h4 translate="no">LaafWeb</h4><p>{T("Eenvoudige, netjiese webwerwe vir klein besighede op die Weskus. Gebou in Langebaan.","Simple, neat websites for small businesses on the West Coast. Built in Langebaan.")}</p>
-<p>WhatsApp <a href="tel:+27636691391" data-tel><span data-cfg="waDisplay"></span></a> &middot; Mon&ndash;Sat 8:00&ndash;18:00<br><a href="mailto:laafstylfamily@gmail.com" data-mail><span data-cfg="email"></span></a></p></div>
+<p>WhatsApp <a href="tel:+27636691391" data-tel><span data-cfg="waDisplay"></span></a> &middot; Mon&ndash;Sat 8:00&ndash;18:00<br>Alt: <a href="tel:+27635016440">063 501 6440</a><br><a href="mailto:brodgerstraders@gmail.com" data-mail><span data-cfg="email"></span></a></p></div>
 <div><h4>{T("Blaaie","Pages")}</h4><a href="pricing.html">{T("Pryse","Pricing")}</a><br><a href="contact.html">{T("Kontak","Contact")}</a><br><a href="terms.html">{T("Voorwaardes","Terms")}</a><br><a href="privacy.html">{T("Privaatheid","Privacy")}</a></div>
 <div><h4>{T("Areas","Areas")}</h4>Langebaan<br>Saldanha &middot; Vredenburg<br>Velddrif &middot; Paternoster<br>St Helena Bay</div>
 </div>
@@ -216,7 +216,8 @@ ct+=f'''<section class="dark-sec" style="padding:56px 0"><div class="wrap"><h1 s
 <div class="cgrid"><div class="ci">
 {wa(MSG_AF,MSG_EN,"",T("WhatsApp","WhatsApp"),' style="display:block;background:rgba(255,255,255,.1);padding:16px 18px;border-radius:14px;margin-bottom:12px;color:#fff;text-decoration:none"')}
 <a href="tel:+27636691391" data-tel><small>{T("Bel","Call")}</small><strong data-cfg="waDisplay"></strong></a>
-<a href="mailto:laafstylfamily@gmail.com" data-mail><small>{T("E-pos","Email")}</small><strong data-cfg="email"></strong></a>
+<a href="tel:+27635016440"><small><span>Alt</span></small><strong>063 501 6440</strong></a>
+<a href="mailto:brodgerstraders@gmail.com" data-mail><small>{T("E-pos","Email")}</small><strong data-cfg="email"></strong></a>
 <div style="background:rgba(255,255,255,.1);padding:16px 18px;border-radius:14px;margin-bottom:12px"><small style="display:block;color:#bfe0cc;font-size:.8rem">{T("Areas","Areas")}</small><strong style="font-size:1.15rem">Langebaan &middot; Saldanha &middot; Vredenburg &middot; Velddrif</strong></div></div>
 <form class="cform" id="qform"><h3 style="margin:0 0 14px">{T("Stuur ons jou besonderhede","Send us your details")}</h3>
 <label for="n">{T("Jou naam","Your name")}</label><input id="n" name="name" autocomplete="name" required>
@@ -254,7 +255,7 @@ terms+=sec("9. Our work as an example","<p>We will only show your website or bus
 terms+=sec("10. Referrals","<p>If you introduce a new client and that client pays their setup fee, we will pay you R250 by EFT within 7 business days of receiving the payment. The new client must name you when they first contact us. Self-referrals do not qualify.</p>")
 terms+=sec("11. Liability","<p>To the extent the law allows, our total liability to you is limited to the amounts you paid us in the three months before the event. We are not liable for indirect or consequential loss, such as lost profits.</p>")
 terms+=sec("12. Privacy","<p>We handle personal information as set out in our <a href=\"privacy.html\">Privacy Policy</a>.</p>")
-terms+=sec("13. General","<p>These terms are governed by the laws of the Republic of South Africa. Any dispute will first be discussed in good faith; failing that, the competent court in the Western Cape has jurisdiction. Contact: WhatsApp 063 669 1391, laafstylfamily@gmail.com.</p>")
+terms+=sec("13. General","<p>These terms are governed by the laws of the Republic of South Africa. Any dispute will first be discussed in good faith; failing that, the competent court in the Western Cape has jurisdiction. Contact: WhatsApp 063 669 1391 (alt 063 501 6440), brodgerstraders@gmail.com.</p>")
 terms+='</div></section>'
 terms+=foot()
 PAGES["terms.html"]=polish(terms)
@@ -270,7 +271,7 @@ pv+=sec("4. Who we share it with","<p>Only service providers we need: WhatsApp (
 pv+=sec("5. Security and retention","<p>We keep your information only as long as needed to provide the service and meet legal and accounting duties. We take reasonable steps to protect it, including secure connections and access controls.</p>")
 pv+=sec("6. Your rights","<p>You may ask to see, correct or delete your personal information, or object to its use, by contacting us. You may complain to the Information Regulator: inforeg@justice.gov.za.</p>")
 pv+=sec("7. Cookies and local storage","<p>We do not use cookies for tracking. Your browser stores your language choice locally so the site remembers it.</p>")
-pv+=sec("8. Contact","<p>WhatsApp 063 669 1391, laafstylfamily@gmail.com. We may update this policy; the date at the top shows the latest version.</p>")
+pv+=sec("8. Contact","<p>WhatsApp 063 669 1391 (alt 063 501 6440), brodgerstraders@gmail.com. We may update this policy; the date at the top shows the latest version.</p>")
 pv+='</div></section>'
 pv+=foot()
 PAGES["privacy.html"]=polish(pv)

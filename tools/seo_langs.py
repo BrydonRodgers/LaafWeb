@@ -101,7 +101,7 @@ def jsonld(page, lang, title, desc, final_html):
         {
             "@type": ["ProfessionalService", "LocalBusiness"], "@id": biz, "name": "LaafWeb",
             "alternateName": "LaafWeb by LaafStyl", "url": SITE + "/", "logo": SITE + "/assets/logo.png", "image": SITE + "/assets/og.png",
-            "telephone": "+27636691391", "email": "laafstylfamily@gmail.com",
+            "telephone": "+27636691391", "email": "brodgerstraders@gmail.com",
             "description": "One-page websites for tradesmen and small businesses on the West Coast of South Africa.",
             "priceRange": "R949 once-off + R79/month",
             "address": {"@type": "PostalAddress", "addressLocality": "Langebaan", "addressRegion": "Western Cape", "postalCode": "7357", "addressCountry": "ZA"},
